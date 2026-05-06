@@ -20,7 +20,7 @@ body {
   @apply font-sans antialiased;
   @apply flex flex-col;
   @apply bg-white dark:bg-[#050505];
-  @apply text-zinc-900/80 dark:text-white/80;
+  @apply text-zinc-900/80 dark:text-white;
 }
 
 header {
@@ -59,11 +59,11 @@ article pre {
 }
 
 article code {
-  @apply font-mono text-sm;
+  @apply font-mono text-sm text-cyan-700 dark:text-cyan-400;
 }
 
 article :not(pre) > code {
-  @apply rounded bg-zinc-100 px-1 py-0.5 text-cyan-700 dark:bg-white/10 dark:text-cyan-400;
+  @apply rounded bg-zinc-100 px-1 py-0.5 dark:bg-white/10;
 }
 
 @layer base {

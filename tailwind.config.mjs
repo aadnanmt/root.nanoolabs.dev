@@ -9,6 +9,7 @@ export default {
       fontFamily: {
         sans: ["Geist Sans", "Inter", ...defaultTheme.fontFamily.sans],
         serif: [...defaultTheme.fontFamily.serif],
+        mono: ["JetBrains Mono", ...defaultTheme.fontFamily.mono],
       },
     },
   },
