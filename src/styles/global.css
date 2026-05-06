@@ -117,3 +117,28 @@ html #back-to-top {
 html.scrolled #back-to-top {
   @apply pointer-events-auto opacity-100;
 }
+
+@keyframes shooting-star {
+  0% {
+    transform: rotate(-45deg) translateX(0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: rotate(-45deg) translateX(-100vh);
+    opacity: 0;
+  }
+}
+
+.shooting-star {
+  position: fixed;
+  height: 2px;
+  background: linear-gradient(90deg, #22d3ee 0%, #06b6d4 50%, transparent 100%);
+  border-radius: 999px;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+  filter: blur(1px);
+}
