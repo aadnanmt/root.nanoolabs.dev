@@ -146,7 +146,7 @@ const { title, description, image = "/nano.png" } = Astro.props;
     }
   }
 
-  function scrollToTop(event) {
+  function scrollToTop(event: Event) {
     event.preventDefault();
     window.scrollTo({
       top: 0,
@@ -154,7 +154,7 @@ const { title, description, image = "/nano.png" } = Astro.props;
     });
   }
 
-  function toggleTheme(dark) {
+  function toggleTheme(dark: boolean) {
     const css = document.createElement("style");
 
     css.appendChild(
