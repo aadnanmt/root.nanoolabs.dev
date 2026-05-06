@@ -42,4 +42,3 @@ const now = defineCollection({
 });
 
 export const collections = { blog, work, projects, now };
-

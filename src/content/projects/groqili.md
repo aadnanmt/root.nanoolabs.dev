@@ -10,9 +10,9 @@ Groqili is a small React application. It gives a fast and easy way to talk with 
 
 ## Key Features
 
--   **Very Fast AI:** It works with Groq SDK for quick responses.
--   **New Tech:** It uses React and Vite for easy development.
--   **Simple Look:** It has a clean design for good work and prompt making.
+- **Very Fast AI:** It works with Groq SDK for quick responses.
+- **New Tech:** It uses React and Vite for easy development.
+- **Simple Look:** It has a clean design for good work and prompt making.
 
 ## Project Structure
 
@@ -39,10 +39,10 @@ Groqili/
 
 ## Tech Stack
 
--   **Frontend:** React
--   **Bundler:** Vite
--   **AI Engine:** Groq SDK
--   **Styling:** CSS3
+- **Frontend:** React
+- **Bundler:** Vite
+- **AI Engine:** Groq SDK
+- **Styling:** CSS3
 
 ---
 

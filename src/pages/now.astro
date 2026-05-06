@@ -6,8 +6,9 @@ import BackToPrev from "@components/BackToPrev.astro";
 import FormattedDate from "@components/FormattedDate.astro";
 
 const allNowEntries = await getCollection("now");
-const sortedEntries = allNowEntries
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const sortedEntries = allNowEntries.sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
 
 const latestEntry = sortedEntries[0];
 const history = sortedEntries.slice(1);

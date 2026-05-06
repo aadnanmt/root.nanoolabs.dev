@@ -54,8 +54,8 @@ All commands are run from the root of the project, using **Bun**:
 
 ## Credits
 
--   **Original Creator:** The first static HTML/CSS version was made by [ZeX](https://github.com/ddosnotification/links-portfolio).
--   **Migration:** This version was moved to Astro by [Adnan](https://github.com/aadnanmt) to make updates and management easier.
+- **Original Creator:** The first static HTML/CSS version was made by [ZeX](https://github.com/ddosnotification/links-portfolio).
+- **Migration:** This version was moved to Astro by [Adnan](https://github.com/aadnanmt) to make updates and management easier.
 
 ---
 
