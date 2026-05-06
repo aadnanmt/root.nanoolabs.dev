@@ -1,0 +1,66 @@
+---
+import { getCollection } from "astro:content";
+import PageLayout from "@layouts/PageLayout.astro";
+import Container from "@components/Container.astro";
+import BackToPrev from "@components/BackToPrev.astro";
+import FormattedDate from "@components/FormattedDate.astro";
+
+const allNowEntries = await getCollection("now");
+const sortedEntries = allNowEntries
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const latestEntry = sortedEntries[0];
+const history = sortedEntries.slice(1);
+
+// This redirect logic can be removed if we ensure there's always a 'now' entry
+// if (!latestEntry) {
+//   return Astro.redirect("/404");
+// }
+
+const { Content } = await latestEntry.render();
+---
+
+<PageLayout
+  title={latestEntry.data.title}
+  description={latestEntry.data.description}
+>
+  <Container>
+    <div class="space-y-10">
+      <BackToPrev href="/"> Back to home </BackToPrev>
+
+      <div class="animate">
+        <h1 class="text-3xl font-bold text-black dark:text-white">
+          {latestEntry.data.title}
+        </h1>
+        <div class="mt-2 text-sm opacity-60">
+          Last updated: <FormattedDate date={latestEntry.data.date} />
+        </div>
+      </div>
+
+      <article class="animate prose prose-neutral max-w-none dark:prose-invert">
+        <Content />
+      </article>
+
+      {
+        history.length > 0 && (
+          <div class="animate space-y-4 border-t border-black/10 pt-10 dark:border-white/10">
+            <h2 class="text-xl font-semibold text-black dark:text-white">
+              Previous Updates
+            </h2>
+            <ul class="space-y-2">
+              {history.map((entry) => (
+                <li class="text-sm">
+                  <span class="opacity-60">
+                    <FormattedDate date={entry.data.date} />
+                  </span>
+                  {" — "}
+                  <span class="italic">{entry.data.description}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )
+      }
+    </div>
+  </Container>
+</PageLayout>
