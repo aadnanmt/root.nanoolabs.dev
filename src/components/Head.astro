@@ -49,6 +49,37 @@ const { title, description, image = "/nano.png" } = Astro.props;
 
 <!-- Primary Meta Tags -->
 <title>{title}</title>
+
+<!-- Theme preference script (eliminate FOUC) -->
+<script is:inline>
+  try {
+    const theme = (() => {
+      if (
+        typeof localStorage !== "undefined" &&
+        localStorage.getItem("theme") === "dark"
+      )
+        return "dark";
+      if (
+        typeof localStorage !== "undefined" &&
+        localStorage.getItem("theme") === "light"
+      )
+        return "light";
+
+      //Fallback to system preference
+      if (window.matchMedia("(prefers-color-scheme: dark)").matches)
+        return "dark";
+      return "light"; // default light mode
+    })();
+
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  } catch (e) {
+    console.error("failed to apply theme preference from localStorage:", e);
+  }
+</script>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
 
@@ -194,5 +225,4 @@ const { title, description, image = "/nano.png" } = Astro.props;
 
   document.addEventListener("DOMContentLoaded", () => init());
   document.addEventListener("astro:after-swap", () => init());
-  preloadTheme();
 </script>
