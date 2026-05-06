@@ -23,47 +23,47 @@ You don't need to learn all Git commands on the internet. As a beginner, you onl
 
 Here are the important commands:
 
-**1. Open the Portal (Init)**<br>
+**1. Open the portal (Init)**<br>
 When you create a new project folder, run this command. Git will start watching your folder.
 
-```bash
+```
 git init
 ```
 
-#### 2. Choose Files (Staging)<br>
+#### 2. Choose files (Staging)<br>
 
 Before saving, choose which files to include. <br><br>
 **Include all files (most common):**
 
-```bash
+```
 git add .
 ```
 
 **If you only want to include one file:**
 
-```bash
+```
 git add index.html
 ```
 
-**3. Save Point (Commit)**
+**3. Save point (Commit)**
 This is like saving a game. <br> Write a clear message. This helps you understand the history later.
 
-```bash
-git commit -m "add login feature"
+```
+git commit -m "style: replace color icon to red"
 ```
 
-**4. Connect to the Internet**
+**4. Connect to the internet**
 Do this only once for your project. <br> This tells your local Git where to send your code (like GitHub).
 
-```bash
-git branch -M main # change to main
+```
+git branch -M main # change to main if your branch master
 git remote add origin https://github.com/username/name-repo
 ```
 
 **5. Upload your project (Push)**
 Send your code to your GitHub repository.
 
-```bash
+```
 git push -u origin main
 ```
 

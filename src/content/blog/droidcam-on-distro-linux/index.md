@@ -39,13 +39,13 @@ This is the recommended method directly from the developer:
 
 Install needed dependencies:
 
-```bash
+```
 sudo apt install gcc make linux-headers-$(uname -r)
 ```
 
 Download and run the official installation script:
 
-```bash
+```
 cd /tmp/
 wget -O droidcam_latest.zip https://files.dev47apps.net/linux/droidcam_latest.zip
 unzip droidcam_latest.zip -d droidcam
@@ -57,13 +57,13 @@ For Arch-based systems, Droidcam is in the AUR. You will need an AUR helper like
 
 Install basic headers:
 
-```bash
+```
 sudo pacman -S linux-headers base-devel
 ```
 
 Install Droidcam via AUR:
 
-```bash
+```
 yay -S droidcam
 ```
 
@@ -71,13 +71,13 @@ yay -S droidcam
 Here's how to install Droidcam on Fedora, based on documentation and forums (I don't use Fedora myself).
 First, install dependencies:
 
-```bash
+```
 sudo dnf install kernel-devel kernel-headers gcc make
 ```
 
 Then install via COPR repository:
 
-```bash
+```
 sudo dnf copr enable meeuw/droidcam
 sudo dnf install droidcam
 ```
@@ -85,7 +85,7 @@ sudo dnf install droidcam
 **Important Final Step (For All Distros):**
 After installing, you must "wake up" the camera driver on your Linux system with this command:
 
-```bash
+```
 sudo modprobe v4l2loopback_dc
 ```
 
