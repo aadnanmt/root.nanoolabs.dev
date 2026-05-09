@@ -35,6 +35,7 @@
     left: 0;
     width: 1px;
     height: 1px;
+    border-radius: 100%;
     background: transparent;
     box-shadow:
       10vw 20vh #22d3ee,
@@ -67,6 +68,13 @@
     }
     to {
       opacity: 0.4;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .stars-container::after,
+    .shooting-star {
+      animation: none !important;
     }
   }
 </style>
