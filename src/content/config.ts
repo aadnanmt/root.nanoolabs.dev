@@ -7,6 +7,7 @@ const blog = defineCollection({
     description: z.string(),
     date: z.coerce.date(),
     draft: z.boolean().optional(),
+    license: z.string().optional().default("CC BY 4.0"),
   }),
 });
 
@@ -41,4 +42,21 @@ const now = defineCollection({
   }),
 });
 
-export const collections = { blog, work, projects, now };
+const commands = defineCollection({
+  type: "content",
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    category: z.enum([
+      "FileSystem",
+      "Network",
+      "Process",
+      "Git",
+      "Security",
+      "Misc",
+    ]),
+    tags: z.array(z.string()).optional(),
+  }),
+});
+
+export const collections = { blog, work, projects, now, commands };
