@@ -3,26 +3,70 @@
 ---
 
 <div
-  class="pointer-events-none fixed inset-0 z-0 hidden overflow-hidden bg-black/50 dark:block"
+  class="stars-container pointer-events-none fixed inset-0 z-0 hidden overflow-hidden bg-black/50 dark:block"
 >
   <div
-    class="shooting-star animate-shooting-star w-[100px] md:w-[150px]"
-    style="top: 0%; right: 0%; animation: shooting-star 10s linear infinite; animation-delay: 0s;"
+    class="shooting-star animate-shooting-star w-[40px] md:w-[60px] opacity-20"
+    style="top: 0%; right: 0%; animation: shooting-star 20s linear infinite; animation-delay: 5s;"
   >
   </div>
   <div
-    class="shooting-star animate-shooting-star w-[120px] md:w-[150px]"
-    style="top: 20%; right: -10%; animation: shooting-star 15s linear infinite; animation-delay: 3s;"
+    class="shooting-star animate-shooting-star w-[40px] md:w-[60px] opacity-20"
+    style="top: 20%; right: -10%; animation: shooting-star 25s linear infinite; animation-delay: 15s;"
   >
   </div>
   <div
-    class="shooting-star animate-shooting-star w-[100px] md:w-[150px]"
-    style="top: -10%; right: 20%; animation: shooting-star 12s linear infinite; animation-delay: 7s;"
+    class="shooting-star animate-shooting-star w-[40px] md:w-[60px] opacity-20"
+    style="top: -10%; right: 20%; animation: shooting-star 22s linear infinite; animation-delay: 30s;"
   >
   </div>
   <div
-    class="shooting-star animate-shooting-star w-[110px] md:w-[150px]"
-    style="top: 40%; right: -5%; animation: shooting-star 18s linear infinite; animation-delay: 10s;"
+    class="shooting-star animate-shooting-star w-[40px] md:w-[60px] opacity-20"
+    style="top: 40%; right: -5%; animation: shooting-star 28s linear infinite; animation-delay: 45s;"
   >
   </div>
 </div>
+
+<style>
+  .stars-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 1px;
+    background: transparent;
+    box-shadow:
+      10vw 20vh #22d3ee,
+      25vw 45vh #22d3ee,
+      35vw 15vh #22d3ee,
+      50vw 80vh #22d3ee,
+      70vw 30vh #22d3ee,
+      85vw 60vh #22d3ee,
+      15vw 90vh #22d3ee,
+      40vw 10vh #22d3ee,
+      60vw 50vh #22d3ee,
+      90vw 20vh #22d3ee,
+      5vw 35vh #22d3ee,
+      30vw 75vh #22d3ee,
+      55vw 25vh #22d3ee,
+      80vw 85vh #22d3ee,
+      20vw 55vh #22d3ee,
+      45vw 40vh #22d3ee,
+      65vw 70vh #22d3ee,
+      12vw 12vh #22d3ee,
+      38vw 88vh #22d3ee,
+      77vw 44vh #22d3ee;
+    opacity: 0.3;
+    animation: twinkle 5s ease-in-out infinite alternate;
+  }
+
+  @keyframes twinkle {
+    from {
+      opacity: 0.1;
+    }
+    to {
+      opacity: 0.4;
+    }
+  }
+</style>
