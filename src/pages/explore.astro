@@ -68,26 +68,6 @@ const pages = [
           ))
         }
       </ul>
-
-      <div class="animate border-t border-black/10 pt-10 dark:border-white/10">
-        <div class="mb-4 font-semibold text-black dark:text-white">Socials</div>
-        <ul class="flex flex-wrap gap-2">
-          {
-            SOCIALS.map(
-              (
-                social, // Use SOCIALS from @consts
-              ) => (
-                <li class="flex gap-x-2 text-nowrap">
-                  <Link href={social.HREF} external aria-label={social.NAME}>
-                    {social.NAME}
-                  </Link>
-                  {"/"}
-                </li>
-              ),
-            )
-          }
-        </ul>
-      </div>
     </div>
   </Container>
 </PageLayout>

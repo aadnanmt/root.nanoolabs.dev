@@ -6,6 +6,7 @@ import ArrowCard from "@components/ArrowCard.astro";
 import Link from "@components/Link.astro";
 import { dateRange } from "@lib/utils";
 import { SITE, HOME, SOCIALS } from "@consts";
+import Connect from "@components/Connect.astro";
 
 const blog = (await getCollection("blog"))
   .filter((post) => !post.data.draft)
@@ -150,52 +151,7 @@ const work = await Promise.all(
         </ul>
       </section>
 
-      <section class="animate space-y-4">
-        <h5
-          class="flex items-center gap-2 font-semibold text-black dark:text-white"
-        >
-          <svg
-            class="size-5 fill-zinc-500"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 512 512"
-            ><path
-              d="M498.1 5.6c10.1 7 15.4 19.1 13.5 31.2l-64 416c-1.5 9.7-7.4 18.2-16 23s-18.9 5.4-28 1.6L284 427.7l-68.5 74.1c-8.9 9.7-22.9 12.9-35.2 8.1S160 493.2 160 480l0-83.6c0-4 1.5-7.8 4.2-10.8L416 128l-279.1 239.3L17.4 327.4c-11.1-4.7-18.1-15.8-17.3-27.8s9.4-21.9 20.9-25.3l448-128c12.5-3.6 25.9-.3 35.4 9.3z"
-            ></path></svg
-          >
-          Let's Connect
-        </h5>
-        <article>
-          <p>
-            Have a wild idea, want to collaborate, or just fancy a technical
-            discussion? Reach out anytime. Let's build something that actually
-            scales.
-          </p>
-        </article>
-        <ul class="flex flex-wrap gap-2">
-          {
-            SOCIALS.map((SOCIAL) => (
-              <li class="flex gap-x-2 text-nowrap">
-                <Link
-                  href={SOCIAL.HREF}
-                  external
-                  aria-label={`${SITE.NAME} on ${SOCIAL.NAME}`}
-                >
-                  {SOCIAL.NAME}
-                </Link>
-                {"/"}
-              </li>
-            ))
-          }
-          <li class="line-clamp-1">
-            <Link
-              href={`mailto:${SITE.EMAIL}`}
-              aria-label={`Email ${SITE.NAME}`}
-            >
-              {SITE.EMAIL}
-            </Link>
-          </li>
-        </ul>
-      </section>
+      <Connect />
     </div>
   </Container>
 </PageLayout>
