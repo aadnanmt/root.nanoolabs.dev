@@ -3,7 +3,6 @@ import PageLayout from "@layouts/PageLayout.astro";
 import Container from "@components/Container.astro";
 import BackToPrev from "@components/BackToPrev.astro";
 import Link from "@components/Link.astro";
-import { SOCIALS } from "@consts"; // Import SOCIALS
 
 const pages = [
   { name: "Home", href: "/", desc: "The beginning of everything." },
@@ -21,6 +20,11 @@ const pages = [
     name: "Projects",
     href: "/projects",
     desc: "A showcase of things I've built.",
+  },
+  {
+    name: "Commands",
+    href: "/commands",
+    desc: "My personal Linux command wiki and hacks.",
   },
   {
     name: "Now",
