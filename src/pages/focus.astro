@@ -1,0 +1,86 @@
+---
+import PageLayout from "@layouts/PageLayout.astro";
+import Container from "@components/Container.astro";
+import BackToPrev from "@components/BackToPrev.astro";
+
+const MYFOCUS = [
+  {
+    title: "System && devOps",
+    percentage: 35,
+    description:
+      "Deep dive filesystem, mechanism symlink, config bootloader, permission, exploring rootless Podman, other git feature, and Bash fundamentals.",
+  },
+  {
+    title: "Backend engineering",
+    percentage: 26,
+    description:
+      "Implementing Bun runtime and Hono. Exploring RegExpRouter architecture on Hono",
+  },
+  {
+    title: "Frontend && ui",
+    percentage: 12,
+    description:
+      "Optimize SEO and performance. learn and manage clean Tailwind CSS and mastering Astro dynamic attributes",
+  },
+  {
+    title: "Testing && maintainace",
+    percentage: 7,
+    description:
+      "Analyzing Hyprland and SDDM logs. Configuring Btrfs backups via Rsync",
+  },
+];
+
+function PacmanBar(percentage: number) {
+  const totalWidth = 20;
+  const progress = Math.round((percentage / 100) * totalWidth);
+  const hash = "#".repeat(progress);
+  const dash = "-".repeat(totalWidth - progress);
+  return `[${hash}${dash}] ${percentage}%`;
+}
+---
+
+<PageLayout
+  title="Focus"
+  description="Current focus and project progress, Arch Linux style."
+>
+  <Container>
+    <div class="space-y-10">
+      <BackToPrev href="/explore"> Back to explore </BackToPrev>
+
+      <div class="animate">
+        <h1 class="text-3xl font-bold text-black dark:text-white">
+          Current Focus
+        </h1>
+        <p class="mt-2 opacity-70">
+          This page show what i'm currently working on and the progress of each
+          task, sync anytime (maybe, daily), honestly.
+        </p>
+      </div>
+
+      <div class="animate space-y-8">
+        {
+          MYFOCUS.map((item) => (
+            <section class="space-y-2">
+              <div class="flex items-center justify-between">
+                <h2 class="font-semibold text-black dark:text-white">
+                  {item.title}
+                </h2>
+              </div>
+              <div class="whitespace-pre font-mono text-sm text-cyan-500 sm:text-base">
+                {PacmanBar(item.percentage)}
+              </div>
+              <p class="text-sm italic opacity-70">{item.description}</p>
+            </section>
+          ))
+        }
+      </div>
+
+      <div
+        class="animate mt-12 border-t border-black/10 pt-8 text-xs italic opacity-50 dark:border-white/10"
+      >
+        Last synced from my brain: {new Date().toLocaleDateString("en-GB")}
+        <!-- uk -->
+      </div>
+    </div>
+  </Container>
+</PageLayout>

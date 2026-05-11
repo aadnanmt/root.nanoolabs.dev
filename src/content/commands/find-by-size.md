@@ -22,4 +22,5 @@ if you want sorting from size larger, pipe to `ls` and `sort`:
 ```bash
 find . -type f -size +300M -exec ls -lh {} + | awk '{ print $5, $9 }' | sort -h
 ```
-currently you know ~ who eat storage you. see you again ^_^
+
+currently you know ~ who eat storage you. see you again ^\_^
