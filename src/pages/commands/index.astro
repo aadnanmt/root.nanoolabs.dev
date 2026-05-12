@@ -3,6 +3,8 @@ import { getCollection } from "astro:content";
 import PageLayout from "@layouts/PageLayout.astro";
 import Container from "@components/Container.astro";
 import ArrowCard from "@components/ArrowCard.astro";
+import { IconCommands } from "@assets/icons";
+import BackToPrev from "@components/BackToPrev.astro";
 
 const commands = (await getCollection("commands")).sort((a, b) =>
   a.data.title.localeCompare(b.data.title),
@@ -15,7 +17,13 @@ const description = "A collection of Linux commands and hacks that I use.";
 <PageLayout title={title} description={description}>
   <Container>
     <div class="space-y-10">
-      <div class="animate font-semibold text-black dark:text-white">
+      <BackToPrev href="/explore"> Back to explore </BackToPrev>
+      <div
+        class="animate flex items-center gap-2 font-semibold text-black dark:text-white"
+      >
+        <div class="size-5 fill-current">
+          <Fragment set:html={IconCommands} />
+        </div>
         Commands
       </div>
       <div class="space-y-4">

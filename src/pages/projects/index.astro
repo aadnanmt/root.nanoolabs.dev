@@ -5,6 +5,7 @@ import Container from "@components/Container.astro";
 import ArrowCard from "@components/ArrowCard.astro";
 import { PROJECTS } from "@consts";
 import BackToPrev from "@components/BackToPrev.astro";
+import { IconProjects } from "@assets/icons";
 
 const projects = (await getCollection("projects"))
   .filter((project) => !project.data.draft)
@@ -15,7 +16,12 @@ const projects = (await getCollection("projects"))
   <Container>
     <div class="space-y-10">
       <BackToPrev> Back to home </BackToPrev>
-      <div class="animate font-semibold text-black dark:text-white">
+      <div
+        class="animate flex items-center gap-2 font-semibold text-black dark:text-white"
+      >
+        <div class="size-5 fill-current">
+          <Fragment set:html={IconProjects} />
+        </div>
         Projects
       </div>
       <ul class="animate flex flex-col gap-4">

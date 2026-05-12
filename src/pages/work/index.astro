@@ -4,6 +4,8 @@ import PageLayout from "@layouts/PageLayout.astro";
 import Container from "@components/Container.astro";
 import { dateRange } from "@lib/utils";
 import { WORK } from "@consts";
+import { IconWork } from "@assets/icons";
+import BackToPrev from "@components/BackToPrev.astro";
 
 const collection = (await getCollection("work")).sort(
   (a, b) =>
@@ -21,7 +23,15 @@ const work = await Promise.all(
 <PageLayout title={WORK.TITLE} description={WORK.DESCRIPTION}>
   <Container>
     <div class="space-y-10">
-      <div class="animate font-semibold text-black dark:text-white">Work</div>
+      <BackToPrev> Back to home </BackToPrev>
+      <div
+        class="animate flex items-center gap-2 font-semibold text-black dark:text-white"
+      >
+        <div class="size-5 fill-current">
+          <Fragment set:html={IconWork} />
+        </div>
+        Projects
+      </div>
       <ul class="flex flex-col space-y-4">
         {
           work.map((entry) => (
