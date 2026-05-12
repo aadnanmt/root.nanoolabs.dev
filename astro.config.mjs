@@ -3,11 +3,7 @@ import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
 
-import cloudflare from "@astrojs/cloudflare";
-
 export default defineConfig({
-  site: "https://me.nanoolabs.dev",
-  output: 'server',
+  site: "https://nanoolabs.dev",
   integrations: [mdx(), sitemap(), tailwind()],
-  adapter: cloudflare()
 });

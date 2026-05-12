@@ -4,10 +4,10 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "astro dev",
-    "dev:net": "astro dev --host",
+    "dev:network": "astro dev --host",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "preview:net": "astro preview --host",
+    "preview:network": "astro preview --host",
     "astro": "astro",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
@@ -15,7 +15,6 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.9",
-    "@astrojs/cloudflare": "^12.6.13",
     "@astrojs/mdx": "^4.3.14",
     "@astrojs/rss": "^4.0.18",
     "@astrojs/sitemap": "^3.7.2",
