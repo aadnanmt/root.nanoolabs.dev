@@ -52,6 +52,7 @@ const commands = defineCollection({
       "Network",
       "Process",
       "Git",
+      "Logging",
       "Security",
       "Misc",
     ]),
@@ -59,4 +60,17 @@ const commands = defineCollection({
   }),
 });
 
-export const collections = { blog, work, projects, now, commands };
+const milestones = defineCollection({
+  type: "content",
+  schema: z.object({
+    title: z.string(),
+    date: z.coerce.date(),
+    mood: z
+      .enum(["Good", "Neutral", "Bad", "Tired", "SoHappy", "Sobad"])
+      .optional(),
+    lessonLearn: z.string().optional(),
+    tags: z.array(z.string()).optional(),
+  }),
+});
+
+export const collections = { blog, work, projects, now, commands, milestones };

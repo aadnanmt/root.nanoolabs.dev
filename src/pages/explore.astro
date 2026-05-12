@@ -3,6 +3,7 @@ import PageLayout from "@layouts/PageLayout.astro";
 import Container from "@components/Container.astro";
 import BackToPrev from "@components/BackToPrev.astro";
 import Link from "@components/Link.astro";
+import { IconHome } from "@assets/icons";
 
 const pages = [
   { name: "Home", href: "/", desc: "The beginning of everything." },
@@ -32,6 +33,11 @@ const pages = [
     desc: "What I'm focusing on at this exact moment.",
   },
   {
+    name: "Milestones",
+    href: "/milestones",
+    desc: "Documenting lessons learned on my journey",
+  },
+  {
     name: "Credits",
     href: "/credits",
     desc: "Tools and people that made this site possible.",
@@ -48,10 +54,15 @@ const pages = [
   <Container>
     <div class="space-y-10">
       <div class="animate">
-        <BackToPrev href="/explore"> Back to home </BackToPrev>
+        <BackToPrev href="/"> Back to home </BackToPrev>
       </div>
 
-      <div class="animate font-semibold text-black dark:text-white">
+      <div
+        class="animate flex items-center gap-2 font-semibold text-black dark:text-white"
+      >
+        <div class="size-5 fill-current">
+          <Fragment set:html={IconHome} />
+        </div>
         Explore
       </div>
 
