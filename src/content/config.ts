@@ -70,6 +70,7 @@ const milestones = defineCollection({
       .optional(),
     lessonLearn: z.string().optional(),
     tags: z.array(z.string()).optional(),
+    description: z.string().optional(),
   }),
 });
 
