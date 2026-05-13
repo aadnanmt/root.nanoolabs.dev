@@ -17,20 +17,27 @@ type Props = CollectionEntry<"milestones">;
 const milestone = Astro.props;
 const { Content } = await milestone.render();
 
-const moodColor = {
+const moodColor: Record<string, string> = {
   Good: "text-green-500",
   Neutral: "text-yellow-500",
   Bad: "text-red-500",
-}[milestone.data.mood || "Neutral"];
+  Tired: "text-blue-500",
+  SoHappy: "text-cyan-500",
+  SoBad: "text-orange-500",
+};
 
-const moodEmoji = {
+const currentMoodColor = moodColor[milestone.data.mood || "Neutral"];
+
+const moodEmoji: Record<string, string> = {
   Good: "😊",
   Neutral: "😐",
   Bad: "😔",
   Tired: "😴",
   SoHappy: "😁",
   SoBad: "😿",
-}[milestone.data.mood || "Neutral"];
+};
+
+const currentMoodEmoji = moodEmoji[milestone.data.mood || "Neutral"];
 ---
 
 <PageLayout
@@ -52,8 +59,8 @@ const moodEmoji = {
               &bull;
               <div class="font-base text-sm">
                 Mood:{" "}
-                <span class={`${moodColor} font-semibold`}>
-                  {milestone.data.mood} {moodEmoji}
+                <span class={`${currentMoodColor} font-semibold`}>
+                  {milestone.data.mood} {currentMoodEmoji}
                 </span>
               </div>
             </>
