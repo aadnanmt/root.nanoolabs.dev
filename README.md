@@ -2,7 +2,12 @@
 
 This is my personal website. I build it with **Astro 5** and **Tailwind CSS**. It is my "Digital Garden" where I write about my life, my learning journey, and Linux.
 
-## ✨ Features
+## Live
+
+[me.nanoolabs.dev](https://me.nanoolabs.dev)
+[astrolio.pages.dev](https://astrolio.pages.dev)
+
+## Features
 
 - **Linux Wiki**: My personal notes for Linux commands.
 - **My Journey**: I write about my growth and lessons here.
@@ -11,14 +16,14 @@ This is my personal website. I build it with **Astro 5** and **Tailwind CSS**. I
 - **Fast**: Built for speed and works on Cloudflare Pages.
 - **Dark Mode**: OLED black and Cyan color.
 
-## 🛠 Tech I Use
+## Tech I Use
 
 - **Astro 5**: The web framework.
 - **Tailwind CSS**: For styling.
 - **TypeScript**: For better code.
 - **Cloudflare**: To host the website.
 
-## 📦 How to Start
+## How to Start
 
 You need **Node.js** and **pnpm**.
 
@@ -33,7 +38,7 @@ pnpm install
 pnpm dev
 ```
 
-## 📜 License
+## License
 
 - **Text & Images**: Licensed under **[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)**.
 - **Code**: Based on [Astro Nano](https://github.com/markhorn-dev/astro-nano).
