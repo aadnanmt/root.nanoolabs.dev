@@ -2,11 +2,11 @@
 import Layout from "@layouts/PageLayout.astro";
 import Container from "@components/Container.astro";
 import BackToPrev from "@components/BackToPrev.astro";
-import { SITE } from "@consts";
+import { NOTFOUND } from "@consts";
 ---
 
 <!-- 404.astro source code from trevortylerlee/astro-micro, thanks -->
-<Layout title="404" description={SITE.DESCRIPTION}>
+<Layout title={NOTFOUND.TITLE} description={NOTFOUND.DESCRIPTION}>
   <Container>
     <div class="mt-16 grid place-items-center gap-3">
       <h4 class="animate text-2xl font-semibold text-black dark:text-white">

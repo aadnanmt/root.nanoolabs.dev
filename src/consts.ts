@@ -34,6 +34,11 @@ export const CONTRIBUTOR: Metadata = {
   DESCRIPTION: "people who contribute to nanoo labs.",
 };
 
+export const NOTFOUND: Metadata = {
+  TITLE: "404",
+  DESCRIPTION: "Page not found, u can back to home page",
+};
+
 export const SOCIALS: Socials = [
   {
     NAME: "twitter-x",
