@@ -3,7 +3,7 @@ import { getCollection } from "astro:content";
 import PageLayout from "@layouts/PageLayout.astro";
 import Container from "@components/Container.astro";
 import ArrowCard from "@components/ArrowCard.astro";
-import { IconCommands } from "@assets/icons";
+import { IconCommands } from "@lib/iconSystem";
 import BackToPrev from "@components/BackToPrev.astro";
 
 const commands = (await getCollection("commands")).sort((a, b) =>

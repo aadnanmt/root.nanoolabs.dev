@@ -13,11 +13,6 @@ const sortedEntries = allNowEntries.sort(
 const latestEntry = sortedEntries[0];
 const history = sortedEntries.slice(1);
 
-// This redirect logic can be removed if we ensure there's always a 'now' entry
-// if (!latestEntry) {
-//   return Astro.redirect("/404");
-// }
-
 const { Content } = await latestEntry.render();
 ---
 
@@ -27,7 +22,7 @@ const { Content } = await latestEntry.render();
 >
   <Container>
     <div class="space-y-10">
-      <BackToPrev href="/now"> Back to home </BackToPrev>
+      <BackToPrev href="/explore"> Back to explore </BackToPrev>
 
       <div class="animate">
         <h1 class="text-3xl font-bold text-black dark:text-white">

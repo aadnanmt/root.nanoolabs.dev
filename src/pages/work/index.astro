@@ -4,7 +4,7 @@ import PageLayout from "@layouts/PageLayout.astro";
 import Container from "@components/Container.astro";
 import { dateRange } from "@lib/utils";
 import { WORK } from "@consts";
-import { IconWork } from "@assets/icons";
+import { IconWork } from "@lib/iconSystem";
 import BackToPrev from "@components/BackToPrev.astro";
 
 const collection = (await getCollection("work")).sort(

@@ -5,7 +5,7 @@ import Container from "@components/Container.astro";
 import ArrowCard from "@components/ArrowCard.astro";
 import { BLOG } from "@consts";
 import BackToPrev from "@components/BackToPrev.astro";
-import { IconPosts } from "@assets/icons";
+import { IconPosts } from "@lib/iconSystem";
 
 const data = (await getCollection("blog"))
   .filter((post) => !post.data.draft)

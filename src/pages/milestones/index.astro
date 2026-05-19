@@ -3,7 +3,7 @@ import { getCollection } from "astro:content";
 import PageLayout from "@layouts/PageLayout.astro";
 import Container from "@components/Container.astro";
 import ArrowCard from "@components/ArrowCard.astro";
-import { IconMilestones } from "@assets/icons";
+import { IconMilestones } from "@lib/iconSystem";
 import BackToPrev from "@components/BackToPrev.astro";
 const milestones = (await getCollection("milestones")).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf(), // Sort by date descending

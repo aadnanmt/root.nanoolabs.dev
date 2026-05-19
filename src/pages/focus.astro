@@ -2,7 +2,7 @@
 import PageLayout from "@layouts/PageLayout.astro";
 import Container from "@components/Container.astro";
 import BackToPrev from "@components/BackToPrev.astro";
-import { IconFocus } from "@assets/icons";
+import { IconFocus } from "@lib/iconSystem";
 
 const MYFOCUS = [
   {
@@ -47,20 +47,18 @@ function PacmanBar(percentage: number) {
   <Container>
     <div class="space-y-10">
       <BackToPrev href="/explore"> Back to explore </BackToPrev>
-      <div class="animate space-y-2">
-        <div class="flex items-center gap-2">
-          <div class="size-4 fill-current text-black dark:text-white">
-            <Fragment set:html={IconFocus} />
-          </div>
-          <h1 class="text-xl font-bold text-black dark:text-white">
-            Current Focus
-          </h1>
+      <div
+        class="animate flex items-center gap-2 font-semibold text-black dark:text-white"
+      >
+        <div class="size-5 fill-current">
+          <Fragment set:html={IconFocus} />
         </div>
-        <p class="opacity-70">
-          This page show what i'm currently working on and the progress of each
-          task, sync anytime (maybe, daily), honestly.
-        </p>
+        Focus
       </div>
+      <p class="animate">
+        This page show what i'm currently working on and the progress of each
+        task, sync anytime (maybe, daily), honestly.
+      </p>
 
       <div class="animate space-y-8">
         {
