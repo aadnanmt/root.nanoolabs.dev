@@ -1,7 +1,7 @@
 ---
 title: "Kaomoji minimalist"
-description: "Minimalist industrial kaomojis for Nanoo Labs documentation."
-date: "2026-04-08"
+description: "Minimalist industrial kaomoji for Nanoo Labs documentation."
+date: "2026-05-15"
 demoURL: "https://me.nanoolabs.dev/projects/kaomoji"
 repoURL: "https://github.com/aadnanmt/kaomojiLib"
 ---

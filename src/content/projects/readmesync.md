@@ -2,7 +2,7 @@
 title: "readmeSync"
 description: "Automated GitHub Profile README synchronizer."
 date: "2026-04-08"
-demoURL: "https://github/aadnanmt/aadnanmt"
+demoURL: "https://github.com/aadnanmt/aadnanmt"
 repoURL: "https://github.com/aadnanmt/readmeSync"
 ---
 
