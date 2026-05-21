@@ -13,39 +13,39 @@ This page shows my personal config files (dotfiles) for Arch Linux. It has a cus
 <details>
 <summary>Interface & Layout</summary>
 <br>
-<img src="/content/projects/hyprland-dots/interface-0.webp" width="800" loading="lazy" decoding="async">
+<img src="/content/projects/hyprland-dotfiles/interface-0.webp" width="800" loading="lazy" decoding="async">
 <br>
-<img src="/content/projects/hyprland-dots/interface-1.webp" width="800" loading="lazy" decoding="async">
+<img src="/content/projects/hyprland-dotfiles/interface-1.webp" width="800" loading="lazy" decoding="async">
 <br>
-<img src="/content/projects/hyprland-dots/interface-3.webp" width="800" loading="lazy" decoding="async">
+<img src="/content/projects/hyprland-dotfiles/interface-3.webp" width="800" loading="lazy" decoding="async">
 <br>
-<img src="/content/projects/hyprland-dots/waybar-style_cyqn.webp" width="800" loading="lazy" decoding="async">
+<img src="/content/projects/hyprland-dotfiles/waybar-style_cyqn.webp" width="800" loading="lazy" decoding="async">
 </details>
 
 <details>
 <summary>Apps Launcher & Menus (Wofi)</summary>
 <br>
-<img src="/content/projects/hyprland-dots/wofi-apps.webp" width="800" loading="lazy" decoding="async">
+<img src="/content/projects/hyprland-dotfiles/wofi-apps.webp" width="800" loading="lazy" decoding="async">
 <br>
-<img src="/content/projects/hyprland-dots/wofi-emoji-style.webp" width="800" loading="lazy" decoding="async">
+<img src="/content/projects/hyprland-dotfiles/wofi-emoji-style.webp" width="800" loading="lazy" decoding="async">
 <br>
-<img src="/content/projects/hyprland-dots/wofi-power.webp" width="800" loading="lazy" decoding="async">
+<img src="/content/projects/hyprland-dotfiles/wofi-power.webp" width="800" loading="lazy" decoding="async">
 <br>
-<img src="/content/projects/hyprland-dots/wofi-wallpaper-selector.webp" width="800" loading="lazy" decoding="async">
+<img src="/content/projects/hyprland-dotfiles/wofi-wallpaper-selector.webp" width="800" loading="lazy" decoding="async">
 </details>
 
 <details>
 <summary>TUI & CLI Tools</summary>
 <br>
-<img src="/content/projects/hyprland-dots/fastfetch.webp" width="400" loading="lazy" decoding="async">
+<img src="/content/projects/hyprland-dotfiles/fastfetch.webp" width="400" loading="lazy" decoding="async">
 <br>
-<img src="/content/projects/hyprland-dots/tui-apps.webp" width="800" loading="lazy" decoding="async">
+<img src="/content/projects/hyprland-dotfiles/tui-apps.webp" width="800" loading="lazy" decoding="async">
 <br>
-<img src="/content/projects/hyprland-dots/lsd-style.webp" width="800" loading="lazy" decoding="async">
+<img src="/content/projects/hyprland-dotfiles/lsd-style.webp" width="800" loading="lazy" decoding="async">
 <br>
-<img src="/content/projects/hyprland-dots/yazi.webp" width="800" loading="lazy" decoding="async">
+<img src="/content/projects/hyprland-dotfiles/yazi.webp" width="800" loading="lazy" decoding="async">
 <br>
-<img src="/content/projects/hyprland-dots/ncdu.webp" width="800" loading="lazy" decoding="async">
+<img src="/content/projects/hyprland-dotfiles/ncdu.webp" width="800" loading="lazy" decoding="async">
 </details>
 
 ## Project Overview
