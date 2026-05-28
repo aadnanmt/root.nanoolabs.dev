@@ -15,3 +15,16 @@ export type Socials = {
   NAME: string;
   HREF: string;
 }[];
+
+export type LastFMTrack = {
+  name: string;
+  artist: string;
+  url: string;
+  image: string;
+  nowPlaying: boolean;
+};
+
+export type NowPlayingResponse = {
+  track: LastFMTrack | null;
+  error?: string;
+};
