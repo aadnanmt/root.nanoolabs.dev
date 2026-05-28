@@ -1,4 +1,4 @@
-import { defineConfig } from "astro/config";
+import { defineConfig, passthroughImageService } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
@@ -14,6 +14,9 @@ if (isProd) {
 export default defineConfig({
   site: "https://me.nanoolabs.dev",
   integrations: [mdx(), sitemap(), tailwind()],
+  image: {
+    service: passthroughImageService(),
+  },
   output: isProd ? "server" : "static",
   adapter: adapter,
 });
