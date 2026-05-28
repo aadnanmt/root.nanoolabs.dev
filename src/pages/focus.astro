@@ -6,36 +6,36 @@ import { IconFocus } from "@lib/iconSystem";
 
 const MYFOCUS = [
   {
-    title: "System && devOps",
-    percentage: 35,
+    title: "System & devOps",
+    percentage: 39,
     description:
-      "Deep dive filesystem, mechanism symlink, config bootloader, permission, exploring rootless Podman, other git feature, and Bash fundamentals.",
+      "Deep dive filesystem, mechanism symlink, config bootloader, permission, exploring rootless Podman, other Git feature, and Bash fundamentals.",
   },
   {
     title: "Backend engineering",
-    percentage: 26,
+    percentage: 21,
     description:
-      "Implementing Bun runtime and Hono. Exploring RegExpRouter architecture on Hono",
+      "Implementing Pnpm Workspace and Hono. Exploring Middleware and Router on Hono",
   },
   {
-    title: "Frontend && ui",
-    percentage: 12,
+    title: "Frontend & UI",
+    percentage: 10,
     description:
-      "Optimize SEO and performance. learn and manage clean Tailwind CSS and mastering Astro dynamic attributes",
+      "Optimize SEO and performance. Learn and manage clean Tailwind CSS and mastering Astro Middleware",
   },
   {
-    title: "Testing && maintainace",
-    percentage: 7,
+    title: "Testing & Maintainace",
+    percentage: 19,
     description:
-      "Analyzing Hyprland and SDDM logs. Configuring Btrfs backups via Rsync",
+      "Analyzing Hyprland and using Nix Shell on my Distro. Reconfigure Termux Properties for efficient workflow",
   },
 ];
 
 function PacmanBar(percentage: number) {
   const totalWidth = 20;
   const progress = Math.round((percentage / 100) * totalWidth);
-  const hash = "#".repeat(progress);
-  const dash = "-".repeat(totalWidth - progress);
+  const hash = "█".repeat(progress);
+  const dash = "░".repeat(totalWidth - progress);
   return `[${hash}${dash}] ${percentage}%`;
 }
 ---
@@ -47,6 +47,7 @@ function PacmanBar(percentage: number) {
   <Container>
     <div class="space-y-10">
       <BackToPrev href="/explore"> Back to explore </BackToPrev>
+
       <div
         class="animate flex items-center gap-2 font-semibold text-black dark:text-white"
       >
@@ -55,15 +56,16 @@ function PacmanBar(percentage: number) {
         </div>
         Focus
       </div>
+
       <p class="animate">
-        This page show what i'm currently working on and the progress of each
-        task, sync anytime (maybe, daily), honestly.
+        This page shows what I'm currently working or learning on and the progress of each
+        task, sync anytime.
       </p>
 
       <div class="animate space-y-8">
         {
           MYFOCUS.map((item) => (
-            <section class="space-y-2">
+            <section class="space-y-4">
               <div class="flex items-center justify-between">
                 <h2 class="font-semibold text-black dark:text-white">
                   {item.title}
@@ -72,7 +74,7 @@ function PacmanBar(percentage: number) {
               <div class="whitespace-pre font-mono text-sm text-cyan-500 sm:text-base">
                 {PacmanBar(item.percentage)}
               </div>
-              <p class="text-sm italic opacity-70">{item.description}</p>
+              <p class="text-sm opacity-70">{item.description}</p>
             </section>
           ))
         }

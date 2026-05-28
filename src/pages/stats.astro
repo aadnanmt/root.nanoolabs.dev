@@ -3,6 +3,7 @@ import PageLayout from "@layouts/PageLayout.astro";
 import Container from "@components/Container.astro";
 import BackToPrev from "@components/BackToPrev.astro";
 import { IconStats } from "@lib/iconSystem";
+import Link from "@components/Link.astro";
 
 // Fetch data
 const response = await fetch(
@@ -19,8 +20,8 @@ interface Language {
 function PacmanBar(percentage: number) {
   const totalWidth = 20;
   const progress = Math.round((percentage / 100) * totalWidth);
-  const hash = "#".repeat(progress);
-  const dash = "-".repeat(totalWidth - progress);
+  const hash = "█".repeat(progress);
+  const dash = "░".repeat(totalWidth - progress);
   return `[${hash}${dash}] ${percentage.toFixed(1)}%`;
 }
 
@@ -100,7 +101,7 @@ const description = "My activity and language distribution.";
       <div
         class="animate mt-12 border-t border-black/10 pt-8 text-xs italic opacity-50 dark:border-white/10"
       >
-        Source: github.com/aadnanmt/readmeSync
+        Source: <Link href="https://github.com/aadnanmt/readmeSync" external>github.com/aadnanmt/readmeSync</Link>
       </div>
     </div>
   </Container>
