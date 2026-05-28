@@ -5,6 +5,7 @@ import Container from "@components/Container.astro";
 import BackToPrev from "@components/BackToPrev.astro";
 import FormattedDate from "@components/FormattedDate.astro";
 import { IconNow } from "@lib/iconSystem";
+import Link from "@components/Link.astro";
 
 const allNowEntries = await getCollection("now");
 const sortedEntries = allNowEntries.sort(
