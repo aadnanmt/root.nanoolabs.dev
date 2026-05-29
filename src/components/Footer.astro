@@ -3,6 +3,9 @@ import Container from "@components/Container.astro";
 import { SITE } from "@consts";
 import BackToTop from "@components/BackToTop.astro";
 import Link from "@components/Link.astro";
+import pkg from "../../package.json";
+
+const version = `v${pkg.version}-stable`;
 ---
 
 <footer class="animate">
@@ -12,15 +15,19 @@ import Link from "@components/Link.astro";
         <BackToTop />
       </div>
     </div>
-    <div class="flex items-center justify-between">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-y-4 text-sm">
       <div class="flex flex-wrap items-center gap-2">
         &copy; 2026
         {SITE.NAME}
         <span class="opacity-50">|</span>
+        <span class="font-mono opacity-50">{version}</span>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-2">
         <Link
           href="/credits"
           underline={false}
-          class="text-sm transition-colors hover:text-cyan-400"
+          class="transition-colors hover:text-cyan-400"
         >
           Credits
         </Link>
@@ -29,7 +36,7 @@ import Link from "@components/Link.astro";
           href="https://creativecommons.org/licenses/by/4.0/"
           external
           underline={false}
-          class="text-sm transition-colors hover:text-cyan-400"
+          class="transition-colors hover:text-cyan-400"
         >
           CC BY 4.0
         </Link>
