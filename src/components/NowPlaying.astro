@@ -1,0 +1,55 @@
+---
+import { getNowPlaying } from "@lib/lastfm";
+import { IconMusic } from "@lib/iconSystem";
+
+const { track, error } = await getNowPlaying();
+
+// Silent fail
+if (error || !track) {
+  return null;
+}
+---
+
+<div
+  class="animate flex items-center gap-4 rounded-lg border border-black/10 p-4 dark:border-white/10"
+>
+  <div
+    class="relative flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-md bg-black/5 dark:bg-white/5"
+  >
+    {
+      track.image ? (
+        <img
+          src={track.image}
+          alt={track.artist}
+          class="h-full w-full rounded-md object-cover"
+        />
+      ) : (
+        <div class="flex h-full w-full items-center justify-center text-black/50 dark:text-white/50">
+          <Fragment set:html={IconMusic} />
+        </div>
+      )
+    }
+    {
+      track.nowPlaying && (
+        <span class="absolute -right-1 -top-1 flex h-3 w-3">
+          <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-400 opacity-75" />
+          <span class="relative inline-flex h-3 w-3 rounded-full bg-cyan-500" />
+        </span>
+      )
+    }
+  </div>
+  <div class="flex flex-col overflow-hidden">
+    <span class="text-xs font-medium uppercase tracking-widest opacity-50">
+      {track.nowPlaying ? "Now Playing" : "Last Played"}
+    </span>
+    <a
+      href={track.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="truncate text-sm font-semibold underline decoration-black/30 underline-offset-4 transition-colors hover:text-black dark:decoration-white/30 dark:hover:text-white"
+    >
+      {track.name}
+    </a>
+    <span class="truncate text-xs opacity-60">{track.artist}</span>
+  </div>
+</div>

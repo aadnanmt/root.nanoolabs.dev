@@ -4,6 +4,7 @@ import Container from "@components/Container.astro";
 import BackToPrev from "@components/BackToPrev.astro";
 import { IconStats } from "@lib/iconSystem";
 import Link from "@components/Link.astro";
+import NowPlaying from "@components/NowPlaying.astro";
 
 // Fetch data
 const response = await fetch(
@@ -96,6 +97,10 @@ const description = "My activity and language distribution.";
             }
           </div>
         </section>
+      </div>
+
+      <div class="animate pt-10">
+        <NowPlaying />
       </div>
 
       <div

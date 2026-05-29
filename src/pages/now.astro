@@ -5,6 +5,7 @@ import Container from "@components/Container.astro";
 import BackToPrev from "@components/BackToPrev.astro";
 import FormattedDate from "@components/FormattedDate.astro";
 import { IconNow } from "@lib/iconSystem";
+import NowPlaying from "@components/NowPlaying.astro";
 import Link from "@components/Link.astro";
 
 const allNowEntries = await getCollection("now");
@@ -43,6 +44,10 @@ const { Content } = await latestEntry.render();
       <article class="animate prose prose-neutral max-w-none dark:prose-invert">
         <Content />
       </article>
+
+      <div class="animate py-8">
+        <NowPlaying />
+      </div>
 
       {
         history.length > 0 && (
