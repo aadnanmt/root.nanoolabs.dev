@@ -51,6 +51,7 @@ export async function getNowPlaying(): Promise<NowPlayingResponse> {
         trackData.image.find((img: any) => img.size === "large")?.["#text"] ||
         "",
       nowPlaying: trackData["@attr"]?.nowplaying === "true",
+      timestamp: trackData.date ? parseInt(trackData.date.uts) : undefined,
     };
 
     cache = { track };

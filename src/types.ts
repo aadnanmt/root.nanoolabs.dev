@@ -22,6 +22,7 @@ export type LastFMTrack = {
   url: string;
   image: string;
   nowPlaying: boolean;
+  timestamp?: number;
 };
 
 export type NowPlayingResponse = {
