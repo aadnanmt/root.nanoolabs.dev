@@ -1,18 +1,19 @@
 import type { LastFMTrack, NowPlayingResponse } from "../types";
 
-const API_KEY = import.meta.env.LASTFM_API_KEY;
-const USERNAME = import.meta.env.LASTFM_USERNAME;
-
 export async function getNowPlaying(): Promise<NowPlayingResponse> {
-  if (!API_KEY || !USERNAME) {
-    return { track: null, error: "Missing last.fm config" };
+
+  const apiKey = import.meta.env.LASTFM_API_KEY || process.env.LASTFM_API_KEY;
+  const username = import.meta.env.LASTFM_USERNAME || process.env.LASTFM_USERNAME;
+
+  if (!apiKey || !username) {
+    return { track: null, error: "Missing last.fm config." };
   }
 
   try {
     const params = new URLSearchParams({
       method: "user.getrecenttracks",
-      user: USERNAME,
-      api_key: API_KEY,
+      user: username,
+      api_key: apiKey,
       format: "json",
       limit: "1",
     });
