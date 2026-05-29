@@ -6,6 +6,7 @@ import Link from "@components/Link.astro";
 import pkg from "../../package.json";
 
 const version = `v${pkg.version}`;
+const currentYear = new Date().getFullYear();
 ---
 
 <footer class="animate">
@@ -19,10 +20,12 @@ const version = `v${pkg.version}`;
       class="flex flex-col items-center justify-between gap-y-4 text-sm md:flex-row"
     >
       <div class="flex flex-wrap items-center gap-2">
-        &copy; 2026
+        &copy; {currentYear}
         {SITE.NAME}
         <span class="opacity-50">|</span>
-        <span class="font-mono opacity-50">{version}</span>
+        <span class="font-mono opacity-50">
+          {version} ({import.meta.env.GIT_HASH})
+        </span>
       </div>
 
       <div class="flex flex-wrap items-center gap-2">
