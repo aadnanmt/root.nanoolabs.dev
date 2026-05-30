@@ -7,6 +7,8 @@ import pkg from "../../package.json"
 
 const version = `v${pkg.version}`
 const currentYear = new Date().getFullYear()
+const gitHash = import.meta.env.GIT_HASH
+const repoUrl = "https://github.com/aadnanmt/me.nanoolabs.dev"
 ---
 
 <footer class="animate">
@@ -23,8 +25,31 @@ const currentYear = new Date().getFullYear()
         &copy; {currentYear}
         {SITE.NAME}
         <span class="opacity-50">|</span>
-        <span class="font-mono opacity-50">
-          {version} ({import.meta.env.GIT_HASH})
+        <span class="flex items-center gap-1 font-mono opacity-50">
+          <Link
+            href={`${repoUrl}/blob/main/package.json`}
+            external
+            underline={false}
+            class="transition-colors hover:text-cyan-400"
+          >
+            {version}
+          </Link>
+          {
+            gitHash && gitHash !== "unknown" && (
+              <>
+                <span>(</span>
+                <Link
+                  href={`${repoUrl}/commit/${gitHash}`}
+                  external
+                  underline={false}
+                  class="transition-colors hover:text-cyan-400"
+                >
+                  {gitHash}
+                </Link>
+                <span>)</span>
+              </>
+            )
+          }
         </span>
       </div>
 
