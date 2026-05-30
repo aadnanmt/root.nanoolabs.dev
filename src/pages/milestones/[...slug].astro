@@ -1,22 +1,22 @@
 ---
-export const prerender = true;
-import { type CollectionEntry, getCollection } from "astro:content";
-import PageLayout from "@layouts/PageLayout.astro";
-import Container from "@components/Container.astro";
-import FormattedDate from "@components/FormattedDate.astro";
-import BackToPrev from "@components/BackToPrev.astro";
+export const prerender = true
+import { type CollectionEntry, getCollection } from "astro:content"
+import PageLayout from "@layouts/PageLayout.astro"
+import Container from "@components/Container.astro"
+import FormattedDate from "@components/FormattedDate.astro"
+import BackToPrev from "@components/BackToPrev.astro"
 
 export async function getStaticPaths() {
-  const milestones = await getCollection("milestones");
+  const milestones = await getCollection("milestones")
   return milestones.map((milestone) => ({
     params: { slug: milestone.slug },
     props: milestone,
-  }));
+  }))
 }
-type Props = CollectionEntry<"milestones">;
+type Props = CollectionEntry<"milestones">
 
-const milestone = Astro.props;
-const { Content } = await milestone.render();
+const milestone = Astro.props
+const { Content } = await milestone.render()
 
 const moodColor: Record<string, string> = {
   Good: "text-green-500",
@@ -25,9 +25,9 @@ const moodColor: Record<string, string> = {
   Tired: "text-blue-500",
   SoHappy: "text-cyan-500",
   SoBad: "text-orange-500",
-};
+}
 
-const currentMoodColor = moodColor[milestone.data.mood || "Neutral"];
+const currentMoodColor = moodColor[milestone.data.mood || "Neutral"]
 
 const moodEmoji: Record<string, string> = {
   Good: "😊",
@@ -36,9 +36,9 @@ const moodEmoji: Record<string, string> = {
   Tired: "😴",
   SoHappy: "😁",
   SoBad: "😿",
-};
+}
 
-const currentMoodEmoji = moodEmoji[milestone.data.mood || "Neutral"];
+const currentMoodEmoji = moodEmoji[milestone.data.mood || "Neutral"]
 ---
 
 <PageLayout

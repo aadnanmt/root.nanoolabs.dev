@@ -1,24 +1,24 @@
 ---
-import { getNowPlaying } from "@lib/lastfm";
-import { IconMusic } from "@lib/iconSystem";
+import { getNowPlaying } from "@lib/lastfm"
+import { IconMusic } from "@lib/iconSystem"
 
-const { track, error } = await getNowPlaying();
+const { track, error } = await getNowPlaying()
 
 // Silent fail
 if (error || !track) {
-  return null;
+  return null
 }
 
 function formatTimeAgo(timestamp?: number) {
-  if (!timestamp) return "";
-  const seconds = Math.max(0, Math.floor(Date.now() / 1000 - timestamp));
-  if (seconds < 60) return "just now";
-  const minutes = Math.floor(seconds / 60);
-  if (minutes < 60) return `${minutes}m ago`;
-  const hours = Math.floor(minutes / 60);
-  if (hours < 24) return `${hours}h ago`;
-  const days = Math.floor(hours / 24);
-  return `${days}d ago`;
+  if (!timestamp) return ""
+  const seconds = Math.max(0, Math.floor(Date.now() / 1000 - timestamp))
+  if (seconds < 60) return "just now"
+  const minutes = Math.floor(seconds / 60)
+  if (minutes < 60) return `${minutes}m ago`
+  const hours = Math.floor(minutes / 60)
+  if (hours < 24) return `${hours}h ago`
+  const days = Math.floor(hours / 24)
+  return `${days}d ago`
 }
 ---
 

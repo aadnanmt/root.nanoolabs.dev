@@ -1,22 +1,22 @@
 ---
-import { getCollection } from "astro:content";
-import PageLayout from "@layouts/PageLayout.astro";
-import Container from "@components/Container.astro";
-import BackToPrev from "@components/BackToPrev.astro";
-import FormattedDate from "@components/FormattedDate.astro";
-import { IconNow } from "@lib/iconSystem";
-import NowPlaying from "@components/NowPlaying.astro";
-import Link from "@components/Link.astro";
+import { getCollection } from "astro:content"
+import PageLayout from "@layouts/PageLayout.astro"
+import Container from "@components/Container.astro"
+import BackToPrev from "@components/BackToPrev.astro"
+import FormattedDate from "@components/FormattedDate.astro"
+import { IconNow } from "@lib/iconSystem"
+import NowPlaying from "@components/NowPlaying.astro"
+import Link from "@components/Link.astro"
 
-const allNowEntries = await getCollection("now");
+const allNowEntries = await getCollection("now")
 const sortedEntries = allNowEntries.sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
-);
+)
 
-const latestEntry = sortedEntries[0];
-const history = sortedEntries.slice(1);
+const latestEntry = sortedEntries[0]
+const history = sortedEntries.slice(1)
 
-const { Content } = await latestEntry.render();
+const { Content } = await latestEntry.render()
 ---
 
 <PageLayout

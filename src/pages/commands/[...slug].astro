@@ -1,21 +1,21 @@
 ---
-export const prerender = true;
-import { type CollectionEntry, getCollection } from "astro:content";
-import PageLayout from "@layouts/PageLayout.astro";
-import Container from "@components/Container.astro";
-import BackToPrev from "@components/BackToPrev.astro";
+export const prerender = true
+import { type CollectionEntry, getCollection } from "astro:content"
+import PageLayout from "@layouts/PageLayout.astro"
+import Container from "@components/Container.astro"
+import BackToPrev from "@components/BackToPrev.astro"
 
 export async function getStaticPaths() {
-  const commands = await getCollection("commands");
+  const commands = await getCollection("commands")
   return commands.map((command) => ({
     params: { slug: command.slug },
     props: command,
-  }));
+  }))
 }
-type Props = CollectionEntry<"commands">;
+type Props = CollectionEntry<"commands">
 
-const command = Astro.props;
-const { Content } = await command.render();
+const command = Astro.props
+const { Content } = await command.render()
 ---
 
 <PageLayout title={command.data.title} description={command.data.description}>

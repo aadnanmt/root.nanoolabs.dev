@@ -1,17 +1,17 @@
 ---
-import { getCollection } from "astro:content";
-import PageLayout from "@layouts/PageLayout.astro";
-import Container from "@components/Container.astro";
-import ArrowCard from "@components/ArrowCard.astro";
-import { IconCommands } from "@lib/iconSystem";
-import BackToPrev from "@components/BackToPrev.astro";
+import { getCollection } from "astro:content"
+import PageLayout from "@layouts/PageLayout.astro"
+import Container from "@components/Container.astro"
+import ArrowCard from "@components/ArrowCard.astro"
+import { IconCommands } from "@lib/iconSystem"
+import BackToPrev from "@components/BackToPrev.astro"
 
 const commands = (await getCollection("commands")).sort((a, b) =>
   a.data.title.localeCompare(b.data.title),
-);
+)
 
-const title = "Linux Commands";
-const description = "A collection of Linux commands and hacks that I use.";
+const title = "Linux Commands"
+const description = "A collection of Linux commands and hacks that I use."
 ---
 
 <PageLayout title={title} description={description}>

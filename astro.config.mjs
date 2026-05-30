@@ -1,22 +1,22 @@
-import { defineConfig, passthroughImageService } from "astro/config";
-import mdx from "@astrojs/mdx";
-import sitemap from "@astrojs/sitemap";
-import tailwind from "@astrojs/tailwind";
-import { execSync } from "child_process";
+import { defineConfig, passthroughImageService } from "astro/config"
+import mdx from "@astrojs/mdx"
+import sitemap from "@astrojs/sitemap"
+import tailwind from "@astrojs/tailwind"
+import { execSync } from "child_process"
 
-const isProd = process.env.CF_PAGES === "1";
+const isProd = process.env.CF_PAGES === "1"
 
-let gitHash = "unknown";
+let gitHash = "unknown"
 try {
-  gitHash = execSync("git rev-parse --short HEAD").toString().trim();
+  gitHash = execSync("git rev-parse --short HEAD").toString().trim()
 } catch (e) {
-  console.warn("Could not get git hash");
+  console.warn("Could not get git hash")
 }
 
-let adapter;
+let adapter
 if (isProd) {
-  const { default: cloudflare } = await import("@astrojs/cloudflare");
-  adapter = cloudflare();
+  const { default: cloudflare } = await import("@astrojs/cloudflare")
+  adapter = cloudflare()
 }
 
 export default defineConfig({
@@ -34,4 +34,4 @@ export default defineConfig({
       ),
     },
   },
-});
+})

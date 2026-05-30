@@ -1,8 +1,8 @@
 ---
-import PageLayout from "@layouts/PageLayout.astro";
-import Container from "@components/Container.astro";
-import BackToPrev from "@components/BackToPrev.astro";
-import { IconFocus } from "@lib/iconSystem";
+import PageLayout from "@layouts/PageLayout.astro"
+import Container from "@components/Container.astro"
+import BackToPrev from "@components/BackToPrev.astro"
+import { IconFocus } from "@lib/iconSystem"
 
 const MYFOCUS = [
   {
@@ -29,14 +29,14 @@ const MYFOCUS = [
     description:
       "Analyzing Hyprland and using Nix Shell on my Distro. Reconfigure Termux Properties for efficient workflow",
   },
-];
+]
 
 function PacmanBar(percentage: number) {
-  const totalWidth = 20;
-  const progress = Math.round((percentage / 100) * totalWidth);
-  const hash = "█".repeat(progress);
-  const dash = "░".repeat(totalWidth - progress);
-  return `[${hash}${dash}] ${percentage}%`;
+  const totalWidth = 20
+  const progress = Math.round((percentage / 100) * totalWidth)
+  const hash = "█".repeat(progress)
+  const dash = "░".repeat(totalWidth - progress)
+  return `[${hash}${dash}] ${percentage}%`
 }
 ---
 

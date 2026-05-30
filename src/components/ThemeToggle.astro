@@ -47,24 +47,24 @@
 
 <script is:inline>
   function toggleTheme() {
-    const element = document.documentElement;
-    const isDark = element.classList.contains("dark");
-    const newTheme = isDark ? "light" : "dark";
+    const element = document.documentElement
+    const isDark = element.classList.contains("dark")
+    const newTheme = isDark ? "light" : "dark"
 
-    localStorage.setItem("theme", newTheme);
+    localStorage.setItem("theme", newTheme)
 
     if (newTheme === "dark") {
-      element.classList.add("dark");
+      element.classList.add("dark")
     } else {
-      element.classList.remove("dark");
+      element.classList.remove("dark")
     }
   }
 
   function setupThemeToggle() {
-    const button = document.getElementById("theme-toggle");
-    button?.addEventListener("click", toggleTheme);
+    const button = document.getElementById("theme-toggle")
+    button?.addEventListener("click", toggleTheme)
   }
 
-  setupThemeToggle();
-  document.addEventListener("astro:after-swap", setupThemeToggle);
+  setupThemeToggle()
+  document.addEventListener("astro:after-swap", setupThemeToggle)
 </script>

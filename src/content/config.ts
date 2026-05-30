@@ -1,4 +1,4 @@
-import { defineCollection, z } from "astro:content";
+import { defineCollection, z } from "astro:content"
 
 const blog = defineCollection({
   type: "content",
@@ -9,7 +9,7 @@ const blog = defineCollection({
     draft: z.boolean().optional(),
     license: z.string().optional().default("CC BY 4.0"),
   }),
-});
+})
 
 const work = defineCollection({
   type: "content",
@@ -19,7 +19,7 @@ const work = defineCollection({
     dateStart: z.coerce.date(),
     dateEnd: z.union([z.coerce.date(), z.string()]),
   }),
-});
+})
 
 const projects = defineCollection({
   type: "content",
@@ -31,7 +31,7 @@ const projects = defineCollection({
     demoURL: z.string().optional(),
     repoURL: z.string().optional(),
   }),
-});
+})
 
 const now = defineCollection({
   type: "content",
@@ -40,7 +40,7 @@ const now = defineCollection({
     description: z.string(),
     date: z.coerce.date(),
   }),
-});
+})
 
 const commands = defineCollection({
   type: "content",
@@ -58,7 +58,7 @@ const commands = defineCollection({
     ]),
     tags: z.array(z.string()).optional(),
   }),
-});
+})
 
 const milestones = defineCollection({
   type: "content",
@@ -72,6 +72,6 @@ const milestones = defineCollection({
     tags: z.array(z.string()).optional(),
     description: z.string().optional(),
   }),
-});
+})
 
-export const collections = { blog, work, projects, now, commands, milestones };
+export const collections = { blog, work, projects, now, commands, milestones }

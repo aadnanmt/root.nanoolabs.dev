@@ -1,17 +1,17 @@
 ---
-import { getCollection } from "astro:content";
-import PageLayout from "@layouts/PageLayout.astro";
-import Container from "@components/Container.astro";
-import ArrowCard from "@components/ArrowCard.astro";
-import { IconMilestones } from "@lib/iconSystem";
-import BackToPrev from "@components/BackToPrev.astro";
+import { getCollection } from "astro:content"
+import PageLayout from "@layouts/PageLayout.astro"
+import Container from "@components/Container.astro"
+import ArrowCard from "@components/ArrowCard.astro"
+import { IconMilestones } from "@lib/iconSystem"
+import BackToPrev from "@components/BackToPrev.astro"
 const milestones = (await getCollection("milestones")).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf(), // Sort by date descending
-);
+)
 
-const title = "My Milestones";
+const title = "My Milestones"
 const description =
-  "Documenting my personal growth, reflections, and lessons learned on this journey.";
+  "Documenting my personal growth, reflections, and lessons learned on this journey."
 ---
 
 <PageLayout title={title} description={description}>

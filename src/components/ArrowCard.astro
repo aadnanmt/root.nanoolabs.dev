@@ -1,15 +1,15 @@
 ---
-import type { CollectionEntry } from "astro:content";
+import type { CollectionEntry } from "astro:content"
 
 type Props = {
   entry:
     | CollectionEntry<"blog">
     | CollectionEntry<"projects">
     | CollectionEntry<"commands">
-    | CollectionEntry<"milestones">;
-};
+    | CollectionEntry<"milestones">
+}
 
-const { entry } = Astro.props;
+const { entry } = Astro.props
 ---
 
 <a
