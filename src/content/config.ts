@@ -74,4 +74,21 @@ const milestones = defineCollection({
   }),
 })
 
-export const collections = { blog, work, projects, now, commands, milestones }
+const uses = defineCollection({
+  type: "content",
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    lastUpdated: z.coerce.date(),
+  }),
+})
+
+export const collections = {
+  blog,
+  work,
+  projects,
+  now,
+  commands,
+  milestones,
+  uses,
+}
