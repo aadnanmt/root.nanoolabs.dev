@@ -1,71 +1,54 @@
 ---
 title: "Uses"
-description: "This tools for my daily driver setup and workflows."
+description: "My daily driver setup, software, and ecosystems."
 lastUpdated: "2026-05-31"
 ---
 
 ## System & Environment
 
-### Operating System
-- **Arch Linux** with **Hyprland** (WM)
-- **Kernel:** Linux Zen Kernel
-- **Optimizations:** zswap with zstd compression (Improve memory management & responsiveness)
-
-### Terminal & Shell
-- **Kitty** (Terminal Emulator)
-- **Fish Shell** with **Starship** prompt
-
-### Editors
-- **Neovim** (Main editor for coding)
-- **VS Code** (Secondary editor)
+- **Arch Linux** :: Primary desktop operating system
+- **Zen Kernel** :: Optimized for desktop responsiveness
+- **Hyprland** :: Wayland compositor / window manager
+- **Kitty** :: Terminal emulator
+- **Fish Shell** :: Friendly shell with Starship prompt
+- **Firefox** :: Primary web browser (Desktop)
+- **DuckDuckGo** :: Privacy focused browser (Mobile)
+- **Via Browser** :: Lightweight minimalist browser (Mobile)
 
 ## Engineering & Development
 
-### Languages & Frameworks
-- **TypeScript / JavaScript**
-- **Astro** (Static Site Generator)
-- **Hono.js** (Edge Backend)
-- **Python** (Automation & Backend)
-- **FastAPI / Flask**
+- **Neovim** :: Primary text editor for coding
+- **VS Code** :: Secondary editor for specific tasks
+- **Git** :: Distributed version control system
+- **Astro** :: Web framework for high performance sites
+- **Hono.js** :: Ultrafast framework for the Edge
+- **TypeScript / JavaScript** :: Main development language
+- **Python** :: For automation and backend (FastAPI/Flask)
+- **Tailwind CSS** :: Utility-first CSS framework
 
-### Styling
-- **Tailwind CSS**
-- **CSS / SCSS / Stylus**
+## Data & Infrastructure
 
-### Databases
-- **SQLite**
-- **PostgreSQL**
-- **Redis**
-
-### Build & Package Managers
-- **Vite** (Build Tool)
-- **Bun** / **Pnpm** (Package Managers)
-
-### Deployment & Ecosystems
-- **Cloudflare Pages / Workers**
-- **Github**
-- **Github Action**
-- **Wrangler** (Cloudflare CLI)
+- **SQLite** :: Local and small-scale database
+- **PostgreSQL** :: Scalable relational database
+- **Redis** :: Caching and high speed data access
+- **Vite** :: Next-generation frontend build tool
+- **Bun / Pnpm** :: Package management
+- **Podman** :: Standar Containerization
+- **Cloudflare** :: Pages, Workers, and Edge deployment
+- **GitHub / GitLab** :: Version control and project mirrors
 
 ## Mobile & FOSS Ecosystem
 
-### Smartphone Environment
-- **F-Droid** (Primary App Store for FOSS)
-- **Termux** (Mobile Terminal & Development Environment)
-
-### FOSS Android Tools
-- **Signal & Telegram** (Communication)
-- **LabNex** (GitLab Client)
-- **Quillpad** (Notes & Markdown)
-- **Mpv** (Video Player)
-- **Fossify Gallery** (Gallery)
-- **Metro** (Music Player)
-- **Quik SMS** (SMS Client)
-
-### Other Tools
-- **Git** (Version Control)
-- **Podman** (Containerization)
+- **F-Droid** :: Open source app store for Android
+- **Termux** :: Linux environment for mobile
+- **Fossify Gallery** :: No Ads, Open Source, and Private Gallery
+- **Niagara Launcher** :: Minimalist mobile home screen
+- **Signal / Telegram** :: Primary secure communication
+- **LabNex** :: GitLab client for mobile
+- **Quillpad / Markor** :: Markdown note and plain text
+- **Mpv / Metro** :: Lightweight media player
+- **K-9 Mail** :: Open source email client
 
 ---
 
-*Note: This is my daily driver setup. It's a combination of efficiency, privacy, and continuous learning.*
+*Note: This is my daily driver setup, I haven't mastered it all yet, but I'm learning. For efficiency, privacy, and continuous learning.*
