@@ -2,8 +2,8 @@
 title: "Start: My Life Journey"
 date: 2026-05-12
 mood: "Bad"
-lessonLearn: "I feel bad. My life is messy. I want to change this. I will write my journey here. This is my first step."
 tags: ["new-line", "life", "messy"]
+description: "I feel bad. My life is messy. I want to change this. I will write my journey here"
 ---
 
 Today I start to write about my life, not just my coding, debbunging, solving on programmming.<br>
