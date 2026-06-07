@@ -20,7 +20,7 @@ if (isProd) {
 }
 
 export default defineConfig({
-  site: "https://me.nanoolabs.dev",
+  site: "https://root.nanoolabs.dev",
   integrations: [mdx(), sitemap(), tailwind()],
   image: {
     service: passthroughImageService(),
