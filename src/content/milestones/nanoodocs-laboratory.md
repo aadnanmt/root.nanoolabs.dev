@@ -17,3 +17,4 @@ Docs shouldn't be boring. They should be a lab.
 ### Planned:
 
 - **Styling:** Change default font starlight, replaced image houston to relevant for nanoo, and replaced default color rapide theme.
+- **Content:** Such as about documentation Nanoo Webrings mechanisme, update documentation Nanoo CDN, and add Nanoo Stack/Main Site content.
