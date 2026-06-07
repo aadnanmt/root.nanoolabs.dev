@@ -1,0 +1,93 @@
+---
+interface Props {
+  ring?: string
+  site?: string
+}
+
+const { ring = "nanoo-network", site = "root" } = Astro.props
+const baseUrl = "https://webrings.nanoolabs.dev"
+
+const prevUrl = `${baseUrl}/prev?site=${site}&ring=${ring}`
+const nextUrl = `${baseUrl}/next?site=${site}&ring=${ring}`
+const hubUrl = baseUrl
+---
+
+<div class="nanoo-registry-widget">
+  <div class="reg-box">
+    <span class="reg-label">REGISTRY_NODE</span>
+    <nav class="reg-nav">
+      <a href={prevUrl} class="reg-link">PREV</a>
+      <span class="reg-sep">/</span>
+      <a href={hubUrl} class="reg-link">HUB</a>
+      <span class="reg-sep">/</span>
+      <a href={nextUrl} class="reg-link">NEXT</a>
+    </nav>
+  </div>
+</div>
+
+<style>
+  .nanoo-registry-widget {
+    font-family: "Geist Mono", monospace;
+    text-transform: uppercase;
+    font-size: 10px;
+    letter-spacing: 0.05em;
+    display: inline-block;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .reg-box {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border: 1px solid rgba(128, 128, 128, 0.15);
+    padding: 8px 14px;
+    background: rgba(255, 255, 255, 0.02);
+    transition: all 0.3s ease;
+  }
+
+  .reg-box:hover {
+    border-color: rgba(0, 255, 255, 0.3);
+    background: rgba(0, 255, 255, 0.01);
+  }
+
+  .reg-label {
+    color: rgba(128, 128, 128, 0.4);
+    font-weight: 400;
+  }
+
+  .reg-nav {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .reg-link {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    opacity: 0.8;
+  }
+
+  .reg-link:hover {
+    color: #00ffff;
+    opacity: 1;
+  }
+
+  .reg-sep {
+    opacity: 0.15;
+    font-weight: 300;
+  }
+
+  /*  Dark mode handling */
+  @media (prefers-color-scheme: dark) {
+    .reg-box {
+      background: rgba(0, 0, 0, 0.2);
+      border-color: rgba(255, 255, 255, 0.08);
+    }
+  }
+
+  :global(.dark) .reg-box {
+    background: rgba(0, 0, 0, 0.2);
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+</style>
