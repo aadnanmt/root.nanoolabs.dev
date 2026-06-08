@@ -1,0 +1,17 @@
+---
+interface Props {
+  percentage: number
+}
+
+const { percentage } = Astro.props
+
+const totalWidth = 20
+const progress = Math.round((percentage / 100) * totalWidth)
+const hash = "█".repeat(progress)
+const dash = "░".repeat(totalWidth - progress)
+const bar = `[${hash}${dash}] ${percentage}%`
+---
+
+<div class="whitespace-pre font-mono text-sm text-cyan-500 sm:text-base select-none" aria-label={`Progress: ${percentage}%`}>
+  {bar}
+</div>

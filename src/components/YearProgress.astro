@@ -1,0 +1,43 @@
+---
+const now = new Date()
+const start = new Date(now.getFullYear(), 0, 1)
+const end = new Date(now.getFullYear() + 1, 0, 1)
+const progress =
+  ((now.getTime() - start.getTime()) / (end.getTime() - start.getTime())) * 100
+const percent = Math.floor(progress)
+
+const totalBlocks = 25
+---
+
+<div class="space-y-2">
+  <div class="flex items-end justify-between font-mono">
+    <span class="text-sm font-semibold uppercase tracking-widest opacity-70">
+      {now.getFullYear()} Progress
+    </span>
+    <span class="text-sm font-bold text-cyan-500">
+      {percent}%
+    </span>
+  </div>
+
+  <div class="flex w-full gap-px sm:gap-4" aria-hidden="true">
+    {[...Array(totalBlocks)].map((_, i) => {
+      const isFilled = i < (percent / 100) * totalBlocks
+      return (
+        <div
+          class={`h-4 flex-1 transition-colors duration-500 ${
+            isFilled
+              ? "bg-cyan-500 shadow-[0_0_8px_rgba(6,182,212,0.3)]" 
+              : "bg-black/10 dark:bg-white/10"
+          }`}
+        />
+      )
+    })}
+  </div>
+
+  <div
+    class="flex justify-between font-mono text-[13px] uppercase tracking-tighter opacity-40 md:text-[14px]"
+  >
+    <span>Jan 01</span>
+    <span>Dec 31</span>
+  </div>
+</div>
