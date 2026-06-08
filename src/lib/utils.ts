@@ -1,8 +1,21 @@
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
+import { execSync } from "child_process"
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
+}
+
+export function gitDate(filePath: string) {
+  try {
+    const stdout = execSync(
+      `git log -1 --pretty="format:%ci" src/content/${filePath}`,
+    )
+    const dateStr = stdout.toString().trim()
+    return dateStr ? new Date(dateStr) : null
+  } catch (e) {
+    return null
+  }
 }
 
 export function formatDate(date: Date) {
