@@ -3,41 +3,9 @@ import PageLayout from "@layouts/PageLayout.astro"
 import Container from "@components/Container.astro"
 import BackToPrev from "@components/BackToPrev.astro"
 import { IconFocus } from "@lib/iconSystem"
-
-const MYFOCUS = [
-  {
-    title: "System & devOps",
-    percentage: 39,
-    description:
-      "Deep dive filesystem, mechanism symlink, config bootloader, permission, exploring rootless Podman, other Git feature, and Bash fundamentals.",
-  },
-  {
-    title: "Backend engineering",
-    percentage: 21,
-    description:
-      "Implementing Pnpm Workspace and Hono. Exploring Middleware and Router on Hono",
-  },
-  {
-    title: "Frontend & UI",
-    percentage: 10,
-    description:
-      "Optimize SEO and performance. Learn and manage clean Tailwind CSS and mastering Astro Middleware",
-  },
-  {
-    title: "Testing & Maintainace",
-    percentage: 19,
-    description:
-      "Analyzing Hyprland and using Nix Shell on my Distro. Reconfigure Termux Properties for efficient workflow",
-  },
-]
-
-function PacmanBar(percentage: number) {
-  const totalWidth = 20
-  const progress = Math.round((percentage / 100) * totalWidth)
-  const hash = "█".repeat(progress)
-  const dash = "░".repeat(totalWidth - progress)
-  return `[${hash}${dash}] ${percentage}%`
-}
+import YearProgress from "@components/YearProgress.astro"
+import ProgressBar from "@components/ProgressBar.astro"
+import { MYFOCUS } from "@data/focus"
 ---
 
 <PageLayout
@@ -62,6 +30,10 @@ function PacmanBar(percentage: number) {
         progress of each task, sync anytime.
       </p>
 
+      <div class="animate">
+        <YearProgress />
+      </div>
+
       <div class="animate space-y-8">
         {
           MYFOCUS.map((item) => (
@@ -71,9 +43,7 @@ function PacmanBar(percentage: number) {
                   {item.title}
                 </h2>
               </div>
-              <div class="whitespace-pre font-mono text-sm text-cyan-500 sm:text-base">
-                {PacmanBar(item.percentage)}
-              </div>
+              <ProgressBar percentage={item.percentage} />
               <p class="text-sm opacity-70">{item.description}</p>
             </section>
           ))
@@ -84,7 +54,6 @@ function PacmanBar(percentage: number) {
         class="animate mt-12 border-t border-black/10 pt-8 text-xs italic opacity-50 dark:border-white/10"
       >
         Last synced from my brain: {new Date().toLocaleDateString("en-GB")}
-        <!-- uk -->
       </div>
     </div>
   </Container>
