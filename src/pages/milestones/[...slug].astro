@@ -5,6 +5,7 @@ import PageLayout from "@layouts/PageLayout.astro"
 import Container from "@components/Container.astro"
 import FormattedDate from "@components/FormattedDate.astro"
 import BackToPrev from "@components/BackToPrev.astro"
+import { gitDate } from "@lib/utils"
 
 export async function getStaticPaths() {
   const milestones = await getCollection("milestones")
@@ -17,6 +18,7 @@ type Props = CollectionEntry<"milestones">
 
 const milestone = Astro.props
 const { Content } = await milestone.render()
+const lastUpdated = gitDate(`milestones/${milestone.id}`)
 
 const moodColor: Record<string, string> = {
   Good: "text-green-500",
@@ -54,6 +56,16 @@ const currentMoodEmoji = moodEmoji[milestone.data.mood || "Neutral"]
         <div class="font-base text-sm">
           <FormattedDate date={milestone.data.date} />
         </div>
+        {
+          lastUpdated && (
+            <>
+              &bull;
+              <div class="font-base text-sm italic opacity-75">
+                Last updated: <FormattedDate date={lastUpdated} />
+              </div>
+            </>
+          )
+        }
         {
           milestone.data.mood && (
             <>

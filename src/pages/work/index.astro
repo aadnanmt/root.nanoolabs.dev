@@ -2,10 +2,11 @@
 import { getCollection } from "astro:content"
 import PageLayout from "@layouts/PageLayout.astro"
 import Container from "@components/Container.astro"
-import { dateRange } from "@lib/utils"
+import { dateRange, gitDate } from "@lib/utils"
 import { WORK } from "@consts"
 import { IconWork } from "@lib/iconSystem"
 import BackToPrev from "@components/BackToPrev.astro"
+import FormattedDate from "@components/FormattedDate.astro"
 
 const collection = (await getCollection("work")).sort(
   (a, b) =>
@@ -15,7 +16,8 @@ const collection = (await getCollection("work")).sort(
 const work = await Promise.all(
   collection.map(async (item) => {
     const { Content } = await item.render()
-    return { ...item, Content }
+    const lastUpdated = gitDate(`work/${item.id}`)
+    return { ...item, Content, lastUpdated }
   }),
 )
 ---
@@ -23,7 +25,7 @@ const work = await Promise.all(
 <PageLayout title={WORK.TITLE} description={WORK.DESCRIPTION}>
   <Container>
     <div class="space-y-10">
-      <BackToPrev> Back to home </BackToPrev>
+      <BackToPrev href="/"> Back to home </BackToPrev>
       <div
         class="animate flex items-center gap-2 font-semibold text-black dark:text-white"
       >
@@ -36,8 +38,16 @@ const work = await Promise.all(
         {
           work.map((entry) => (
             <li class="animate">
-              <div class="text-sm opacity-75">
+              <div class="flex items-center gap-2 text-sm opacity-75">
                 {dateRange(entry.data.dateStart, entry.data.dateEnd)}
+                {entry.lastUpdated && (
+                  <>
+                    &bull;
+                    <span class="italic text-xs">
+                      Last edited: <FormattedDate date={entry.lastUpdated} />
+                    </span>
+                  </>
+                )}
               </div>
               <div class="font-semibold text-black dark:text-white">
                 {entry.data.company}
@@ -50,10 +60,6 @@ const work = await Promise.all(
           ))
         }
       </ul>
-      <!-- 
-      <ul class="animate flex flex-col gap-4">
-
-      </ul> -->
     </div>
   </Container>
 </PageLayout>
