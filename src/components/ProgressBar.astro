@@ -12,6 +12,9 @@ const dash = "░".repeat(totalWidth - progress)
 const bar = `[${hash}${dash}] ${percentage}%`
 ---
 
-<div class="whitespace-pre font-mono text-sm text-cyan-500 sm:text-base select-none" aria-label={`Progress: ${percentage}%`}>
+<div
+  class="select-none whitespace-pre font-mono text-sm text-cyan-500 sm:text-base"
+  aria-label={`Progress: ${percentage}%`}
+>
   {bar}
 </div>

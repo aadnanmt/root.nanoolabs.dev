@@ -49,6 +49,7 @@ lastUpdated: "2026-05-31"
 - **Mpv / Metro** :: Lightweight media player
 - **K-9 Mail** :: Open source email client
 - **Aegis** :: Authenticator open source 2FA app manage token online service
+
 ---
 
 _Note: This is my daily driver setup, I haven't mastered it all yet, but I'm learning. For efficiency, privacy, and continuous learning._

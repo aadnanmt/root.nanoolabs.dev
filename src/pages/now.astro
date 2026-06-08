@@ -37,8 +37,10 @@ const lastUpdated = gitDate(`now/${latestEntry.id}`)
           </div>
           Now
         </div>
-        <div class="animate text-sm opacity-60 italic">
-          Last synced with Git: <FormattedDate date={lastUpdated || latestEntry.data.date} />
+        <div class="animate text-sm italic opacity-60">
+          Last synced with Git: <FormattedDate
+            date={lastUpdated || latestEntry.data.date}
+          />
         </div>
       </div>
 

@@ -20,18 +20,20 @@ const totalBlocks = 25
   </div>
 
   <div class="flex w-full gap-px sm:gap-4" aria-hidden="true">
-    {[...Array(totalBlocks)].map((_, i) => {
-      const isFilled = i < (percent / 100) * totalBlocks
-      return (
-        <div
-          class={`h-4 flex-1 transition-colors duration-500 ${
-            isFilled
-              ? "bg-cyan-500 shadow-[0_0_8px_rgba(6,182,212,0.3)]" 
-              : "bg-black/10 dark:bg-white/10"
-          }`}
-        />
-      )
-    })}
+    {
+      [...Array(totalBlocks)].map((_, i) => {
+        const isFilled = i < (percent / 100) * totalBlocks
+        return (
+          <div
+            class={`h-4 flex-1 transition-colors duration-500 ${
+              isFilled
+                ? "bg-cyan-500 shadow-[0_0_8px_rgba(6,182,212,0.3)]"
+                : "bg-black/10 dark:bg-white/10"
+            }`}
+          />
+        )
+      })
+    }
   </div>
 
   <div
