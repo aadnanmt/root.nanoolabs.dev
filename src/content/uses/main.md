@@ -48,6 +48,7 @@ lastUpdated: "2026-05-31"
 - **Quillpad / Markor** :: Markdown note and plain text
 - **Mpv / Metro** :: Lightweight media player
 - **K-9 Mail** :: Open source email client
+- **KeePassDX Passkey** :: Manage Passkey / Password in a local and open-source vault
 - **Aegis** :: Authenticator open source 2FA app manage token online service
 
 ---
