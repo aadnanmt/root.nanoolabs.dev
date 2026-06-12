@@ -94,5 +94,27 @@ const currentMoodEmoji = moodEmoji[milestone.data.mood || "Neutral"]
     <article class="animate prose prose-neutral max-w-none dark:prose-invert">
       <Content />
     </article>
+    <div
+      class="animate mt-24 border-t border-black/10 pt-10 dark:border-white/10"
+    >
+      <p class="text-sm opacity-75">
+        This content is licensed under
+        <a
+          href="https://creativecommons.org/licenses/by/4.0/"
+          target="_blank"
+          class="underline decoration-cyan-400/50 underline-offset-4 transition-colors hover:text-cyan-400"
+        >
+          CC BY 4.0
+        </a>.
+        <span class="mx-1 opacity-50">|</span>
+        <a
+          href={`https://github.com/aadnanmt/me.nanoolabs.dev/edit/main/src/content/milestones/${milestone.id}`}
+          target="_blank"
+          class="underline decoration-cyan-400/50 underline-offset-4 transition-colors hover:text-cyan-400"
+        >
+          Edit this page
+        </a>
+      </p>
+    </div>
   </Container>
 </PageLayout>
