@@ -11,7 +11,7 @@ git log # yap, this basic commands git to saw history commit
 ```
 
 _Default output, a bit too much and messy right?_
-<img src="/content/commands/git-log-hack/git-log-complex.png" alt="Git Log Complex" class="rounded-lg"/>
+<img src="/content/commands/git-log-hack/git-log-complex.png" alt="Git Log Complex"/>
 
 ### So, break down some command hack for git log:
 
@@ -23,7 +23,7 @@ _Default output, a bit too much and messy right?_
 3.  `| sort` : throw hasil from git to terminal and sorting alphabet based email address.
 
 _After we filter and sort by email, clean and simple:_
-<img src="/content/commands/git-log-hack/git-log-user.png" alt="Git Log User" class="rounded-lg"/>
+<img src="/content/commands/git-log-hack/git-log-user.png" alt="Git Log User"/>
 
 ### Advanced hack for visual history:
 
@@ -34,6 +34,6 @@ _After we filter and sort by email, clean and simple:_
 5.  `--all` : show history for all branches, not just the current one.
 
 _Visual graph, now you see all flow branch clearly. whoahhh:_
-<img src="/content/commands/git-log-hack/git-log-graph.png" alt="Git Log Graph All" class="rounded-lg"/>
+<img src="/content/commands/git-log-hack/git-log-graph.png" alt="Git Log Graph All"/>
 
 currently you know ~ see you again ^\_^

@@ -48,6 +48,7 @@ footer {
 
 article {
   @apply prose max-w-full dark:prose-invert prose-img:mx-auto prose-img:my-auto;
+  @apply prose-img:rounded-xl;
   @apply prose-headings:font-semibold;
   @apply prose-headings:text-zinc-900 prose-headings:dark:text-white;
   @apply prose-p:text-zinc-600 prose-p:dark:text-white/70;
