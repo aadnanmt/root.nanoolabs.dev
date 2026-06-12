@@ -46,6 +46,11 @@ footer {
   @apply py-5 text-sm;
 }
 
+article img {
+  @apply h-auto max-w-full;
+  aspect-ratio: auto;
+}
+
 article {
   @apply prose max-w-full dark:prose-invert prose-img:mx-auto prose-img:my-auto;
   @apply prose-img:rounded-xl;
