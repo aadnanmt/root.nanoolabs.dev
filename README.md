@@ -29,7 +29,7 @@ You need **Node.js** and **pnpm**.
 
 ```bash
 # Get the code
-git clone https://github.com/aadnanmt/astrolio.git
+git clone https://github.com/aadnanmt/root.nanoolabs.dev.git
 
 # Install packages
 pnpm install
