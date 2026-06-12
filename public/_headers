@@ -1,0 +1,17 @@
+# Security headers for Root Node (root.nanoolabs.dev)
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+
+# Astro process assets
+/_astro/*
+  Access-Control-Allow-Origin: *
+  Cache-Control: public, max-age=31536000, immutable
+  X-Robots-Tag: nosnippet
+
+# Prevent index of the default pages.dev domain
+https://astrolio.pages.dev/*
+  X-Robots-Tag: noindex

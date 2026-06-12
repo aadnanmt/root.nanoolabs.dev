@@ -1,1 +1,6 @@
-https://astrolio.pages.dev/* https://me.nanoolabs.dev/:splat 301!
+# --- ROOT NODE REDIRECTS ---
+
+/home            /               301
+/home/*          /:splat         301
+
+# Add any relevant redirects for your garden below
