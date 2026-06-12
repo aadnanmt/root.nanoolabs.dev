@@ -1,6 +1,7 @@
 import rss from "@astrojs/rss"
 import { getCollection } from "astro:content"
 import { HOME } from "@consts"
+import { marked } from "marked"
 
 type Context = {
   site: string
@@ -30,6 +31,7 @@ export async function GET(context: Context) {
         (item.collection === "milestones" ? item.data.lessonLearn : ""),
       pubDate: item.data.date,
       link: `/${item.collection}/${item.slug}/`,
+      content: marked.parse(item.body) as string,
     })),
   })
 }
