@@ -1,11 +1,11 @@
 ---
 title: "Context Switch: UIN to School"
 description: "My journey return to the academic world after a internship experience."
-date: "2026-06-14"
+date: "2026-06-13"
 draft: false
 ---
 
-After spending a few months in the professional world through an internship at UIN Malang. Yoo, I finally had to go back to school
+After spending a few months in the professional world through an internship at UIN Malang. Yoo, I finally had to go back to school.
 
 ![Last day at UIN](/content/blog/after-uin/last-day-at-UIN.webp)
 <br>
