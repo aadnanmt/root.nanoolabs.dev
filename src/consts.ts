@@ -29,11 +29,6 @@ export const PROJECTS: Metadata = {
     "A collection of my projects, with links to repositories and demos.",
 }
 
-export const CONTRIBUTOR: Metadata = {
-  TITLE: "Contributor",
-  DESCRIPTION: "people who contribute to nanoo labs.",
-}
-
 export const NOTFOUND: Metadata = {
   TITLE: "404",
   DESCRIPTION: "Page not found, u can back to home page",
@@ -41,7 +36,7 @@ export const NOTFOUND: Metadata = {
 
 export const SOCIALS: Socials = [
   {
-    NAME: "twitter-x",
+    NAME: "x",
     HREF: "https://twitter.com/aadnanmt",
   },
   {
@@ -49,11 +44,23 @@ export const SOCIALS: Socials = [
     HREF: "https://github.com/aadnanmt",
   },
   {
+    NAME: "gitlab",
+    HREF: "https://gitlab.com/users/aadnanmt",
+  },
+  {
     NAME: "telegram",
-    HREF: "https://t.me/aadnanmtech",
+    HREF: "https://t.me/adnanbuilds",
   },
   {
     NAME: "instagram",
     HREF: "https://www.instagram.com/aadnanmt",
+  },
+  {
+    NAME: "wakatime",
+    HREF: "https://wakatime.com/@aadnanmt",
+  },
+  {
+    NAME: "ko-fi",
+    HREF: "https://ko-fi.com/aadnanmt",
   },
 ]
