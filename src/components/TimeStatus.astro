@@ -1,0 +1,69 @@
+---
+
+---
+
+<div
+  class="grid grid-cols-2 gap-8 border-y border-black/5 py-6 font-mono dark:border-white/5"
+>
+  <div class="space-y-1">
+    <div class="text-[13px] uppercase tracking-[0.2em] text-zinc-500">
+      Your time
+    </div>
+    <div
+      id="visitor-time"
+      class="text-xl tabular-nums leading-none tracking-tighter text-black dark:text-white md:text-2xl"
+    >
+      00:00:00
+    </div>
+    <div class="text-[12px] text-zinc-400">Local</div>
+  </div>
+
+  <div class="space-y-1">
+    <div class="text-[13px] uppercase tracking-[0.2em] text-zinc-500">
+      My time
+    </div>
+    <div
+      id="author-time"
+      class="text-xl tabular-nums leading-none tracking-tighter text-black dark:text-white md:text-2xl"
+    >
+      00:00:00
+    </div>
+    <div class="text-[12px] italic text-zinc-400">Malang, East Java &#127470;&#127465;</div>
+  </div>
+</div>
+
+<script>
+  function updateTime() {
+    const now = new Date()
+
+    // Visitor time (System local)
+    const visitorOption: Intl.DateTimeFormatOptions = {
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: false,
+    }
+    const visitorTime = new Intl.DateTimeFormat("en-GB", visitorOption).format(
+      now
+    )
+    const visitorEl = document.getElementById("visitor-time")
+    if (visitorEl) visitorEl.textContent = visitorTime
+
+    // Author time (Malang - GMT+7)
+    const authorOption: Intl.DateTimeFormatOptions = {
+      timeZone: "Asia/Jakarta",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: false,
+    }
+    const authorTime = new Intl.DateTimeFormat("en-GB", authorOption).format(
+      now
+    )
+    const authorEl = document.getElementById("author-time")
+    if (authorEl) authorEl.textContent = authorTime
+  }
+
+  setInterval(updateTime, 1000)
+  updateTime()
+</script>
