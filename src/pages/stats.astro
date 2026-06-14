@@ -1,10 +1,24 @@
 ---
+import { getCollection } from "astro:content"
 import PageLayout from "@layouts/PageLayout.astro"
 import Container from "@components/Container.astro"
 import BackToPrev from "@components/BackToPrev.astro"
 import { IconStats } from "@lib/iconSystem"
 import Link from "@components/Link.astro"
 import NowPlaying from "@components/NowPlaying.astro"
+
+// Fetch local collection count
+const allBlog = await getCollection("blog", ({ data }) => !data.draft)
+const allCommands = await getCollection("commands")
+const allProjects = await getCollection("projects", ({ data }) => !data.draft)
+const allMilestones = await getCollection("milestones")
+
+const gardenStats = [
+  { name: "Blog Posts", count: allBlog.length, color: "text-cyan-500" },
+  { name: "Commands", count: allCommands.length, color: "text-cyan-500" },
+  { name: "Projects", count: allProjects.length, color: "text-cyan-500" },
+  { name: "Milestones", count: allMilestones.length, color: "text-cyan-500" },
+]
 
 // Fetch data
 const response = await fetch(
@@ -27,7 +41,7 @@ function PacmanBar(percentage: number) {
 }
 
 const title = "Statistics"
-const description = "My activity and language distribution."
+const description = "My activity, garden stats, and language distribution."
 ---
 
 <PageLayout title={title} description={description}>
@@ -45,11 +59,34 @@ const description = "My activity and language distribution."
       </div>
 
       <p class="animate">
-        It represents my programming activity and language preferences over the
-        past year.
+        It represents my programming activity, garden statistic, and language
+        preferences over the past year.
       </p>
 
       <div class="animate space-y-12">
+        <!-- Garden Metrics Section -->
+        <section class="space-y-4">
+          <h2
+            class="border-b border-black/5 pb-2 font-semibold text-black dark:border-white/5 dark:text-white"
+          >
+            Garden Metrics
+          </h2>
+          <div class="grid grid-cols-2 gap-4 sm:grid-cols-4">
+            {
+              gardenStats.map((stat) => (
+                <div class="space-y-1">
+                  <div class="text-[10px] uppercase tracking-wider opacity-50">
+                    {stat.name}
+                  </div>
+                  <div class={`font-mono text-2xl font-bold ${stat.color}`}>
+                    {stat.count}
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+        </section>
+
         <!-- Activity Section -->
         <section class="space-y-4">
           <h2

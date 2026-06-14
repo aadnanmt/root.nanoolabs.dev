@@ -36,7 +36,7 @@ export const NOTFOUND: Metadata = {
 
 export const SOCIALS: Socials = [
   {
-    NAME: "x",
+    NAME: "x-twitter",
     HREF: "https://twitter.com/aadnanmt",
   },
   {
@@ -54,10 +54,6 @@ export const SOCIALS: Socials = [
   {
     NAME: "instagram",
     HREF: "https://www.instagram.com/aadnanmt",
-  },
-  {
-    NAME: "wakatime",
-    HREF: "https://wakatime.com/@aadnanmt",
   },
   {
     NAME: "ko-fi",
