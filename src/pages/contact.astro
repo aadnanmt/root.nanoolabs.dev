@@ -2,16 +2,15 @@
 import PageLayout from "@layouts/PageLayout.astro"
 import Container from "@components/Container.astro"
 import Link from "@components/Link.astro"
+import TimeStatus from "@components/TimeStatus.astro"
 import { SITE, SOCIALS } from "@consts"
 ---
 
 <PageLayout title="Contact" description={`Get in touch with ${SITE.NAME}`}>
   <Container>
     <div class="animate space-y-10">
-      <div class="space-y-4">
-        <h3 class="text-2xl font-semibold text-black dark:text-white">
-          Contact
-        </h3>
+      <div class="animate">
+        <TimeStatus />
       </div>
 
       <div class="space-y-12">
@@ -63,7 +62,7 @@ import { SITE, SOCIALS } from "@consts"
                       "Where I store my code and experiments."}
                     {SOCIAL.NAME === "gitlab" &&
                       "Where I backup my code and experiments."}
-                    {SOCIAL.NAME === "x" &&
+                    {SOCIAL.NAME === "X" &&
                       "Thoughts, updates, and tech rants."}
                     {SOCIAL.NAME === "telegram" &&
                       "Best for a direct and quick technical chat."}
@@ -109,19 +108,22 @@ import { SITE, SOCIALS } from "@consts"
                 Fast, 0% platform fee, supports PayPal & Cards.
               </p>
             </div>
-            <!--<div class="p-4 rounded-lg border border-black/10 dark:border-white/10 space-y-2">
+            {
+              /* 
+            <div class="p-4 rounded-lg border border-black/10 dark:border-white/10 space-y-2">
               <span class="text-xs font-semibold uppercase tracking-wider text-zinc-500">Crypto</span>
               <div class="flex flex-col gap-1">
                 <code class="text-[10px] bg-zinc-100 dark:bg-white/5 px-2 py-1 rounded truncate" title="ETH Address">
-                  BTC:
+                  BTC: 
                 </code>
                 <code class="text-[10px] bg-zinc-100 dark:bg-white/5 px-2 py-1 rounded truncate" title="SOL Address">
-                  ETH:
+                  ETH: 
                 </code>
               </div>
               <p class="text-xs text-zinc-500">For the decentralized supporters.</p>
             </div>
-          </div>-->
+            */
+            }
           </div>
         </section>
       </div>

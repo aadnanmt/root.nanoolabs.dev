@@ -30,7 +30,7 @@ export default defineConfig({
   vite: {
     define: {
       "import.meta.env.GIT_HASH": JSON.stringify(
-        process.env.CF_PAGES_COMMIT_SHA?.substring(0, 7) || gitHash,
+        process.env.CF_PAGES_COMMIT_SHA?.substring(0, 7) || gitHash
       ),
     },
   },

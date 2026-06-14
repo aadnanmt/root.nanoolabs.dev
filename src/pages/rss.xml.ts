@@ -11,13 +11,13 @@ export async function GET(context: Context) {
   const blog = (await getCollection("blog")).filter((post) => !post.data.draft)
 
   const projects = (await getCollection("projects")).filter(
-    (project) => !project.data.draft,
+    (project) => !project.data.draft
   )
 
   const milestones = await getCollection("milestones")
 
   const items = [...blog, ...projects, ...milestones].sort(
-    (a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf(),
+    (a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf()
   )
 
   return rss({

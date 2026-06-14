@@ -10,7 +10,7 @@ import FormattedDate from "@components/FormattedDate.astro"
 
 const collection = (await getCollection("work")).sort(
   (a, b) =>
-    new Date(b.data.dateStart).valueOf() - new Date(a.data.dateStart).valueOf(),
+    new Date(b.data.dateStart).valueOf() - new Date(a.data.dateStart).valueOf()
 )
 
 const work = await Promise.all(
@@ -18,7 +18,7 @@ const work = await Promise.all(
     const { Content } = await item.render()
     const lastUpdated = gitDate(`work/${item.id}`)
     return { ...item, Content, lastUpdated }
-  }),
+  })
 )
 ---
 

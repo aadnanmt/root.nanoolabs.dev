@@ -8,7 +8,7 @@ import NowPlaying from "@components/NowPlaying.astro"
 
 // Fetch data
 const response = await fetch(
-  "https://raw.githubusercontent.com/aadnanmt/readmeSync/main/stats.json",
+  "https://raw.githubusercontent.com/aadnanmt/readmeSync/main/stats.json"
 )
 const stats = await response.json()
 const { totalCommits, languages, updatedAt } = stats

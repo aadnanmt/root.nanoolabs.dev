@@ -7,7 +7,7 @@ import { IconCommands } from "@lib/iconSystem"
 import BackToPrev from "@components/BackToPrev.astro"
 
 const commands = (await getCollection("commands")).sort((a, b) =>
-  a.data.title.localeCompare(b.data.title),
+  a.data.title.localeCompare(b.data.title)
 )
 
 const title = "Linux Commands"

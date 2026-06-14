@@ -10,7 +10,7 @@ import { gitDate } from "@lib/utils"
 
 const allNowEntries = await getCollection("now")
 const sortedEntries = allNowEntries.sort(
-  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
 )
 
 const latestEntry = sortedEntries[0]

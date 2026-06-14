@@ -28,7 +28,7 @@ export async function getNowPlaying(): Promise<NowPlayingResponse> {
       `https://ws.audioscrobbler.com/2.0/?${params.toString()}`,
       {
         signal: AbortSignal.timeout(5000), // 5s timeout
-      },
+      }
     )
 
     if (!response.ok)

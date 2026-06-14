@@ -6,7 +6,7 @@ import ArrowCard from "@components/ArrowCard.astro"
 import { IconMilestones } from "@lib/iconSystem"
 import BackToPrev from "@components/BackToPrev.astro"
 const milestones = (await getCollection("milestones")).sort(
-  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(), // Sort by date descending
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf() // Sort by date descending
 )
 
 const title = "My Milestones"

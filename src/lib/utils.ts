@@ -9,7 +9,7 @@ export function cn(...inputs: ClassValue[]) {
 export function gitDate(filePath: string) {
   try {
     const stdout = execSync(
-      `git log -1 --pretty="format:%ci" src/content/${filePath}`,
+      `git log -1 --pretty="format:%ci" src/content/${filePath}`
     )
     const dateStr = stdout.toString().trim()
     return dateStr ? new Date(dateStr) : null

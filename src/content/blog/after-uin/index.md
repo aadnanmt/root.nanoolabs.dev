@@ -26,7 +26,7 @@ There are many things I took away from UIN:
 - My workflow on programming, coding, up to modeling can be better.
 - Getting more and more curious, even though i'm feeling the imposter syndrome
 
-> There’s a lot more, but that’s all i’m spill. 
+> There’s a lot more, but that’s all i’m spill.
 
 ### Back to School
 
