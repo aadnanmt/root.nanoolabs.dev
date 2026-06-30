@@ -1,6 +1,12 @@
 # Garden Changelog
 
 All notable changes to this my digital garden and content will be documented here
+## [1.4.11] - 2026-06-30
+
+### Features & New Content
+
+- Add changelog link to footer and bump v1.4.11 ([e7e14bf](https://github.com/aadnanmt/root.nanoolabs.dev/commit/e7e14bf13981b24e43fa74d4d2bca22dbc9e7335))
+
 ## [1.4.10] - 2026-06-30
 
 ### Bug Fixes
@@ -82,6 +88,7 @@ Lora
 
 ### Garden Growth
 
+- Generate changelog for v1.4.10 ([71aaba5](https://github.com/aadnanmt/root.nanoolabs.dev/commit/71aaba544563ce5e3ecba3dbf455cd71158e79f9))
 - Added link live and make README.md simple again[skip ci] ([5d53dae](https://github.com/aadnanmt/root.nanoolabs.dev/commit/5d53dae1f900cc573d08a56f689d6350992e8a6c))
 - Update README simple ([6fd43a0](https://github.com/aadnanmt/root.nanoolabs.dev/commit/6fd43a045ac7b45c2b2fb50fe4cc28fe10dbdadd))
 - Add CC BY 4.0 license for blog and commands ([17dbb54](https://github.com/aadnanmt/root.nanoolabs.dev/commit/17dbb54e127ecf0d301bfc6fb3327959e1d33c84))
