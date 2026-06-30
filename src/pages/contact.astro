@@ -74,7 +74,7 @@ const getIcon = (name: string) => {
               SOCIALS.map((SOCIAL) => (
                 <li class="group flex flex-col gap-1 border-l-2 border-zinc-200 pl-4 transition-colors duration-300 hover:border-cyan-500 dark:border-zinc-800">
                   <div class="flex items-center gap-2">
-                    <div class="size-4 fill-zinc-500 group-hover:fill-cyan-500 transition-colors duration-300">
+                    <div class="size-4 fill-zinc-500 transition-colors duration-300 group-hover:fill-cyan-500">
                       <Fragment set:html={getIcon(SOCIAL.NAME)} />
                     </div>
                     <Link

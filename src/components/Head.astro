@@ -19,8 +19,12 @@ interface Props {
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
-const { title, description, image = "https://cdn.nanoolabs.dev/assets/identity/whoami.webp" } = Astro.props
-const faviconUrl = "https://cdn.nanoolabs.dev/brands/latest/nanoo-light.svg";
+const {
+  title,
+  description,
+  image = "https://cdn.nanoolabs.dev/assets/identity/whoami.webp",
+} = Astro.props
+const faviconUrl = "https://cdn.nanoolabs.dev/brands/latest/nanoo-light.svg"
 ---
 
 <!-- Global Metadata -->
