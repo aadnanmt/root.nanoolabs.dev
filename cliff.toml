@@ -1,0 +1,60 @@
+# Config git-cliff to My Digital Garden
+
+[changelog]
+# Template header file  CHANGELOG
+header = """
+# Garden Changelog
+
+All notable changes to this my digital garden and content will be documented here
+"""
+
+# Main Template every files
+body = """
+{% if version %}\
+    ## [{{ version | trim_start_matches(pat="v") }}] - {{ timestamp | date(format="%Y-%m-%d") }}
+{% else %}\
+    ## [unreleased]
+{% endif %}\
+{% for group, commits in commits | group_by(attribute="group") %}
+    ### {{ group }}
+    {% for commit in commits %}
+        - {% if commit.scope %}*({{ commit.scope }})* {% endif %}{{ commit.message | upper_first }} ([{{ commit.id | truncate(length=7, end="") }}](https://github.com/aadnanmt/root.nanoolabs.dev/commit/{{ commit.id }}))\
+    {% endfor %}
+{% endfor %}\n
+"""
+
+# Template footer
+footer = """
+***
+*Generate automatically.*
+"""
+
+# Remove excess space
+trim = true
+
+[git]
+# Parsing commit use rule conventional commits
+conventional_commits = true
+# Ignore letter uppercase or lowercase in commit
+filter_unconventional = false
+# Sort commit from latest
+sort_commits = "newest"
+
+# Mapping commit type to group in the changelog
+commit_parsers = [
+    { message = "^feat", group = "Features & New Content" },
+    { message = "^fix", group = "Bug Fixes" },
+    { message = "^doc|^garden", group = "Garden Growth" },
+    { message = "^perf", group = "Performance" },
+    { message = "^refactor", group = "Refactoring" },
+    { message = "^style", group = "UI & Styling" },
+    { message = "^chore", group = "Maintenance" },
+    { message = "^test", group = "Testing" },
+    { message = "^ci|^build", group = "CI/CD" },
+    { message = ".*", group = "Other Changes" },
+]
+
+
+# Protection filter git
+filter_commits = false
+tag_pattern = "v[0-9]*"
