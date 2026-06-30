@@ -1,0 +1,3 @@
+[submodule "src/content/diary"]
+	path = src/content/diary
+	url = https://github.com/aadnanmt/underground
