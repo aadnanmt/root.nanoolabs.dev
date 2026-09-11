@@ -10,6 +10,7 @@
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 
+  --color-primary: #009999;
   --color-primary-light: #009999;
   --color-primary-dark: #00ffff;
   --color-primary-soft-light: #007a7a;
@@ -18,6 +19,13 @@
   --color-primary-deep-dark: #00cccc;
   --color-on-primary-light: #ffffff;
   --color-on-primary-dark: #000000;
+  --color-accent: #00b8b8;
+  --color-accent-light: #00b8b8;
+  --color-accent-dark: #00ffff;
+  --color-accent-soft-light: #009999;
+  --color-accent-soft-dark: #00e5e5;
+  --color-accent-deep-light: #007a7a;
+  --color-accent-deep-dark: #00cccc;
   --color-ink-light: #1a1a1a;
   --color-ink-dark: #f2f2f2;
   --color-ink-strong-light: #000000;
@@ -46,6 +54,8 @@ html {
 
 html.dark {
   color-scheme: dark;
+  --color-primary: #00ffff;
+  --color-accent: #00ffff;
 }
 
 html,
@@ -82,8 +92,8 @@ article {
   @apply prose dark:prose-invert prose-img:mx-auto prose-img:my-auto max-w-full;
   @apply md:prose-img:mx-0;
   @apply prose-headings:font-semibold;
-  @apply prose-headings:text-zinc-900 prose-headings:dark:text-white;
-  @apply prose-p:text-zinc-600 prose-p:dark:text-white/70;
+  @apply prose-headings:text-ink-strong-light prose-headings:dark:text-white;
+  @apply prose-p:text-body-light prose-p:dark:text-white/70;
 }
 
 article pre {
@@ -104,20 +114,20 @@ article pre {
 }
 
 .copy-code {
-  @apply absolute top-2 right-3 border border-zinc-300 bg-zinc-100 px-2 py-0.5 font-mono text-xs text-zinc-600 transition-colors hover:border-cyan-400 hover:bg-cyan-400 hover:text-black dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:border-cyan-400 dark:hover:bg-cyan-400 dark:hover:text-black;
+  @apply border-border-light bg-canvas-soft-light text-body-light hover:border-accent hover:bg-accent hover:text-on-primary-light dark:border-border-dark dark:bg-canvas-soft-dark dark:text-body-dark dark:hover:border-accent dark:hover:bg-accent dark:hover:text-on-primary-dark absolute top-2 right-3 border px-2 py-0.5 font-mono text-xs transition-colors;
 }
 
 article code {
-  @apply font-mono text-sm text-cyan-700 dark:text-cyan-400;
+  @apply text-primary-soft-light dark:text-primary font-mono text-sm;
 }
 
 article :not(pre) > code {
-  @apply bg-zinc-100 px-1 py-0.5 dark:bg-white/10;
+  @apply bg-canvas-soft-light px-1 py-0.5 dark:bg-white/10;
 }
 
 @layer base {
   ::selection {
-    @apply bg-cyan-200 text-zinc-900 dark:bg-cyan-400 dark:text-black;
+    @apply bg-primary/20 text-ink-light dark:bg-primary dark:text-on-primary-dark;
   }
 
   /* Scrollbar styles */
@@ -130,23 +140,23 @@ article :not(pre) > code {
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply rounded-full bg-zinc-300 dark:bg-stone-800;
+    @apply bg-border-light dark:bg-border-dark rounded-full;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-zinc-400 dark:bg-cyan-900;
+    @apply bg-mute-light dark:bg-primary-soft-dark;
   }
 }
 
 @layer utilities {
   article a {
     @apply font-sans text-current underline underline-offset-2;
-    @apply decoration-zinc-300 dark:decoration-cyan-400/30;
+    @apply decoration-border-light dark:decoration-primary/30;
     @apply transition-colors duration-300 ease-in-out;
   }
   article a:hover {
-    @apply text-cyan-700 dark:text-cyan-400;
-    @apply decoration-cyan-500/50 dark:decoration-cyan-400/50;
+    @apply text-primary-soft-light dark:text-primary;
+    @apply decoration-primary-deep-light/50 dark:decoration-accent/50;
   }
 }
 

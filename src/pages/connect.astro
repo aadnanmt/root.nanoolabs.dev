@@ -31,12 +31,14 @@ import { getIcon, IconEmail } from "@lib/iconSystem"
           <h4 class="font-semibold text-black dark:text-white">
             Professional Inquiries
           </h4>
-          <p class="text-sm text-zinc-500 dark:text-zinc-400">
+          <p class="text-mute-light dark:text-mute-dark text-sm">
             For collaboration, project proposals, or deep technical discussions,
             email is the most reliable way to reach me.
           </p>
           <div class="flex items-center gap-2">
-            <div class="size-4 fill-zinc-500 text-zinc-500">
+            <div
+              class="fill-mute-light dark:fill-mute-dark text-mute-light dark:text-mute-dark size-4"
+            >
               <Fragment set:html={IconEmail} />
             </div>
             <Link href={`mailto:${SITE.EMAIL}`} external>
@@ -49,7 +51,7 @@ import { getIcon, IconEmail } from "@lib/iconSystem"
           <h4 class="font-semibold text-black dark:text-white">
             Social Presence
           </h4>
-          <p class="text-sm text-zinc-500 dark:text-zinc-400">
+          <p class="text-mute-light dark:text-mute-dark text-sm">
             Follow my journey, see my experiments, or just reach out for a quick
             chat.
           </p>
@@ -63,10 +65,10 @@ import { getIcon, IconEmail } from "@lib/iconSystem"
                 const isInactive = !SOCIAL.ACTIVE && !SOCIAL.BALANCED
                 return (
                   <li
-                    class={`group flex flex-col gap-1 border-l-2 border-zinc-200 pl-4 dark:border-zinc-800${isInactive ? " pointer-events-none opacity-50" : ""}`}
+                    class={`group border-border-soft-light flex flex-col gap-1 border-l-2 pl-4 dark:border-border-soft-dark${isInactive ? " pointer-events-none opacity-50" : ""}`}
                   >
                     <div class="flex items-center gap-2">
-                      <div class="size-4 fill-zinc-500 text-zinc-500">
+                      <div class="fill-mute-light dark:fill-mute-dark text-mute-light dark:text-mute-dark size-4">
                         <Fragment set:html={getIcon(SOCIAL.NAME)} />
                       </div>
                       {SOCIAL.ACTIVE || isExcluded ? (
@@ -83,17 +85,17 @@ import { getIcon, IconEmail } from "@lib/iconSystem"
                         </span>
                       )}
                       {SOCIAL.ACTIVE && (
-                        <span class="rounded-full bg-cyan-400/10 px-2 py-0.5 text-[10px] tracking-wider text-cyan-700 uppercase dark:text-cyan-400">
+                        <span class="bg-primary/10 text-primary-soft-light dark:text-primary rounded-full px-2 py-0.5 text-[10px] tracking-wider uppercase">
                           active
                         </span>
                       )}
                       {isInactive && (
-                        <span class="rounded-full bg-zinc-400/10 px-2 py-0.5 text-[10px] tracking-wider text-zinc-500 uppercase dark:text-zinc-500">
+                        <span class="bg-mute-light/10 text-mute-light dark:bg-mute-dark/10 dark:text-mute-dark rounded-full px-2 py-0.5 text-[10px] tracking-wider uppercase">
                           inactive
                         </span>
                       )}
                     </div>
-                    <span class="text-xs text-zinc-500">
+                    <span class="text-mute-light dark:text-mute-dark text-xs">
                       {SOCIAL.DESCRIPTION}
                     </span>
                   </li>
@@ -101,7 +103,7 @@ import { getIcon, IconEmail } from "@lib/iconSystem"
               })
             }
           </ul>
-          <p class="text-xs text-zinc-500 dark:text-zinc-400">
+          <p class="text-mute-light dark:text-mute-dark text-xs">
             I'm currently optimize for <strong>deep work.</strong> Only via <strong
               >GitHub</strong
             > / <strong>Codeberg</strong> for technical collab, or <strong
@@ -114,7 +116,7 @@ import { getIcon, IconEmail } from "@lib/iconSystem"
           <h4 class="font-semibold text-black dark:text-white">
             Support my work
           </h4>
-          <p class="text-sm text-zinc-500 dark:text-zinc-400">
+          <p class="text-mute-light dark:text-mute-dark text-sm">
             If you find my digital garden or open-source projects useful,
             consider supporting my research and maintenance.
           </p>
@@ -123,11 +125,13 @@ import { getIcon, IconEmail } from "@lib/iconSystem"
               class="space-y-2 border border-black/10 p-4 dark:border-white/10"
             >
               <span
-                class="text-xs font-semibold tracking-wider text-zinc-500 uppercase"
+                class="text-mute-light dark:text-mute-dark text-xs font-semibold tracking-wider uppercase"
                 >Fiat / Traditional</span
               >
               <div class="flex items-center gap-2">
-                <div class="size-4 fill-zinc-500 text-zinc-500">
+                <div
+                  class="fill-mute-light dark:fill-mute-dark text-mute-light dark:text-mute-dark size-4"
+                >
                   <Fragment set:html={getIcon("ko-fi")} />
                 </div>
                 <Link
@@ -138,7 +142,7 @@ import { getIcon, IconEmail } from "@lib/iconSystem"
                   Ko-fi
                 </Link>
               </div>
-              <p class="text-xs text-zinc-500">
+              <p class="text-mute-light dark:text-mute-dark text-xs">
                 Fast, 0% platform fee, supports PayPal & Cards.
               </p>
             </div>

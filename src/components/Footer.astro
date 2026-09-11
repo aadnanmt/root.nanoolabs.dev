@@ -39,7 +39,7 @@ const lastActive = lastCommitDate()
           {
             lastActive && (
               <span title={lastActive.toISOString()}>
-                active {timeAgo(lastActive)}
+                Updated {timeAgo(lastActive)}
               </span>
             )
           }
@@ -54,7 +54,7 @@ const lastActive = lastCommitDate()
                 href={`${repoUrl}/commit/${gitHash}`}
                 external
                 underline={false}
-                class="transition-colors hover:text-cyan-400"
+                class="hover:text-accent transition-colors"
               >
                 {gitHash}
               </Link>
@@ -67,7 +67,7 @@ const lastActive = lastCommitDate()
         <Link
           href="/credits"
           underline={false}
-          class="transition-colors hover:text-cyan-400"
+          class="hover:text-accent transition-colors"
         >
           Credits
         </Link>
@@ -76,7 +76,7 @@ const lastActive = lastCommitDate()
         <Link
           href="/rss.xml"
           underline={false}
-          class="transition-colors hover:text-cyan-400"
+          class="hover:text-accent transition-colors"
         >
           RSS
         </Link>
@@ -86,7 +86,7 @@ const lastActive = lastCommitDate()
           href="https://creativecommons.org/licenses/by/4.0/"
           external
           underline={false}
-          class="transition-colors hover:text-cyan-400"
+          class="hover:text-accent transition-colors"
         >
           CC BY 4.0
         </Link>

@@ -4,15 +4,15 @@ import { IconSun, IconMoon } from "@lib/iconSystem"
 
 <button
   id="theme-toggle"
-  class="fixed right-6 bottom-6 z-50 flex h-10 w-10 items-center justify-center rounded-full border border-black/10 bg-white/50 backdrop-blur-md transition-all hover:border-cyan-400/50 hover:bg-white dark:border-white/10 dark:bg-black/50 dark:hover:border-cyan-400/50 dark:hover:bg-black"
+  class="hover:border-accent/50 dark:hover:border-accent/50 fixed right-6 bottom-6 z-50 flex h-10 w-10 items-center justify-center rounded-full border border-black/10 bg-white/50 backdrop-blur-md transition-all hover:bg-white dark:border-white/10 dark:bg-black/50 dark:hover:bg-black"
   aria-label="Toggle theme"
 >
   <!-- Sun icon -->
-  <span id="sun-icon" class="hidden text-cyan-400 dark:block"
+  <span id="sun-icon" class="text-primary hidden dark:block"
     ><Fragment set:html={IconSun} /></span
   >
   <!-- Moon icon -->
-  <span id="moon-icon" class="block text-cyan-700 dark:hidden"
+  <span id="moon-icon" class="text-primary-soft-light block dark:hidden"
     ><Fragment set:html={IconMoon} /></span
   >
 </button>

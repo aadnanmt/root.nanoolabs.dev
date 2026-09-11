@@ -6,7 +6,9 @@ import { IconSend, IconEmail, getIcon } from "@lib/iconSystem"
 
 <section class="space-y-4">
   <h5 class="flex items-center gap-2 font-semibold text-black dark:text-white">
-    <span class="size-5 fill-zinc-500"><Fragment set:html={IconSend} /></span>
+    <span class="fill-mute-light dark:fill-mute-dark size-5"
+      ><Fragment set:html={IconSend} /></span
+    >
     Come Say Hi
   </h5>
   <article>
@@ -17,7 +19,9 @@ import { IconSend, IconEmail, getIcon } from "@lib/iconSystem"
   </article>
   <ul class="flex flex-wrap gap-2">
     <li class="line-clamp-1 flex items-center gap-x-2">
-      <span class="size-4 fill-zinc-500 text-zinc-500">
+      <span
+        class="fill-mute-light dark:fill-mute-dark text-mute-light dark:text-mute-dark size-4"
+      >
         <Fragment set:html={IconEmail} />
       </span>
       <Link
@@ -31,7 +35,7 @@ import { IconSend, IconEmail, getIcon } from "@lib/iconSystem"
     {
       SOCIALS.filter((SOCIAL) => SOCIAL.ACTIVE).map((SOCIAL) => (
         <li class="flex items-center gap-x-2 text-nowrap">
-          <span class="size-4 fill-zinc-500 text-zinc-500">
+          <span class="fill-mute-light dark:fill-mute-dark text-mute-light dark:text-mute-dark size-4">
             <Fragment set:html={getIcon(SOCIAL.NAME)} />
           </span>
           <Link

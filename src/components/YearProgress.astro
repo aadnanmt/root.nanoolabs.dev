@@ -14,7 +14,7 @@ const totalBlocks = 25
     <span class="text-sm font-semibold tracking-widest uppercase opacity-70">
       {now.getFullYear()} Progress
     </span>
-    <span class="text-sm font-bold text-cyan-500">
+    <span class="text-primary text-sm font-bold">
       {percent}%
     </span>
   </div>
@@ -26,7 +26,9 @@ const totalBlocks = 25
         return (
           <div
             class={`h-4 flex-1 transition-colors duration-500 ${
-              isFilled ? "bg-cyan-500" : "bg-black/10 dark:bg-white/10"
+              isFilled
+                ? "bg-primary-deep-light dark:bg-primary"
+                : "bg-black/10 dark:bg-white/10"
             }`}
           />
         )

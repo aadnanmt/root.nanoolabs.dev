@@ -58,6 +58,7 @@ const { collection, entry } = Astro.props as {
       repoURL?: string
       mood?: string
       lessonLearn?: string
+      tags?: string[]
     }
   }
 }
@@ -70,7 +71,7 @@ const moodColor: Record<string, string> = {
   Neutral: "text-yellow-500",
   Bad: "text-red-500",
   Tired: "text-blue-500",
-  SoHappy: "text-cyan-500",
+  SoHappy: "text-primary",
   SoBad: "text-orange-500",
 }
 
@@ -118,7 +119,7 @@ const ogImage = `/content/${collection}/${entry.slug}/cover.webp`
           ) : (
             <div class="font-base text-sm">
               Category:{" "}
-              <span class="font-semibold text-cyan-500">
+              <span class="text-primary font-semibold">
                 {entry.data.category}
               </span>
             </div>
@@ -156,6 +157,20 @@ const ogImage = `/content/${collection}/${entry.slug}/cover.webp`
         {entry.data.title}
       </div>
       {
+        entry.data.tags && entry.data.tags.length > 0 && (
+          <div class="flex flex-wrap gap-1.5 pt-1">
+            {entry.data.tags.map((tag) => (
+              <a
+                href={`/tags/${tag}`}
+                class="text-body-light hover:border-accent/40 hover:text-accent dark:hover:border-accent/40 dark:hover:text-accent border border-black/10 px-2 py-0.5 font-mono text-xs transition-colors dark:border-white/10"
+              >
+                {tag}
+              </a>
+            ))}
+          </div>
+        )
+      }
+      {
         hasDemo && (entry.data.demoURL || entry.data.repoURL) && (
           <nav class="flex gap-1">
             {entry.data.demoURL && (
@@ -191,7 +206,7 @@ const ogImage = `/content/${collection}/${entry.slug}/cover.webp`
         <Link
           href="https://creativecommons.org/licenses/by/4.0/"
           external
-          class="decoration-cyan-400/50"
+          class="decoration-accent/50"
         >
           CC BY 4.0
         </Link>
@@ -199,7 +214,7 @@ const ogImage = `/content/${collection}/${entry.slug}/cover.webp`
         <Link
           href={`${SITE.REPO}/edit/main/src/content/${collection}/${entry.id}`}
           external
-          class="decoration-cyan-400/50"
+          class="decoration-accent/50"
         >
           Edit this page
         </Link>
