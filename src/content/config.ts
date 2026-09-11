@@ -1,5 +1,6 @@
 import { defineCollection, z } from "astro:content"
 import { MILESTONE_MOODS } from "@lib/emoji"
+import { LICENSE } from "@consts"
 
 const blog = defineCollection({
   type: "content",
@@ -8,7 +9,8 @@ const blog = defineCollection({
     description: z.string(),
     date: z.coerce.date(),
     draft: z.boolean().optional(),
-    license: z.string().optional().default("CC BY 4.0"),
+    license: z.string().optional().default(LICENSE.NAME),
+    tags: z.array(z.string()).optional(),
   }),
 })
 

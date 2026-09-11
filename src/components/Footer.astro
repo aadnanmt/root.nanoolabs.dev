@@ -1,6 +1,6 @@
 ---
 import Container from "@components/Container.astro"
-import { SITE } from "@consts"
+import { SITE, LICENSE } from "@consts"
 import BackToTop from "@components/BackToTop.astro"
 import Link from "@components/Link.astro"
 import { lastCommitDate, timeAgo } from "@lib/utils"
@@ -83,12 +83,12 @@ const lastActive = lastCommitDate()
 
         <span class="opacity-50">|</span>
         <Link
-          href="https://creativecommons.org/licenses/by/4.0/"
+          href={LICENSE.URL}
           external
           underline={false}
           class="hover:text-accent transition-colors"
         >
-          CC BY 4.0
+          {LICENSE.NAME}
         </Link>
       </div>
     </div>

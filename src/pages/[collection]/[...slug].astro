@@ -7,7 +7,7 @@ import FormattedDate from "@components/FormattedDate.astro"
 import { readingTime, gitDate } from "@lib/utils"
 import { getEmoji } from "@lib/emoji"
 import BackToPrev from "@components/BackToPrev.astro"
-import { SITE } from "@consts"
+import { SITE, LICENSE } from "@consts"
 import Link from "@components/Link.astro"
 
 type Entry =
@@ -204,11 +204,11 @@ const ogImage = `/content/${collection}/${entry.slug}/cover.webp`
       <p class="text-sm opacity-75">
         This content is licensed under
         <Link
-          href="https://creativecommons.org/licenses/by/4.0/"
+          href={LICENSE.URL}
           external
           class="decoration-accent/50"
         >
-          CC BY 4.0
+          {LICENSE.NAME}
         </Link>
         .<span class="mx-1 opacity-50">|</span>
         <Link

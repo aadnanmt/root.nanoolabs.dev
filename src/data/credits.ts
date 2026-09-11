@@ -1,3 +1,5 @@
+import { LICENSE } from "@consts"
+
 export const CREDITS = [
   {
     NAME: "Astro Nano",
@@ -37,7 +39,7 @@ export const CREDITS = [
   },
   {
     NAME: "FontAwesome",
-    DESCRIPTION: "Source of the brand icons, licensed under CC BY 4.0.",
+    DESCRIPTION: `Source of the brand icons, licensed under ${LICENSE.NAME}.`,
     HREF: "https://fontawesome.com",
   },
   {

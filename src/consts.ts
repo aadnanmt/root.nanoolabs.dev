@@ -10,6 +10,11 @@ export const SITE: Site = {
   NUM_PROJECTS_ON_HOMEPAGE: 1,
 }
 
+export const LICENSE = {
+  NAME: "CC BY 4.0",
+  URL: "https://creativecommons.org/licenses/by/4.0/",
+}
+
 export const HOME: Metadata = {
   TITLE: "Home",
   DESCRIPTION: "Adnan - Programmer && Sains Tech Enthusiast",
