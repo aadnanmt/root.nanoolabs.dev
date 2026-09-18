@@ -9,15 +9,18 @@ My digital garden. I build it with **Astro 5** and **Tailwind CSS 4**. i write a
 ## Features
 
 - **Linux Wiki**: Personal notes for Linux commands
-- **Digital Garden**: Blog posts, milestones, and lessons learned
+- **Digital Garden**: Blog posts and lessons learned
+- **Notes**: Short, unpolished thoughts and context from my days
+- **Tags**: Browse content by topic across blog, projects, and commands
 - **Public Keys**: My age, GPG, and SSH public keys
 - **Focus Page**: Project progress, Arch Linux style
 - **Stats Page**: Realtime stat dashboard
 - **Uses Page**: Tools and software I use every day
 - **Now Page**: What I am focusing on right now
-- **RSS**: Combined feed for blog, projects, and milestones
-- **Last.fm Integration**: Shows what music I am listen
+- **RSS**: Combined feed for blog, projects, and notes
+- **Last.fm Integration**: Shows what music I am listening to
 - **imood Integration**: Shows my current mood
+- **Last Active**: Footer shows time since last commit
 - **Dark Mode**: OLED black and cyan, powered by Nanoo design tokens
 
 ## Tech I Use
@@ -47,15 +50,26 @@ pnpm dev
 
 ## Commands
 
-| Command        | What it does             |
-| -------------- | ------------------------ |
-| `pnpm dev`     | Start dev server         |
-| `pnpm build`   | Check types and build    |
-| `pnpm preview` | Preview production build |
-| `pnpm lint`    | Check code style         |
-| `pnpm format`  | Auto format code         |
+| Command            | What it does             |
+| ------------------ | ------------------------ |
+| `pnpm dev`         | Start dev server         |
+| `pnpm dev:network` | Dev server on network    |
+| `pnpm build`       | Check types and build    |
+| `pnpm preview`     | Preview production build |
+| `pnpm lint`        | Check code style         |
+| `pnpm format`      | Auto format code         |
+| `pnpm new`         | Scaffold a content entry |
 
-<!--| `pnpm new`         | Scaffold a content entry |-->
+## Quick Notes
+
+There's a local git alias for快速 notes:
+
+```bash
+git note   # stage notes/ + commit with "note: YYYY-MM-DD"
+git push   # push to remote
+```
+
+One commit per day. Free language (Indonesian/English/Indoglish).
 
 ## Cloudflare Pages
 

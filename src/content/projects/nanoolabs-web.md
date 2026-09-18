@@ -5,7 +5,7 @@ date: "2026-03-02"
 demoURL: "https://nanoolabs.dev"
 repoURL: "https://github.com/nanoolabs/nanoolabs.dev"
 category: "nanoo"
-tags: ["astro", "tailwind", "cloudflare"]
+tags: ["astro", "portfolio", "cloudflare"]
 ---
 
 Official website and lab showcase for Nanoo. Astro 5 site deployed to Cloudflare Pages.

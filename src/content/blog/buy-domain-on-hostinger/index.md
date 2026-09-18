@@ -4,7 +4,7 @@ description: "Steps to buy a domain through Hostinger."
 date: "2026-05-09"
 lang: "en"
 translationKey: "buy-domain-on-hostinger"
-tags: ["domain", "hostinger"]
+tags: ["web", "hostinger", "domain"]
 ---
 
 Here are my steps to purchase a domain through Hostinger.

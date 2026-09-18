@@ -4,7 +4,7 @@ description: "Fundamental guide to mastering Version Control. Secure your code, 
 date: "Jan 26 2026"
 lang: "en"
 translationKey: "git-simple-push"
-tags: ["git", "tutorial"]
+tags: ["git", "tutorial", "basics"]
 ---
 
 ## What is Git?

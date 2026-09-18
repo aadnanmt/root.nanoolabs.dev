@@ -2,7 +2,7 @@
 title: "Git dry run"
 description: "Preview what a command will do before actually executing it"
 category: "Git"
-tags: ["git", "dry-run"]
+tags: ["git", "safety", "cli"]
 ---
 
 Sometime you want to see what a command will do without actually doing it. `git push --dry-run` previews the push instead of executing it

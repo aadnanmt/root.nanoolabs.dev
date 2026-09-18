@@ -3,7 +3,7 @@ title: "Astrolink"
 description: "A modern linktree alternative moved to Astro for easier changes and better development."
 date: "2025-04-10"
 repoURL: "https://github.com/aadnanmt/astrolink"
-tags: ["astro", "linktree", "portfolio"]
+tags: ["astro", "portfolio", "linktree"]
 ---
 
 A simple link-in-bio page, rebuilt in Astro for faster builds and easier maintenance.

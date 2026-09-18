@@ -1,5 +1,4 @@
 import { defineCollection, z } from "astro:content"
-import { MILESTONE_MOODS } from "@lib/emoji"
 import { LICENSE } from "@consts"
 
 const blog = defineCollection({
@@ -65,18 +64,6 @@ const commands = defineCollection({
   }),
 })
 
-const milestones = defineCollection({
-  type: "content",
-  schema: z.object({
-    title: z.string(),
-    date: z.coerce.date(),
-    mood: z.enum(MILESTONE_MOODS).optional(),
-    lessonLearn: z.string().optional(),
-    tags: z.array(z.string()).optional(),
-    description: z.string().optional(),
-  }),
-})
-
 const uses = defineCollection({
   type: "content",
   schema: z.object({
@@ -102,7 +89,6 @@ export const collections = {
   projects,
   now,
   commands,
-  milestones,
   uses,
   notes,
 }

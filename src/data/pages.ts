@@ -49,13 +49,6 @@ export const EXPLORE_PAGES: ExplorePage[] = [
     desc: "My public keys for encryption and signing.",
     group: "identity",
   },
-  // Milestones: disabled from digital garden (see TODO.md)
-  // {
-  //   name: "Milestones",
-  //   href: "/milestones",
-  //   desc: "Documenting lessons learned on my journey",
-  //   group: "content",
-  // },
 ]
 
 export const MAIN_PAGES: ExplorePage[] = [

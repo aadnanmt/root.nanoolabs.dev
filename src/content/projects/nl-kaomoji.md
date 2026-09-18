@@ -4,7 +4,7 @@ description: "Minimalist kaomojis for Nanoo Labs documentation."
 date: "2026-05-15"
 repoURL: "https://github.com/nanoolabs/kaomoji"
 category: "nanoo"
-tags: ["kaomoji", "npm", "typescript"]
+tags: ["typescript", "nanoo", "kaomoji"]
 ---
 
 Minimalist kaomojis for Nanoo Labs documentation.

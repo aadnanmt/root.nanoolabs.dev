@@ -31,20 +31,7 @@ const emojiMap: Record<string, string> = {
   playful: "😜",
   lucky: "🍀",
   loved: "❤️",
-  // milestone moods (schema enum)
-  sohappy: "🤩",
-  sobad: "😔",
-  neutral: "😐",
 }
-
-export const MILESTONE_MOODS = [
-  "Good",
-  "Neutral",
-  "Bad",
-  "Tired",
-  "SoHappy",
-  "SoBad",
-] as const
 
 export function getEmoji(mood?: string): string {
   if (!mood) return "🫠"

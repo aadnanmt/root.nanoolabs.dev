@@ -2,7 +2,7 @@
 title: NMCLI Efficient Commands
 description: NMCLI default auto-completion for efficient commands
 category: Network
-tags: ["network", "nmcli"]
+tags: ["cli", "network", "linux"]
 ---
 
 If you feel that typing `nmcli` is too long.... Did you know that nmcli has auto-completion?

@@ -10,8 +10,7 @@ export async function GET(context: Context) {
   const projects = (await getCollection("projects")).filter(
     (project) => !project.data.draft
   )
-  const milestones = await getCollection("milestones")
-  const items = [...blog, ...projects, ...milestones].sort(
+  const items = [...blog, ...projects].sort(
     (a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf()
   )
   const md = new Marked({
@@ -31,9 +30,7 @@ export async function GET(context: Context) {
     site: context.site,
     items: items.map((item) => ({
       title: item.data.title,
-      description:
-        item.data.description ||
-        (item.collection === "milestones" ? item.data.lessonLearn : ""),
+      description: item.data.description || "",
       pubDate: item.data.date,
       link: `/${item.collection}/${item.slug}/`,
       content: md.parse(item.body) as string,

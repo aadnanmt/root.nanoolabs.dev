@@ -4,12 +4,11 @@ Pending work and ideas for root.nanoolabs.dev
 
 ## Pending
 
-- [ ] Add "Explore the garden" section on homepage (bridges to `/commands`, `/now`, `/milestones`, `/focus`)
+- [ ] Add "Explore the garden" section on homepage (bridges to `/commands`, `/now`, `/focus`)
 - [ ] Add `--open` to dev script
 - [ ] Uncomment `pnpm new` in README (scripts/ now tracked), phase development
 - [ ] Set up Astro LSP (live `astro check` in editor)
 - [ ] Replace profil photo
-- [ ] Re-enable Milestones (see `src/pages/milestones/index.astro`, commented)
 
 ## Deferred
 

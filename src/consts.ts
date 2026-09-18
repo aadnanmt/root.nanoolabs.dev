@@ -94,15 +94,6 @@ export const COMMANDS: Metadata = {
   ],
 }
 
-export const MILESTONES: Metadata = {
-  TITLE: "My Milestones",
-  DESCRIPTION:
-    "Documenting my personal growth, reflections, and lessons learned on this journey.",
-  INTRO: [
-    "This is my honest journey of personal growth, tech explorations, and life lessons. It's a record of how I'm trying to figure things out, one step at a time.",
-  ],
-}
-
 export const FOCUS: Metadata = {
   TITLE: "Focus",
   DESCRIPTION: "Current focus and project progress, Ascii style.",

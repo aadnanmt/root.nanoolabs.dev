@@ -5,7 +5,6 @@ import PageLayout from "@layouts/PageLayout.astro"
 import Container from "@components/Container.astro"
 import FormattedDate from "@components/FormattedDate.astro"
 import { readingTime, gitDate } from "@lib/utils"
-import { getEmoji } from "@lib/emoji"
 import BackToPrev from "@components/BackToPrev.astro"
 import { SITE, LICENSE } from "@consts"
 import Link from "@components/Link.astro"
@@ -14,11 +13,8 @@ type Entry =
   | CollectionEntry<"blog">
   | CollectionEntry<"projects">
   | CollectionEntry<"commands">
-// Milestones: disabled from digital garden (see TODO.md)
-// | CollectionEntry<"milestones">
 
 export async function getStaticPaths() {
-  // Milestones: disabled from difital garden (see TODO.md)
   const COLLECTIONS = ["blog", "projects", "commands"] as const
   const paths: {
     params: { collection: string; slug: string | undefined }
@@ -26,8 +22,8 @@ export async function getStaticPaths() {
   }[] = []
 
   for (const name of COLLECTIONS) {
-    // Draft filter: exclude entries where `draft` exists AND is true
-    // The `"draft" in e.data` guard lets collections without a draft
+    // draft filter: exclude entries where `draft` exists AND is true
+    // the `"draft" in e.data` guard lets collections without a draft
     // field (e.g commands) pass through without TypeError
     const entries = (await getCollection(name)).filter(
       (e) => !("draft" in e.data && e.data.draft)
@@ -56,37 +52,17 @@ const { collection, entry } = Astro.props as {
       category?: string
       demoURL?: string
       repoURL?: string
-      mood?: string
-      lessonLearn?: string
       tags?: string[]
     }
   }
 }
 
-// Milestones disabled from frontend (see TODO.md). These stay defined
-// (not deleted) so re-enabl milestones only requires uncommenting
-// COLLECTIONS + this block, not rewriting logic from scratch.
-const moodColor: Record<string, string> = {
-  Good: "text-green-500",
-  Neutral: "text-yellow-500",
-  Bad: "text-red-500",
-  Tired: "text-blue-500",
-  SoHappy: "text-primary",
-  SoBad: "text-orange-500",
-}
-
 const { Content } = await entry.render()
 const lastUpdated = gitDate(`${collection}/${entry.id}`)
 const hasDate = collection !== "commands"
-const useProse = collection === "commands" || collection === "milestones"
-const bigTitle = collection === "commands" || collection === "milestones"
+const useProse = collection === "commands"
+const bigTitle = collection === "commands"
 const hasDemo = collection === "projects"
-const hasMood = collection === "milestones" // Milestones: disabled (see TODO.md)
-const hasLesson = collection === "milestones" // Milestones: disabled (see TODO.md)
-const currentMoodColor =
-  hasMood && entry.data.mood ? (moodColor[entry.data.mood] ?? "") : ""
-const currentMoodEmoji =
-  hasMood && entry.data.mood ? getEmoji(entry.data.mood) : ""
 const ogImage = `/content/${collection}/${entry.slug}/cover.webp`
 ---
 
@@ -102,19 +78,17 @@ const ogImage = `/content/${collection}/${entry.slug}/cover.webp`
       </BackToPrev>
     </div>
     <div class="my-10 space-y-1">
-      <div class="flex items-center gap-1.5">
+      <div class="flex flex-wrap items-center gap-1.5">
         {
           hasDate ? (
             <>
               <div class="font-base text-sm">
                 <FormattedDate date={entry.data.date} />
               </div>
-              {collection !== "milestones" && (
-                <>
-                  &bull;
-                  <div class="font-base text-sm">{readingTime(entry.body)}</div>
-                </>
-              )}
+              <>
+                &bull;
+                <div class="font-base text-sm">{readingTime(entry.body)}</div>
+              </>
             </>
           ) : (
             <div class="font-base text-sm">
@@ -135,19 +109,6 @@ const ogImage = `/content/${collection}/${entry.slug}/cover.webp`
             </>
           )
         }
-        {
-          hasMood && entry.data.mood && (
-            <>
-              &bull;
-              <div class="font-base text-sm">
-                Mood:{" "}
-                <span class={`${currentMoodColor} font-semibold`}>
-                  {entry.data.mood} {currentMoodEmoji}
-                </span>
-              </div>
-            </>
-          )
-        }
       </div>
       <div
         class={`font-semibold text-black dark:text-white${
@@ -160,12 +121,9 @@ const ogImage = `/content/${collection}/${entry.slug}/cover.webp`
         entry.data.tags && entry.data.tags.length > 0 && (
           <div class="flex flex-wrap gap-1.5 pt-1">
             {entry.data.tags.map((tag) => (
-              <a
-                href={`/tags/${tag}`}
-                class="text-body-light hover:border-accent/40 hover:text-accent dark:hover:border-accent/40 dark:hover:text-accent border border-black/10 px-2 py-0.5 font-mono text-xs transition-colors dark:border-white/10"
-              >
+              <span class="text-body-light border border-black/10 px-2 py-0.5 font-mono text-xs dark:border-white/10">
                 {tag}
-              </a>
+              </span>
             ))}
           </div>
         )
@@ -187,13 +145,6 @@ const ogImage = `/content/${collection}/${entry.slug}/cover.webp`
           </nav>
         )
       }
-      {
-        hasLesson && entry.data.lessonLearn && (
-          <p class="mt-2 text-sm italic opacity-70">
-            Lesson Learned: &quot;{entry.data.lessonLearn}&quot;
-          </p>
-        )
-      }
     </div>
     <article
       class={`${useProse ? " prose prose-neutral max-w-none dark:prose-invert" : ""}`}
@@ -203,11 +154,7 @@ const ogImage = `/content/${collection}/${entry.slug}/cover.webp`
     <div class="mt-24 border-t border-black/10 pt-10 dark:border-white/10">
       <p class="text-sm opacity-75">
         This content is licensed under
-        <Link
-          href={LICENSE.URL}
-          external
-          class="decoration-accent/50"
-        >
+        <Link href={LICENSE.URL} external class="decoration-accent/50">
           {LICENSE.NAME}
         </Link>
         .<span class="mx-1 opacity-50">|</span>

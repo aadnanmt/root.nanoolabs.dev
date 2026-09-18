@@ -2,7 +2,7 @@
 title: "Find files by size"
 description: "How to quick find large files that are eating your disk space"
 category: "FileSystem"
-tags: ["filesystem", "find"]
+tags: ["cli", "filesystem", "linux"]
 ---
 
 Sometimes you wonder "why your disk is full?". Use this command to find file larger than 300MB on the current directory.

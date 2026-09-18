@@ -4,7 +4,7 @@ description: "Automated GitHub Profile README synchronizer."
 date: "2026-04-08"
 demoURL: "https://github.com/aadnanmt/aadnanmt"
 repoURL: "https://github.com/aadnanmt/meesync"
-tags: ["github", "readme", "automation", "deno"]
+tags: ["github", "automation", "deno"]
 ---
 
 A minimalist tool to synchronize your GitHub Profile stats. Built with **Deno**

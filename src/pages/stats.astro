@@ -13,14 +13,11 @@ import { STATS } from "@consts"
 const allBlog = await getCollection("blog", ({ data }) => !data.draft)
 const allCommands = await getCollection("commands")
 const allProjects = await getCollection("projects", ({ data }) => !data.draft)
-// Milestones: disabled from digital garden (see TODO.md)
-// const allMilestones = await getCollection("milestones")
 
 const gardenStats = [
   { name: "Blog Posts", count: allBlog.length },
   { name: "Commands", count: allCommands.length },
   { name: "Projects", count: allProjects.length },
-  // { name: "Milestones", count: allMilestones.length },
 ]
 
 const STATS_URL =
