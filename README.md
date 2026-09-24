@@ -60,17 +60,6 @@ pnpm dev
 | `pnpm format`      | Auto format code         |
 | `pnpm new`         | Scaffold a content entry |
 
-## Quick Notes
-
-There's a local git alias for快速 notes:
-
-```bash
-git note   # stage notes/ + commit with "note: YYYY-MM-DD"
-git push   # push to remote
-```
-
-One commit per day. Free language (Indonesian/English/Indoglish).
-
 ## Cloudflare Pages
 
 Build command on CF dashboard: `git fetch --unshallow && pnpm build`. CF clone shallow; without it, "Last updated" date show the build date instead of the real last-edit date.
