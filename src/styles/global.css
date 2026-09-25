@@ -148,16 +148,11 @@ article :not(pre) > code {
   }
 }
 
-@layer utilities {
-  article a {
-    @apply font-sans text-current underline underline-offset-2;
-    @apply decoration-border-light dark:decoration-primary/30;
-    @apply transition-colors duration-300 ease-in-out;
-  }
-  article a:hover {
-    @apply text-primary-soft-light dark:text-primary;
-    @apply decoration-primary-deep-light/50 dark:decoration-accent/50;
-  }
+article a {
+  @apply font-sans text-current underline underline-offset-2;
+  @apply transition-colors duration-300 ease-in-out;
+  @apply hover:text-accent-soft-light decoration-black/15 hover:decoration-black/25;
+  @apply dark:decoration-primary/30 dark:hover:decoration-accent/50 dark:hover:text-accent;
 }
 
 html #back-to-top {
