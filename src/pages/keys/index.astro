@@ -1,107 +1,89 @@
 ---
-import PageLayout from "@layouts/PageLayout.astro"
-import Container from "@components/Container.astro"
-import BackToPrev from "@components/BackToPrev.astro"
-import Link from "@components/Link.astro"
-import { IconCommands } from "@lib/iconSystem"
-import { SITE, KEYS } from "@consts"
+import PageLayout from '@layouts/PageLayout.astro'
+import Container from '@components/Container.astro'
+import BackToPrev from '@components/BackToPrev.astro'
+import Link from '@components/Link.astro'
+import { IconCommands } from '@lib/iconSystem'
+import { SITE, KEYS } from '@consts'
 
 const KEYS_DATA = [
-  {
-    type: "age",
-    title: "Age",
-    desc: "Encrypt a file to me with:",
-    fingerprint:
-      "age15lcnlpxv8t6qqt82rcjcagx0h9sx85jdjhj5x3frqaa9u675x56qusmsgp",
-    usage: "age -r <recipient> -o file.age file.txt",
-  },
-  {
-    type: "gpg",
-    title: "GPG",
-    desc: "Verify my signatures or encrypt messages to me.",
-    fingerprint: "3189 8147 4FC8 EB9B 541F E684 D057 A5BA B37D 7F66",
-    usage: `curl -s ${SITE.URL}/keys/gpg | gpg --import`,
-  },
-  {
-    type: "ssh",
-    title: "SSH",
-    desc: "Add this to your authorized_keys for shell access.",
-    fingerprint: "SHA256:LW3y/QCQn79i/2md9XCqJGupe3wIPEOOZPxEzwsrf88",
-    usage: `curl ${SITE.URL}/keys/ssh >> ~/.ssh/authorized_keys`,
-  },
+	{
+		type: 'age',
+		title: 'Age',
+		desc: 'Encrypt a file to me with:',
+		fingerprint: 'age15lcnlpxv8t6qqt82rcjcagx0h9sx85jdjhj5x3frqaa9u675x56qusmsgp',
+		usage: 'age -r <recipient> -o file.age file.txt',
+	},
+	{
+		type: 'gpg',
+		title: 'GPG',
+		desc: 'Verify my signatures or encrypt messages to me.',
+		fingerprint: '3189 8147 4FC8 EB9B 541F E684 D057 A5BA B37D 7F66',
+		usage: `curl -s ${SITE.URL}/keys/gpg | gpg --import`,
+	},
+	{
+		type: 'ssh',
+		title: 'SSH',
+		desc: 'Add this to your authorized_keys for shell access.',
+		fingerprint: 'SHA256:LW3y/QCQn79i/2md9XCqJGupe3wIPEOOZPxEzwsrf88',
+		usage: `curl ${SITE.URL}/keys/ssh >> ~/.ssh/authorized_keys`,
+	},
 ]
 ---
 
 <PageLayout title={KEYS.TITLE} description={KEYS.DESCRIPTION}>
-  <Container>
-    <div class="space-y-10">
-      <BackToPrev href="/explore"> Back to explore </BackToPrev>
+	<Container>
+		<div class="space-y-10">
+			<BackToPrev href="/explore"> Back to explore </BackToPrev>
 
-      <div
-        class="flex items-center gap-2 font-semibold text-black dark:text-white"
-      >
-        <div class="size-5 fill-current">
-          <Fragment set:html={IconCommands} />
-        </div>
-        Public Keys
-      </div>
+			<div class="flex items-center gap-2 font-semibold text-black dark:text-white">
+				<div class="size-5 fill-current">
+					<Fragment set:html={IconCommands} />
+				</div>
+				Public Keys
+			</div>
 
-      {KEYS.INTRO!.map((paragraph) => <p>{paragraph}</p>)}
+			{KEYS.INTRO!.map((paragraph) => <p>{paragraph}</p>)}
 
-      <div
-        class="border border-amber-400/30 bg-amber-400/5 p-4 text-sm text-amber-700 dark:text-amber-300"
-      >
-        Verify the key fingerprint before trusting it. Don&apos;t blindly pipe
-        curl output into your shell.
-      </div>
+			<div
+				class="border border-amber-400/30 bg-amber-400/5 p-4 text-sm text-amber-700 dark:text-amber-300"
+			>
+				Verify the key fingerprint before trusting it. Don&apos;t blindly pipe curl output into your
+				shell.
+			</div>
 
-      <div class="space-y-12">
-        {
-          KEYS_DATA.map((key) => (
-            <section class="space-y-4">
-              <div>
-                <h2 class="border-b border-black/5 pb-2 font-semibold text-black dark:border-white/5 dark:text-white">
-                  {key.title}
-                </h2>
-                <p class="text-mute-light dark:text-mute-dark mt-2 text-sm">
-                  {key.desc}
-                </p>
-              </div>
+			<div class="space-y-12">
+				{
+					KEYS_DATA.map((key) => (
+						<section class="space-y-4">
+							<div>
+								<h2 class="border-b border-black/5 pb-2 font-semibold text-black dark:border-white/5 dark:text-white">
+									{key.title}
+								</h2>
+								<p class="text-mute-light dark:text-mute-dark mt-2 text-sm">{key.desc}</p>
+							</div>
 
-              <div class="overflow-x-auto border border-black/10 bg-black/[0.03] p-4 font-mono text-sm text-black dark:border-white/10 dark:bg-white/[0.03] dark:text-white">
-                curl {`${SITE.URL}/keys/${key.type}`}
-              </div>
+							<div class="overflow-x-auto border border-black/10 bg-black/[0.03] p-4 font-mono text-sm text-black dark:border-white/10 dark:bg-white/[0.03] dark:text-white">
+								curl {`${SITE.URL}/keys/${key.type}`}
+							</div>
 
-              <div class="space-y-1 text-sm">
-                <span class="text-xs tracking-wider uppercase opacity-60">
-                  Fingerprint
-                </span>
-                <code class="block font-mono text-xs break-all">
-                  {key.fingerprint}
-                </code>
-              </div>
+							<div class="space-y-1 text-sm">
+								<span class="text-xs tracking-wider uppercase opacity-60">Fingerprint</span>
+								<code class="block font-mono text-xs break-all">{key.fingerprint}</code>
+							</div>
 
-              <div class="space-y-1 text-sm">
-                <span class="text-xs tracking-wider uppercase opacity-60">
-                  Usage
-                </span>
-                <code class="block font-mono text-xs break-all">
-                  {key.usage}
-                </code>
-              </div>
+							<div class="space-y-1 text-sm">
+								<span class="text-xs tracking-wider uppercase opacity-60">Usage</span>
+								<code class="block font-mono text-xs break-all">{key.usage}</code>
+							</div>
 
-              <Link
-                href={`/keys/${key.type}`}
-                external
-                underline={true}
-                class="text-xs"
-              >
-                view raw key
-              </Link>
-            </section>
-          ))
-        }
-      </div>
-    </div>
-  </Container>
+							<Link href={`/keys/${key.type}`} external underline={true} class="text-xs">
+								view raw key
+							</Link>
+						</section>
+					))
+				}
+			</div>
+		</div>
+	</Container>
 </PageLayout>

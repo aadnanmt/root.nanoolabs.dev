@@ -1,15 +1,15 @@
 ---
-import Head from "@components/Head.astro"
-import Header from "@components/Header.astro"
-import BackgroundAnimated from "@components/BackgroundAnimated.astro"
-import Footer from "@components/Footer.astro"
-import ThemeToggle from "@components/ThemeToggle.astro"
-import { SITE } from "@consts"
+import Head from '@components/Head.astro'
+import Header from '@components/Header.astro'
+import BackgroundAnimated from '@components/BackgroundAnimated.astro'
+import Footer from '@components/Footer.astro'
+import ThemeToggle from '@components/ThemeToggle.astro'
+import { SITE } from '@consts'
 
 interface Props {
-  title: string
-  description: string
-  image?: string
+	title: string
+	description: string
+	image?: string
 }
 
 const { title, description, image } = Astro.props
@@ -17,20 +17,16 @@ const { title, description, image } = Astro.props
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <Head
-      title={`${title} | ${SITE.NAME}`}
-      description={description}
-      image={image}
-    />
-  </head>
-  <body>
-    <Header />
-    <BackgroundAnimated />
-    <main>
-      <slot />
-    </main>
-    <Footer />
-    <ThemeToggle />
-  </body>
+	<head>
+		<Head title={`${title} | ${SITE.NAME}`} description={description} image={image} />
+	</head>
+	<body>
+		<Header />
+		<BackgroundAnimated />
+		<main>
+			<slot />
+		</main>
+		<Footer />
+		<ThemeToggle />
+	</body>
 </html>

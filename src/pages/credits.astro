@@ -1,47 +1,39 @@
 ---
-import PageLayout from "@layouts/PageLayout.astro"
-import Container from "@components/Container.astro"
-import Link from "@components/Link.astro"
-import BackToPrev from "@components/BackToPrev.astro"
-import { IconCredits } from "@lib/iconSystem"
-import { CREDITS as CREDITS_META } from "@consts"
-import { CREDITS } from "@data/credits"
+import PageLayout from '@layouts/PageLayout.astro'
+import Container from '@components/Container.astro'
+import Link from '@components/Link.astro'
+import BackToPrev from '@components/BackToPrev.astro'
+import { IconCredits } from '@lib/iconSystem'
+import { CREDITS as CREDITS_META } from '@consts'
+import { CREDITS } from '@data/credits'
 ---
 
 <PageLayout title={CREDITS_META.TITLE} description={CREDITS_META.DESCRIPTION}>
-  <Container>
-    <div class="space-y-10">
-      <BackToPrev href="/explore"> Back to explore </BackToPrev>
-      <div
-        class="flex items-center gap-2 font-semibold text-black dark:text-white"
-      >
-        <div class="size-5 fill-current">
-          <Fragment set:html={IconCredits} />
-        </div>
-        Credits
-      </div>
-      {CREDITS_META.INTRO!.map((paragraph) => <p>{paragraph}</p>)}
-      <ul class="flex flex-col space-y-8">
-        {
-          CREDITS.map((credit) => (
-            <li>
-              <div class="space-y-1">
-                <Link
-                  href={credit.HREF}
-                  external
-                  class="font-semibold text-black dark:text-white"
-                >
-                  {credit.NAME}
-                </Link>
-                <div class="text-sm opacity-75">{credit.DESCRIPTION}</div>
-              </div>
-            </li>
-          ))
-        }
-      </ul>
-      <p class="text-sm italic">
-        And special thanks to you for visiting this site.
-      </p>
-    </div>
-  </Container>
+	<Container>
+		<div class="space-y-10">
+			<BackToPrev href="/explore"> Back to explore </BackToPrev>
+			<div class="flex items-center gap-2 font-semibold text-black dark:text-white">
+				<div class="size-5 fill-current">
+					<Fragment set:html={IconCredits} />
+				</div>
+				Credits
+			</div>
+			{CREDITS_META.INTRO!.map((paragraph) => <p>{paragraph}</p>)}
+			<ul class="flex flex-col space-y-8">
+				{
+					CREDITS.map((credit) => (
+						<li>
+							<div class="space-y-1">
+								<Link href={credit.HREF} external class="font-semibold text-black dark:text-white">
+									{credit.NAME}
+								</Link>
+								<div class="text-sm opacity-75">{credit.DESCRIPTION}</div>
+							</div>
+						</li>
+					))
+				}
+			</ul>
+			<p class="text-sm italic">And special thanks to you for visiting this site.</p>
+		</div>
+	</Container>
 </PageLayout>

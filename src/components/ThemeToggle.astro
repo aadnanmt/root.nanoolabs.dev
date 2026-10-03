@@ -1,42 +1,40 @@
 ---
-import { IconSun, IconMoon } from "@lib/iconSystem"
+import { IconSun, IconMoon } from '@lib/iconSystem'
 ---
 
 <button
-  id="theme-toggle"
-  class="hover:border-accent/50 dark:hover:border-accent/50 fixed right-6 bottom-6 z-50 flex h-10 w-10 items-center justify-center rounded-full border border-black/10 bg-white/50 backdrop-blur-md transition-all hover:bg-white dark:border-white/10 dark:bg-black/50 dark:hover:bg-black"
-  aria-label="Toggle theme"
+	id="theme-toggle"
+	class="hover:border-accent/50 dark:hover:border-accent/50 fixed right-6 bottom-6 z-50 flex h-10 w-10 items-center justify-center rounded-full border border-black/10 bg-white/50 backdrop-blur-md transition-all hover:bg-white dark:border-white/10 dark:bg-black/50 dark:hover:bg-black"
+	aria-label="Toggle theme"
 >
-  <!-- Sun icon -->
-  <span id="sun-icon" class="text-primary hidden dark:block"
-    ><Fragment set:html={IconSun} /></span
-  >
-  <!-- Moon icon -->
-  <span id="moon-icon" class="text-primary-soft-light block dark:hidden"
-    ><Fragment set:html={IconMoon} /></span
-  >
+	<!-- Sun icon -->
+	<span id="sun-icon" class="text-primary hidden dark:block"><Fragment set:html={IconSun} /></span>
+	<!-- Moon icon -->
+	<span id="moon-icon" class="text-primary-soft-light block dark:hidden"
+		><Fragment set:html={IconMoon} /></span
+	>
 </button>
 
 <script is:inline>
-  function toggleTheme() {
-    const element = document.documentElement
-    const isDark = element.classList.contains("dark")
-    const newTheme = isDark ? "light" : "dark"
+	function toggleTheme() {
+		const element = document.documentElement
+		const isDark = element.classList.contains('dark')
+		const newTheme = isDark ? 'light' : 'dark'
 
-    localStorage.setItem("theme", newTheme)
+		localStorage.setItem('theme', newTheme)
 
-    if (newTheme === "dark") {
-      element.classList.add("dark")
-    } else {
-      element.classList.remove("dark")
-    }
-  }
+		if (newTheme === 'dark') {
+			element.classList.add('dark')
+		} else {
+			element.classList.remove('dark')
+		}
+	}
 
-  function setupThemeToggle() {
-    const button = document.getElementById("theme-toggle")
-    button?.addEventListener("click", toggleTheme)
-  }
+	function setupThemeToggle() {
+		const button = document.getElementById('theme-toggle')
+		button?.addEventListener('click', toggleTheme)
+	}
 
-  setupThemeToggle()
-  document.addEventListener("astro:after-swap", setupThemeToggle)
+	setupThemeToggle()
+	document.addEventListener('astro:after-swap', setupThemeToggle)
 </script>

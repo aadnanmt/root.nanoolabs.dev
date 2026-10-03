@@ -1,66 +1,56 @@
 ---
-import { getNowPlaying } from "@lib/lastfm"
-import { IconMusic } from "@lib/iconSystem"
+import { getNowPlaying } from '@lib/lastfm'
+import { IconMusic } from '@lib/iconSystem'
 
 const { track, error } = await getNowPlaying()
 
 // Silent fail
 if (error || !track) {
-  return null
+	return null
 }
 
 function formatTimeAgo(timestamp?: number) {
-  if (!timestamp) return ""
-  const seconds = Math.max(0, Math.floor(Date.now() / 1000 - timestamp))
-  if (seconds < 60) return "just now"
-  const minutes = Math.floor(seconds / 60)
-  if (minutes < 60) return `${minutes} minutes ago`
-  const hours = Math.floor(minutes / 60)
-  if (hours < 24) return `${hours} hours ago`
-  const days = Math.floor(hours / 24)
-  return `${days}days ago`
+	if (!timestamp) return ''
+	const seconds = Math.max(0, Math.floor(Date.now() / 1000 - timestamp))
+	if (seconds < 60) return 'just now'
+	const minutes = Math.floor(seconds / 60)
+	if (minutes < 60) return `${minutes} minutes ago`
+	const hours = Math.floor(minutes / 60)
+	if (hours < 24) return `${hours} hours ago`
+	const days = Math.floor(hours / 24)
+	return `${days}days ago`
 }
 ---
 
-<div
-  class="flex items-center gap-4 border border-black/10 p-4 dark:border-white/10"
->
-  <div
-    class="relative flex h-12 w-12 flex-shrink-0 items-center justify-center bg-black/5 dark:bg-white/5"
-  >
-    {
-      track.image ? (
-        <img
-          src={track.image}
-          alt={track.artist}
-          class="h-full w-full object-cover"
-        />
-      ) : (
-        <div class="flex h-full w-full items-center justify-center text-black/50 dark:text-white/50">
-          <Fragment set:html={IconMusic} />
-        </div>
-      )
-    }
-    {
-      track.nowPlaying && (
-        <span class="absolute -top-1 -right-1 flex h-3 w-3">
-          <span class="bg-primary absolute inline-flex h-full w-full animate-ping opacity-75" />
-          <span class="bg-primary-deep-light dark:bg-primary relative inline-flex h-3 w-3" />
-        </span>
-      )
-    }
-  </div>
-  <div class="flex flex-col overflow-hidden">
-    <span class="text-xs font-semibold tracking-widest uppercase opacity-50">
-      {
-        track.nowPlaying
-          ? "Now Playing"
-          : `Last Played - ${formatTimeAgo(track.timestamp)}`
-      }
-    </span>
-    <span class="truncate text-sm font-semibold text-black dark:text-white">
-      {track.name}
-    </span>
-    <span class="truncate text-xs opacity-60">{track.artist}</span>
-  </div>
+<div class="flex items-center gap-4 border border-black/10 p-4 dark:border-white/10">
+	<div
+		class="relative flex h-12 w-12 flex-shrink-0 items-center justify-center bg-black/5 dark:bg-white/5"
+	>
+		{
+			track.image ? (
+				<img src={track.image} alt={track.artist} class="h-full w-full object-cover" />
+			) : (
+				<div class="flex h-full w-full items-center justify-center text-black/50 dark:text-white/50">
+					<Fragment set:html={IconMusic} />
+				</div>
+			)
+		}
+		{
+			track.nowPlaying && (
+				<span class="absolute -top-1 -right-1 flex h-3 w-3">
+					<span class="bg-primary absolute inline-flex h-full w-full animate-ping opacity-75" />
+					<span class="bg-primary-deep-light dark:bg-primary relative inline-flex h-3 w-3" />
+				</span>
+			)
+		}
+	</div>
+	<div class="flex flex-col overflow-hidden">
+		<span class="text-xs font-semibold tracking-widest uppercase opacity-50">
+			{track.nowPlaying ? 'Now Playing' : `Last Played - ${formatTimeAgo(track.timestamp)}`}
+		</span>
+		<span class="truncate text-sm font-semibold text-black dark:text-white">
+			{track.name}
+		</span>
+		<span class="truncate text-xs opacity-60">{track.artist}</span>
+	</div>
 </div>

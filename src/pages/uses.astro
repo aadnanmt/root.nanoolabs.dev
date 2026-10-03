@@ -1,16 +1,16 @@
 ---
-import { getEntry } from "astro:content"
-import PageLayout from "@layouts/PageLayout.astro"
-import Container from "@components/Container.astro"
-import BackToPrev from "@components/BackToPrev.astro"
-import FormattedDate from "@components/FormattedDate.astro"
-import { IconUses } from "@lib/iconSystem"
-import { gitDate } from "@lib/utils"
+import { getEntry } from 'astro:content'
+import PageLayout from '@layouts/PageLayout.astro'
+import Container from '@components/Container.astro'
+import BackToPrev from '@components/BackToPrev.astro'
+import FormattedDate from '@components/FormattedDate.astro'
+import { IconUses } from '@lib/iconSystem'
+import { gitDate } from '@lib/utils'
 
-const entry = await getEntry("uses", "main")
+const entry = await getEntry('uses', 'main')
 
 if (!entry) {
-  return Astro.redirect("/404")
+	return Astro.redirect('/404')
 }
 
 const { Content } = await entry.render()
@@ -18,29 +18,25 @@ const lastUpdated = gitDate(`uses/${entry.id}`)
 ---
 
 <PageLayout title={entry.data.title} description={entry.data.description}>
-  <Container>
-    <div class="space-y-10">
-      <BackToPrev href="/explore"> Back to explore </BackToPrev>
+	<Container>
+		<div class="space-y-10">
+			<BackToPrev href="/explore"> Back to explore </BackToPrev>
 
-      <div class="space-y-2">
-        <div
-          class="flex items-center gap-2 font-semibold text-black dark:text-white"
-        >
-          <div class="size-5 fill-current">
-            <Fragment set:html={IconUses} />
-          </div>
-          {entry.data.title}
-        </div>
-        <div class="text-sm italic opacity-60">
-          Last updated: <FormattedDate
-            date={lastUpdated || entry.data.lastUpdated}
-          />
-        </div>
-      </div>
+			<div class="space-y-2">
+				<div class="flex items-center gap-2 font-semibold text-black dark:text-white">
+					<div class="size-5 fill-current">
+						<Fragment set:html={IconUses} />
+					</div>
+					{entry.data.title}
+				</div>
+				<div class="text-sm italic opacity-60">
+					Last updated: <FormattedDate date={lastUpdated || entry.data.lastUpdated} />
+				</div>
+			</div>
 
-      <article class="prose prose-neutral dark:prose-invert max-w-none">
-        <Content />
-      </article>
-    </div>
-  </Container>
+			<article class="prose prose-neutral dark:prose-invert max-w-none">
+				<Content />
+			</article>
+		</div>
+	</Container>
 </PageLayout>

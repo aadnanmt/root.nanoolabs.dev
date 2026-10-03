@@ -1,19 +1,17 @@
 ---
-import { getCollection } from "astro:content"
-import PageLayout from "@layouts/PageLayout.astro"
-import Container from "@components/Container.astro"
-import BackToPrev from "@components/BackToPrev.astro"
-import FormattedDate from "@components/FormattedDate.astro"
-import { IconNow } from "@lib/iconSystem"
-import NowPlaying from "@components/NowPlaying.astro"
-import Link from "@components/Link.astro"
-import Mood from "@components/Mood.astro"
-import { gitDate } from "@lib/utils"
+import { getCollection } from 'astro:content'
+import PageLayout from '@layouts/PageLayout.astro'
+import Container from '@components/Container.astro'
+import BackToPrev from '@components/BackToPrev.astro'
+import FormattedDate from '@components/FormattedDate.astro'
+import { IconNow } from '@lib/iconSystem'
+import NowPlaying from '@components/NowPlaying.astro'
+import Link from '@components/Link.astro'
+import Mood from '@components/Mood.astro'
+import { gitDate } from '@lib/utils'
 
-const allNowEntries = await getCollection("now")
-const sortedEntries = allNowEntries.sort(
-  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
-)
+const allNowEntries = await getCollection('now')
+const sortedEntries = allNowEntries.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
 
 const latestEntry = sortedEntries[0]
 const history = sortedEntries.slice(1)
@@ -22,64 +20,55 @@ const { Content } = await latestEntry.render()
 const lastUpdated = gitDate(`now/${latestEntry.id}`)
 ---
 
-<PageLayout
-  title={latestEntry.data.title}
-  description={latestEntry.data.description}
->
-  <Container>
-    <div class="space-y-10">
-      <BackToPrev href="/explore"> Back to explore </BackToPrev>
+<PageLayout title={latestEntry.data.title} description={latestEntry.data.description}>
+	<Container>
+		<div class="space-y-10">
+			<BackToPrev href="/explore"> Back to explore </BackToPrev>
 
-      <div class="space-y-2">
-        <div
-          class="flex items-center gap-2 font-semibold text-black dark:text-white"
-        >
-          <div class="size-5 fill-current">
-            <Fragment set:html={IconNow} />
-          </div>
-          Now
-        </div>
-        <div class="text-sm italic opacity-60">
-          Last synced with Git: <FormattedDate
-            date={lastUpdated || latestEntry.data.date}
-          />
-        </div>
-      </div>
+			<div class="space-y-2">
+				<div class="flex items-center gap-2 font-semibold text-black dark:text-white">
+					<div class="size-5 fill-current">
+						<Fragment set:html={IconNow} />
+					</div>
+					Now
+				</div>
+				<div class="text-sm italic opacity-60">
+					Last synced with Git: <FormattedDate date={lastUpdated || latestEntry.data.date} />
+				</div>
+			</div>
 
-      <p class="text-md opacity-60">
-        What's a /now page? Read more about it
-        <Link href="https://nownownow.com/about" external>here</Link>.
-      </p>
+			<p class="text-md opacity-60">
+				What's a /now page? Read more about it
+				<Link href="https://nownownow.com/about" external>here</Link>.
+			</p>
 
-      <div class="space-y-4">
-        <Mood />
-        <NowPlaying />
-      </div>
+			<div class="space-y-4">
+				<Mood />
+				<NowPlaying />
+			</div>
 
-      <article class="prose prose-neutral dark:prose-invert max-w-none">
-        <Content />
-      </article>
+			<article class="prose prose-neutral dark:prose-invert max-w-none">
+				<Content />
+			</article>
 
-      {
-        history.length > 0 && (
-          <div class="space-y-4 border-t border-black/10 pt-10 dark:border-white/10">
-            <h2 class="text-xl font-semibold text-black dark:text-white">
-              Previous Updates
-            </h2>
-            <ul class="space-y-2">
-              {history.map((entry) => (
-                <li class="text-sm">
-                  <span class="opacity-60">
-                    <FormattedDate date={entry.data.date} />
-                  </span>
-                  {" — "}
-                  <span class="italic">{entry.data.description}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )
-      }
-    </div>
-  </Container>
+			{
+				history.length > 0 && (
+					<div class="space-y-4 border-t border-black/10 pt-10 dark:border-white/10">
+						<h2 class="text-xl font-semibold text-black dark:text-white">Previous Updates</h2>
+						<ul class="space-y-2">
+							{history.map((entry) => (
+								<li class="text-sm">
+									<span class="opacity-60">
+										<FormattedDate date={entry.data.date} />
+									</span>
+									{' — '}
+									<span class="italic">{entry.data.description}</span>
+								</li>
+							))}
+						</ul>
+					</div>
+				)
+			}
+		</div>
+	</Container>
 </PageLayout>

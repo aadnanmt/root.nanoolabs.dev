@@ -1,19 +1,17 @@
 ---
-import Layout from "@layouts/PageLayout.astro"
-import Container from "@components/Container.astro"
-import BackToPrev from "@components/BackToPrev.astro"
-import { NOTFOUND } from "@consts"
+import Layout from '@layouts/PageLayout.astro'
+import Container from '@components/Container.astro'
+import BackToPrev from '@components/BackToPrev.astro'
+import { NOTFOUND } from '@consts'
 ---
 
 <Layout title={NOTFOUND.TITLE} description={NOTFOUND.DESCRIPTION}>
-  <Container>
-    <div class="mt-16 border-t border-black/10 pt-8 dark:border-white/10">
-      <p class="text-sm opacity-60">
-        the page you're looking for doesn't exist.
-      </p>
-      <div class="mt-4">
-        <BackToPrev href="/">back to home</BackToPrev>
-      </div>
-    </div>
-  </Container>
+	<Container>
+		<div class="mt-16 border-t border-black/10 pt-8 dark:border-white/10">
+			<p class="text-sm opacity-60">the page you're looking for doesn't exist.</p>
+			<div class="mt-4">
+				<BackToPrev href="/">back to home</BackToPrev>
+			</div>
+		</div>
+	</Container>
 </Layout>

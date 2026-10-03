@@ -1,31 +1,31 @@
 <div
-  class="stars-container pointer-events-none fixed inset-0 -z-10 hidden overflow-hidden dark:block"
+	class="stars-container pointer-events-none fixed inset-0 -z-10 hidden overflow-hidden dark:block"
 >
 </div>
 
 <style>
-  .stars-container::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image: radial-gradient(circle, #22d3ee 1px, transparent 1px);
-    background-size: 32px 32px;
-    opacity: 0.16;
-    animation: twinkle 5s ease-in-out infinite alternate;
-  }
+	.stars-container::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background-image: radial-gradient(circle, #22d3ee 1px, transparent 1px);
+		background-size: 32px 32px;
+		opacity: 0.16;
+		animation: twinkle 5s ease-in-out infinite alternate;
+	}
 
-  @keyframes twinkle {
-    from {
-      opacity: 0.051;
-    }
-    to {
-      opacity: 0.19;
-    }
-  }
+	@keyframes twinkle {
+		from {
+			opacity: 0.051;
+		}
+		to {
+			opacity: 0.19;
+		}
+	}
 
-  @media (prefers-reduced-motion: reduce) {
-    .stars-container::after {
-      animation: none !important;
-    }
-  }
+	@media (prefers-reduced-motion: reduce) {
+		.stars-container::after {
+			animation: none !important;
+		}
+	}
 </style>

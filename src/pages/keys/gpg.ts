@@ -1,4 +1,4 @@
-import type { APIRoute } from "astro"
+import type { APIRoute } from 'astro'
 const gpgKey = `-----BEGIN PGP PUBLIC KEY BLOCK-----
 
 mDMEanDpEBYJKwYBBAHaRw8BAQdAbiI0x/fMefozWBEeHlHV1Vt5nGgkztLPDEAU
@@ -15,9 +15,9 @@ agE=
 
 -----END PGP PUBLIC KEY BLOCK-----`
 export const GET: APIRoute = () => {
-  return new Response(gpgKey, {
-    headers: {
-      "Content-Type": "text/plain; charset=utf-8",
-    },
-  })
+	return new Response(gpgKey, {
+		headers: {
+			'Content-Type': 'text/plain; charset=utf-8',
+		},
+	})
 }
