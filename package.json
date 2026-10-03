@@ -1,6 +1,7 @@
 {
   "name": "nan",
   "type": "module",
+  "packageManager": "pnpm@12.8.1",
   "scripts": {
     "dev": "astro dev",
     "dev:network": "astro dev --host",
