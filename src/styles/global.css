@@ -1,35 +1,35 @@
 @import "tailwindcss";
+
 @plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  /* Tokens copied from @nlbs/css v0.3.1 (github.com/nanoolabs/css)*/
+  /* Tokens copied from @nlbs/css v0.3.1 (github.com/nanoolabs/css) */
   --font-sans:
     "Geist Sans", "Inter", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-
-  --color-primary: #009999;
-  --color-primary-light: #009999;
-  --color-primary-dark: #00ffff;
+  --font-mono: "JetBrains Mono", ui-monospace, sfmono-regular, menlo, monospace;
+  --color-primary: #099;
+  --color-primary-light: #099;
+  --color-primary-dark: #0ff;
   --color-primary-soft-light: #007a7a;
   --color-primary-soft-dark: #00e5e5;
   --color-primary-deep-light: #00b8b8;
-  --color-primary-deep-dark: #00cccc;
-  --color-on-primary-light: #ffffff;
-  --color-on-primary-dark: #000000;
+  --color-primary-deep-dark: #0cc;
+  --color-on-primary-light: #fff;
+  --color-on-primary-dark: #000;
   --color-accent: #00b8b8;
   --color-accent-light: #00b8b8;
-  --color-accent-dark: #00ffff;
-  --color-accent-soft-light: #009999;
+  --color-accent-dark: #0ff;
+  --color-accent-soft-light: #099;
   --color-accent-soft-dark: #00e5e5;
   --color-accent-deep-light: #007a7a;
-  --color-accent-deep-dark: #00cccc;
+  --color-accent-deep-dark: #0cc;
   --color-ink-light: #1a1a1a;
   --color-ink-dark: #f2f2f2;
-  --color-ink-strong-light: #000000;
-  --color-ink-strong-dark: #ffffff;
+  --color-ink-strong-light: #000;
+  --color-ink-strong-dark: #fff;
   --color-body-light: #4a4a4a;
   --color-body-dark: #bdbdbd;
   --color-mute-light: #6b7280;
@@ -40,7 +40,7 @@
   --color-border-soft-dark: #374151;
   --color-canvas-light: #f5f5f5;
   --color-canvas-dark: #050505;
-  --color-canvas-soft-light: #ffffff;
+  --color-canvas-soft-light: #fff;
   --color-canvas-soft-dark: #0a0a0a;
   --color-canvas-text-soft-light: #1a1a1a;
   --color-canvas-text-soft-dark: #f5f6f7;
@@ -54,8 +54,9 @@ html {
 
 html.dark {
   color-scheme: dark;
-  --color-primary: #00ffff;
-  --color-accent: #00ffff;
+
+  --color-primary: #0ff;
+  --color-accent: #0ff;
 }
 
 html,
@@ -85,6 +86,7 @@ footer {
 
 article img {
   @apply h-auto max-h-[80vh] w-auto max-w-full;
+
   aspect-ratio: auto;
 }
 
