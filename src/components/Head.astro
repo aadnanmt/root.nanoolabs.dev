@@ -45,7 +45,7 @@ const { title, description, image = `${SITE.CDN}/assets/identity/whoami.webp` } 
 		const stored = localStorage.getItem('theme')
 		const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
 		const dark = stored ? stored === 'dark' : prefersDark
-		document.documentElement.classList.toggle('dark', dark)
+		document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light')
 	}
 	applyTheme()
 	document.addEventListener('astro:after-swap', applyTheme)

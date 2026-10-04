@@ -4,7 +4,7 @@
 
 @plugin '@tailwindcss/typography';
 
-@custom-variant dark (&:is(.dark *));
+@custom-variant dark (&:is([data-theme='dark'] *));
 
 /* site font stack (geist first) wins over nlbs inter-first by source order */
 :root {
@@ -93,8 +93,8 @@ article pre {
 	@apply bg-canvas-soft-light/50 dark:bg-canvas-soft-dark! relative rounded-md;
 }
 
-.dark .astro-code,
-.dark .astro-code span {
+[data-theme='dark'] .astro-code,
+[data-theme='dark'] .astro-code span {
 	color: var(--shiki-dark) !important;
 	background-color: var(--shiki-dark-bg) !important;
 	font-style: var(--shiki-dark-font-style) !important;
@@ -120,24 +120,40 @@ article :not(pre) > code {
 
 @layer base {
 	::selection {
-		@apply bg-primary/20 text-ink-light dark:bg-primary dark:text-on-primary-dark;
+		background-color: color-mix(in oklab, var(--color-primary) 20%, transparent);
+		color: var(--color-ink-light);
+	}
+
+	[data-theme='dark'] ::selection {
+		background-color: var(--color-primary);
+		color: var(--color-on-primary-dark);
 	}
 
 	/* Scrollbar styles */
 	::-webkit-scrollbar {
-		@apply h-0 w-2;
+		height: 0;
+		width: 0.5rem;
 	}
 
 	::-webkit-scrollbar-track {
-		@apply bg-transparent;
+		background-color: transparent;
 	}
 
 	::-webkit-scrollbar-thumb {
-		@apply bg-border-light dark:bg-border-dark rounded-full;
+		background-color: var(--color-border-light);
+		border-radius: 9999px;
+	}
+
+	[data-theme='dark'] ::-webkit-scrollbar-thumb {
+		background-color: var(--color-border-dark);
 	}
 
 	::-webkit-scrollbar-thumb:hover {
-		@apply bg-mute-light dark:bg-primary-soft-dark;
+		background-color: var(--color-mute-light);
+	}
+
+	[data-theme='dark'] ::-webkit-scrollbar-thumb:hover {
+		background-color: var(--color-primary-soft-dark);
 	}
 }
 
