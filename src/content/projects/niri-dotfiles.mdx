@@ -1,14 +1,16 @@
 ---
-title: "Niri Dotfiles"
-description: "Personal Niri WM config with GitHub Dark Default theme for Arch Linux."
-date: "2026-07-20"
-repoURL: "https://github.com/aadnanmt/niri-dotfiles"
-tags: ["niri", "dotfiles", "wayland"]
+title: 'Niri Dotfiles'
+description: 'Personal Niri WM config with GitHub Dark Default theme for Arch Linux.'
+date: '2026-07-20'
+repoURL: 'https://github.com/aadnanmt/niri-dotfiles'
+tags: ['niri', 'dotfiles', 'wayland']
 ---
 
-import Details from "@components/Details.astro"
+import Details from '@components/Details.astro'
 
-Personal dotfiles for Niri (Wayland compositor) on Arch Linux. GitHub Dark Default theme, minimal, TUI-first.
+Yeahh, current I'm move compositor Wayland from HyprlandWM to NiriWM. So, why I'm to Niri as a compositor Wayland? because, it's it just about my preference for my workflow and daily uses. And this project will receive further updates and adjustments.
+
+> This Personal dotfiles for Niri (Wayland compositor) on Arch Linux. GitHub Dark Default theme, minimal, TUI-first. You can look my screenshot and features in below section:
 
 ## Screenshots
 
@@ -62,39 +64,63 @@ Personal dotfiles for Niri (Wayland compositor) on Arch Linux. GitHub Dark Defau
 ## Directory Structure
 
 ```
-.config/
-├── alacritty/        # Terminal emulator (alt)
-├── bat/              # Syntax highlighting
-├── btop/             # System monitor
-├── cava/             # Audio visualizer
-├── dunst/            # Notifications
-├── fastfetch/        # System fetch
-├── fish/             # Shell config (conf.d/, functions/)
-├── fuzzel/           # App launcher, powermenu, emoji picker
-├── glow/             # Markdown reader
-├── gtk-3.0/          # GTK3 theme / settings.ini
-├── gtk-4.0/          # GTK4 theme
-├── htop/             # System monitor
-├── imv/              # Image viewer
-├── kew/              # Music player
-├── kitty/            # Terminal
-├── lazygit/          # Git TUI
-├── lsd/              # LS colors
-├── niri/             # WM config (modules/, scripts/)
-├── nvim/             # Editor (LazyVim + custom plugins)
-├── shell/            # Shared POSIX aliases/functions/env (SoT)
-├── starship.toml     # Shell prompt
-├── swaylock/         # Lock screen
-├── waybar/           # Status bar
-└── yazi/             # File manager
+.
+├── base/
+│   ├── bat/
+│   ├── dunst/
+│   ├── fish/
+│   ├── fuzzel/
+│   ├── kitty/
+│   ├── lsd/
+│   ├── niri/
+│   ├── nvim/
+│   ├── shell/
+│   ├── starship.toml
+│   ├── swaylock/
+│   ├── waybar/
+│   └── yazi/
+├── dev/
+│   └── lazygit/
+├── rice/
+│   ├── cava/
+│   ├── fastfetch/
+│   ├── glow/
+│   ├── gtk-3.0/
+│   ├── gtk-4.0/
+│   ├── htop/
+│   ├── imv/
+│   ├── kew/
+│   ├── mpv/
+│   ├── peaclock/
+│   └── yt-dlp/
+├── install.sh
+├── setup/
+├── Wallpapers/
+├── pkglist-base.txt
+└── pkglist-rice.txt
 ```
+
+## Profiles
+
+| Flag     | What gets deployed                |
+| -------- | --------------------------------- |
+| `--base` | base/ only (WM + shell + editor)  |
+| `--all`  | base/ + dev/ + rice/ (everything) |
 
 ## Install
 
-`install.sh` installs packages with paru. It reads two lists:
+`install.sh` installs packages with paru, then deploys configs to `~/.config/`.
 
-- `pkglist-official.txt`
-- `pkglist-aur.txt`
+```bash
+./install.sh --base            # base/ only (default)
+./install.sh --all             # base/ + dev/ + rice/
+./install.sh --all --dry-run   # preview everything
+```
+
+It reads package lists by profile:
+
+- `pkglist-base.txt` - always installed
+- `pkglist-rice.txt` - install with `--all`
 
 Then it runs every script in `setup/`. Note: `restore.sh` is interactive.
 
@@ -116,7 +142,7 @@ git clone https://github.com/SGau89/gvfs.yazi ~/.config/yazi/plugins/gvfs.yazi
 | Key                                  | Action                             |
 | ------------------------------------ | ---------------------------------- |
 | Mod + Return                         | Open terminal (kitty)              |
-| Mod + Shift + B                      | Open browser (firefox)             |
+| Mod + Shift + B                      | Open browser (via xdg)             |
 | Mod + B                              | Select wallpaper                   |
 | Mod + D                              | App launcher (fuzzel)              |
 | Mod + N                              | Open Neovim (kitty)                |
@@ -176,6 +202,10 @@ git clone https://github.com/SGau89/gvfs.yazi ~/.config/yazi/plugins/gvfs.yazi
 | Mod + Shift + M | Cancel pomodoro             |
 | Mod + Ctrl + V  | Clipboard history (fuzzel)  |
 
+## MemoCuyy (aliases and abbreviation)
+
+After you finish setup your options, try type command line `cuyy` on your shell/terminal emulator. You can get command line cheatsheet if your forget aliases or abbreviation.
+
 ## Colorscheme
 
 **GitHub Dark Default** `#58a6ff` accent, `#050505` background
@@ -184,7 +214,7 @@ Applied to: kitty, alacritty, dunst, fuzzel, waybar, swaylock, niri focus ring, 
 
 ## Credits
 
-Based on [aadnanmt/hyprland-dotfiles](https://github.com/aadnanmt/hyprland-dotfiles) — refactored from Hyprland to Niri WM.
+Based on [aadnanmt/hyprland-dotfiles](https://github.com/aadnanmt/hyprland-dotfiles) refactored from Hyprland to Niri WM.
 
 - **[elifouts (Dotfiles)](https://github.com/elifouts/Dotfiles):** Original menu configs.
 - **[dln (wofi-emoji)](https://github.com/dln/wofi-emoji):** Emoji selector.
@@ -195,6 +225,6 @@ Based on [aadnanmt/hyprland-dotfiles](https://github.com/aadnanmt/hyprland-dotfi
 - **[shivam-salkar/minimal-waybar-config](https://github.com/shivam-salkar/minimal-waybar-config):** Waybar base config.
 - **Arch Linux:** Foundation.
 
-## License
+## Under license
 
 GPL-3.0
