@@ -21,7 +21,7 @@ import { IconSun, IconMoon } from '@lib/iconSystem'
 		const newTheme = element.dataset.theme === 'dark' ? 'light' : 'dark'
 
 		localStorage.setItem('theme', newTheme)
-		element.setAttribute('data-theme', newTheme)
+		window.applyTheme()
 	}
 
 	function setupThemeToggle() {

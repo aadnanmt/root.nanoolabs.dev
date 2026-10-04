@@ -25,6 +25,7 @@ const { title, description, image = `${SITE.CDN}/assets/identity/whoami.webp` } 
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="theme-color" content="#030303" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <meta name="generator" content={Astro.generator} />
 
@@ -46,8 +47,11 @@ const { title, description, image = `${SITE.CDN}/assets/identity/whoami.webp` } 
 		const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
 		const dark = stored ? stored === 'dark' : prefersDark
 		document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light')
+		const themeColor = document.querySelector('meta[name="theme-color"]')
+		if (themeColor) themeColor.content = dark ? '#030303' : '#fcfcfc'
 	}
 	applyTheme()
+	window.applyTheme = applyTheme
 	document.addEventListener('astro:after-swap', applyTheme)
 	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
 		if (!localStorage.getItem('theme')) applyTheme()
