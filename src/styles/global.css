@@ -31,7 +31,7 @@
 	--color-ink-light: var(--color-text);
 	--color-ink-dark: var(--color-text);
 	--color-ink-strong-light: var(--color-text-strong);
-	--color-body-light: var(--color-text-muted);
+	--color-body-light: var(--color-text);
 	--color-body-dark: var(--color-text-muted);
 	--color-mute-light: var(--color-text-muted);
 	--color-mute-dark: var(--color-text-muted);
