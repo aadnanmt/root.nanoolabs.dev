@@ -16,7 +16,7 @@ const { href, external, underline = true, ...rest } = Astro.props
 	target={external ? '_blank' : '_self'}
 	rel={external ? 'noopener noreferrer' : undefined}
 	class={cn(
-		'inline-block decoration-black/15 transition-colors duration-300 ease-in-out hover:decoration-black/25 hover:text-accent-soft-light dark:decoration-primary/30 dark:hover:decoration-accent/50 dark:hover:text-accent',
+		'inline-block decoration-black/15 hover:decoration-black/25 hover:text-accent-soft-light active:decoration-black/25 active:text-accent-soft-light dark:decoration-primary/30 dark:hover:decoration-accent/50 dark:hover:text-accent dark:active:decoration-accent/50 dark:active:text-accent',
 		underline && 'underline underline-offset-2',
 	)}
 	{...rest}

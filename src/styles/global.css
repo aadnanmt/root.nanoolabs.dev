@@ -1,62 +1,53 @@
+/* design system tokens: dark default, light via system or [data-theme] */
+@import '@nlbs/css';
 @import 'tailwindcss';
 
 @plugin '@tailwindcss/typography';
 
 @custom-variant dark (&:is(.dark *));
 
-@theme {
-	/* Tokens copied from @nlbs/css v0.3.1 (github.com/nanoolabs/css) */
+/* site font stack (geist first) wins over nlbs inter-first by source order */
+:root {
 	--font-sans:
 		'Geist Sans', 'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
 		'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 	--font-mono: 'JetBrains Mono', ui-monospace, sfmono-regular, menlo, monospace;
-	--color-primary: #099;
-	--color-primary-light: #099;
-	--color-primary-dark: #0ff;
-	--color-primary-soft-light: #007a7a;
-	--color-primary-soft-dark: #00e5e5;
-	--color-primary-deep-light: #00b8b8;
-	--color-primary-deep-dark: #0cc;
-	--color-on-primary-light: #fff;
-	--color-on-primary-dark: #000;
-	--color-accent: #00b8b8;
-	--color-accent-light: #00b8b8;
-	--color-accent-dark: #0ff;
-	--color-accent-soft-light: #099;
-	--color-accent-soft-dark: #00e5e5;
-	--color-accent-deep-light: #007a7a;
-	--color-accent-deep-dark: #0cc;
-	--color-ink-light: #1a1a1a;
-	--color-ink-dark: #f2f2f2;
-	--color-ink-strong-light: #000;
-	--color-ink-strong-dark: #fff;
-	--color-body-light: #4a4a4a;
-	--color-body-dark: #bdbdbd;
-	--color-mute-light: #6b7280;
-	--color-mute-dark: #8b949e;
-	--color-border-light: #d1d5db;
-	--color-border-dark: #1f2937;
-	--color-border-soft-light: #e5e7eb;
-	--color-border-soft-dark: #374151;
-	--color-canvas-light: #f5f5f5;
-	--color-canvas-dark: #050505;
-	--color-canvas-soft-light: #fff;
-	--color-canvas-soft-dark: #0a0a0a;
-	--color-canvas-text-soft-light: #1a1a1a;
-	--color-canvas-text-soft-dark: #f5f6f7;
+}
+
+@theme {
+	/* neutral brand: legacy primary/accent name bridge to nlbs (no cyan, again) */
+	--color-primary: var(--color-brand);
+	--color-primary-light: var(--color-brand);
+	--color-primary-dark: var(--color-brand);
+	--color-primary-soft-light: var(--color-brand-muted);
+	--color-primary-soft-dark: var(--color-brand-muted);
+	--color-primary-deep-light: var(--color-brand-subtle);
+	--color-on-primary-light: var(--color-brand-on);
+	--color-on-primary-dark: var(--color-brand-on);
+	--color-accent: var(--color-brand);
+	--color-accent-soft-light: var(--color-brand-muted);
+
+	/* semantic bridge: legacy -light/-dark pair resolve to live nlbs token */
+	--color-ink-light: var(--color-text);
+	--color-ink-dark: var(--color-text);
+	--color-ink-strong-light: var(--color-text-strong);
+	--color-body-light: var(--color-text-muted);
+	--color-body-dark: var(--color-text-muted);
+	--color-mute-light: var(--color-text-muted);
+	--color-mute-dark: var(--color-text-muted);
+	--color-border-light: var(--color-border);
+	--color-border-dark: var(--color-border);
+	--color-border-soft-light: var(--color-border-subtle);
+	--color-border-soft-dark: var(--color-border-subtle);
+	--color-canvas-light: var(--color-bg);
+	--color-canvas-dark: var(--color-bg);
+	--color-canvas-soft-light: var(--color-bg-surface);
+	--color-canvas-soft-dark: var(--color-bg-surface);
 }
 
 html {
 	overflow-y: scroll;
-	color-scheme: light;
 	font-size: 16px;
-}
-
-html.dark {
-	color-scheme: dark;
-
-	--color-primary: #0ff;
-	--color-accent: #0ff;
 }
 
 html,
@@ -85,7 +76,7 @@ footer {
 }
 
 article img {
-	@apply h-auto max-h-[80vh] w-auto max-w-full;
+	@apply h-auto max-h-[80vh] w-auto max-w-full rounded-md;
 
 	aspect-ratio: auto;
 }
@@ -94,12 +85,12 @@ article {
 	@apply prose dark:prose-invert prose-img:mx-auto prose-img:my-auto max-w-full;
 	@apply md:prose-img:mx-0;
 	@apply prose-headings:font-semibold;
-	@apply prose-headings:text-ink-strong-light prose-headings:dark:text-white;
-	@apply prose-p:text-body-light prose-p:dark:text-white/70;
+	@apply prose-headings:text-ink-strong-light prose-headings:dark:text-ink-dark;
+	@apply prose-p:text-body-light prose-p:dark:text-ink-dark/70;
 }
 
 article pre {
-	@apply bg-canvas-soft-light/50 dark:bg-canvas-soft-dark! relative;
+	@apply bg-canvas-soft-light/50 dark:bg-canvas-soft-dark! relative rounded-md;
 }
 
 .dark .astro-code,
@@ -116,7 +107,7 @@ article pre {
 }
 
 .copy-code {
-	@apply border-border-light bg-canvas-soft-light text-body-light hover:border-accent hover:bg-accent hover:text-on-primary-light dark:border-border-dark dark:bg-canvas-soft-dark dark:text-body-dark dark:hover:border-accent dark:hover:bg-accent dark:hover:text-on-primary-dark absolute top-2 right-3 border px-2 py-0.5 font-mono text-xs transition-colors;
+	@apply border-border-light bg-canvas-soft-light text-body-light hover:border-accent hover:bg-accent hover:text-on-primary-light dark:border-border-dark dark:bg-canvas-soft-dark dark:text-body-dark dark:hover:border-accent dark:hover:bg-accent dark:hover:text-on-primary-dark absolute top-2 right-3 rounded-sm border px-2 py-0.5 font-mono text-xs;
 }
 
 article code {
@@ -124,7 +115,7 @@ article code {
 }
 
 article :not(pre) > code {
-	@apply bg-canvas-soft-light px-1 py-0.5 dark:bg-white/10;
+	@apply bg-canvas-soft-light dark:bg-ink-dark/10 rounded-sm px-1 py-0.5;
 }
 
 @layer base {
@@ -152,7 +143,6 @@ article :not(pre) > code {
 
 article a {
 	@apply font-sans text-current underline underline-offset-2;
-	@apply transition-colors duration-300 ease-in-out;
 	@apply hover:text-accent-soft-light decoration-black/15 hover:decoration-black/25;
 	@apply dark:decoration-primary/30 dark:hover:decoration-accent/50 dark:hover:text-accent;
 }

@@ -21,7 +21,7 @@ const GROUPS: { key: 'content' | 'live' | 'identity'; label: string }[] = [
 				<BackToPrev href="/"> Back to home </BackToPrev>
 			</div>
 
-			<div class="flex items-center gap-2 font-semibold text-black dark:text-white">
+			<div class="text-ink-light dark:text-ink-dark flex items-center gap-2 font-semibold">
 				<div class="size-5 fill-current">
 					<Fragment set:html={IconHome} />
 				</div>
@@ -34,7 +34,7 @@ const GROUPS: { key: 'content' | 'live' | 'identity'; label: string }[] = [
 				{
 					GROUPS.map(({ key, label }) => (
 						<section class="space-y-6">
-							<div class="flex items-center gap-2 border-b border-black/5 pb-2 font-semibold text-black dark:border-white/5 dark:text-white">
+							<div class="border-border-light text-ink-light dark:text-ink-dark flex items-center gap-2 border-b pb-2 font-semibold">
 								<span>{label}</span>
 							</div>
 							<ul class="flex flex-col space-y-4">
@@ -43,7 +43,10 @@ const GROUPS: { key: 'content' | 'live' | 'identity'; label: string }[] = [
 									.map((page) => (
 										<li>
 											<div class="space-y-1">
-												<Link href={page.href} class="font-semibold text-black dark:text-white">
+												<Link
+													href={page.href}
+													class="text-ink-light dark:text-ink-dark font-semibold"
+												>
 													{page.name}
 												</Link>
 												<div class="text-sm opacity-75">{page.desc}</div>

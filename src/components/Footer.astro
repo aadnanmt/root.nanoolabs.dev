@@ -46,7 +46,7 @@ const lastActive = lastCommitDate()
 								href={`${repoUrl}/commit/${gitHash}`}
 								external
 								underline={false}
-								class="hover:text-accent transition-colors"
+								class="hover:text-accent"
 							>
 								{gitHash}
 							</Link>
@@ -56,22 +56,13 @@ const lastActive = lastCommitDate()
 			</div>
 
 			<div class="flex flex-wrap items-center gap-2">
-				<Link href="/credits" underline={false} class="hover:text-accent transition-colors">
-					Credits
-				</Link>
+				<Link href="/credits" underline={false} class="hover:text-accent"> Credits </Link>
 
 				<span class="opacity-50">|</span>
-				<Link href="/rss.xml" underline={false} class="hover:text-accent transition-colors">
-					RSS
-				</Link>
+				<Link href="/rss.xml" underline={false} class="hover:text-accent"> RSS </Link>
 
 				<span class="opacity-50">|</span>
-				<Link
-					href={LICENSE.URL}
-					external
-					underline={false}
-					class="hover:text-accent transition-colors"
-				>
+				<Link href={LICENSE.URL} external underline={false} class="hover:text-accent">
 					{LICENSE.NAME}
 				</Link>
 			</div>

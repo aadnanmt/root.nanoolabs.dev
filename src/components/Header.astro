@@ -6,11 +6,11 @@ import { IconGithub } from '@lib/iconSystem'
 
 <header class="fixed top-5 right-0 left-0 z-50 flex items-center justify-center">
 	<div
-		class="bg-canvas-soft-light/70 dark:bg-canvas-soft-dark/50 dark:border-primary/20 mx-4 flex h-14 w-full max-w-screen-md items-center justify-between gap-2 border border-black/10 px-4 saturate-200 backdrop-blur-md transition-all duration-300 ease-in-out sm:mx-0 sm:gap-5 sm:px-8"
+		class="bg-canvas-soft-light/70 dark:bg-canvas-soft-dark/50 dark:border-primary/20 border-border-light mx-4 flex h-14 w-full max-w-screen-md items-center justify-between gap-2 rounded-md border px-4 saturate-200 backdrop-blur-md sm:mx-0 sm:gap-5 sm:px-8"
 	>
 		<Link href={'/'} underline={false}>
 			<div
-				class="flex shrink-0 items-center font-mono font-bold tracking-wider text-black dark:text-white"
+				class="text-ink-light dark:text-ink-dark flex shrink-0 items-center font-mono font-bold tracking-wider"
 			>
 				{SITE.NAME}
 			</div>
@@ -31,7 +31,7 @@ import { IconGithub } from '@lib/iconSystem'
 			</span>
 			<Link href="/explore"> explore </Link>
 
-			<div class="mr-1 ml-1 h-4 w-px bg-black/10 sm:ml-2 dark:bg-white/20"></div>
+			<div class="bg-ink-light/10 dark:bg-ink-dark/20 mr-1 ml-1 h-4 w-px sm:ml-2"></div>
 			<Link
 				href={SOCIALS.find((s) => s.NAME === 'github')?.HREF || SITE.REPO}
 				external

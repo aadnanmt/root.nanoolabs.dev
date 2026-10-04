@@ -23,7 +23,7 @@ const work = await Promise.all(
 	<Container>
 		<div class="space-y-10">
 			<BackToPrev href="/explore"> Back to explore </BackToPrev>
-			<div class="flex items-center gap-2 font-semibold text-black dark:text-white">
+			<div class="text-ink-light dark:text-ink-dark flex items-center gap-2 font-semibold">
 				<div class="size-5 fill-current">
 					<Fragment set:html={IconWork} />
 				</div>
@@ -37,7 +37,9 @@ const work = await Promise.all(
 							<div class="flex items-center gap-2 text-sm opacity-75">
 								{dateRange(entry.data.dateStart, entry.data.dateEnd)}
 							</div>
-							<div class="font-semibold text-black dark:text-white">{entry.data.company}</div>
+							<div class="text-ink-light dark:text-ink-dark font-semibold">
+								{entry.data.company}
+							</div>
 							<div class="text-sm opacity-75">{entry.data.role}</div>
 							<article>
 								<entry.Content />

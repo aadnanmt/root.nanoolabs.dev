@@ -12,7 +12,7 @@ import { getIcon, IconEmail } from '@lib/iconSystem'
 	<Container>
 		<div class="space-y-10">
 			<BackToPrev href="/explore"> Back to explore </BackToPrev>
-			<div class="flex items-center gap-2 font-semibold text-black dark:text-white">
+			<div class="text-ink-light dark:text-ink-dark flex items-center gap-2 font-semibold">
 				<div class="size-5 fill-current">
 					<Fragment set:html={IconEmail} />
 				</div>
@@ -26,7 +26,7 @@ import { getIcon, IconEmail } from '@lib/iconSystem'
 
 			<div class="space-y-12">
 				<section class="space-y-4">
-					<h4 class="font-semibold text-black dark:text-white">Professional Inquiries</h4>
+					<h4 class="text-ink-light dark:text-ink-dark font-semibold">Professional Inquiries</h4>
 					<p class="text-mute-light dark:text-mute-dark text-sm">
 						For collaboration, project proposals, or deep technical discussions, email is the most
 						reliable way to reach me.
@@ -44,7 +44,7 @@ import { getIcon, IconEmail } from '@lib/iconSystem'
 				</section>
 
 				<section class="space-y-6">
-					<h4 class="font-semibold text-black dark:text-white">Social Presence</h4>
+					<h4 class="text-ink-light dark:text-ink-dark font-semibold">Social Presence</h4>
 					<p class="text-mute-light dark:text-mute-dark text-sm">
 						Follow my journey, see my experiments, or just reach out for a quick chat.
 					</p>
@@ -68,12 +68,12 @@ import { getIcon, IconEmail } from '@lib/iconSystem'
 												<Link
 													href={SOCIAL.HREF}
 													external
-													class="font-medium text-black lowercase dark:text-white"
+													class="text-ink-light dark:text-ink-dark font-medium lowercase"
 												>
 													{SOCIAL.NAME}
 												</Link>
 											) : (
-												<span class="font-medium text-black lowercase dark:text-white">
+												<span class="text-ink-light dark:text-ink-dark font-medium lowercase">
 													{SOCIAL.NAME}
 												</span>
 											)}
@@ -103,13 +103,13 @@ import { getIcon, IconEmail } from '@lib/iconSystem'
 				</section>
 
 				<section class="space-y-4">
-					<h4 class="font-semibold text-black dark:text-white">Support my work</h4>
+					<h4 class="text-ink-light dark:text-ink-dark font-semibold">Support my work</h4>
 					<p class="text-mute-light dark:text-mute-dark text-sm">
 						If you find my digital garden or open-source projects useful, consider supporting my
 						research and maintenance.
 					</p>
 					<div class="grid grid-cols-1 gap-4 md:grid-cols-2">
-						<div class="space-y-2 border border-black/10 p-4 dark:border-white/10">
+						<div class="border-border-light space-y-2 rounded-md border p-4">
 							<span
 								class="text-mute-light dark:text-mute-dark text-xs font-semibold tracking-wider uppercase"
 								>Fiat / Traditional</span
@@ -120,7 +120,7 @@ import { getIcon, IconEmail } from '@lib/iconSystem'
 								>
 									<Fragment set:html={getIcon('ko-fi')} />
 								</div>
-								<Link href="/kf" external class="font-medium text-black dark:text-white">
+								<Link href="/kf" external class="text-ink-light dark:text-ink-dark font-medium">
 									Ko-fi
 								</Link>
 							</div>

@@ -12,7 +12,7 @@ import { CREDITS } from '@data/credits'
 	<Container>
 		<div class="space-y-10">
 			<BackToPrev href="/explore"> Back to explore </BackToPrev>
-			<div class="flex items-center gap-2 font-semibold text-black dark:text-white">
+			<div class="text-ink-light dark:text-ink-dark flex items-center gap-2 font-semibold">
 				<div class="size-5 fill-current">
 					<Fragment set:html={IconCredits} />
 				</div>
@@ -24,7 +24,11 @@ import { CREDITS } from '@data/credits'
 					CREDITS.map((credit) => (
 						<li>
 							<div class="space-y-1">
-								<Link href={credit.HREF} external class="font-semibold text-black dark:text-white">
+								<Link
+									href={credit.HREF}
+									external
+									class="text-ink-light dark:text-ink-dark font-semibold"
+								>
 									{credit.NAME}
 								</Link>
 								<div class="text-sm opacity-75">{credit.DESCRIPTION}</div>

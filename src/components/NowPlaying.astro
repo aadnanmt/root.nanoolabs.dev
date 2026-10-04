@@ -22,15 +22,15 @@ function formatTimeAgo(timestamp?: number) {
 }
 ---
 
-<div class="flex items-center gap-4 border border-black/10 p-4 dark:border-white/10">
+<div class="border-border-light flex items-center gap-4 rounded-md border p-4">
 	<div
-		class="relative flex h-12 w-12 flex-shrink-0 items-center justify-center bg-black/5 dark:bg-white/5"
+		class="bg-ink-light/5 dark:bg-ink-dark/5 flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-md"
 	>
 		{
 			track.image ? (
-				<img src={track.image} alt={track.artist} class="h-full w-full object-cover" />
+				<img src={track.image} alt={track.artist} class="h-full w-full rounded-md object-cover" />
 			) : (
-				<div class="flex h-full w-full items-center justify-center text-black/50 dark:text-white/50">
+				<div class="text-ink-light/50 dark:text-ink-dark/50 flex h-full w-full items-center justify-center rounded-md">
 					<Fragment set:html={IconMusic} />
 				</div>
 			)
@@ -48,7 +48,7 @@ function formatTimeAgo(timestamp?: number) {
 		<span class="text-xs font-semibold tracking-widest uppercase opacity-50">
 			{track.nowPlaying ? 'Now Playing' : `Last Played - ${formatTimeAgo(track.timestamp)}`}
 		</span>
-		<span class="truncate text-sm font-semibold text-black dark:text-white">
+		<span class="text-ink-light dark:text-ink-dark truncate text-sm font-semibold">
 			{track.name}
 		</span>
 		<span class="truncate text-xs opacity-60">{track.artist}</span>

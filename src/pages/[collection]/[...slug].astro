@@ -99,7 +99,7 @@ const ogImage = `/content/${collection}/${entry.slug}/cover.webp`
 				}
 			</div>
 			<div
-				class={`font-semibold text-black dark:text-white${bigTitle ? ' text-3xl' : ' text-2xl'}`}
+				class={`font-semibold text-ink-light dark:text-ink-dark${bigTitle ? ' text-3xl' : ' text-2xl'}`}
 			>
 				{entry.data.title}
 			</div>
@@ -107,7 +107,7 @@ const ogImage = `/content/${collection}/${entry.slug}/cover.webp`
 				entry.data.tags && entry.data.tags.length > 0 && (
 					<div class="flex flex-wrap gap-1.5 pt-1">
 						{entry.data.tags.map((tag) => (
-							<span class="text-body-light border border-black/10 px-2 py-0.5 font-mono text-xs dark:border-white/10">
+							<span class="text-body-light border-border-light rounded-md border px-2 py-0.5 font-mono text-xs">
 								{tag}
 							</span>
 						))}
@@ -135,7 +135,7 @@ const ogImage = `/content/${collection}/${entry.slug}/cover.webp`
 		<article class={`${useProse ? ' prose prose-neutral max-w-none dark:prose-invert' : ''}`}>
 			<Content />
 		</article>
-		<div class="mt-24 border-t border-black/10 pt-10 dark:border-white/10">
+		<div class="border-border-light mt-24 border-t pt-10">
 			<p class="text-sm opacity-75">
 				This content is licensed under
 				<Link href={LICENSE.URL} external class="decoration-accent/50">

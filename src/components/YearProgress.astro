@@ -24,8 +24,8 @@ const totalBlocks = 25
 				const isFilled = i < (percent / 100) * totalBlocks
 				return (
 					<div
-						class={`h-4 flex-1 transition-colors duration-500 ${
-							isFilled ? 'bg-primary-deep-light dark:bg-primary' : 'bg-black/10 dark:bg-white/10'
+						class={`h-4 flex-1 ${
+							isFilled ? 'bg-primary-light dark:bg-primary' : 'bg-ink-light/10 dark:bg-ink-dark/10'
 						}`}
 					/>
 				)

@@ -28,13 +28,13 @@ const projects = (await getCollection('projects'))
 			<img
 				src={`${SITE.CDN}/assets/identity/whoami.webp`}
 				alt="Adnan"
-				class="size-32 object-cover"
+				class="size-32 rounded-md object-cover"
 			/>
 		</div>
 		<div class="mt-8 space-y-10">
 			<section>
 				<div class="flex flex-wrap items-center gap-2">
-					<h4 class="font-semibold text-black dark:text-white">Adnan (@aadnanmt)</h4>
+					<h4 class="text-ink-light dark:text-ink-dark font-semibold">Adnan (@aadnanmt)</h4>
 					<MoodStatus />
 				</div>
 				<article class="space-y-4">
@@ -52,7 +52,7 @@ const projects = (await getCollection('projects'))
 
 			<section class="space-y-4">
 				<div class="flex flex-wrap items-center justify-between gap-y-2">
-					<h5 class="flex items-center gap-2 font-semibold text-black dark:text-white">
+					<h5 class="text-ink-light dark:text-ink-dark flex items-center gap-2 font-semibold">
 						<span class="fill-mute-light dark:fill-mute-dark size-5"
 							><Fragment set:html={IconPosts} /></span
 						>
@@ -73,7 +73,7 @@ const projects = (await getCollection('projects'))
 
 			<section class="space-y-4">
 				<div class="flex flex-wrap items-center justify-between gap-y-2">
-					<h5 class="flex items-center gap-2 font-semibold text-black dark:text-white">
+					<h5 class="text-ink-light dark:text-ink-dark flex items-center gap-2 font-semibold">
 						<span class="fill-mute-light dark:fill-mute-dark size-5"
 							><Fragment set:html={IconProjects} /></span
 						>

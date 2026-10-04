@@ -26,12 +26,14 @@ const grouped = notes.reduce(
 	<Container>
 		<div class="space-y-10">
 			<BackToPrev href="/explore"> Back to explore </BackToPrev>
-			<div class="flex items-center gap-2 font-semibold text-black dark:text-white">Notes</div>
+			<div class="text-ink-light dark:text-ink-dark flex items-center gap-2 font-semibold">
+				Notes
+			</div>
 			{NOTES.INTRO!.map((paragraph) => <p>{paragraph}</p>)}
 			<div>
 				{
 					Object.entries(grouped).map(([date, dayNotes]) => (
-						<section class="border-b border-black/5 py-6 last:border-0 dark:border-white/5">
+						<section class="border-border-light border-b py-6 last:border-0">
 							<time
 								class="text-body-light dark:text-body-dark font-mono text-sm font-semibold whitespace-nowrap"
 								datetime={date}

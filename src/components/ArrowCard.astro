@@ -12,7 +12,7 @@ const { entry } = Astro.props
 
 <a
 	href={`/${entry.collection}/${entry.slug}`}
-	class="group hover:border-accent/40 dark:hover:border-accent/40 relative flex flex-nowrap border border-black/25 px-4 py-3.5 pr-10 transition-colors duration-300 ease-in-out dark:border-white/30"
+	class="group hover:border-accent/40 dark:hover:border-accent/40 active:border-accent/40 dark:active:border-accent/40 border-border-light relative flex flex-nowrap rounded-md border px-4 py-3.5 pr-10"
 >
 	<div class="flex flex-1 flex-col gap-1 truncate">
 		<div class="font-semibold">
@@ -34,7 +34,7 @@ const { entry } = Astro.props
 		</div>
 	</div>
 	<span
-		class="group-hover:stroke-accent dark:group-hover:stroke-accent absolute top-1/2 right-2 size-4 -translate-y-1/2 fill-none stroke-current stroke-2 transition-colors duration-300 ease-in-out"
+		class="group-hover:stroke-accent dark:group-hover:stroke-accent absolute top-1/2 right-2 size-4 -translate-y-1/2 fill-none stroke-current stroke-2"
 		><Fragment set:html={IconArrowRight} /></span
 	>
 </a>
