@@ -8,37 +8,58 @@ tags: ['niri', 'dotfiles', 'wayland']
 
 import Details from '@components/Details.astro'
 
+export const PREVIEW = '/content/projects/niri-dotfiles'
+
 Yeahh, current I'm move compositor Wayland from HyprlandWM to NiriWM. So, why I'm to Niri as a compositor Wayland? because, it's it just about my preference for my workflow and daily uses. And this project will receive further updates and adjustments.
 
 > This Personal dotfiles for Niri (Wayland compositor) on Arch Linux. GitHub Dark Default theme, minimal, TUI-first. You can look my screenshot and features in below section:
 
 ## Screenshots
 
-<Details label="Interface & Menus">
+<Details label="Desktop">
 
-![interface](/content/projects/niri-dotfiles/interface.png)
-
-![menu-apps-fuzzel](/content/projects/niri-dotfiles/menu-apps-wofi.png)
-
-![waybar](/content/projects/niri-dotfiles/waybar.png)
-
-![powermenu](/content/projects/niri-dotfiles/powermenu.png)
-
-![emoji-picker](/content/projects/niri-dotfiles/emoji-picker.png)
-
-![wp-select](/content/projects/niri-dotfiles/wp-select.png)
+<img src={`${PREVIEW}/desktop-interface.png`} alt="desktop interface" width="800" loading="lazy" />
 
 </Details>
 
-<Details label="TUI & Apps">
+<Details label="Launcher">
 
-![tui](/content/projects/niri-dotfiles/tui.png)
+<img src={`${PREVIEW}/fuzzel-menu-apps.png`} alt="fuzzel app menu" width="800" loading="lazy" />
+<img
+	src={`${PREVIEW}/fuzzel-wallpaper-select.png`}
+	alt="fuzzel wallpaper selector"
+	width="800"
+	loading="lazy"
+/>
+<img
+	src={`${PREVIEW}/fuzzel-emoji-picker.png`}
+	alt="fuzzel emoji picker"
+	width="800"
+	loading="lazy"
+/>
 
-![dunst](/content/projects/niri-dotfiles/dunst.png)
+</Details>
 
-![htop](/content/projects/niri-dotfiles/htop.png)
+<Details label="Apps">
 
-![yazi](/content/projects/niri-dotfiles/yazi.png)
+<img src={`${PREVIEW}/neovim.png`} alt="neovim" width="800" loading="lazy" />
+<img src={`${PREVIEW}/yazi.png`} alt="yazi file manager" width="800" loading="lazy" />
+<img src={`${PREVIEW}/lazygit.png`} alt="lazygit" width="800" loading="lazy" />
+<img src={`${PREVIEW}/kew.png`} alt="kew music player" width="800" loading="lazy" />
+<img src={`${PREVIEW}/bat.png`} alt="bat pager" width="800" loading="lazy" />
+<img src={`${PREVIEW}/htop-monitoring.png`} alt="htop monitoring" width="800" loading="lazy" />
+
+</Details>
+
+<Details label="TUI">
+
+<img src={`${PREVIEW}/tui.png`} alt="terminal ui apps" width="800" loading="lazy" />
+<img
+	src={`${PREVIEW}/dunst-minimal.png`}
+	alt="minimal dunst notification"
+	width="800"
+	loading="lazy"
+/>
 
 </Details>
 
@@ -188,8 +209,8 @@ git clone https://github.com/SGau89/gvfs.yazi ~/.config/yazi/plugins/gvfs.yazi
 | Print / Ctrl+Print / Alt+Print       | Screenshot (all / screen / window) |
 | Mod + Shift + Period or Ctrl+Alt+Del | Quit niri                          |
 | Mod + Shift + P                      | Power off monitors                 |
-| XF86Audio\*                          | Volume up/down, mute               |
-| XF86MonBrightness\*                  | Brightness up/down                 |
+| XF86Audio                            | Volume up/down, mute               |
+| XF86MonBrightness                    | Brightness up/down                 |
 
 ### Personal (hidden from overlay)
 
