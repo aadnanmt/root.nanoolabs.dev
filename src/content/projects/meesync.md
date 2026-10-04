@@ -78,7 +78,7 @@ cp .env.example .env
 # Edit .env and add your GH_TOKEN
 ```
 
-## Production (GitHub Actions)
+## Production
 
 The CI workflow requires the following **repository secret**:
 
@@ -86,7 +86,7 @@ The CI workflow requires the following **repository secret**:
 | ---------- | ----------------------------------------------------------------------------------- |
 | `GH_TOKEN` | GitHub PAT with `repo`, `workflow`, `read:user` scopes (or fine-grained equivalent) |
 
-### Set GH_TOKEN via GitHub CLI (recommended, no token in history)
+### Set GH_TOKEN via GitHub CLI
 
 ```bash
 # Read token from stdin, never appear in shell history
@@ -99,7 +99,7 @@ echo "ghp_xxxxxxxxxxxx" | gh secret set GH_TOKEN
 gh secret set GH_TOKEN --repo your-username/your-repo
 ```
 
-### Via Web UI
+### Set GH_TOKEN via Web UI
 
 1. Go to your repository → **Settings** → **Secrets and variables** →
    **Actions**
@@ -121,7 +121,7 @@ gh auth login
 Updates happen twice a day at **05:00 & 17:00 UTC**. Check
 `.github/workflows/stats.yml` for the CI/CD pipeline details.
 
-## CI Configuration (Repository Variables)
+## Repository Variables
 
 The workflow uses repository variables for configurable values. Set them in
 **Settings → Variables** (not Secrets) of your repository:
