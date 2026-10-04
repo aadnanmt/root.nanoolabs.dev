@@ -81,6 +81,10 @@ article img {
 	aspect-ratio: auto;
 }
 
+article details img {
+	@apply my-4 block;
+}
+
 article {
 	@apply prose dark:prose-invert prose-img:mx-auto prose-img:my-auto max-w-full;
 	@apply md:prose-img:mx-0;
