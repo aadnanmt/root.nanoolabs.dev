@@ -9,34 +9,34 @@ const totalBlocks = 25
 ---
 
 <div class="space-y-2">
-	<div class="flex items-end justify-between font-mono">
-		<span class="text-sm font-semibold tracking-widest uppercase opacity-70">
-			{now.getFullYear()} Progress
-		</span>
-		<span class="text-primary text-sm font-bold">
-			{percent}%
-		</span>
-	</div>
+  <div class="flex items-end justify-between font-mono">
+    <span class="text-sm font-semibold tracking-widest uppercase opacity-70">
+      {now.getFullYear()} Progress
+    </span>
+    <span class="text-primary text-sm font-bold">
+      {percent}%
+    </span>
+  </div>
 
-	<div class="flex w-full gap-px sm:gap-4" aria-hidden="true">
-		{
-			[...Array(totalBlocks)].map((_, i) => {
-				const isFilled = i < (percent / 100) * totalBlocks
-				return (
-					<div
-						class={`h-4 flex-1 ${
-							isFilled ? 'bg-primary-light dark:bg-primary' : 'bg-ink-light/10 dark:bg-ink-dark/10'
-						}`}
-					/>
-				)
-			})
-		}
-	</div>
+  <div class="flex w-full gap-px sm:gap-4" aria-hidden="true">
+    {
+      [...Array(totalBlocks)].map((_, i) => {
+        const isFilled = i < (percent / 100) * totalBlocks
+        return (
+          <div
+            class={`h-4 flex-1 ${
+              isFilled ? 'bg-primary-light dark:bg-primary' : 'bg-ink-light/10 dark:bg-ink-dark/10'
+            }`}
+          />
+        )
+      })
+    }
+  </div>
 
-	<div
-		class="flex justify-between font-mono text-[13px] tracking-tighter uppercase opacity-40 md:text-[14px]"
-	>
-		<span>Jan 01</span>
-		<span>Dec 31</span>
-	</div>
+  <div
+    class="flex justify-between font-mono text-[13px] tracking-tighter uppercase opacity-40 md:text-[14px]"
+  >
+    <span>Jan 01</span>
+    <span>Dec 31</span>
+  </div>
 </div>

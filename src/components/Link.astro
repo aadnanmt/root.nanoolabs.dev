@@ -3,23 +3,23 @@ import { cn } from '@lib/utils'
 import type { HTMLAttributes } from 'astro/types'
 
 type Props = HTMLAttributes<'a'> & {
-	href: string
-	external?: boolean
-	underline?: boolean
+  href: string
+  external?: boolean
+  underline?: boolean
 }
 
 const { href, external, underline = true, ...rest } = Astro.props
 ---
 
 <a
-	href={href}
-	target={external ? '_blank' : '_self'}
-	rel={external ? 'noopener noreferrer' : undefined}
-	class={cn(
-		'inline-block decoration-black/15 hover:decoration-black/25 hover:text-accent-soft-light active:decoration-black/25 active:text-accent-soft-light dark:decoration-primary/30 dark:hover:decoration-accent/50 dark:hover:text-accent dark:active:decoration-accent/50 dark:active:text-accent',
-		underline && 'underline underline-offset-2',
-	)}
-	{...rest}
+  href={href}
+  target={external ? '_blank' : '_self'}
+  rel={external ? 'noopener noreferrer' : undefined}
+  class={cn(
+    'inline-block decoration-black/15 hover:decoration-black/25 hover:text-accent-soft-light active:decoration-black/25 active:text-accent-soft-light dark:decoration-primary/30 dark:hover:decoration-accent/50 dark:hover:text-accent dark:active:decoration-accent/50 dark:active:text-accent',
+    underline && 'underline underline-offset-2',
+  )}
+  {...rest}
 >
-	<slot />
+  <slot />
 </a>

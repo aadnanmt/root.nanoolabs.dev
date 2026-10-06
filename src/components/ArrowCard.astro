@@ -4,37 +4,37 @@ import { formatDate, readingTime } from '@lib/utils'
 import { IconArrowRight } from '@lib/iconSystem'
 
 type Props = {
-	entry: CollectionEntry<'blog'> | CollectionEntry<'projects'> | CollectionEntry<'commands'>
+  entry: CollectionEntry<'blog'> | CollectionEntry<'projects'> | CollectionEntry<'commands'>
 }
 
 const { entry } = Astro.props
 ---
 
 <a
-	href={`/${entry.collection}/${entry.slug}`}
-	class="group hover:border-accent/40 dark:hover:border-accent/40 active:border-accent/40 dark:active:border-accent/40 border-border-light relative flex flex-nowrap rounded-md border px-4 py-3.5 pr-10"
+  href={`/${entry.collection}/${entry.slug}`}
+  class="group hover:border-accent/40 dark:hover:border-accent/40 active:border-accent/40 dark:active:border-accent/40 border-border-light relative flex flex-nowrap rounded-md border px-4 py-3.5 pr-10"
 >
-	<div class="flex flex-1 flex-col gap-1 truncate">
-		<div class="font-semibold">
-			{entry.data.title}
-		</div>
-		<div class="text-sm">
-			{entry.data.description}
-		</div>
-		<div class="text-mute-light dark:text-mute-dark flex items-center gap-1.5 text-xs">
-			<span>{readingTime(entry.body)}</span>
-			{
-				entry.collection !== 'commands' && (
-					<>
-						<span aria-hidden="true">&middot;</span>
-						<time datetime={entry.data.date.toISOString()}>{formatDate(entry.data.date)}</time>
-					</>
-				)
-			}
-		</div>
-	</div>
-	<span
-		class="group-hover:stroke-accent dark:group-hover:stroke-accent absolute top-1/2 right-2 size-4 -translate-y-1/2 fill-none stroke-current stroke-2"
-		><Fragment set:html={IconArrowRight} /></span
-	>
+  <div class="flex flex-1 flex-col gap-1 truncate">
+    <div class="font-semibold">
+      {entry.data.title}
+    </div>
+    <div class="text-sm">
+      {entry.data.description}
+    </div>
+    <div class="text-mute-light dark:text-mute-dark flex items-center gap-1.5 text-xs">
+      <span>{readingTime(entry.body)}</span>
+      {
+        entry.collection !== 'commands' && (
+          <>
+            <span aria-hidden="true">&middot;</span>
+            <time datetime={entry.data.date.toISOString()}>{formatDate(entry.data.date)}</time>
+          </>
+        )
+      }
+    </div>
+  </div>
+  <span
+    class="group-hover:stroke-accent dark:group-hover:stroke-accent absolute top-1/2 right-2 size-4 -translate-y-1/2 fill-none stroke-current stroke-2"
+    ><Fragment set:html={IconArrowRight} /></span
+  >
 </a>

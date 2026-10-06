@@ -12,92 +12,92 @@ import MoodStatus from '@components/MoodStatus.astro'
 import { IconPosts, IconProjects } from '@lib/iconSystem'
 
 const blog = (await getCollection('blog'))
-	.filter((post) => !post.data.draft)
-	.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-	.slice(0, SITE.NUM_POSTS_ON_HOMEPAGE)
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, SITE.NUM_POSTS_ON_HOMEPAGE)
 
 const projects = (await getCollection('projects'))
-	.filter((project) => !project.data.draft)
-	.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-	.slice(0, SITE.NUM_PROJECTS_ON_HOMEPAGE)
+  .filter((project) => !project.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, SITE.NUM_PROJECTS_ON_HOMEPAGE)
 ---
 
 <PageLayout title={HOME.TITLE} description={HOME.DESCRIPTION}>
-	<Container>
-		<div class="flex items-center gap-5">
-			<img
-				src={`${SITE.CDN}/assets/identity/whoami.webp`}
-				alt="Adnan"
-				class="size-32 rounded-md object-cover"
-			/>
-		</div>
-		<div class="mt-8 space-y-10">
-			<section>
-				<div class="flex flex-wrap items-center gap-2">
-					<h4 class="text-ink-light dark:text-ink-dark font-semibold">Adnan (@aadnanmt)</h4>
-					<MoodStatus />
-				</div>
-				<article class="space-y-4">
-					<p>
-						18 y/o. Still grinding. Fullstack dev, <strong>DevOps leaning</strong>.
-					</p>
-					<p>
-						I don't just "coding". I like tweaking, modifying, and optimizing stuff from the <strong
-							>source code</strong
-						> up to the <strong>hardware level.</strong> Started again in July 2023, then a hard "resync"
-						in early 2025 with a new mindset: <strong>Built to be Fast, Simple, Scalable</strong>.
-					</p>
-				</article>
-			</section>
+  <Container>
+    <div class="flex items-center gap-5">
+      <img
+        src={`${SITE.CDN}/assets/identity/whoami.webp`}
+        alt="Adnan"
+        class="size-32 rounded-md object-cover"
+      />
+    </div>
+    <div class="mt-8 space-y-10">
+      <section>
+        <div class="flex flex-wrap items-center gap-2">
+          <h4 class="text-ink-light dark:text-ink-dark font-semibold">Adnan (@aadnanmt)</h4>
+          <MoodStatus />
+        </div>
+        <article class="space-y-4">
+          <p>
+            18 y/o. Still grinding. Fullstack dev, <strong>DevOps leaning</strong>.
+          </p>
+          <p>
+            I don't just "coding". I like tweaking, modifying, and optimizing stuff from the <strong
+              >source code</strong
+            > up to the <strong>hardware level.</strong> Started again in July 2023, then a hard "resync"
+            in early 2025 with a new mindset: <strong>Built to be Fast, Simple, Scalable</strong>.
+          </p>
+        </article>
+      </section>
 
-			<section class="space-y-4">
-				<div class="flex flex-wrap items-center justify-between gap-y-2">
-					<h5 class="text-ink-light dark:text-ink-dark flex items-center gap-2 font-semibold">
-						<span class="fill-mute-light dark:fill-mute-dark size-5"
-							><Fragment set:html={IconPosts} /></span
-						>
-						Latest posts
-					</h5>
-					<Link href="/blog"> See all posts </Link>
-				</div>
-				<ul class="flex flex-col gap-3">
-					{
-						blog.map((post) => (
-							<li>
-								<ArrowCard entry={post} />
-							</li>
-						))
-					}
-				</ul>
-			</section>
+      <section class="space-y-4">
+        <div class="flex flex-wrap items-center justify-between gap-y-2">
+          <h5 class="text-ink-light dark:text-ink-dark flex items-center gap-2 font-semibold">
+            <span class="fill-mute-light dark:fill-mute-dark size-5"
+              ><Fragment set:html={IconPosts} /></span
+            >
+            Latest posts
+          </h5>
+          <Link href="/blog"> See all posts </Link>
+        </div>
+        <ul class="flex flex-col gap-3">
+          {
+            blog.map((post) => (
+              <li>
+                <ArrowCard entry={post} />
+              </li>
+            ))
+          }
+        </ul>
+      </section>
 
-			<section class="space-y-4">
-				<div class="flex flex-wrap items-center justify-between gap-y-2">
-					<h5 class="text-ink-light dark:text-ink-dark flex items-center gap-2 font-semibold">
-						<span class="fill-mute-light dark:fill-mute-dark size-5"
-							><Fragment set:html={IconProjects} /></span
-						>
-						Recent projects
-					</h5>
-					<Link href="/projects"> See all projects </Link>
-				</div>
-				<ul class="flex flex-col gap-3">
-					{
-						projects.map((project) => (
-							<li>
-								<ArrowCard entry={project} />
-							</li>
-						))
-					}
-				</ul>
-			</section>
+      <section class="space-y-4">
+        <div class="flex flex-wrap items-center justify-between gap-y-2">
+          <h5 class="text-ink-light dark:text-ink-dark flex items-center gap-2 font-semibold">
+            <span class="fill-mute-light dark:fill-mute-dark size-5"
+              ><Fragment set:html={IconProjects} /></span
+            >
+            Recent projects
+          </h5>
+          <Link href="/projects"> See all projects </Link>
+        </div>
+        <ul class="flex flex-col gap-3">
+          {
+            projects.map((project) => (
+              <li>
+                <ArrowCard entry={project} />
+              </li>
+            ))
+          }
+        </ul>
+      </section>
 
-			<section class="space-y-4">
-				<Mood />
-				<NowPlaying />
-			</section>
+      <section class="space-y-4">
+        <Mood />
+        <NowPlaying />
+      </section>
 
-			<Connect />
-		</div>
-	</Container>
+      <Connect />
+    </div>
+  </Container>
 </PageLayout>

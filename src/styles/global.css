@@ -8,169 +8,169 @@
 
 /* site font stack (geist first) wins over nlbs inter-first by source order */
 :root {
-	--font-sans:
-		'Geist Sans', 'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
-		'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-	--font-mono: 'JetBrains Mono', ui-monospace, sfmono-regular, menlo, monospace;
+  --font-sans:
+    'Geist Sans', 'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-mono: 'JetBrains Mono', ui-monospace, sfmono-regular, menlo, monospace;
 }
 
 @theme {
-	/* neutral brand: legacy primary/accent name bridge to nlbs (no cyan, again) */
-	--color-primary: var(--color-brand);
-	--color-primary-light: var(--color-brand);
-	--color-primary-dark: var(--color-brand);
-	--color-primary-soft-light: var(--color-brand-muted);
-	--color-primary-soft-dark: var(--color-brand-muted);
-	--color-primary-deep-light: var(--color-brand-subtle);
-	--color-on-primary-light: var(--color-brand-on);
-	--color-on-primary-dark: var(--color-brand-on);
-	--color-accent: var(--color-brand);
-	--color-accent-soft-light: var(--color-brand-muted);
+  /* neutral brand: legacy primary/accent name bridge to nlbs (no cyan, again) */
+  --color-primary: var(--color-brand);
+  --color-primary-light: var(--color-brand);
+  --color-primary-dark: var(--color-brand);
+  --color-primary-soft-light: var(--color-brand-muted);
+  --color-primary-soft-dark: var(--color-brand-muted);
+  --color-primary-deep-light: var(--color-brand-subtle);
+  --color-on-primary-light: var(--color-brand-on);
+  --color-on-primary-dark: var(--color-brand-on);
+  --color-accent: var(--color-brand);
+  --color-accent-soft-light: var(--color-brand-muted);
 
-	/* semantic bridge: legacy -light/-dark pair resolve to live nlbs token */
-	--color-ink-light: var(--color-text);
-	--color-ink-dark: var(--color-text);
-	--color-ink-strong-light: var(--color-text-strong);
-	--color-body-light: var(--color-text);
-	--color-body-dark: var(--color-text-muted);
-	--color-mute-light: var(--color-text-muted);
-	--color-mute-dark: var(--color-text-muted);
-	--color-border-light: var(--color-border);
-	--color-border-dark: var(--color-border);
-	--color-border-soft-light: var(--color-border-subtle);
-	--color-border-soft-dark: var(--color-border-subtle);
-	--color-canvas-light: var(--color-bg);
-	--color-canvas-dark: var(--color-bg);
-	--color-canvas-soft-light: var(--color-bg-surface);
-	--color-canvas-soft-dark: var(--color-bg-surface);
+  /* semantic bridge: legacy -light/-dark pair resolve to live nlbs token */
+  --color-ink-light: var(--color-text);
+  --color-ink-dark: var(--color-text);
+  --color-ink-strong-light: var(--color-text-strong);
+  --color-body-light: var(--color-text);
+  --color-body-dark: var(--color-text-muted);
+  --color-mute-light: var(--color-text-muted);
+  --color-mute-dark: var(--color-text-muted);
+  --color-border-light: var(--color-border);
+  --color-border-dark: var(--color-border);
+  --color-border-soft-light: var(--color-border-subtle);
+  --color-border-soft-dark: var(--color-border-subtle);
+  --color-canvas-light: var(--color-bg);
+  --color-canvas-dark: var(--color-bg);
+  --color-canvas-soft-light: var(--color-bg-surface);
+  --color-canvas-soft-dark: var(--color-bg-surface);
 }
 
 html {
-	overflow-y: scroll;
-	font-size: 16px;
+  overflow-y: scroll;
+  font-size: 16px;
 }
 
 html,
 body {
-	@apply size-full;
+  @apply size-full;
 }
 
 body {
-	@apply font-sans antialiased;
-	@apply flex flex-col;
-	@apply bg-canvas-light dark:bg-canvas-dark;
-	@apply text-ink-light dark:text-ink-dark;
+  @apply font-sans antialiased;
+  @apply flex flex-col;
+  @apply bg-canvas-light dark:bg-canvas-dark;
+  @apply text-ink-light dark:text-ink-dark;
 }
 
 header {
-	@apply fixed top-4 right-0 left-0 z-50;
-	@apply flex items-center justify-center;
+  @apply fixed top-4 right-0 left-0 z-50;
+  @apply flex items-center justify-center;
 }
 
 main {
-	@apply flex-1 py-32;
+  @apply flex-1 py-32;
 }
 
 footer {
-	@apply py-5 text-sm;
+  @apply py-5 text-sm;
 }
 
 article img {
-	@apply h-auto max-h-[80vh] w-auto max-w-full rounded-md;
+  @apply h-auto max-h-[80vh] w-auto max-w-full rounded-md;
 
-	aspect-ratio: auto;
+  aspect-ratio: auto;
 }
 
 article details img {
-	@apply my-4 block;
+  @apply my-4 block;
 }
 
 article {
-	@apply prose dark:prose-invert prose-img:mx-auto prose-img:my-auto max-w-full;
-	@apply md:prose-img:mx-0;
-	@apply prose-headings:font-semibold;
-	@apply prose-headings:text-ink-strong-light prose-headings:dark:text-ink-dark;
-	@apply prose-p:text-body-light prose-p:dark:text-ink-dark/70;
+  @apply prose dark:prose-invert prose-img:mx-auto prose-img:my-auto max-w-full;
+  @apply md:prose-img:mx-0;
+  @apply prose-headings:font-semibold;
+  @apply prose-headings:text-ink-strong-light prose-headings:dark:text-ink-dark;
+  @apply prose-p:text-body-light prose-p:dark:text-ink-dark/70;
 }
 
 article pre {
-	@apply border-border-light bg-canvas-soft-light/50 dark:bg-canvas-soft-dark! relative rounded-md border;
+  @apply border-border-light bg-canvas-soft-light/50 dark:bg-canvas-soft-dark! relative rounded-md border;
 }
 
 [data-theme='dark'] .astro-code,
 [data-theme='dark'] .astro-code span {
-	color: var(--shiki-dark) !important;
-	background-color: var(--shiki-dark-bg) !important;
-	font-style: var(--shiki-dark-font-style) !important;
-	font-weight: var(--shiki-dark-font-weight) !important;
-	text-decoration: var(--shiki-dark-text-decoration) !important;
+  color: var(--shiki-dark) !important;
+  background-color: var(--shiki-dark-bg) !important;
+  font-style: var(--shiki-dark-font-style) !important;
+  font-weight: var(--shiki-dark-font-weight) !important;
+  text-decoration: var(--shiki-dark-text-decoration) !important;
 }
 
 .copy-wrap {
-	@apply relative;
+  @apply relative;
 }
 
 .copy-code {
-	@apply border-border-light bg-canvas-soft-light text-body-light hover:border-accent hover:bg-accent hover:text-on-primary-light dark:border-border-dark dark:bg-canvas-soft-dark dark:text-body-dark dark:hover:border-accent dark:hover:bg-accent dark:hover:text-on-primary-dark absolute top-2 right-3 rounded-sm border px-2 py-0.5 font-mono text-xs;
+  @apply border-border-light bg-canvas-soft-light text-body-light hover:border-accent hover:bg-accent hover:text-on-primary-light dark:border-border-dark dark:bg-canvas-soft-dark dark:text-body-dark dark:hover:border-accent dark:hover:bg-accent dark:hover:text-on-primary-dark absolute top-2 right-3 rounded-sm border px-2 py-0.5 font-mono text-xs;
 }
 
 article code {
-	@apply text-primary-soft-light dark:text-primary font-mono text-sm;
+  @apply text-primary-soft-light dark:text-primary font-mono text-sm;
 }
 
 article :not(pre) > code {
-	@apply border-border-light bg-canvas-soft-light dark:bg-ink-dark/10 rounded-sm border px-1 py-0.5;
+  @apply border-border-light bg-canvas-soft-light dark:bg-ink-dark/10 rounded-sm border px-1 py-0.5;
 }
 
 @layer base {
-	::selection {
-		background-color: color-mix(in oklab, var(--color-primary) 20%, transparent);
-		color: var(--color-ink-light);
-	}
+  ::selection {
+    background-color: color-mix(in oklab, var(--color-primary) 20%, transparent);
+    color: var(--color-ink-light);
+  }
 
-	[data-theme='dark'] ::selection {
-		background-color: var(--color-primary);
-		color: var(--color-on-primary-dark);
-	}
+  [data-theme='dark'] ::selection {
+    background-color: var(--color-primary);
+    color: var(--color-on-primary-dark);
+  }
 
-	/* Scrollbar styles */
-	::-webkit-scrollbar {
-		height: 0;
-		width: 0.5rem;
-	}
+  /* Scrollbar styles */
+  ::-webkit-scrollbar {
+    height: 0;
+    width: 0.5rem;
+  }
 
-	::-webkit-scrollbar-track {
-		background-color: transparent;
-	}
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
 
-	::-webkit-scrollbar-thumb {
-		background-color: var(--color-border-light);
-		border-radius: 9999px;
-	}
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--color-border-light);
+    border-radius: 9999px;
+  }
 
-	[data-theme='dark'] ::-webkit-scrollbar-thumb {
-		background-color: var(--color-border-dark);
-	}
+  [data-theme='dark'] ::-webkit-scrollbar-thumb {
+    background-color: var(--color-border-dark);
+  }
 
-	::-webkit-scrollbar-thumb:hover {
-		background-color: var(--color-mute-light);
-	}
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-mute-light);
+  }
 
-	[data-theme='dark'] ::-webkit-scrollbar-thumb:hover {
-		background-color: var(--color-primary-soft-dark);
-	}
+  [data-theme='dark'] ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-primary-soft-dark);
+  }
 }
 
 article a {
-	@apply font-sans text-current underline underline-offset-2;
-	@apply hover:text-accent-soft-light decoration-black/15 hover:decoration-black/25;
-	@apply dark:decoration-primary/30 dark:hover:decoration-accent/50 dark:hover:text-accent;
+  @apply font-sans text-current underline underline-offset-2;
+  @apply hover:text-accent-soft-light decoration-black/15 hover:decoration-black/25;
+  @apply dark:decoration-primary/30 dark:hover:decoration-accent/50 dark:hover:text-accent;
 }
 
 html #back-to-top {
-	@apply pointer-events-none opacity-0;
+  @apply pointer-events-none opacity-0;
 }
 
 html.scrolled #back-to-top {
-	@apply pointer-events-auto opacity-100;
+  @apply pointer-events-auto opacity-100;
 }

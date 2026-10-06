@@ -8,34 +8,34 @@ import { COMMANDS } from '@consts'
 import BackToPrev from '@components/BackToPrev.astro'
 
 const commands = (await getCollection('commands')).sort((a, b) =>
-	a.data.title.localeCompare(b.data.title),
+  a.data.title.localeCompare(b.data.title),
 )
 ---
 
 <PageLayout title={COMMANDS.TITLE} description={COMMANDS.DESCRIPTION}>
-	<Container>
-		<div class="space-y-10">
-			<BackToPrev href="/explore"> Back to explore </BackToPrev>
-			<div class="text-ink-light dark:text-ink-dark flex items-center gap-2 font-semibold">
-				<div class="size-5 fill-current">
-					<Fragment set:html={IconCommands} />
-				</div>
-				Commands
-			</div>
-			<div class="space-y-4">
-				{COMMANDS.INTRO!.map((paragraph) => <p>{paragraph}</p>)}
-			</div>
-			<div class="space-y-4">
-				<ul class="flex flex-col gap-3">
-					{
-						commands.map((command) => (
-							<li>
-								<ArrowCard entry={command} />
-							</li>
-						))
-					}
-				</ul>
-			</div>
-		</div>
-	</Container>
+  <Container>
+    <div class="space-y-10">
+      <BackToPrev href="/explore"> Back to explore </BackToPrev>
+      <div class="text-ink-light dark:text-ink-dark flex items-center gap-2 font-semibold">
+        <div class="size-5 fill-current">
+          <Fragment set:html={IconCommands} />
+        </div>
+        Commands
+      </div>
+      <div class="space-y-4">
+        {COMMANDS.INTRO!.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+      <div class="space-y-4">
+        <ul class="flex flex-col gap-3">
+          {
+            commands.map((command) => (
+              <li>
+                <ArrowCard entry={command} />
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </Container>
 </PageLayout>

@@ -1,14 +1,14 @@
 ---
 interface Props {
-	label: string
+  label: string
 }
 
 const { label } = Astro.props
 ---
 
 <details>
-	<summary>{label}</summary>
-	<div class="my-4">
-		<slot />
-	</div>
+  <summary>{label}</summary>
+  <div class="my-4">
+    <slot />
+  </div>
 </details>

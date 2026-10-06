@@ -11,61 +11,61 @@ const lastActive = lastCommitDate()
 ---
 
 <footer>
-	<Container>
-		<div class="relative">
-			<div class="absolute -top-20 right-0">
-				<BackToTop />
-			</div>
-		</div>
+  <Container>
+    <div class="relative">
+      <div class="absolute -top-20 right-0">
+        <BackToTop />
+      </div>
+    </div>
 
-		<div
-			class="mb-8 flex justify-center opacity-20 transition-opacity select-none hover:opacity-50"
-		>
-			<pre
-				class="font-mono text-xs leading-none">
-█▄ █ ▄▀█ █▄ █ █▀█ █▀█
+    <div
+      class="mb-8 flex justify-center opacity-20 transition-opacity select-none hover:opacity-50"
+    >
+      <pre
+        class="font-mono text-xs leading-none">
+█▄ █ █▀█ █▄ █ █▀█ █▀█
 █ ▀█ █▀█ █ ▀█ █▄█ █▄█
       </pre>
-		</div>
+    </div>
 
-		<div class="flex flex-col items-center justify-between gap-y-4 text-sm md:flex-row">
-			<div class="flex flex-wrap items-center gap-2">
-				&copy; {currentYear}
-				{SITE.NAME}
-				<span class="opacity-50">|</span>
-				<span class="flex items-center gap-1 font-mono opacity-50">
-					{
-						lastActive && (
-							<span title={lastActive.toISOString()}>Updated {timeAgo(lastActive)}</span>
-						)
-					}
-					{lastActive && gitHash && gitHash !== 'unknown' && <span class="opacity-50">|</span>}
-					{
-						gitHash && gitHash !== 'unknown' && (
-							<Link
-								href={`${repoUrl}/commit/${gitHash}`}
-								external
-								underline={false}
-								class="hover:text-accent"
-							>
-								{gitHash}
-							</Link>
-						)
-					}
-				</span>
-			</div>
+    <div class="flex flex-col items-center justify-between gap-y-4 text-sm md:flex-row">
+      <div class="flex flex-wrap items-center gap-2">
+        &copy; {currentYear}
+        {SITE.NAME}
+        <span class="opacity-50">|</span>
+        <span class="flex items-center gap-1 font-mono opacity-50">
+          {
+            lastActive && (
+              <span title={lastActive.toISOString()}>Updated {timeAgo(lastActive)}</span>
+            )
+          }
+          {lastActive && gitHash && gitHash !== 'unknown' && <span class="opacity-50">|</span>}
+          {
+            gitHash && gitHash !== 'unknown' && (
+              <Link
+                href={`${repoUrl}/commit/${gitHash}`}
+                external
+                underline={false}
+                class="hover:text-accent"
+              >
+                {gitHash}
+              </Link>
+            )
+          }
+        </span>
+      </div>
 
-			<div class="flex flex-wrap items-center gap-2">
-				<Link href="/credits" underline={false} class="hover:text-accent"> Credits </Link>
+      <div class="flex flex-wrap items-center gap-2">
+        <Link href="/credits" underline={false} class="hover:text-accent"> Credits </Link>
 
-				<span class="opacity-50">|</span>
-				<Link href="/rss.xml" underline={false} class="hover:text-accent"> RSS </Link>
+        <span class="opacity-50">|</span>
+        <Link href="/rss.xml" underline={false} class="hover:text-accent"> RSS </Link>
 
-				<span class="opacity-50">|</span>
-				<Link href={LICENSE.URL} external underline={false} class="hover:text-accent">
-					{LICENSE.NAME}
-				</Link>
-			</div>
-		</div>
-	</Container>
+        <span class="opacity-50">|</span>
+        <Link href={LICENSE.URL} external underline={false} class="hover:text-accent">
+          {LICENSE.NAME}
+        </Link>
+      </div>
+    </div>
+  </Container>
 </footer>

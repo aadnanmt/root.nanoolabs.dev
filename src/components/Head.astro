@@ -13,9 +13,9 @@ import { ClientRouter } from 'astro:transitions'
 import { SITE } from '@consts'
 
 interface Props {
-	title: string
-	description: string
-	image?: string
+  title: string
+  description: string
+  image?: string
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
@@ -42,20 +42,20 @@ const { title, description, image = `${SITE.CDN}/assets/identity/whoami.webp` } 
 <!-- Theme: runs pre-paint (FOUC prevention), re-runs on ClientRouter SPA nav
      (astro:after-swap), and follows system changes only when no stored pref -->
 <script is:inline>
-	function applyTheme() {
-		const stored = localStorage.getItem('theme')
-		const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-		const dark = stored ? stored === 'dark' : prefersDark
-		document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light')
-		const themeColor = document.querySelector('meta[name="theme-color"]')
-		if (themeColor) themeColor.content = dark ? '#030303' : '#fcfcfc'
-	}
-	applyTheme()
-	window.applyTheme = applyTheme
-	document.addEventListener('astro:after-swap', applyTheme)
-	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-		if (!localStorage.getItem('theme')) applyTheme()
-	})
+  function applyTheme() {
+    const stored = localStorage.getItem('theme')
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const dark = stored ? stored === 'dark' : prefersDark
+    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light')
+    const themeColor = document.querySelector('meta[name="theme-color"]')
+    if (themeColor) themeColor.content = dark ? '#030303' : '#fcfcfc'
+  }
+  applyTheme()
+  window.applyTheme = applyTheme
+  document.addEventListener('astro:after-swap', applyTheme)
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+    if (!localStorage.getItem('theme')) applyTheme()
+  })
 </script>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
@@ -78,82 +78,82 @@ const { title, description, image = `${SITE.CDN}/assets/identity/whoami.webp` } 
 
 <!-- RSS Link -->
 <link
-	rel="alternate"
-	type="application/rss+xml"
-	title={SITE.NAME}
-	href={new URL('rss.xml', Astro.site)}
+  rel="alternate"
+  type="application/rss+xml"
+  title={SITE.NAME}
+  href={new URL('rss.xml', Astro.site)}
 />
 
 <script>
-	import type { TransitionBeforeSwapEvent } from 'astro:transitions/client'
-	document.addEventListener('astro:before-swap', (e) =>
-		[
-			...(e as TransitionBeforeSwapEvent).newDocument.head.querySelectorAll('link[as="font"]'),
-		].forEach((link) => link.remove()),
-	)
+  import type { TransitionBeforeSwapEvent } from 'astro:transitions/client'
+  document.addEventListener('astro:before-swap', (e) =>
+    [
+      ...(e as TransitionBeforeSwapEvent).newDocument.head.querySelectorAll('link[as="font"]'),
+    ].forEach((link) => link.remove()),
+  )
 </script>
 
 <script>
-	function init() {
-		onScroll()
+  function init() {
+    onScroll()
 
-		const backToTop = document.getElementById('back-to-top')
-		backToTop?.addEventListener('click', (event) => scrollToTop(event))
+    const backToTop = document.getElementById('back-to-top')
+    backToTop?.addEventListener('click', (event) => scrollToTop(event))
 
-		const backToPrev = document.getElementById('back-to-prev')
-		backToPrev?.addEventListener('click', () => window.history.back())
+    const backToPrev = document.getElementById('back-to-prev')
+    backToPrev?.addEventListener('click', () => window.history.back())
 
-		document.addEventListener('scroll', onScroll)
-		initCopyButtons()
-	}
+    document.addEventListener('scroll', onScroll)
+    initCopyButtons()
+  }
 
-	function initCopyButtons() {
-		document.querySelectorAll('article pre').forEach((pre) => {
-			if (pre.querySelector('.copy-code')) return
+  function initCopyButtons() {
+    document.querySelectorAll('article pre').forEach((pre) => {
+      if (pre.querySelector('.copy-code')) return
 
-			const wrapper = document.createElement('div')
-			wrapper.className = 'copy-wrap'
-			pre.parentNode?.insertBefore(wrapper, pre)
-			wrapper.appendChild(pre)
+      const wrapper = document.createElement('div')
+      wrapper.className = 'copy-wrap'
+      pre.parentNode?.insertBefore(wrapper, pre)
+      wrapper.appendChild(pre)
 
-			const button = document.createElement('button')
-			button.type = 'button'
-			button.className = 'copy-code'
-			button.textContent = 'copy'
+      const button = document.createElement('button')
+      button.type = 'button'
+      button.className = 'copy-code'
+      button.textContent = 'copy'
 
-			button.addEventListener('click', async () => {
-				const code = pre.querySelector('code')
-				if (!code) return
-				try {
-					await navigator.clipboard.writeText(code.textContent ?? '')
-					button.textContent = 'copied!'
-					setTimeout(() => (button.textContent = 'copy'), 2000)
-				} catch {
-					button.textContent = 'failed'
-					setTimeout(() => (button.textContent = 'copy'), 2000)
-				}
-			})
+      button.addEventListener('click', async () => {
+        const code = pre.querySelector('code')
+        if (!code) return
+        try {
+          await navigator.clipboard.writeText(code.textContent ?? '')
+          button.textContent = 'copied!'
+          setTimeout(() => (button.textContent = 'copy'), 2000)
+        } catch {
+          button.textContent = 'failed'
+          setTimeout(() => (button.textContent = 'copy'), 2000)
+        }
+      })
 
-			wrapper.appendChild(button)
-		})
-	}
+      wrapper.appendChild(button)
+    })
+  }
 
-	function onScroll() {
-		if (window.scrollY > 0) {
-			document.documentElement.classList.add('scrolled')
-		} else {
-			document.documentElement.classList.remove('scrolled')
-		}
-	}
+  function onScroll() {
+    if (window.scrollY > 0) {
+      document.documentElement.classList.add('scrolled')
+    } else {
+      document.documentElement.classList.remove('scrolled')
+    }
+  }
 
-	function scrollToTop(event: Event) {
-		event.preventDefault()
-		window.scrollTo({
-			top: 0,
-			behavior: 'smooth',
-		})
-	}
+  function scrollToTop(event: Event) {
+    event.preventDefault()
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    })
+  }
 
-	document.addEventListener('DOMContentLoaded', () => init())
-	document.addEventListener('astro:after-swap', () => init())
+  document.addEventListener('DOMContentLoaded', () => init())
+  document.addEventListener('astro:after-swap', () => init())
 </script>

@@ -15,9 +15,9 @@ agE=
 
 -----END PGP PUBLIC KEY BLOCK-----`
 export const GET: APIRoute = () => {
-	return new Response(gpgKey, {
-		headers: {
-			'Content-Type': 'text/plain; charset=utf-8',
-		},
-	})
+  return new Response(gpgKey, {
+    headers: {
+      'Content-Type': 'text/plain; charset=utf-8',
+    },
+  })
 }

@@ -1,6 +1,6 @@
 ---
 interface Props {
-	percentage: number
+  percentage: number
 }
 
 const { percentage } = Astro.props
@@ -13,8 +13,8 @@ const bar = `[${hash}${dash}] ${percentage}%`
 ---
 
 <div
-	class="text-primary font-mono text-sm whitespace-pre select-none sm:text-base"
-	aria-label={`Progress: ${percentage}%`}
+  class="text-primary font-mono text-sm whitespace-pre select-none sm:text-base"
+  aria-label={`Progress: ${percentage}%`}
 >
-	{bar}
+  {bar}
 </div>

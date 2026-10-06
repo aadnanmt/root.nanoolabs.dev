@@ -6,31 +6,31 @@ const { mood, content, updated, error } = await getMood()
 
 // Silent fail
 if (error || !mood) {
-	return null
+  return null
 }
 
 const emoji = getEmoji(mood)
 const updatedText = updated
-	? ` - Updated ${new Date(updated).toLocaleDateString('en-US', {
-			month: 'short',
-			day: 'numeric',
-		})}`
-	: ''
+  ? ` - Updated ${new Date(updated).toLocaleDateString('en-US', {
+      month: 'short',
+      day: 'numeric',
+    })}`
+  : ''
 ---
 
 <div class="border-border-light flex items-center gap-4 rounded-md border p-4">
-	<div
-		class="bg-ink-light/5 dark:bg-ink-dark/5 flex h-12 w-12 flex-shrink-0 items-center justify-center text-2xl"
-	>
-		{emoji}
-	</div>
-	<div class="flex flex-col gap-0.5 overflow-hidden">
-		<span class="text-xs font-semibold tracking-widest uppercase opacity-50">
-			Current mood{updatedText}
-		</span>
-		<span class="text-ink-light dark:text-ink-dark truncate text-sm font-semibold">
-			{mood}
-		</span>
-		{content && <span class="text-xs break-words opacity-60">{content}</span>}
-	</div>
+  <div
+    class="bg-ink-light/5 dark:bg-ink-dark/5 flex h-12 w-12 flex-shrink-0 items-center justify-center text-2xl"
+  >
+    {emoji}
+  </div>
+  <div class="flex flex-col gap-0.5 overflow-hidden">
+    <span class="text-xs font-semibold tracking-widest uppercase opacity-50">
+      Current mood{updatedText}
+    </span>
+    <span class="text-ink-light dark:text-ink-dark truncate text-sm font-semibold">
+      {mood}
+    </span>
+    {content && <span class="text-xs break-words opacity-60">{content}</span>}
+  </div>
 </div>

@@ -15,128 +15,128 @@ const allCommands = await getCollection('commands')
 const allProjects = await getCollection('projects', ({ data }) => !data.draft)
 
 const gardenStats = [
-	{ name: 'Blog Posts', count: allBlog.length },
-	{ name: 'Commands', count: allCommands.length },
-	{ name: 'Projects', count: allProjects.length },
+  { name: 'Blog Posts', count: allBlog.length },
+  { name: 'Commands', count: allCommands.length },
+  { name: 'Projects', count: allProjects.length },
 ]
 
 const STATS_URL = 'https://raw.githubusercontent.com/aadnanmt/aadnanmt/main/stats.json'
 const response = await fetch(STATS_URL)
 const stats = await response.json()
 const {
-	totalCommits,
-	totalFollowers,
-	streak,
-	repoCount,
-	totalDiskUsage,
-	mainLicense,
-	languages,
-	updatedAt,
+  totalCommits,
+  totalFollowers,
+  streak,
+  repoCount,
+  totalDiskUsage,
+  mainLicense,
+  languages,
+  updatedAt,
 } = stats
 
 const diskMB = Math.round(totalDiskUsage / 1024)
 
 const githubStats = [
-	{ name: 'Followers', value: totalFollowers },
-	{ name: 'Commit Streak', value: `${streak} days` },
-	{ name: 'All-time Commits', value: totalCommits },
-	{ name: 'Repositories', value: repoCount },
-	{ name: 'Disk Usage', value: `${diskMB} MB` },
-	{ name: 'Main License', value: mainLicense },
+  { name: 'Followers', value: totalFollowers },
+  { name: 'Commit Streak', value: `${streak} days` },
+  { name: 'All-time Commits', value: totalCommits },
+  { name: 'Repositories', value: repoCount },
+  { name: 'Disk Usage', value: `${diskMB} MB` },
+  { name: 'Main License', value: mainLicense },
 ]
 
 interface Language {
-	name: string
-	percentage: string
+  name: string
+  percentage: string
 }
 ---
 
 <PageLayout title={STATS.TITLE} description={STATS.DESCRIPTION}>
-	<Container>
-		<div class="space-y-10">
-			<BackToPrev href="/explore"> Back to explore </BackToPrev>
+  <Container>
+    <div class="space-y-10">
+      <BackToPrev href="/explore"> Back to explore </BackToPrev>
 
-			<div class="text-ink-light dark:text-ink-dark flex items-center gap-2 font-semibold">
-				<div class="size-5 fill-current">
-					<Fragment set:html={IconStats} />
-				</div>
-				Statistics
-			</div>
+      <div class="text-ink-light dark:text-ink-dark flex items-center gap-2 font-semibold">
+        <div class="size-5 fill-current">
+          <Fragment set:html={IconStats} />
+        </div>
+        Statistics
+      </div>
 
-			{STATS.INTRO!.map((paragraph) => <p>{paragraph}</p>)}
+      {STATS.INTRO!.map((paragraph) => <p>{paragraph}</p>)}
 
-			<div class="space-y-12">
-				<!-- Garden Metrics Section -->
-				<section class="space-y-4">
-					<h2
-						class="border-border-light text-ink-light dark:text-ink-dark border-b pb-2 font-semibold"
-					>
-						Digital Garden
-					</h2>
-					<div class="grid grid-cols-2 gap-4 sm:grid-cols-4">
-						{
-							gardenStats.map((stat) => (
-								<div class="space-y-1">
-									<div class="text-[10px] tracking-wider uppercase opacity-50">{stat.name}</div>
-									<div class="text-primary font-mono text-2xl font-bold">{stat.count}</div>
-								</div>
-							))
-						}
-					</div>
-				</section>
+      <div class="space-y-12">
+        <!-- Garden Metrics Section -->
+        <section class="space-y-4">
+          <h2
+            class="border-border-light text-ink-light dark:text-ink-dark border-b pb-2 font-semibold"
+          >
+            Digital Garden
+          </h2>
+          <div class="grid grid-cols-2 gap-4 sm:grid-cols-4">
+            {
+              gardenStats.map((stat) => (
+                <div class="space-y-1">
+                  <div class="text-[10px] tracking-wider uppercase opacity-50">{stat.name}</div>
+                  <div class="text-primary font-mono text-2xl font-bold">{stat.count}</div>
+                </div>
+              ))
+            }
+          </div>
+        </section>
 
-				<!-- Activity Section -->
-				<section class="space-y-4">
-					<h2
-						class="border-border-light text-ink-light dark:text-ink-dark border-b pb-2 font-semibold"
-					>
-						GitHub Activity
-					</h2>
-					<div class="grid grid-cols-2 gap-4 sm:grid-cols-3">
-						{
-							githubStats.map((stat) => (
-								<div class="space-y-1">
-									<div class="text-sm tracking-wider opacity-50">{stat.name}</div>
-									<div class="text-primary font-mono text-2xl font-bold">{stat.value}</div>
-								</div>
-							))
-						}
-					</div>
-				</section>
+        <!-- Activity Section -->
+        <section class="space-y-4">
+          <h2
+            class="border-border-light text-ink-light dark:text-ink-dark border-b pb-2 font-semibold"
+          >
+            GitHub Activity
+          </h2>
+          <div class="grid grid-cols-2 gap-4 sm:grid-cols-3">
+            {
+              githubStats.map((stat) => (
+                <div class="space-y-1">
+                  <div class="text-sm tracking-wider opacity-50">{stat.name}</div>
+                  <div class="text-primary font-mono text-2xl font-bold">{stat.value}</div>
+                </div>
+              ))
+            }
+          </div>
+        </section>
 
-				<!-- Languages Section -->
-				<section class="space-y-6">
-					<h2
-						class="border-border-light text-ink-light dark:text-ink-dark border-b pb-2 font-semibold"
-					>
-						Language Distribution
-					</h2>
-					<div class="space-y-8">
-						{
-							languages.map((lang: Language) => (
-								<div class="space-y-2">
-									<div class="flex items-center justify-between">
-										<h3 class="text-ink-light dark:text-ink-dark text-sm font-medium">
-											{lang.name}
-										</h3>
-									</div>
-									<ProgressBar percentage={parseFloat(lang.percentage)} />
-								</div>
-							))
-						}
-					</div>
-					<div class="text-sm italic opacity-50">
-						Last sync: {new Date(updatedAt).toLocaleDateString('en-GB')} · Source:{' '}
-						<Link href="https://github.com/aadnanmt/readmeSync" external
-							>github.com/aadnanmt/readmeSync</Link
-						>
-					</div>
-				</section>
-			</div>
+        <!-- Languages Section -->
+        <section class="space-y-6">
+          <h2
+            class="border-border-light text-ink-light dark:text-ink-dark border-b pb-2 font-semibold"
+          >
+            Language Distribution
+          </h2>
+          <div class="space-y-8">
+            {
+              languages.map((lang: Language) => (
+                <div class="space-y-2">
+                  <div class="flex items-center justify-between">
+                    <h3 class="text-ink-light dark:text-ink-dark text-sm font-medium">
+                      {lang.name}
+                    </h3>
+                  </div>
+                  <ProgressBar percentage={parseFloat(lang.percentage)} />
+                </div>
+              ))
+            }
+          </div>
+          <div class="text-sm italic opacity-50">
+            Last sync: {new Date(updatedAt).toLocaleDateString('en-GB')} · Source:{' '}
+            <Link href="https://github.com/aadnanmt/readmeSync" external
+              >github.com/aadnanmt/readmeSync</Link
+            >
+          </div>
+        </section>
+      </div>
 
-			<div class="pt-10">
-				<NowPlaying />
-			</div>
-		</div>
-	</Container>
+      <div class="pt-10">
+        <NowPlaying />
+      </div>
+    </div>
+  </Container>
 </PageLayout>

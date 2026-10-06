@@ -10,40 +10,40 @@ import { MYFOCUS } from '@data/focus'
 ---
 
 <PageLayout title={FOCUS.TITLE} description={FOCUS.DESCRIPTION}>
-	<Container>
-		<div class="space-y-10">
-			<BackToPrev href="/explore"> Back to explore </BackToPrev>
+  <Container>
+    <div class="space-y-10">
+      <BackToPrev href="/explore"> Back to explore </BackToPrev>
 
-			<div class="text-ink-light dark:text-ink-dark flex items-center gap-2 font-semibold">
-				<div class="size-5 fill-current">
-					<Fragment set:html={IconFocus} />
-				</div>
-				Focus
-			</div>
+      <div class="text-ink-light dark:text-ink-dark flex items-center gap-2 font-semibold">
+        <div class="size-5 fill-current">
+          <Fragment set:html={IconFocus} />
+        </div>
+        Focus
+      </div>
 
-			{FOCUS.INTRO!.map((paragraph) => <p>{paragraph}</p>)}
+      {FOCUS.INTRO!.map((paragraph) => <p>{paragraph}</p>)}
 
-			<div>
-				<YearProgress />
-			</div>
+      <div>
+        <YearProgress />
+      </div>
 
-			<div class="space-y-8">
-				{
-					MYFOCUS.map((item) => (
-						<section class="space-y-4">
-							<div class="flex items-center justify-between">
-								<h2 class="text-ink-light dark:text-ink-dark font-semibold">{item.title}</h2>
-							</div>
-							<ProgressBar percentage={item.percentage} />
-							<p class="text-sm opacity-70">{item.description}</p>
-						</section>
-					))
-				}
-			</div>
+      <div class="space-y-8">
+        {
+          MYFOCUS.map((item) => (
+            <section class="space-y-4">
+              <div class="flex items-center justify-between">
+                <h2 class="text-ink-light dark:text-ink-dark font-semibold">{item.title}</h2>
+              </div>
+              <ProgressBar percentage={item.percentage} />
+              <p class="text-sm opacity-70">{item.description}</p>
+            </section>
+          ))
+        }
+      </div>
 
-			<div class="border-border-light mt-12 border-t pt-8 text-xs italic opacity-50">
-				Last synced from my brain: {new Date().toLocaleDateString('en-GB')}
-			</div>
-		</div>
-	</Container>
+      <div class="border-border-light mt-12 border-t pt-8 text-xs italic opacity-50">
+        Last synced from my brain: {new Date().toLocaleDateString('en-GB')}
+      </div>
+    </div>
+  </Container>
 </PageLayout>

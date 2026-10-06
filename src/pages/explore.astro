@@ -8,56 +8,56 @@ import { EXPLORE } from '@consts'
 import { EXPLORE_PAGES, MAIN_PAGES } from '@data/pages'
 
 const GROUPS: { key: 'content' | 'live' | 'identity'; label: string }[] = [
-	{ key: 'content', label: 'Garden' },
-	{ key: 'live', label: 'Live' },
-	{ key: 'identity', label: 'Identity' },
+  { key: 'content', label: 'Garden' },
+  { key: 'live', label: 'Live' },
+  { key: 'identity', label: 'Identity' },
 ]
 ---
 
 <PageLayout title={EXPLORE.TITLE} description={EXPLORE.DESCRIPTION}>
-	<Container>
-		<div class="space-y-10">
-			<div>
-				<BackToPrev href="/"> Back to home </BackToPrev>
-			</div>
+  <Container>
+    <div class="space-y-10">
+      <div>
+        <BackToPrev href="/"> Back to home </BackToPrev>
+      </div>
 
-			<div class="text-ink-light dark:text-ink-dark flex items-center gap-2 font-semibold">
-				<div class="size-5 fill-current">
-					<Fragment set:html={IconHome} />
-				</div>
-				Explore
-			</div>
+      <div class="text-ink-light dark:text-ink-dark flex items-center gap-2 font-semibold">
+        <div class="size-5 fill-current">
+          <Fragment set:html={IconHome} />
+        </div>
+        Explore
+      </div>
 
-			{EXPLORE.INTRO!.map((paragraph) => <p>{paragraph}</p>)}
+      {EXPLORE.INTRO!.map((paragraph) => <p>{paragraph}</p>)}
 
-			<div class="space-y-12">
-				{
-					GROUPS.map(({ key, label }) => (
-						<section class="space-y-6">
-							<div class="border-border-light text-ink-light dark:text-ink-dark flex items-center gap-2 border-b pb-2 font-semibold">
-								<span>{label}</span>
-							</div>
-							<ul class="flex flex-col space-y-4">
-								{[...EXPLORE_PAGES, ...MAIN_PAGES]
-									.filter((page) => page.group === key)
-									.map((page) => (
-										<li>
-											<div class="space-y-1">
-												<Link
-													href={page.href}
-													class="text-ink-light dark:text-ink-dark font-semibold"
-												>
-													{page.name}
-												</Link>
-												<div class="text-sm opacity-75">{page.desc}</div>
-											</div>
-										</li>
-									))}
-							</ul>
-						</section>
-					))
-				}
-			</div>
-		</div>
-	</Container>
+      <div class="space-y-12">
+        {
+          GROUPS.map(({ key, label }) => (
+            <section class="space-y-6">
+              <div class="border-border-light text-ink-light dark:text-ink-dark flex items-center gap-2 border-b pb-2 font-semibold">
+                <span>{label}</span>
+              </div>
+              <ul class="flex flex-col space-y-4">
+                {[...EXPLORE_PAGES, ...MAIN_PAGES]
+                  .filter((page) => page.group === key)
+                  .map((page) => (
+                    <li>
+                      <div class="space-y-1">
+                        <Link
+                          href={page.href}
+                          class="text-ink-light dark:text-ink-dark font-semibold"
+                        >
+                          {page.name}
+                        </Link>
+                        <div class="text-sm opacity-75">{page.desc}</div>
+                      </div>
+                    </li>
+                  ))}
+              </ul>
+            </section>
+          ))
+        }
+      </div>
+    </div>
+  </Container>
 </PageLayout>

@@ -5,38 +5,38 @@ import { IconSend, IconEmail, getIcon } from '@lib/iconSystem'
 ---
 
 <section class="space-y-4">
-	<h5 class="text-ink-light dark:text-ink-dark flex items-center gap-2 font-semibold">
-		<span class="fill-mute-light dark:fill-mute-dark size-5"><Fragment set:html={IconSend} /></span>
-		Come Say Hi
-	</h5>
-	<article>
-		<p>
-			Have a wild idea, want to collaborate, or just fancy a technical discussion? Reach out
-			anytime. Let's build something that actually scales.
-		</p>
-	</article>
-	<ul class="flex flex-wrap gap-2">
-		<li class="line-clamp-1 flex items-center gap-x-2">
-			<span class="fill-mute-light dark:fill-mute-dark text-mute-light dark:text-mute-dark size-4">
-				<Fragment set:html={IconEmail} />
-			</span>
-			<Link href={`mailto:${SITE.EMAIL}`} aria-label={`Email ${SITE.NAME} at ${SITE.EMAIL}`}>
-				Email
-			</Link>
-			{'/'}
-		</li>
-		{
-			SOCIALS.filter((SOCIAL) => SOCIAL.ACTIVE).map((SOCIAL) => (
-				<li class="flex items-center gap-x-2 text-nowrap">
-					<span class="fill-mute-light dark:fill-mute-dark text-mute-light dark:text-mute-dark size-4">
-						<Fragment set:html={getIcon(SOCIAL.NAME)} />
-					</span>
-					<Link href={SOCIAL.HREF} external aria-label={`${SITE.NAME} on ${SOCIAL.NAME}`}>
-						{SOCIAL.NAME}
-					</Link>
-					{'/'}
-				</li>
-			))
-		}
-	</ul>
+  <h5 class="text-ink-light dark:text-ink-dark flex items-center gap-2 font-semibold">
+    <span class="fill-mute-light dark:fill-mute-dark size-5"><Fragment set:html={IconSend} /></span>
+    Come Say Hi
+  </h5>
+  <article>
+    <p>
+      Have a wild idea, want to collaborate, or just fancy a technical discussion? Reach out
+      anytime. Let's build something that actually scales.
+    </p>
+  </article>
+  <ul class="flex flex-wrap gap-2">
+    <li class="line-clamp-1 flex items-center gap-x-2">
+      <span class="fill-mute-light dark:fill-mute-dark text-mute-light dark:text-mute-dark size-4">
+        <Fragment set:html={IconEmail} />
+      </span>
+      <Link href={`mailto:${SITE.EMAIL}`} aria-label={`Email ${SITE.NAME} at ${SITE.EMAIL}`}>
+        Email
+      </Link>
+      {'/'}
+    </li>
+    {
+      SOCIALS.filter((SOCIAL) => SOCIAL.ACTIVE).map((SOCIAL) => (
+        <li class="flex items-center gap-x-2 text-nowrap">
+          <span class="fill-mute-light dark:fill-mute-dark text-mute-light dark:text-mute-dark size-4">
+            <Fragment set:html={getIcon(SOCIAL.NAME)} />
+          </span>
+          <Link href={SOCIAL.HREF} external aria-label={`${SITE.NAME} on ${SOCIAL.NAME}`}>
+            {SOCIAL.NAME}
+          </Link>
+          {'/'}
+        </li>
+      ))
+    }
+  </ul>
 </section>
