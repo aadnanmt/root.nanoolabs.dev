@@ -5,6 +5,7 @@ date: "2024-03-15"
 demoURL: "https://groqili.nanoolabs.dev"
 repoURL: "https://github.com/aadnanmt/Groqili"
 tags: ["ai", "llm", "react"]
+status: dormant
 ---
 
 Groqili is a small React application. It gives a fast and easy way to talk with **Groq AI**. It is built for speed and simple use. It uses the Groq SDK for very quick answers.
