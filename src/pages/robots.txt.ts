@@ -1,4 +1,10 @@
 import type { APIRoute } from 'astro'
+
+// build time only
+// Astro calls GET at build,
+// saves output as static robots.txt (output on dist/robots.txt)
+// yupp, no runtime cost
+// this file never runs on server
 const robotsTxt = `
 User-agent: *
 Allow: /

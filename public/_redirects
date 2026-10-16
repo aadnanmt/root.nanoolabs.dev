@@ -1,9 +1,9 @@
-# --- ROOT NODE REDIRECTS ---
+# --- REDIRECTS ---
 
 /home            /               301
 /home/*          /:splat         301
 
-# Add any relevant redirects for your garden below
+# Add any relevant redirects
 
 /blog/buy-domain-for-nanoolabs-on-hostinger /blog/buy-domain-on-hostinger 301
 /contact /connect 301

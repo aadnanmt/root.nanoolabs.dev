@@ -37,8 +37,13 @@ import { getIcon, IconEmail } from '@lib/iconSystem'
             >
               <Fragment set:html={IconEmail} />
             </div>
+            <!--
+              email_off markers stop Cloudflare Email Obfuscation (zone feature,
+              default-on) from masking this address:
+https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscation/#prevent-cloudflare-from-obfuscating-email
+            -->
             <Link href={`mailto:${SITE.EMAIL}`} external>
-              {SITE.EMAIL}
+              <!--email_off-->{SITE.EMAIL}<!--/email_off-->
             </Link>
           </div>
         </section>
