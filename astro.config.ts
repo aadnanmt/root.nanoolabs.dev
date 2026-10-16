@@ -33,6 +33,10 @@ if (isProd) {
 export default defineConfig({
   site: SITE.URL,
   integrations: [mdx(), sitemap()],
+  prefetch: {
+    prefetchAll: true,
+    defaultStrategy: 'viewport',
+  },
   redirects: {
     '/gh': { destination: 'https://github.com/aadnanmt', status: 301 },
     '/cb': { destination: 'https://codeberg.org/aadnanmt', status: 301 },
