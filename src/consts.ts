@@ -166,3 +166,10 @@ export const SOCIALS: Social[] = [
     DESCRIPTION: 'Short-form thoughts and updates.',
   },
 ]
+
+export const PROJECT_STATUS: Record<string, string> = {
+  seed: '🌱',
+  growing: '🌿',
+  evergreen: '🌳',
+  dormant: '🪦',
+}
