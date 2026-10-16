@@ -62,7 +62,7 @@ https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscat
                 const isInactive = !SOCIAL.ACTIVE && !SOCIAL.BALANCED
                 return (
                   <li
-                    class={`group border-border-soft-light flex flex-col gap-1 border-l-2 pl-4 dark:border-border-soft-dark${isInactive ? ' pointer-events-none opacity-50' : ''}`}
+                    class={`group border-border-soft-light flex flex-col gap-1 border-l-2 pl-4 dark:border-border-soft-dark${isInactive ? ' pointer-events-none' : ''}`}
                   >
                     <div class="flex items-center gap-2">
                       <div class="fill-mute-light dark:fill-mute-dark text-mute-light dark:text-mute-dark size-4">
@@ -77,7 +77,7 @@ https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscat
                           {SOCIAL.NAME}
                         </Link>
                       ) : (
-                        <span class="text-ink-light dark:text-ink-dark font-medium lowercase">
+                        <span class="text-mute-light dark:text-mute-dark font-medium lowercase">
                           {SOCIAL.NAME}
                         </span>
                       )}

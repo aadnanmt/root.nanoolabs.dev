@@ -19,6 +19,7 @@ const lastActive = lastCommitDate()
     </div>
 
     <div
+      aria-hidden="true"
       class="mb-8 flex justify-center opacity-20 transition-opacity select-none hover:opacity-50"
     >
       <pre
@@ -32,14 +33,18 @@ const lastActive = lastCommitDate()
       <div class="flex flex-wrap items-center gap-2">
         &copy; {currentYear}
         {SITE.NAME}
-        <span class="opacity-50">|</span>
-        <span class="flex items-center gap-1 font-mono opacity-50">
+        <span class="text-mute-light dark:text-mute-dark">|</span>
+        <span class="text-mute-light dark:text-mute-dark flex items-center gap-1 font-mono">
           {
             lastActive && (
               <span title={lastActive.toISOString()}>Updated {timeAgo(lastActive)}</span>
             )
           }
-          {lastActive && gitHash && gitHash !== 'unknown' && <span class="opacity-50">|</span>}
+          {
+            lastActive && gitHash && gitHash !== 'unknown' && (
+              <span class="text-mute-light dark:text-mute-dark">|</span>
+            )
+          }
           {
             gitHash && gitHash !== 'unknown' && (
               <Link
@@ -58,10 +63,10 @@ const lastActive = lastCommitDate()
       <div class="flex flex-wrap items-center gap-2">
         <Link href="/credits" underline={false} class="hover:text-accent"> Credits </Link>
 
-        <span class="opacity-50">|</span>
+        <span class="text-mute-light dark:text-mute-dark">|</span>
         <Link href="/rss.xml" underline={false} class="hover:text-accent"> RSS </Link>
 
-        <span class="opacity-50">|</span>
+        <span class="text-mute-light dark:text-mute-dark">|</span>
         <Link href={LICENSE.URL} external underline={false} class="hover:text-accent">
           {LICENSE.NAME}
         </Link>

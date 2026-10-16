@@ -94,7 +94,7 @@ const hasDemoLinks = hasDemo && !!(entry.data.demoURL || entry.data.repoURL)
           lastUpdated && (
             <>
               &bull;
-              <div class="font-base text-sm italic opacity-75">
+              <div class="font-base text-mute-light dark:text-mute-dark text-sm italic">
                 Last updated: <FormattedDate date={lastUpdated} />
               </div>
             </>
@@ -148,12 +148,12 @@ const hasDemoLinks = hasDemo && !!(entry.data.demoURL || entry.data.repoURL)
       <Content />
     </article>
     <div class="border-border-light mt-24 border-t pt-10">
-      <p class="text-sm opacity-75">
+      <p class="text-mute-light dark:text-mute-dark text-sm">
         This content is licensed under
         <Link href={LICENSE.URL} external class="decoration-accent/50">
           {LICENSE.NAME}
         </Link>
-        .<span class="mx-1 opacity-50">|</span>
+        .<span class="text-mute-light dark:text-mute-dark mx-1">|</span>
         <Link
           href={`${SITE.REPO}/edit/main/src/content/${collection}/${entry.id}`}
           external

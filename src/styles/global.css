@@ -174,3 +174,15 @@ html #back-to-top {
 html.scrolled #back-to-top {
   @apply pointer-events-auto opacity-100;
 }
+
+/* a11y: nlbs light --color-text-muted (gray-6) hits only 3.3:1 on near-white,
+   WCAG AA needs 4.5 — gray-8 lands at ~7:1; upstream @nlbs/css owns the real fix */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme='dark']) {
+    --color-text-muted: var(--gray-8);
+  }
+}
+
+[data-theme='light'] {
+  --color-text-muted: var(--gray-8);
+}

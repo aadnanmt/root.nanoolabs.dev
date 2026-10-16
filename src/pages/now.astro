@@ -32,12 +32,12 @@ const lastUpdated = gitDate(`now/${latestEntry.id}`)
           </div>
           Now
         </div>
-        <div class="text-sm italic opacity-60">
+        <div class="text-mute-light dark:text-mute-dark text-sm italic">
           Last synced with Git: <FormattedDate date={lastUpdated || latestEntry.data.date} />
         </div>
       </div>
 
-      <p class="text-md opacity-60">
+      <p class="text-md text-mute-light dark:text-mute-dark">
         What's a /now page? Read more about it
         <Link href="https://nownownow.com/about" external>here</Link>.
       </p>
@@ -60,7 +60,7 @@ const lastUpdated = gitDate(`now/${latestEntry.id}`)
             <ul class="space-y-2">
               {history.map((entry) => (
                 <li class="text-sm">
-                  <span class="opacity-60">
+                  <span class="text-mute-light dark:text-mute-dark">
                     <FormattedDate date={entry.data.date} />
                   </span>
                   {' — '}

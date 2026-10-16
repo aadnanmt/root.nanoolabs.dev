@@ -34,13 +34,13 @@ const work = await Promise.all(
         {
           work.map((entry) => (
             <li>
-              <div class="flex items-center gap-2 text-sm opacity-75">
+              <div class="text-mute-light dark:text-mute-dark flex items-center gap-2 text-sm">
                 {dateRange(entry.data.dateStart, entry.data.dateEnd)}
               </div>
               <div class="text-ink-light dark:text-ink-dark font-semibold">
                 {entry.data.company}
               </div>
-              <div class="text-sm opacity-75">{entry.data.role}</div>
+              <div class="text-mute-light dark:text-mute-dark text-sm">{entry.data.role}</div>
               <article>
                 <entry.Content />
               </article>

@@ -29,7 +29,7 @@ const lastUpdated = gitDate(`uses/${entry.id}`)
           </div>
           {entry.data.title}
         </div>
-        <div class="text-sm italic opacity-60">
+        <div class="text-mute-light dark:text-mute-dark text-sm italic">
           Last updated: <FormattedDate date={lastUpdated || entry.data.lastUpdated} />
         </div>
       </div>

@@ -77,7 +77,9 @@ interface Language {
             {
               gardenStats.map((stat) => (
                 <div class="space-y-1">
-                  <div class="text-[10px] tracking-wider uppercase opacity-50">{stat.name}</div>
+                  <div class="text-mute-light dark:text-mute-dark text-[10px] tracking-wider uppercase">
+                    {stat.name}
+                  </div>
                   <div class="text-primary font-mono text-2xl font-bold">{stat.count}</div>
                 </div>
               ))
@@ -96,7 +98,9 @@ interface Language {
             {
               githubStats.map((stat) => (
                 <div class="space-y-1">
-                  <div class="text-sm tracking-wider opacity-50">{stat.name}</div>
+                  <div class="text-mute-light dark:text-mute-dark text-sm tracking-wider">
+                    {stat.name}
+                  </div>
                   <div class="text-primary font-mono text-2xl font-bold">{stat.value}</div>
                 </div>
               ))
@@ -125,7 +129,7 @@ interface Language {
               ))
             }
           </div>
-          <div class="text-sm italic opacity-50">
+          <div class="text-mute-light dark:text-mute-dark text-sm italic">
             Last sync: {new Date(updatedAt).toLocaleDateString('en-GB')} · Source:{' '}
             <Link href="https://github.com/aadnanmt/readmeSync" external
               >github.com/aadnanmt/readmeSync</Link
