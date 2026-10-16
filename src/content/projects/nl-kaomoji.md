@@ -1,5 +1,5 @@
 ---
-title: "Kaomoji minimalist"
+title: "@nlbs/kaomoji"
 description: "Minimalist kaomojis for Nanoo Labs documentation."
 date: "2026-05-15"
 repoURL: "https://github.com/nanoolabs/kaomoji"
