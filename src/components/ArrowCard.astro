@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content'
 import { formatDate, readingTime } from '@lib/utils'
+import { PROJECT_STATUS } from '@consts'
 import { IconArrowRight } from '@lib/iconSystem'
 
 type Props = {
@@ -29,6 +30,13 @@ const { entry } = Astro.props
             <span aria-hidden="true">&middot;</span>
             <time datetime={entry.data.date.toISOString()}>{formatDate(entry.data.date)}</time>
           </>
+        )
+      }
+      {
+        entry.collection === 'projects' && (
+          <span class="text-body-light border-border-light rounded-md border px-2 py-0.5 font-mono text-xs">
+            {PROJECT_STATUS[entry.data.status]} {entry.data.status}
+          </span>
         )
       }
     </div>
