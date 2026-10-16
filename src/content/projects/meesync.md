@@ -5,11 +5,16 @@ date: "2026-04-08"
 demoURL: "https://github.com/aadnanmt/aadnanmt"
 repoURL: "https://github.com/aadnanmt/meesync"
 tags: ["github", "automation", "deno"]
+status: evergreen
 ---
 
-A minimalist tool to synchronize your GitHub Profile stats. Built with **Deno**
+> A minimalist tool to synchronize your GitHub Profile stats. Built with **Deno**
 and **TypeScript**, it uses the **GitHub GraphQL API** for fast data fetching
 and headless templating.
+
+## Screenshot
+
+<img src="/content/projects/meesync/preview.png" alt="GitHub profile README with stats" width="800" loading="lazy" />
 
 ## Architecture
 
