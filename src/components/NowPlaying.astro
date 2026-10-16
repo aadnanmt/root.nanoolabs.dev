@@ -28,7 +28,11 @@ function formatTimeAgo(timestamp?: number) {
   >
     {
       track.image ? (
-        <img src={track.image} alt={track.artist} class="h-full w-full rounded-md object-cover" />
+        <img
+          src={track.image}
+          alt={`Album cover for ${track.name} by ${track.artist}`}
+          class="h-full w-full rounded-md object-cover"
+        />
       ) : (
         <div class="text-ink-light/50 dark:text-ink-dark/50 flex h-full w-full items-center justify-center rounded-md">
           <Fragment set:html={IconMusic} />
