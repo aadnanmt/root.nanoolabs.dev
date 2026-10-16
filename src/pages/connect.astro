@@ -43,7 +43,7 @@ import { getIcon, IconEmail } from '@lib/iconSystem'
 https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscation/#prevent-cloudflare-from-obfuscating-email
             -->
             <Link href={`mailto:${SITE.EMAIL}`} external>
-              <!--email_off-->{SITE.EMAIL}<!--/email_off-->
+              <span set:html={`<!--email_off-->${SITE.EMAIL}<!--/email_off-->`} />
             </Link>
           </div>
         </section>
