@@ -5,6 +5,7 @@ date: "2026-05-15"
 repoURL: "https://github.com/nanoolabs/kaomoji"
 category: "nanoo"
 tags: ["typescript", "nanoo", "kaomoji"]
+status: growing
 ---
 
 Minimalist kaomojis for Nanoo Labs documentation.
