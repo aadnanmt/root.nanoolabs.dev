@@ -125,14 +125,14 @@ const hasDemoLinks = hasDemo && !!(entry.data.demoURL || entry.data.repoURL)
             {hasDemoLinks && (
               <nav class="flex items-center gap-4">
                 {entry.data.demoURL && (
-                  <span class="text-accent-soft-light dark:text-accent border-accent/40 hover:border-accent rounded-md border px-2 py-0.5 font-mono text-xs">
+                  <span class="text-accent-soft-light dark:text-accent border-accent hover:border-accent/40 rounded-md border px-2 py-0.5 font-mono text-xs">
                     <Link href={entry.data.demoURL} external underline={false}>
                       demo
                     </Link>
                   </span>
                 )}
                 {entry.data.repoURL && (
-                  <span class="text-accent-soft-light dark:text-accent border-accent/40 hover:border-accent rounded-md border px-2 py-0.5 font-mono text-xs">
+                  <span class="text-accent-soft-light dark:text-accent border-accent hover:border-accent/40 rounded-md border px-2 py-0.5 font-mono text-xs">
                     <Link href={entry.data.repoURL} external underline={false}>
                       repo
                     </Link>
