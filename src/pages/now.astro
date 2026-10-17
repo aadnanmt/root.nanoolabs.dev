@@ -25,16 +25,15 @@ const lastUpdated = gitDate(`now/${latestEntry.id}`)
     <div class="space-y-10">
       <BackToPrev href="/explore"> Back to explore </BackToPrev>
 
-      <div class="space-y-2">
-        <div class="text-ink-light dark:text-ink-dark flex items-center gap-2 font-semibold">
-          <div class="size-5 fill-current">
-            <Fragment set:html={IconNow} />
-          </div>
-          Now
+      <div class="text-ink-light dark:text-ink-dark flex items-center gap-2 font-semibold">
+        <div class="size-5 fill-current">
+          <Fragment set:html={IconNow} />
         </div>
-        <div class="text-mute-light dark:text-mute-dark text-sm italic">
-          Last synced with Git: <FormattedDate date={lastUpdated || latestEntry.data.date} />
-        </div>
+        Now
+      </div>
+
+      <div class="text-mute-light dark:text-mute-dark text-sm italic">
+        Last synced with Git: <FormattedDate date={lastUpdated || latestEntry.data.date} />
       </div>
 
       <p class="text-md text-mute-light dark:text-mute-dark">
@@ -47,7 +46,7 @@ const lastUpdated = gitDate(`now/${latestEntry.id}`)
         <NowPlaying />
       </div>
 
-      <article class="prose prose-neutral dark:prose-invert max-w-none">
+      <article>
         <Content />
       </article>
 

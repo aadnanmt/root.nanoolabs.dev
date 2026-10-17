@@ -4,6 +4,7 @@ import PageLayout from '@layouts/PageLayout.astro'
 import Container from '@components/Container.astro'
 import BackToPrev from '@components/BackToPrev.astro'
 import { NOTES } from '@consts'
+import { IconNotes } from '@lib/iconSystem'
 
 const notes = (await getCollection('notes'))
   .filter((note) => !note.data.draft)
@@ -27,6 +28,9 @@ const grouped = notes.reduce(
     <div class="space-y-10">
       <BackToPrev href="/explore"> Back to explore </BackToPrev>
       <div class="text-ink-light dark:text-ink-dark flex items-center gap-2 font-semibold">
+        <div class="size-5 fill-current">
+          <Fragment set:html={IconNotes} />
+        </div>
         Notes
       </div>
       {NOTES.INTRO!.map((paragraph) => <p>{paragraph}</p>)}
@@ -51,7 +55,7 @@ const grouped = notes.reduce(
                         </span>
                         <span aria-hidden="true">{note.data.mood ?? ''}</span>
                       </div>
-                      <div class="prose prose-neutral dark:prose-invert max-w-none min-w-0">
+                      <div class="min-w-0">
                         <Content />
                       </div>
                     </article>

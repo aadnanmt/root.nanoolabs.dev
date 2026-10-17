@@ -22,19 +22,20 @@ const lastUpdated = gitDate(`uses/${entry.id}`)
     <div class="space-y-10">
       <BackToPrev href="/explore"> Back to explore </BackToPrev>
 
-      <div class="space-y-2">
-        <div class="text-ink-light dark:text-ink-dark flex items-center gap-2 font-semibold">
-          <div class="size-5 fill-current">
-            <Fragment set:html={IconUses} />
-          </div>
-          {entry.data.title}
+      <div class="text-ink-light dark:text-ink-dark flex items-center gap-2 font-semibold">
+        <div class="size-5 fill-current">
+          <Fragment set:html={IconUses} />
         </div>
-        <div class="text-mute-light dark:text-mute-dark text-sm italic">
-          Last updated: <FormattedDate date={lastUpdated || entry.data.lastUpdated} />
-        </div>
+        {entry.data.title}
       </div>
 
-      <article class="prose prose-neutral dark:prose-invert max-w-none">
+      <p>{entry.data.description}</p>
+
+      <div class="text-mute-light dark:text-mute-dark text-sm italic">
+        Last updated: <FormattedDate date={lastUpdated || entry.data.lastUpdated} />
+      </div>
+
+      <article>
         <Content />
       </article>
     </div>
