@@ -20,7 +20,7 @@ const updatedText = updated
 
 <div class="border-border-light flex items-center gap-4 rounded-md border p-4">
   <div
-    class="bg-ink-light/5 dark:bg-ink-dark/5 flex h-12 w-12 flex-shrink-0 items-center justify-center text-2xl"
+    class="bg-ink-light/5 dark:bg-ink-dark/5 flex h-12 w-12 shrink items-center justify-center rounded-md text-2xl"
   >
     {emoji}
   </div>
@@ -35,7 +35,7 @@ const updatedText = updated
     </span>
     {
       content && (
-        <span class="text-mute-light dark:text-mute-dark text-xs break-words">{content}</span>
+        <span class="text-mute-light dark:text-mute-dark text-xs wrap-break-word">{content}</span>
       )
     }
   </div>
