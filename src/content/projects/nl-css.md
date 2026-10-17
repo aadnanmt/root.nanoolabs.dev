@@ -5,6 +5,7 @@ date: "2026-06-15"
 repoURL: "https://github.com/nanoolabs/css"
 category: "nanoo"
 tags: ["css", "design-tokens", "nanoo"]
+status: evergreen
 ---
 
 CSS foundation for the Nanoo Labs ecosystem. Design tokens, resets, and utility components built on LightningCSS. Dark-first, zero runtime, framework-agnostic.
