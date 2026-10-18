@@ -8,57 +8,18 @@ tags: ["typescript", "nanoo", "kaomoji"]
 status: growing
 ---
 
-Minimalist kaomojis for Nanoo Labs documentation.
+## What is it?
 
-## Quick Start
+Minimalist kaomojis for Nanoo Labs documentation up to Ecosystems. Tiny Typescript package mapping keys like `fatal`, `success` to hand-picked kaomoji (`[ ✖_✖ ]`, `[ ^■^ ]`).
 
-```bash
-pnpm add @nlbs/kaomoji
-```
+## Why did I build it?
 
-## Usage
+At first I was sick and bored of having to copy and use random kaomoji. so I was thinking of create a **standard kaomoji library** for personal use and organization.
 
-```ts
-import { log } from "@nlbs/kaomoji"
+## What I learned
 
-console.log(`${log.fatal} Database connection lost!`)
-// → [ ✖_✖ ] Database connection lost!
+Yeahh, I asked. "what are kaomoji compatible on website up to **terminal**?". I searching information aboout kaomoji. Owhh, for kaomoji to **compatible**, it must be in [w3.org](https://www.w3.org/) and [Unicode Consortium](https://www.unicode.org/) **standard**.
 
-console.log(`${log.success} Deploy complete`)
-// → [ ^■^ ] Deploy complete
+But when i am still search for more information, at first glance I like reference kaomoji `[-_-]`. from these references I tweak to my taste, such as added space `[ -_- ]`, changed eye with `■` (U+25A0) , etc.
 
-console.log(`${log.idle} Waiting for task`)
-// → [ □_□ ] Waiting for task
-```
-
-Or consume the raw JSON in any language:
-
-```ts
-import kaomoji from "@nlbs/kaomoji/kaomoji.json" with { type: "json" }
-```
-
-```python
-import json, urllib.request
-data = json.load(open("kaomoji.json"))
-print(data["fatal"])  # [ ✖_✖ ]
-```
-
-### Default fallback
-
-Unknown keys return `[ ?_? ]`.
-
-```ts
-log.unknown // → "[ ?_? ]"
-```
-
-## Reference
-
-See [KAOMOJI.md](https://github.com/nanoolabs/kaomoji/blob/main/KAOMOJI.md) for the full kaomoji reference tables.
-
-## Raw data
-
-Consume `kaomoji.json` from any language, it's the single source of truth. The `index.ts` wrapper is optional.
-
-## Maintained
-
-[@aadnanmt](https://github.com/aadnanmt) | Nanoo Labs Ecosystems.
+> Currently [@nlbs/kaomoji](https://github.com/nanoolabs/kaomoji) still growing, even though already available in npm register
