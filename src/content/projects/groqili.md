@@ -2,59 +2,21 @@
 title: "Groqili"
 description: "A React app with Groq AI for fast LLM talks."
 date: "2024-03-15"
-demoURL: "https://groqili.nanoolabs.dev"
 repoURL: "https://github.com/aadnanmt/Groqili"
 tags: ["ai", "llm", "react"]
 status: dormant
 ---
 
-Groqili is a small React application. It gives a fast and easy way to talk with **Groq AI**. It is built for speed and simple use. It uses the Groq SDK for very quick answers.
+## What is it?
 
-## Key Features
+A small React app for talking with **Groq AI**. Clean, no-fuss chat UI with prompt making front and center, backed by the Groq SDK for very quick answers.
 
-- **Very Fast AI:** It works with Groq SDK for quick responses.
-- **New Tech:** It uses React and Vite for easy development.
-- **Simple Look:** It has a clean design for good work and prompt making.
+## Why did I build it?
 
-## Project Structure
+At first I curious how fast Groq, technology about [Language Processing Unit (LPU)](https://groq.com/blog/the-groq-lpu-explained) they. And i know about this from my mentor programming, [Dea afrizal](https://www.youtube.com/@deaafrizal) in video section [ GROQ - AI Buat Web Developer GRATIS!](https://www.youtube.com/watch?v=6tgEAlyndnM)
 
-```text
-Groqili/
-├── public/
-│   └── vite.svg
-├── src/
-│   ├── assets/
-│   │   └── react.svg
-│   ├── components/
-│   │   └── ChatMessage.jsx
-│   ├── utils/
-│   │   └── groq.js
-│   ├── App.css
-│   ├── App.jsx
-│   ├── index.css
-│   └── main.jsx
-├── eslint.config.js
-├── index.html
-├── package.json
-└── vite.config.js
-```
+<iframe width="560" height="315" src="https://www.youtube.com/embed/6tgEAlyndnM?si=mF8X-ZDHsLVibkH0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-## Tech Stack
+## What I learned
 
-- **Frontend:** React
-- **Bundler:** Vite
-- **AI Engine:** Groq SDK
-- **Styling:** CSS3
-
-## Quick Start
-
-```bash
-git clone https://github.com/aadnanmt/Groqili.git
-cd Groqili
-npm install
-npm run dev
-```
-
----
-
-Licensed under the **MIT License**.
+From this project I learned how **integration** Large Language Model (LLM) with **Web Application React**. 
