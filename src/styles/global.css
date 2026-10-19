@@ -87,6 +87,15 @@ article img {
   aspect-ratio: auto;
 }
 
+/* raw iframes in markdown (youtube embeds): fixed attrs become fallback only */
+article iframe {
+  @apply rounded-md border-0;
+
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  height: auto;
+}
+
 article details img {
   @apply my-4 block;
 }
@@ -96,6 +105,7 @@ article {
   @apply md:prose-img:mx-0;
   @apply prose-headings:font-semibold;
   @apply prose-headings:text-ink-strong-light prose-headings:dark:text-ink-dark;
+  @apply prose-h2:text-[21px] prose-h3:text-[18px];
   @apply prose-p:text-body-light prose-p:dark:text-ink-dark/70;
 }
 
