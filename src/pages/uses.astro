@@ -1,23 +1,13 @@
 ---
-import { getEntry } from 'astro:content'
 import PageLayout from '@layouts/PageLayout.astro'
 import Container from '@components/Container.astro'
 import BackToPrev from '@components/BackToPrev.astro'
-import FormattedDate from '@components/FormattedDate.astro'
 import { IconUses } from '@lib/iconSystem'
-import { gitDate } from '@lib/utils'
-
-const entry = await getEntry('uses', 'main')
-
-if (!entry) {
-  return Astro.redirect('/404')
-}
-
-const { Content } = await entry.render()
-const lastUpdated = gitDate(`uses/${entry.id}`)
+import { USES } from '@consts'
+import { Content } from '@data/uses.md'
 ---
 
-<PageLayout title={entry.data.title} description={entry.data.description}>
+<PageLayout title={USES.TITLE} description={USES.DESCRIPTION}>
   <Container>
     <div class="space-y-10">
       <BackToPrev href="/explore"> Back to explore </BackToPrev>
@@ -26,14 +16,9 @@ const lastUpdated = gitDate(`uses/${entry.id}`)
         <div class="size-5 fill-current">
           <Fragment set:html={IconUses} />
         </div>
-        {entry.data.title}
+        Uses
       </div>
-
-      <p>{entry.data.description}</p>
-
-      <div class="text-mute-light dark:text-mute-dark text-sm italic">
-        Last updated: <FormattedDate date={lastUpdated || entry.data.lastUpdated} />
-      </div>
+      {USES.INTRO!.map((paragraph) => <p>{paragraph}</p>)}
 
       <article>
         <Content />

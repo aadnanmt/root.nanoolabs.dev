@@ -1,9 +1,3 @@
----
-title: "Uses"
-description: "My daily driver setup, software, and ecosystems."
-lastUpdated: "2026-09-21"
----
-
 ## System & Environment
 
 - **[Arch Linux](https://archlinux.org)** :: Primary desktop operating system

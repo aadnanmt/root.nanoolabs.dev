@@ -57,15 +57,6 @@ const commands = defineCollection({
   }),
 })
 
-const uses = defineCollection({
-  type: 'content',
-  schema: z.object({
-    title: z.string(),
-    description: z.string(),
-    lastUpdated: z.coerce.date(),
-  }),
-})
-
 const notes = defineCollection({
   type: 'content',
   schema: z.object({
@@ -82,6 +73,5 @@ export const collections = {
   projects,
   now,
   commands,
-  uses,
   notes,
 }

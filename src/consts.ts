@@ -113,6 +113,12 @@ export const NOTES: Metadata = {
   ],
 }
 
+export const USES: Metadata = {
+  TITLE: 'Uses',
+  DESCRIPTION: 'My daily driver setup, software, and ecosystems.',
+  INTRO: ['My daily driver setup: software, tools, and ecosystems I use every day.'],
+}
+
 export const SOCIALS: Social[] = [
   // Active
   {
