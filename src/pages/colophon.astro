@@ -1,0 +1,28 @@
+---
+import PageLayout from '@layouts/PageLayout.astro'
+import Container from '@components/Container.astro'
+import BackToPrev from '@components/BackToPrev.astro'
+import { IconColophon } from '@lib/iconSystem'
+import { COLOPHON } from '@consts'
+import { Content } from '@data/colophon.md'
+---
+
+<PageLayout title={COLOPHON.TITLE} description={COLOPHON.DESCRIPTION}>
+  <Container>
+    <div class="space-y-10">
+      <BackToPrev href="/explore"> Back to explore </BackToPrev>
+
+      <div class="text-ink-light dark:text-ink-dark flex items-center gap-2 font-semibold">
+        <div class="size-5 fill-current">
+          <Fragment set:html={IconColophon} />
+        </div>
+        Colophon
+      </div>
+      {COLOPHON.INTRO!.map((paragraph) => <p>{paragraph}</p>)}
+
+      <article>
+        <Content />
+      </article>
+    </div>
+  </Container>
+</PageLayout>

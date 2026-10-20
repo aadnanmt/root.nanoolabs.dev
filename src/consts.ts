@@ -73,6 +73,14 @@ export const CREDITS: Metadata = {
   ],
 }
 
+export const COLOPHON: Metadata = {
+  TITLE: 'Colophon',
+  DESCRIPTION: 'How this site is built: the stack, hosting, design decisions, and standards.',
+  INTRO: [
+    'Why this site looks the way it does: what powers it, where it lives, and the decisions behind the design.',
+  ],
+}
+
 export const KEYS: Metadata = {
   TITLE: 'Public Keys',
   DESCRIPTION: 'Public keys for encryption and signing.',
