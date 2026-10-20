@@ -3,8 +3,12 @@ import PageLayout from '@layouts/PageLayout.astro'
 import Container from '@components/Container.astro'
 import BackToPrev from '@components/BackToPrev.astro'
 import { IconColophon } from '@lib/iconSystem'
+import { gitDate } from '@lib/utils'
+import FormattedDate from '@components/FormattedDate.astro'
 import { COLOPHON } from '@consts'
 import { Content } from '@data/colophon.md'
+
+const lastUpdated = gitDate('src/data/colophon.md')
 ---
 
 <PageLayout title={COLOPHON.TITLE} description={COLOPHON.DESCRIPTION}>
@@ -19,6 +23,14 @@ import { Content } from '@data/colophon.md'
         Colophon
       </div>
       {COLOPHON.INTRO!.map((paragraph) => <p>{paragraph}</p>)}
+
+      {
+        lastUpdated && (
+          <div class="text-mute-light dark:text-mute-dark text-sm italic">
+            Last updated: <FormattedDate date={lastUpdated} />
+          </div>
+        )
+      }
 
       <article>
         <Content />

@@ -8,7 +8,7 @@ export function cn(...inputs: ClassValue[]) {
 
 export function gitDate(filePath: string) {
   try {
-    const stdout = execSync(`git log -1 --pretty="format:%ci" src/content/${filePath}`)
+    const stdout = execSync(`git log -1 --pretty="format:%ci" ${filePath}`)
     const dateStr = stdout.toString().trim()
     return dateStr ? new Date(dateStr) : null
   } catch (e) {

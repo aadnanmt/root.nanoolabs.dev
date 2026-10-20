@@ -3,8 +3,12 @@ import PageLayout from '@layouts/PageLayout.astro'
 import Container from '@components/Container.astro'
 import BackToPrev from '@components/BackToPrev.astro'
 import { IconUses } from '@lib/iconSystem'
+import { gitDate } from '@lib/utils'
+import FormattedDate from '@components/FormattedDate.astro'
 import { USES } from '@consts'
 import { Content } from '@data/uses.md'
+
+const lastUpdated = gitDate('src/data/uses.md')
 ---
 
 <PageLayout title={USES.TITLE} description={USES.DESCRIPTION}>
@@ -19,6 +23,14 @@ import { Content } from '@data/uses.md'
         Uses
       </div>
       {USES.INTRO!.map((paragraph) => <p>{paragraph}</p>)}
+
+      {
+        lastUpdated && (
+          <div class="text-mute-light dark:text-mute-dark text-sm italic">
+            Last updated: <FormattedDate date={lastUpdated} />
+          </div>
+        )
+      }
 
       <article>
         <Content />

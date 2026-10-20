@@ -17,7 +17,7 @@ const latestEntry = sortedEntries[0]
 const history = sortedEntries.slice(1)
 
 const { Content } = await latestEntry.render()
-const lastUpdated = gitDate(`now/${latestEntry.id}`)
+const lastUpdated = gitDate(`src/content/now/${latestEntry.id}`)
 ---
 
 <PageLayout title={latestEntry.data.title} description={latestEntry.data.description}>

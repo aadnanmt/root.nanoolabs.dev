@@ -54,7 +54,7 @@ const { collection, entry } = Astro.props as {
 }
 
 const { Content } = await entry.render()
-const lastUpdated = gitDate(`${collection}/${entry.id}`)
+const lastUpdated = gitDate(`src/content/${collection}/${entry.id}`)
 const hasDate = collection !== 'commands'
 const useProse = collection === 'commands'
 const bigTitle = collection === 'commands'
