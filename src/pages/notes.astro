@@ -4,7 +4,7 @@ import PageLayout from '@layouts/PageLayout.astro'
 import Container from '@components/Container.astro'
 import BackToPrev from '@components/BackToPrev.astro'
 import { NOTES } from '@consts'
-import { IconNotes } from '@lib/iconSystem'
+import { IconNotes } from '@lib/icon'
 
 const notes = (await getCollection('notes'))
   .filter((note) => !note.data.draft)
