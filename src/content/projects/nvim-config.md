@@ -8,27 +8,24 @@ tags: ["neovim", "dotfiles", "lazyvim"]
 status: growing
 ---
 
-My personal Neovim config built on [LazyVim](https://github.com/LazyVim/LazyVim).
+## What is it?
+
+My personal Neovim config built on [LazyVim](https://github.com/LazyVim/LazyVim): github-dark-default colorscheme, blink.cmp, mason + nvim-lspconfig, gitsigns. **Minimalist**.
+
+## In my setup
+
+Daily driver editor on Arch, runs inside kitty. Same Neovim that anchor my TUI-first workflow in the dotfiles.
 
 ## Screenshot
 
 <img src="/content/projects/nvim-config/live-neovim.webp" alt="My Neovim Interface" width="800" loading="lazy" />
 
-## Plugins
+## Why did I build it?
 
-- **Colorscheme**: github-dark-default
-- **Completion**: blink.cmp
-- **LSP**: mason + nvim-lspconfig
-- **Treesitter**: nvim-treesitter
-- **Git**: gitsigns
-- **UI**: bufferline, lualine, noice, which-key
+Still LazyVim base but i want full control, advanced configuration, and customization
 
-## Install
+## What I learned
 
-```bash
-git clone https://github.com/aadnanmt/nvim-config.git ~/.config/nvim/
-```
+About basic Lua Language, Language Server Protocol (LSP), and override colorscheme github-dark-default.
 
-## License
-
-MIT 
+> This project is still in a growth phase, as it require some further adjustments
