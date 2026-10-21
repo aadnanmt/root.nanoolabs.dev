@@ -27,11 +27,6 @@ export const CREDITS = [
     HREF: 'https://vercel.com/font/sans',
   },
   {
-    NAME: 'Inter',
-    DESCRIPTION: 'Sans-serif typeface used as a fallback for Geist Sans.',
-    HREF: 'https://rsms.me/inter/',
-  },
-  {
     NAME: 'JetBrains Mono',
     DESCRIPTION: 'Monospace font for code blocks and terminal aesthetics.',
     HREF: 'https://www.jetbrains.com/lp/mono/',
