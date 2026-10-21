@@ -3,7 +3,7 @@ import PageLayout from '@layouts/PageLayout.astro'
 import Container from '@components/Container.astro'
 import BackToPrev from '@components/BackToPrev.astro'
 import Link from '@components/Link.astro'
-import { IconCommands } from '@lib/icon'
+import { IconKeys } from '@lib/icon'
 import { SITE, KEYS } from '@consts'
 
 const KEYS_DATA = [
@@ -38,7 +38,7 @@ const KEYS_DATA = [
 
       <div class="text-ink-light dark:text-ink-dark flex items-center gap-2 font-semibold">
         <div class="size-5 fill-current">
-          <Fragment set:html={IconCommands} />
+          <Fragment set:html={IconKeys} />
         </div>
         Public Keys
       </div>
