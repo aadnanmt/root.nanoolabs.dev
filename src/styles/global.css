@@ -139,6 +139,12 @@ article :not(pre) > code {
 }
 
 @layer base {
+  /* global keyboard focus ring: brand accent, :where() keeps specificity zero */
+  :where(a, button, summary, [tabindex]):focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
   ::selection {
     background-color: color-mix(in oklab, var(--color-primary) 20%, transparent);
     color: var(--color-ink-light);
@@ -185,6 +191,11 @@ article a {
 
 html #back-to-top {
   @apply pointer-events-none opacity-0;
+}
+
+/* active page marker in header nav */
+header nav [aria-current='page'] {
+  @apply text-accent-soft-light decoration-accent dark:text-accent;
 }
 
 html.scrolled #back-to-top {

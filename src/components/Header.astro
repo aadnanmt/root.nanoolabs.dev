@@ -2,6 +2,9 @@
 import Link from '@components/Link.astro'
 import { SITE, SOCIALS } from '@consts'
 import { IconGithub } from '@lib/icon'
+
+const path = Astro.url.pathname
+const isActive = (href: string) => path === href || path.startsWith(`${href}/`)
 ---
 
 <header class="fixed top-5 right-0 left-0 z-50 flex items-center justify-center">
@@ -17,19 +20,23 @@ import { IconGithub } from '@lib/icon'
     </Link>
 
     <nav class="flex items-center gap-1.5 text-sm font-medium sm:gap-1">
-      <Link href="/blog"> blog </Link>
+      <Link href="/blog" aria-current={isActive('/blog') ? 'page' : undefined}> blog </Link>
       <span class="text-mute-light dark:text-mute-dark hidden sm:block">
         {`/`}
       </span>
-      <Link href="/now"> now </Link>
+      <Link href="/now" aria-current={isActive('/now') ? 'page' : undefined}> now </Link>
       <span class="text-mute-light dark:text-mute-dark hidden sm:block">
         {`/`}
       </span>
-      <Link href="/projects"> projects </Link>
+      <Link href="/projects" aria-current={isActive('/projects') ? 'page' : undefined}>
+        projects
+      </Link>
       <span class="text-mute-light dark:text-mute-dark hidden sm:block">
         {`/`}
       </span>
-      <Link href="/explore"> explore </Link>
+      <Link href="/explore" aria-current={isActive('/explore') ? 'page' : undefined}>
+        explore
+      </Link>
 
       <div class="bg-ink-light/10 dark:bg-ink-dark/20 mr-1 ml-1 h-4 w-px sm:ml-2"></div>
       <Link
