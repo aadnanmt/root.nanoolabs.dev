@@ -27,9 +27,9 @@ export const CREDITS = [
     HREF: 'https://vercel.com/font/sans',
   },
   {
-    NAME: 'JetBrains Mono',
-    DESCRIPTION: 'Monospace font for code blocks and terminal aesthetics.',
-    HREF: 'https://www.jetbrains.com/lp/mono/',
+    NAME: 'Geist Mono',
+    DESCRIPTION: 'Monospace companion to Geist Sans for code and terminal aesthetics.',
+    HREF: 'https://vercel.com/font/mono',
   },
   {
     NAME: 'FontAwesome',

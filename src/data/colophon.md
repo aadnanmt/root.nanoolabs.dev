@@ -6,7 +6,7 @@
 - **TypeScript**: strict mode, checked at build time.
 - **MDX**: prose and components in same content files.
 - **pnpm**: the package manager.
-- **Geist Sans** for text (Inter as fallback), **JetBrains Mono** for code.
+- **Geist Sans** for text, **Geist Mono** for code.
 
 ## Hosting and deployment
 

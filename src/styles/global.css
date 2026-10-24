@@ -11,7 +11,7 @@
   --font-sans:
     'Geist Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
     'Segoe UI Symbol', 'Noto Color Emoji';
-  --font-mono: 'JetBrains Mono', ui-monospace, sfmono-regular, menlo, monospace;
+  --font-mono: 'Geist Mono', ui-monospace, sfmono-regular, menlo, monospace;
 }
 
 @theme {
