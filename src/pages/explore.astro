@@ -19,12 +19,12 @@ const GROUPS: { key: 'content' | 'live' | 'identity'; label: string }[] = [
     <div class="space-y-10">
       <BackToPrev href="/"> Back to home </BackToPrev>
 
-      <div class="text-ink-light dark:text-ink-dark flex items-center gap-2 font-semibold">
+      <h1 class="text-ink-light dark:text-ink-dark flex items-center gap-2 font-semibold">
         <div class="size-5 fill-current">
           <Fragment set:html={IconHome} />
         </div>
         Explore
-      </div>
+      </h1>
 
       {EXPLORE.INTRO!.map((paragraph) => <p>{paragraph}</p>)}
 
@@ -32,9 +32,9 @@ const GROUPS: { key: 'content' | 'live' | 'identity'; label: string }[] = [
         {
           GROUPS.map(({ key, label }) => (
             <section class="space-y-6">
-              <div class="border-border-light text-ink-light dark:text-ink-dark flex items-center gap-2 border-b pb-2 font-semibold">
+              <h2 class="border-border-light text-ink-light dark:text-ink-dark flex items-center gap-2 border-b pb-2 font-semibold">
                 <span>{label}</span>
-              </div>
+              </h2>
               <ul class="flex flex-col space-y-4">
                 {[...EXPLORE_PAGES, ...MAIN_PAGES]
                   .filter((page) => page.group === key)

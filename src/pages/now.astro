@@ -25,12 +25,12 @@ const lastUpdated = gitDate(`src/content/now/${latestEntry.id}`)
     <div class="space-y-10">
       <BackToPrev href="/explore"> Back to explore </BackToPrev>
 
-      <div class="text-ink-light dark:text-ink-dark flex items-center gap-2 font-semibold">
+      <h1 class="text-ink-light dark:text-ink-dark flex items-center gap-2 font-semibold">
         <div class="size-5 fill-current">
           <Fragment set:html={IconNow} />
         </div>
         Now
-      </div>
+      </h1>
 
       <div class="text-mute-light dark:text-mute-dark text-sm italic">
         Last synced with Git: <FormattedDate date={lastUpdated || latestEntry.data.date} />

@@ -19,17 +19,17 @@ const personalProjects = allProjects.filter((p) => p.data.category === 'personal
   <Container>
     <div class="space-y-10">
       <BackToPrev> Back to home </BackToPrev>
-      <div class="text-ink-light dark:text-ink-dark flex items-center gap-2 font-semibold">
+      <h1 class="text-ink-light dark:text-ink-dark flex items-center gap-2 font-semibold">
         <div class="size-5 fill-current">
           <Fragment set:html={IconProjects} />
         </div>
         Projects
-      </div>
+      </h1>
       {PROJECTS.INTRO!.map((paragraph) => <p>{paragraph}</p>)}
       {
         nanooProjects.length > 0 && (
           <>
-            <h3 class="text-ink-light dark:text-ink-dark mt-12 font-semibold">Nanoo</h3>
+            <h2 class="text-ink-light dark:text-ink-dark mt-12 font-semibold">Nanoo</h2>
             <ul class="flex flex-col gap-3">
               {nanooProjects.map((project) => (
                 <li>
@@ -40,7 +40,7 @@ const personalProjects = allProjects.filter((p) => p.data.category === 'personal
           </>
         )
       }
-      <h3 class="text-ink-light dark:text-ink-dark mt-12 font-semibold">Personal</h3>
+      <h2 class="text-ink-light dark:text-ink-dark mt-12 font-semibold">Personal</h2>
       <ul class="flex flex-col gap-3">
         {
           personalProjects.map((project) => (

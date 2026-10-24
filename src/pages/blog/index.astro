@@ -31,18 +31,18 @@ const years = Object.keys(posts).sort((a, b) => parseInt(b) - parseInt(a))
   <Container>
     <div class="space-y-10">
       <BackToPrev> Back to home </BackToPrev>
-      <div class="text-ink-light dark:text-ink-dark flex items-center gap-2 font-semibold">
+      <h1 class="text-ink-light dark:text-ink-dark flex items-center gap-2 font-semibold">
         <div class="size-5 fill-current">
           <Fragment set:html={IconPosts} />
         </div>
         Blog
-      </div>
+      </h1>
       {BLOG.INTRO!.map((paragraph) => <p>{paragraph}</p>)}
       <div class="space-y-4">
         {
           years.map((year) => (
             <section class="space-y-4">
-              <div class="text-ink-light dark:text-ink-dark font-semibold">{year}</div>
+              <h2 class="text-ink-light dark:text-ink-dark font-semibold">{year}</h2>
               <div>
                 <ul class="flex flex-col gap-3">
                   {posts[year].map((post) => (

@@ -27,12 +27,12 @@ const grouped = notes.reduce(
   <Container>
     <div class="space-y-10">
       <BackToPrev href="/explore"> Back to explore </BackToPrev>
-      <div class="text-ink-light dark:text-ink-dark flex items-center gap-2 font-semibold">
+      <h1 class="text-ink-light dark:text-ink-dark flex items-center gap-2 font-semibold">
         <div class="size-5 fill-current">
           <Fragment set:html={IconNotes} />
         </div>
         Notes
-      </div>
+      </h1>
       {NOTES.INTRO!.map((paragraph) => <p>{paragraph}</p>)}
       <div>
         {

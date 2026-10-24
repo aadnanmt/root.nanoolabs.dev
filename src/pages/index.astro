@@ -34,7 +34,7 @@ const projects = (await getCollection('projects'))
     <div class="mt-8 space-y-10">
       <section>
         <div class="flex flex-wrap items-center gap-2">
-          <h4 class="text-ink-light dark:text-ink-dark font-semibold">Adnan (@aadnanmt)</h4>
+          <h1 class="text-ink-light dark:text-ink-dark font-semibold">Adnan (@aadnanmt)</h1>
           <MoodStatus />
         </div>
         <article class="space-y-4">
@@ -52,12 +52,12 @@ const projects = (await getCollection('projects'))
 
       <section class="space-y-4">
         <div class="flex flex-wrap items-center justify-between gap-y-2">
-          <h5 class="text-ink-light dark:text-ink-dark flex items-center gap-2 font-semibold">
+          <h2 class="text-ink-light dark:text-ink-dark flex items-center gap-2 font-semibold">
             <span class="fill-mute-light dark:fill-mute-dark size-5"
               ><Fragment set:html={IconPosts} /></span
             >
             Latest posts
-          </h5>
+          </h2>
           <Link href="/blog"> See all posts </Link>
         </div>
         <ul class="flex flex-col gap-3">
@@ -73,12 +73,12 @@ const projects = (await getCollection('projects'))
 
       <section class="space-y-4">
         <div class="flex flex-wrap items-center justify-between gap-y-2">
-          <h5 class="text-ink-light dark:text-ink-dark flex items-center gap-2 font-semibold">
+          <h2 class="text-ink-light dark:text-ink-dark flex items-center gap-2 font-semibold">
             <span class="fill-mute-light dark:fill-mute-dark size-5"
               ><Fragment set:html={IconProjects} /></span
             >
             Recent projects
-          </h5>
+          </h2>
           <Link href="/projects"> See all projects </Link>
         </div>
         <ul class="flex flex-col gap-3">

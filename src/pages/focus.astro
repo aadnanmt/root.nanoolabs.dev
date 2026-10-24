@@ -14,12 +14,12 @@ import { MYFOCUS } from '@data/focus'
     <div class="space-y-10">
       <BackToPrev href="/explore"> Back to explore </BackToPrev>
 
-      <div class="text-ink-light dark:text-ink-dark flex items-center gap-2 font-semibold">
+      <h1 class="text-ink-light dark:text-ink-dark flex items-center gap-2 font-semibold">
         <div class="size-5 fill-current">
           <Fragment set:html={IconFocus} />
         </div>
         Focus
-      </div>
+      </h1>
 
       {FOCUS.INTRO!.map((paragraph) => <p>{paragraph}</p>)}
 
