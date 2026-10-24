@@ -49,6 +49,7 @@
 - **[Deno](https://deno.com)** :: Modern JS/TS runtime
 - **[Python](https://python.org)** :: For automation and backend (FastAPI)
 - **[Tailwind CSS](https://tailwindcss.com)** :: Utility-first CSS framework
+- **[UnoCSS](https://unocss.dev)** :: Instant On-demand Atomic CSS Engine
 - **[Shellcheck](https://www.shellcheck.net)** :: Shell script linter
 - **[Shfmt](https://mvdan.github.io/sh/)** :: Shell script formatter
 - **[Stylua](https://github.com/JohnnyMorganz/StyLua)** :: Lua code formatter
@@ -81,6 +82,14 @@
 - **[Wrangler](https://developers.cloudflare.com/workers/wrangler/)** :: Cloudflare Workers CLI
 - **[GitHub](https://github.com) / [Codeberg](https://codeberg.org)** :: Version control and project mirrors
 
+## Browser Extensions
+
+> Moving from Firefox to librewolf turn out to be Librewolf by default using Ublock Origin, before in firefoxx Ad Guard for Ad blockers.
+
+- **[Language Reactor](https://www.languagereactor.com/)** :: Learning languages with videos
+- **[KeePassXC-Browser](https://keepassxc.org/download/#browser)** :: Official browser plugin for the KeePassXC
+- **[Ublock Origin](https://ublockorigin.com/)** :: Open-source ad blocker extension
+
 ## Communication
 
 - **[Signal](https://signal.org)** :: Secure communication
@@ -96,11 +105,12 @@
 - **[Rclone](https://rclone.org)** :: Encrypted cloud backup and data redundancy
 - **[Trivy](https://github.com/aquasecurity/trivy)** :: Security vulnerability scanner
 - **[Wireshark](https://www.wireshark.org)** :: Network protocol analyzer
-- **[Wakatime](https://wakatime.com)** :: Time tracking
+- **[Wakatime](https://wakatime.com)** :: Time tracking coding
 
 ## Media
 
 - **[Mpv](https://mpv.io)** :: Lightweight media player
+- **[Kew](https://kewplayer.com/)** :: Immersive music player
 - **[Imv](https://git.sr.ht/~exec64/imv)** :: Image viewer
 - **[Ani-cli](https://github.com/pystardust/ani-cli)** :: Anime streaming CLI
 - **[Cava](https://github.com/karlstav/cava)** :: Audio visualizer
