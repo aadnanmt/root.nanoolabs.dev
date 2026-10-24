@@ -1,25 +1,25 @@
 export const MYFOCUS = [
   {
     title: 'System & DevOps',
-    percentage: 39,
+    percentage: 40,
     description:
-      'Deep dive filesystem, mechanism symlink, config bootloader, permission, exploring rootless Podman, other Git feature, and Bash fundamentals.',
+      'Deep dive filesystem, mechanism symlink, config bootloader, permission, exploring rootless Podman, other Git features, and Bash fundamentals.',
   },
   {
     title: 'Backend Engineering',
-    percentage: 16,
-    description: 'Implementing Pnpm Workspace and Hono. Exploring Middleware and Router on Hono',
+    percentage: 8,
+    description: 'Integration Hono and Swagger Docs, exploring middleware Hono',
   },
   {
     title: 'Frontend & UI',
-    percentage: 9,
+    percentage: 12,
     description:
-      'Optimize SEO and performance. Learn and manage clean Tailwind CSS and mastering Astro Middleware',
+      'Keep learning clean code Tailwind CSS, try css engine which I find interesting I adopt (UnoCSS), mastering Astro Internationalization (i18n) routing, trying to get to know the concept of island architecture Astro',
   },
   {
     title: 'Testing & Maintainace',
-    percentage: 23,
+    percentage: 24,
     description:
-      'Analyzing Hyprland and using Nix Shell on my Distro. Reconfigure Termux Properties for efficient workflow',
+      'Tweaks my workflow GitHub Codespaces with my personal computer and learning again about Cronie for automation local first (still playfulness anyway)',
   },
 ]
