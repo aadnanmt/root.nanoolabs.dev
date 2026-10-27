@@ -1,0 +1,36 @@
+---
+/**
+ * visitor-local greeting
+ * client-side because site is static
+ * bubble is hidden by default;
+ * index.astro wrap it in a `group` that reveal
+ * it on hover / focus (avatar is a button) via opacity classes below
+ **/
+---
+
+<div
+  class="pointer-events-none absolute top-1/2 left-full z-10 ml-3 -translate-y-1/2 opacity-0 transition-opacity duration-200 group-focus-within:opacity-100 group-hover:opacity-100"
+>
+  <div
+    class="border-border-light dark:border-border-dark bg-canvas-light dark:bg-canvas-dark relative rounded-md border px-3 py-2"
+  >
+    <span
+      aria-hidden="true"
+      class="border-border-light dark:border-border-dark bg-canvas-dark dark:bg-canvas-dark absolute top-1/2 -left-1.25 size-2.5 -translate-y-1/2 rotate-45 border-b border-l"
+    ></span>
+    <p id="greeting" class="whitespace-nowrap">👋 Haiiii</p>
+  </div>
+</div>
+
+<script>
+  const hour = new Date().getHours()
+  let greeting
+  if (hour >= 5 && hour < 12) greeting = '🌅 Good morning'
+  else if (hour >= 12 && hour < 17) greeting = '⛅ Good afternoon'
+  else if (hour >= 17 && hour < 22) greeting = '🌆 Good evening'
+  else if (hour >= 22) greeting = '🥱 Still awake? Me too.'
+  else greeting = '🌌 Good night'
+
+  const el = document.getElementById('greeting')
+  if (el) el.textContent = greeting
+</script>
