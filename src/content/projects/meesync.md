@@ -18,7 +18,7 @@ Runs itself. GitHub Actions cron push fresh stats twice a day (05:00 & 17:00 UTC
 
 ## Screenshot
 
-<img src="/content/projects/meesync/preview.png" alt="GitHub profile README with stats" width="800" loading="lazy" />
+<img src="/content/projects/meesync/preview.webp" alt="GitHub profile README with stats" width="800" loading="lazy" />
 
 ## Why did I build it?
 

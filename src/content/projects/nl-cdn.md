@@ -15,7 +15,7 @@ Edge proxy for Nanoo Labs assets. Proxies a private **Backblaze B2** bucket thro
 
 ## Screenshot
 
-<img src="/content/projects/nl-cdn/preview.png" alt="nl-cdn landing page" width="800" loading="lazy" />
+<img src="/content/projects/nl-cdn/preview.webp" alt="nl-cdn landing page" width="800" loading="lazy" />
 
 ## Why did I build it?
 
