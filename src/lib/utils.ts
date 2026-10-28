@@ -1,6 +1,6 @@
 import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
-import { execSync } from 'child_process'
+import { execFileSync } from 'child_process'
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -8,10 +8,14 @@ export function cn(...inputs: ClassValue[]) {
 
 export function gitDate(filePath: string) {
   try {
-    const stdout = execSync(`git log -1 --pretty="format:%ci" ${filePath}`)
+    /**
+     * array args: no shell, so filePath cannot be interpreted as a command
+     * shortcut: still one `git log` per content entry (~25/build)
+     */
+    const stdout = execFileSync('git', ['log', '-1', '--format=%ci', '--', filePath])
     const dateStr = stdout.toString().trim()
     return dateStr ? new Date(dateStr) : null
-  } catch (e) {
+  } catch {
     return null
   }
 }
@@ -50,27 +54,23 @@ export function formatDate(date: Date) {
 export function readingTime(html: string) {
   const textOnly = html.replace(/<[^>]+>/g, '')
   const wordCount = textOnly.split(/\s+/).length
-  // Strip HTML, count words, divide by 200 wpm. +1 ensures minimum
-  // "1 min read" for short posts
+  /**
+   * Strip HTML, count words, divide by 200 wpm. +1 ensures minimum
+   * "1 min read" for short posts
+   */
   const readingTimeMinutes = (wordCount / 200 + 1).toFixed()
   return `${readingTimeMinutes} min read`
 }
 
 export function dateRange(startDate: Date, endDate?: Date | string): string {
-  const startMonth = startDate.toLocaleString('default', { month: 'short' })
-  const startYear = startDate.getFullYear().toString()
-  let endMonth
-  let endYear
+  const start = `${startDate.toLocaleString('default', { month: 'short' })} ${startDate.getFullYear()}`
 
-  if (endDate) {
-    if (typeof endDate === 'string') {
-      endMonth = ''
-      endYear = endDate
-    } else {
-      endMonth = endDate.toLocaleString('default', { month: 'short' })
-      endYear = endDate.getFullYear().toString()
-    }
-  }
+  if (!endDate) return start
 
-  return `${startMonth} ${startYear} - ${endMonth} ${endYear}`
+  const end =
+    typeof endDate === 'string'
+      ? endDate
+      : `${endDate.toLocaleString('default', { month: 'short' })} ${endDate.getFullYear()}`
+
+  return `${start} - ${end}`
 }
