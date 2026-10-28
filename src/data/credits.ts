@@ -42,11 +42,6 @@ export const CREDITS = [
     HREF: 'https://zod.dev',
   },
   {
-    NAME: 'Sharp',
-    DESCRIPTION: 'High-performance image processing for optimized assets.',
-    HREF: 'https://sharp.pixelplumbing.com',
-  },
-  {
     NAME: 'pnpm',
     DESCRIPTION: 'A fast, disk space efficient package manager.',
     HREF: 'https://pnpm.io',
