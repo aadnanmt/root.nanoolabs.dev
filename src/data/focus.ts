@@ -6,11 +6,11 @@ export const MYFOCUS = [
       'Deep dive filesystem, mechanism symlink, config bootloader, permission, exploring rootless Podman, other Git features, and Bash fundamentals.',
   },
   {
-  {
     title: 'Security & Network',
     percentage: 13,
-    description: 'Advanced config MicroTik, Firewall by UFW, learn again Cloudflare Tunnel, understanding file permissions on Linux Systems',
+    description: 'Advanced config MicroTik, Firewall by UFW, learn again Cloudflare Tunnel, understanding file permissions on Linux Systems.',
   },
+  {
     title: 'Backend & Edge',
     percentage: 7,
     description: 'Integration Hono and Swagger Docs, exploring middleware Hono, and edge runtime (workerd/Cloudflare Workers)',
