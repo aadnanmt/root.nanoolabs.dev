@@ -2,7 +2,6 @@
 title: 'Hyprland Dotfiles'
 description: 'Custom Hyprland setup with a Cyan color style for Arch Linux.'
 date: '2026-04-25'
-demoURL: 'https://github.com/aadnanmt/hyprland-dotfiles'
 repoURL: 'https://github.com/aadnanmt/hyprland-dotfiles'
 tags: ['hyprland', 'dotfiles', 'wayland']
 status: dormant
@@ -10,7 +9,13 @@ status: dormant
 
 import Details from '@components/Details.astro'
 
-This page shows my personal config files (dotfiles) for Arch Linux. It has a custom Hyprland setup with a clear **Cyan Color** style.
+## What is it?
+
+My personal dotfiles for Arch Linux: a custom Hyprland setup with a clear **Cyan** color style. Full rice: Wofi menus, Waybar, Hyprlock, Fish + Starship, Kitty, LazyVim.
+
+## In my setup
+
+This was my daily driver until I moved my workflow to NiriWM (see the niri-dotfiles project). Repo stays up as an archive, hence dormant.
 
 ## Screenshots
 
@@ -52,103 +57,21 @@ This page shows my personal config files (dotfiles) for Arch Linux. It has a cus
 
 </Details>
 
-## Project Overview
+## Why did I build it?
 
-- **Window Manager:** [Hyprland](https://hyprland.org/) (It controls windows on Wayland)
-- **Shell:** [Fish Shell](https://fishshell.com/) with [Starship](https://starship.rs/)
-- **Editor:** [Neovim](https://neovim.io/) (with [LazyVim](https://www.lazyvim.org/) config)
-- **Status Bar:** [Waybar](https://github.com/Alexays/Waybar)
-- **Terminal:** [Kitty](https://sw.kovidgoyal.net/kitty/)
-- **Theme:** Custom Cyan theme (`#00ffff`) for UI parts like borders and terminal colors.
-- **License:** [GPL-3.0](https://github.com/aadnanmt/hyprland-dotfiles/blob/main/LICENSE)
+Started **ricing** journey on Arch and **obsessed** with cyan style. Even though at that time I had a **private i3wm dotfiles**. LOL, I uses 2 tilling window manager at the time.
 
-## Directory Structure
+> I was still an amateur at the time, hihiii.
 
-```text
-.config/
-├── alacritty/
-├── btop/
-├── cava/
-├── dunst/
-├── fastfetch/
-├── fish/
-├── htop/
-├── hypr/
-│   ├── conf/
-│   ├── hyprland.conf
-│   ├── hyprlock.conf
-│   └── hyprpaper.conf
-├── kitty/
-├── lazygit/
-├── lsd/
-├── nvim/
-├── theme/
-├── wallpapers/
-├── waybar/
-├── wofi/
-└── yazi/
-```
+## What I learned
 
-## Key Programs
+- **Hyprland Configuring:** keybinds handler, autostart, hyprlock, and hyprpaper.
+- **Shell Script:** management/adjusdments `.sh` to (waybar and wofi) from [elifouts](https://github.com/elifouts/Dotfiles) and [dln (wofi-emoji)](https://github.com/dln/wofi-emoji)
+- **Some lesson about Hyprland:** such as config error popup, waybar tooltip crashes hyprland, and something hyprland crash after update. Yeahh, debugging and fixing.
 
-As defined in `hypr/conf/programs.conf`:
+## Why I moved to Niri?
 
-- **Terminal:** Kitty
-- **File Manager:** Dolphin / Thunar
-- **Menu/Launcher:** Wofi (Cyan-cyber theme)
-- **Browser:** Firefox
-- **Editor:** Neovim / VS Code
-- **Lock Screen:** Hyprlock
-- **Logout/Power Menu:** Wofi Power Menu
-
-## Keybindings
-
-Here are the shortcuts in `hypr/conf/keybindings.conf`:
-
-### Apps & Menus
-
-- `Super + Return` / `Q`: Open Terminal
-- `Super + B`: Open Browser
-- `Super + E`: Open File Manager
-- `Super + D`: Open Wofi Launcher
-- `Super + .`: Emoji Selector (Wofi)
-- `Super + M`: Power Menu (Wofi)
-- `Super + G`: Volume Control (Pavucontrol)
-- `Super + Shift + W`: Wallpaper Select (Wofi)
-- `Super + Shift + S`: Screenshot (Grim/Slurp)
-- `Super + Shift + V`: Open Neovim
-
-### Window Management
-
-- `Super + Shift + Q`: Close active window
-- `Super + V`: Toggle floating
-- `Super + P`: Pseudo Tiling
-- `Super + J`: Toggle Split
-- `Super + Arrow Keys`: Move focus
-
-### Workspaces
-
-- `Super + 1-10`: Switch workspaces
-- `Super + Shift + 1-10`: Move window to workspace
-- `Super + Scroll`: Switch workspaces
-
-### System (Media Keys)
-
-- `Vol Up/Down/Mute`: Audio Control
-- `Brightness Up/Down`: Screen Brightness
-- `Media Play/Pause/Next/Prev`: Player Control
-
-## Quick Start
-
-```bash
-git clone https://github.com/aadnanmt/hyprland-dotfiles.git
-cd hyprland-dotfiles
-cp -r .config/* ~/.config/
-hyprctl reload
-```
-
-- To use changes in Hyprland, reload it (use `hyprctl reload` or save the file).
-- To reload Waybar, use `waybar/reload.sh` script.
+> because in Niri I can focus more on workflows, development and minimize breaking changes/problems when updating system (Window Manager). But this project `aadnanmt/hyprland-dotfiles` is already dromant.
 
 ## Credits
 
