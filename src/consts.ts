@@ -120,64 +120,68 @@ export const USES: Metadata = {
 }
 
 export const SOCIALS: Social[] = [
-  // Active
+  // Active (primary)
   {
     NAME: 'github',
     HREF: '/gh',
     DESCRIPTION: 'Where I store my code and experiments.',
-    ACTIVE: true,
+    status: 'active',
   },
   {
     NAME: 'codeberg',
     HREF: '/cb',
     DESCRIPTION: 'Primary forge and backup for my code and projects.',
-    ACTIVE: true,
+    status: 'active',
   },
   {
     NAME: 'telegram',
     HREF: '/tg',
     DESCRIPTION: 'Best for a direct and quick technical chat.',
-    ACTIVE: true,
+    status: 'active',
   },
   // Balanced (used but not primary)
   {
     NAME: 'discord',
     HREF: '/dc',
     DESCRIPTION: 'Direct chat, mostly for tech talk and gaming.',
-    BALANCED: true,
+    status: 'balanced',
   },
   {
     NAME: 'spotify',
     HREF: '/sp',
     DESCRIPTION: 'My playlists and what I am listening to.',
-    BALANCED: true,
+    status: 'balanced',
   },
   {
     NAME: 'ko-fi',
     HREF: '/kf',
     DESCRIPTION: 'Support my work or buy me a cup of coffee.',
-    BALANCED: true,
+    status: 'balanced',
   },
   // Inactive
   {
     NAME: 'x-twitter',
     HREF: '/x',
     DESCRIPTION: 'Thoughts, updates, and tech rants.',
+    status: 'inactive',
   },
   {
     NAME: 'instagram',
     HREF: '/ig',
     DESCRIPTION: 'Personal bits and visual logs.',
+    status: 'inactive',
   },
   {
     NAME: 'gitlab',
     HREF: '/gl',
     DESCRIPTION: 'Another forge, less active.',
+    status: 'inactive',
   },
   {
     NAME: 'threads',
     HREF: '/th',
     DESCRIPTION: 'Short-form thoughts and updates.',
+    status: 'inactive',
   },
 ]
 

@@ -23,7 +23,7 @@ import { IconSend, IconEmail, getIcon } from '@lib/icon'
       {'/'}
     </li>
     {
-      SOCIALS.filter((SOCIAL) => SOCIAL.ACTIVE).map((SOCIAL) => (
+      SOCIALS.filter((SOCIAL) => SOCIAL.status === 'active').map((SOCIAL) => (
         <li class="flex items-center gap-x-2 text-nowrap">
           <span class="fill-mute-light dark:fill-mute-dark text-mute-light dark:text-mute-dark size-4">
             <Fragment set:html={getIcon(SOCIAL.NAME)} />

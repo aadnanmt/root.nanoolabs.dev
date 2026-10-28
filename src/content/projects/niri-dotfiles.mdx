@@ -11,9 +11,13 @@ import Details from '@components/Details.astro'
 
 export const PREVIEW = '/content/projects/niri-dotfiles'
 
-Yeahh, current I'm move compositor Wayland from HyprlandWM to NiriWM. So, why I'm to Niri as a compositor Wayland? because, it's it just about my preference for my workflow and daily uses. And this project will receive further updates and adjustments.
+## What is it?
 
-> This Personal dotfiles for Niri (Wayland compositor) on Arch Linux. GitHub Dark Default theme, minimal, TUI-first. You can look my screenshot and features in below section:
+Personal dotfiles for Niri (Wayland compositor) on Arch Linux. GitHub Dark Default theme, minimal, TUI-first. Fish + Starship, Kitty, Fuzzel, Waybar, LazyVim, all on `#58a6ff` accent over `#050505`.
+
+## In my setup
+
+Current daily driver. `install.sh --base|--all` deploys profiles (WM + shell + editor, or everything including the rice) with paru, and every alias/abbreviation is reachable from the shell via `cuyy` cheatsheet.
 
 ## Screenshots
 
@@ -64,179 +68,19 @@ Yeahh, current I'm move compositor Wayland from HyprlandWM to NiriWM. So, why I'
 
 </Details>
 
-## Tech Stack
+## Why did I build it?
 
-| Domain           | App              |
-| ---------------- | ---------------- |
-| Window Manager   | Niri             |
-| Shell            | Fish + Starship  |
-| Terminal         | Kitty            |
-| Launcher         | Fuzzel           |
-| Status Bar       | Waybar           |
-| Editor           | Neovim (LazyVim) |
-| Notifications    | Dunst            |
-| File Manager     | Yazi             |
-| Lock Screen      | Swaylock         |
-| System Monitor   | btop / htop      |
-| Audio Visualizer | Cava             |
-| Music Player     | kew              |
-| Image Viewer     | imv              |
-| Markdown Reader  | glow             |
+Moved my daily compositor from Hyprland to Niri, honestly just my preference for how I work and use the machine daily. This config keeps receiving updates and adjustments as I settle in.
 
-## Directory Structure
+## What I learned
 
-```
-.
-├── base/
-│   ├── bat/
-│   ├── dunst/
-│   ├── fish/
-│   ├── fuzzel/
-│   ├── kitty/
-│   ├── lsd/
-│   ├── niri/
-│   ├── nvim/
-│   ├── shell/
-│   ├── starship.toml
-│   ├── swaylock/
-│   ├── waybar/
-│   └── yazi/
-├── dev/
-│   └── lazygit/
-├── rice/
-│   ├── cava/
-│   ├── fastfetch/
-│   ├── glow/
-│   ├── gtk-3.0/
-│   ├── gtk-4.0/
-│   ├── htop/
-│   ├── imv/
-│   ├── kew/
-│   ├── mpv/
-│   ├── peaclock/
-│   └── yt-dlp/
-├── install.sh
-├── setup/
-├── Wallpapers/
-├── pkglist-base.txt
-└── pkglist-rice.txt
-```
-
-## Profiles
-
-| Flag     | What gets deployed                |
-| -------- | --------------------------------- |
-| `--base` | base/ only (WM + shell + editor)  |
-| `--all`  | base/ + dev/ + rice/ (everything) |
-
-## Install
-
-`install.sh` installs packages with paru, then deploys configs to `~/.config/`.
-
-```bash
-./install.sh --base            # base/ only (default)
-./install.sh --all             # base/ + dev/ + rice/
-./install.sh --all --dry-run   # preview everything
-```
-
-It reads package lists by profile:
-
-- `pkglist-base.txt` - always installed
-- `pkglist-rice.txt` - install with `--all`
-
-Then it runs every script in `setup/`. Note: `restore.sh` is interactive.
-
-### Post-install: Yazi plugins
-
-```bash
-# GVFS plugin for MTP/SMB/SFTP (optional)
-git clone https://github.com/SGau89/gvfs.yazi ~/.config/yazi/plugins/gvfs.yazi
-```
-
-## Cheatsheet
-
-`shell/gen-cheatsheet.sh` makes `CHEATSHEET.md`. It lists all aliases and abbreviations for each shell (POSIX `aliases.sh`, fish `aliases.fish`, fish `abbr.fish`). Run it from `~/.config/shell/` (fish abbr: `cheatgen`). The file is auto-generated and gitignored. Do not edit it by hand.
-
-## Keybinds
-
-### Essential
-
-| Key                                  | Action                             |
-| ------------------------------------ | ---------------------------------- |
-| Mod + Return                         | Open terminal (kitty)              |
-| Mod + Shift + B                      | Open browser (via xdg)             |
-| Mod + B                              | Select wallpaper                   |
-| Mod + D                              | App launcher (fuzzel)              |
-| Mod + N                              | Open Neovim (kitty)                |
-| Mod + P                              | Powermenu (fuzzel)                 |
-| Super + E                            | Emoji picker (fuzzel)              |
-| Mod + Shift + L                      | Lock screen (swaylock)             |
-| Mod + Shift + Slash                  | Show hotkey overlay                |
-| Mod + Q                              | Close window                       |
-| Mod + O                              | Toggle overview                    |
-| Mod + F                              | Maximize column                    |
-| Mod + Shift + F                      | Fullscreen window                  |
-| Mod + M                              | Maximize window to edges           |
-| Mod + Ctrl + F                       | Expand column to available width   |
-| Mod + C                              | Center column                      |
-| Mod + Ctrl + C                       | Center visible columns             |
-| Mod + V                              | Toggle floating window             |
-| Mod + Shift + V                      | Focus floating ↔ tiling            |
-| Mod + W                              | Toggle tabbed column               |
-| Mod + R / Mod + Shift + R            | Cycle column width presets         |
-| Mod + Ctrl + R                       | Reset window height                |
-| Mod + Ctrl + Shift + R               | Cycle window height presets        |
-| Mod + Left/Right or H/L              | Focus column                       |
-| Mod + Up/Down or J/K                 | Focus window                       |
-| Mod + Ctrl + arrows                  | Move window in column              |
-| Mod + Home / End                     | Focus first/last column            |
-| Mod + Ctrl + Home / End              | Move column to first/last          |
-| Mod + Shift + arrows                 | Focus monitor                      |
-| Mod + Shift + Ctrl + arrows          | Move column to monitor             |
-| Mod + PageUp/Down or U/I             | Focus workspace                    |
-| Mod + Ctrl + PageUp/Down             | Move column to workspace           |
-| Mod + Shift + PageUp/Down            | Move workspace                     |
-| Mod + WheelScroll                    | Focus workspace                    |
-| Mod + Ctrl + WheelScroll             | Move column to workspace           |
-| Mod + Shift + WheelScroll            | Focus/move column                  |
-| Mod + 1-9                            | Switch workspace                   |
-| Mod + Shift + 1-9                    | Move column to workspace           |
-| Mod + Comma                          | Consume window into column         |
-| Mod + Period                         | Expel window from column           |
-| Mod + BracketLeft/Right              | Consume/expel column               |
-| Mod + Minus / Equal                  | Column width -/+ 10%               |
-| Mod + Shift + Minus / Equal          | Window height -/+ 10%              |
-| Mod + Escape                         | Toggle shortcuts inhibitor         |
-| Print / Ctrl+Print / Alt+Print       | Screenshot (all / screen / window) |
-| Mod + Shift + Period or Ctrl+Alt+Del | Quit niri                          |
-| Mod + Shift + P                      | Power off monitors                 |
-| XF86Audio                            | Volume up/down, mute               |
-| XF86MonBrightness                    | Brightness up/down                 |
-
-### Personal (hidden from overlay)
-
-| Key             | Action                      |
-| --------------- | --------------------------- |
-| Mod + Shift + N | Net stats (notify-send)     |
-| Mod + Shift + E | Updates check (notify-send) |
-| Mod + Shift + G | Podman status (notify-send) |
-| Mod + Shift + O | Start pomodoro              |
-| Mod + Shift + M | Cancel pomodoro             |
-| Mod + Ctrl + V  | Clipboard history (fuzzel)  |
-
-## MemoCuyy (aliases and abbreviation)
-
-After you finish setup your options, try type command line `cuyy` on your shell/terminal emulator. You can get command line cheatsheet if your forget aliases or abbreviation.
-
-## Colorscheme
-
-**GitHub Dark Default** `#58a6ff` accent, `#050505` background
-
-Applied to: kitty, alacritty, dunst, fuzzel, waybar, swaylock, niri focus ring, nvim, fish, FZF, kew, yazi, cava, starship, peaclock
+{/* Isi sendiri: pelajaran: niri scrollable tiling model, profile install sh, dll. Status growing: next step apa. */}
 
 ## Credits
 
 Based on [aadnanmt/hyprland-dotfiles](https://github.com/aadnanmt/hyprland-dotfiles) refactored from Hyprland to Niri WM.
+
+### Special thanks to:
 
 - **[elifouts (Dotfiles)](https://github.com/elifouts/Dotfiles):** Original menu configs.
 - **[dln (wofi-emoji)](https://github.com/dln/wofi-emoji):** Emoji selector.
@@ -246,7 +90,3 @@ Based on [aadnanmt/hyprland-dotfiles](https://github.com/aadnanmt/hyprland-dotfi
 - **[GitHub Dark Default](https://github.com/primer/github-vscode-theme):** Color palette (MIT).
 - **[shivam-salkar/minimal-waybar-config](https://github.com/shivam-salkar/minimal-waybar-config):** Waybar base config.
 - **Arch Linux:** Foundation.
-
-## Under license
-
-GPL-3.0

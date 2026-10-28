@@ -56,10 +56,8 @@ https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscat
           <ul class="grid grid-cols-1 gap-6 md:grid-cols-2">
             {
               SOCIALS.map((SOCIAL) => {
-                // Three states: ACTIVE = linked + badge, BALANCED = linked
-                // but exclude from active count, INACTIVE = not linked
-                const isExcluded = SOCIAL.BALANCED
-                const isInactive = !SOCIAL.ACTIVE && !SOCIAL.BALANCED
+                const isActive = SOCIAL.status === 'active'
+                const isInactive = SOCIAL.status === 'inactive'
                 return (
                   <li
                     class={`group border-border-soft-light flex flex-col gap-1 border-l-2 pl-4 dark:border-border-soft-dark${isInactive ? ' pointer-events-none' : ''}`}
@@ -68,7 +66,11 @@ https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscat
                       <div class="fill-mute-light dark:fill-mute-dark text-mute-light dark:text-mute-dark size-4">
                         <Fragment set:html={getIcon(SOCIAL.NAME)} />
                       </div>
-                      {SOCIAL.ACTIVE || isExcluded ? (
+                      {isInactive ? (
+                        <span class="text-mute-light dark:text-mute-dark font-medium lowercase">
+                          {SOCIAL.NAME}
+                        </span>
+                      ) : (
                         <Link
                           href={SOCIAL.HREF}
                           external
@@ -76,12 +78,8 @@ https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscat
                         >
                           {SOCIAL.NAME}
                         </Link>
-                      ) : (
-                        <span class="text-mute-light dark:text-mute-dark font-medium lowercase">
-                          {SOCIAL.NAME}
-                        </span>
                       )}
-                      {SOCIAL.ACTIVE && (
+                      {isActive && (
                         <span class="bg-primary/10 text-primary-soft-light dark:text-primary rounded-full px-2 py-0.5 text-[10px] tracking-wider uppercase">
                           active
                         </span>
