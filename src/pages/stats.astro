@@ -20,9 +20,65 @@ const gardenStats = [
   { name: 'Projects', count: allProjects.length },
 ]
 
+interface Language {
+  name: string
+  percentage: string
+}
+
+interface Stats {
+  totalCommits: number
+  totalFollowers: number
+  streak: number
+  repoCount: number
+  totalDiskUsage: number
+  mainLicense: string
+  languages: Language[]
+  updatedAt?: string
+}
+
 const STATS_URL = 'https://raw.githubusercontent.com/aadnanmt/aadnanmt/main/stats.json'
-const response = await fetch(STATS_URL)
-const stats = await response.json()
+const STATS_TTL = 5 * 60 * 1000
+
+const EMPTY_STATS: Stats = {
+  totalCommits: 0,
+  totalFollowers: 0,
+  streak: 0,
+  repoCount: 0,
+  totalDiskUsage: 0,
+  mainLicense: 'n/a',
+  languages: [],
+}
+
+let cache: Stats | null = null
+let fetchAt = 0
+
+async function getStats(): Promise<Stats> {
+  if (cache && Date.now() - fetchAt < STATS_TTL) return cache
+
+  try {
+    const response = await fetch(STATS_URL, { signal: AbortSignal.timeout(10000) })
+    if (!response.ok) throw new Error(`stats fetch: ${response.status}`)
+    const data = await response.json()
+    cache = {
+      totalCommits: data.totalCommits ?? 0,
+      totalFollowers: data.totalFollowers ?? 0,
+      streak: data.streak ?? 0,
+      repoCount: data.repoCount ?? 0,
+      totalDiskUsage: typeof data.totalDiskUsage === 'number' ? data.totalDiskUsage : 0,
+      mainLicense: data.mainLicense ?? 'n/a',
+      languages: Array.isArray(data.languages) ? data.languages : [],
+      updatedAt: data.updatedAt,
+    }
+    fetchAt = Date.now()
+    return cache
+  } catch (error) {
+    console.error('Failed to fetch GitHub stats, using default:', error)
+    return cache ?? EMPTY_STATS
+  }
+}
+
+const stats = await getStats()
+
 const {
   totalCommits,
   totalFollowers,
@@ -44,11 +100,6 @@ const githubStats = [
   { name: 'Disk Usage', value: `${diskMB} MB` },
   { name: 'Main License', value: mainLicense },
 ]
-
-interface Language {
-  name: string
-  percentage: string
-}
 ---
 
 <PageLayout title={STATS.TITLE} description={STATS.DESCRIPTION}>
@@ -130,10 +181,9 @@ interface Language {
             }
           </div>
           <div class="text-mute-light dark:text-mute-dark text-sm italic">
-            Last sync: {new Date(updatedAt).toLocaleDateString('en-GB')} · Source:{' '}
-            <Link href="https://github.com/aadnanmt/readmeSync" external
-              >github.com/aadnanmt/readmeSync</Link
-            >
+            {updatedAt && <>Last sync: {new Date(updatedAt).toLocaleDateString('en-GB')} · </>}
+            Source:{' '}
+            <Link href="https://github.com/aadnanmt/meesync" external>meesync</Link>
           </div>
         </section>
       </div>
