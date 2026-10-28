@@ -38,6 +38,18 @@ export const EXPLORE_PAGES: ExplorePage[] = [
     group: 'content',
   },
   {
+    name: 'Colophon',
+    href: '/colophon',
+    desc: 'How this site is built.',
+    group: 'content',
+  },
+  {
+    name: 'Credits',
+    href: '/credits',
+    desc: 'The tools and technologies that power this website.',
+    group: 'content',
+  },
+  {
     name: 'Uses',
     href: '/uses',
     desc: 'The tools, software, and stack I use every day.',
