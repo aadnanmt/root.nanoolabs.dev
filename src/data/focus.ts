@@ -1,19 +1,21 @@
 export const MYFOCUS = [
   {
     title: 'System & DevOps',
-    percentage: 30,
+    percentage: 24,
     description:
       'Deep dive filesystem, mechanism symlink, config bootloader, permission, exploring rootless Podman, other Git features, and Bash fundamentals.',
   },
   {
     title: 'Security & Network',
     percentage: 13,
-    description: 'Advanced config MicroTik, Firewall by UFW, learn again Cloudflare Tunnel, understanding file permissions on Linux Systems.',
+    description:
+      'Advanced config MicroTik, Firewall by UFW, learn again Cloudflare Tunnel, understanding file permissions on Linux Systems.',
   },
   {
     title: 'Backend & Edge',
     percentage: 7,
-    description: 'Integration Hono and Swagger Docs, exploring middleware Hono, and edge runtime (workerd/Cloudflare Workers)',
+    description:
+      'Integration Hono and Swagger Docs, exploring middleware Hono, and edge runtime (workerd/Cloudflare Workers)',
   },
   {
     title: 'Frontend & Design System',
@@ -23,7 +25,7 @@ export const MYFOCUS = [
   },
   {
     title: 'Workflow & Automation',
-    percentage: 20,
+    percentage: 15,
     description:
       'Tweaks my workflow GitHub Codespaces with my personal computer, learning again about Cronie for automation local first (still playfulness anyway), and Git/CI workflow.',
   },
