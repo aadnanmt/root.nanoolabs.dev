@@ -21,9 +21,11 @@ export async function getMood(): Promise<ImoodResponse> {
 
     const feed = await response.text()
 
-    // Regex-extract from Atom XML
-    // No XML parser, imood's feed is
-    // simple enough, [\s\S]*? matches across newlines non-greedily
+    /**
+     * Regex-extract from Atom XML
+     * No XML parser, imood's feed is
+     * simple enough, [\s\S]*? matches across newlines non-greedily
+     */
     const mood = feed.match(/<entry>[\s\S]*?<title>([^<]+)<\/title>/)?.[1]
     const updated = feed.match(/<entry>[\s\S]*?<updated>([^<]+)<\/updated>/)?.[1]
     const content = feed.match(/<entry>[\s\S]*?<content>([^<]*)<\/content>/)?.[1]
@@ -39,8 +41,10 @@ export async function getMood(): Promise<ImoodResponse> {
   } catch (error) {
     console.error('Error fetching imood:', error)
 
-    // Update lastFetch on error to prevent rapid retries during outages
-    // Return stale cache if available
+    /**
+     * Update lastFetch on error to prevent rapid retries during outages
+     * Return stale cache if available
+     */
     lastFetch = now
     return cache || { mood: null, error: 'Failed to fetch mood data' }
   }

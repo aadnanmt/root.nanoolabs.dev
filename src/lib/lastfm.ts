@@ -41,15 +41,20 @@ export async function getNowPlaying(): Promise<NowPlayingResponse> {
       name: trackData.name,
       artist: trackData.artist['#text'],
       url: trackData.url,
-      // Last.fm returns multiple image sizes. Pick "large" for
-      // consistent card sizing. Fallback to empty string,
-      // NowPlaying.astro checks `track.image` before rendering <img>.
+      /**
+       * Last.fm returns multiple image sizes. Pick "large" for
+       * consistent card sizing.
+       * Fallback to empty stringg,
+       * NowPlaying.astro checks `track.image` before rendering <img>
+       */
       image:
         trackData.image.find((img: Record<string, string>) => img.size === 'large')?.['#text'] ||
         '',
       nowPlaying:
-        // Last.fm sends `@attr.nowplaying` as string "true", not boolean
-        // Strict === prevents truthy coercion of "false" → true
+        /**
+         * Last.fm sends `@attr.nowplaying` as string "true", not boolean
+         * Strict === prevents truthy coercion of "false" → true
+         */
         trackData['@attr']?.nowplaying === 'true',
       timestamp: trackData.date ? parseInt(trackData.date.uts) : undefined,
     }
@@ -59,7 +64,12 @@ export async function getNowPlaying(): Promise<NowPlayingResponse> {
     return cache
   } catch (error) {
     console.error('Error fetching Now Playing from Last.fm:', error)
+    /**
+     * store fallback so `cache && ...` TTL guard actually throttles
+     * retries during outage (previously only worked once cache existed)
+     */
     lastFetch = now
-    return cache || { track: null, error: 'Failed to fetch music data.' }
+    cache = cache ?? { track: null, error: 'Failed to fetch music data.' }
+    return cache
   }
 }
