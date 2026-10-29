@@ -54,6 +54,7 @@ const commands = defineCollection({
     description: z.string(),
     category: z.enum(['FileSystem', 'Network', 'Process', 'Git', 'Logging', 'Security', 'Misc']),
     tags: z.array(z.string()).optional(),
+    draft: z.boolean().optional(),
   }),
 })
 
