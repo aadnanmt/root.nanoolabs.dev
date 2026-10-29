@@ -7,6 +7,9 @@ repoURL: "https://github.com/aadnanmt/links"
 tags: ["link-in-bio", "astro", "cloudflare"]
 status: evergreen
 ---
+## Screenshot
+
+<img src="/content/projects/links/preview.webp" alt="GitHub profile README with stats" width="800" loading="lazy" />
 
 ## What is it?
 
