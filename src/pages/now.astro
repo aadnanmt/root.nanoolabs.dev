@@ -8,6 +8,7 @@ import { IconNow } from '@lib/icon'
 import NowPlaying from '@components/NowPlaying.astro'
 import Link from '@components/Link.astro'
 import Mood from '@components/Mood.astro'
+import Weather from '@components/Weather.astro'
 import { gitDate } from '@lib/utils'
 
 const allNowEntries = await getCollection('now')
@@ -44,6 +45,7 @@ const lastUpdated = gitDate(`src/content/now/${latestEntry.id}`)
       <div class="space-y-4">
         <Mood />
         <NowPlaying />
+        <Weather />
       </div>
 
       <article>

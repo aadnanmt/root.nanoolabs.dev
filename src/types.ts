@@ -48,3 +48,11 @@ export type ImoodResponse = {
   updated?: string
   error?: string
 }
+
+export type WeatherResponse = {
+  temp: number | null
+  condition: string | null
+  humidity: number | null
+  feelsLike: number | null
+  error?: string
+}
