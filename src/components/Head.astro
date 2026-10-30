@@ -35,6 +35,12 @@ const { title, description, image = `${SITE.CDN}/assets/identity/whoami.webp` } 
 <!-- Primary Meta Tags -->
 <title>{title}</title>
 
+<!-- Identity verification for Indieauth / Webmention -->
+<link rel="me" href="https://github.com/aadnanmt" />
+
+<!-- Webmention endpoint for root.nanoolabs.dev -->
+<link rel="webmention" href="https://webmention.io/root.nanoolabs.dev/webmention" />
+
 <!-- Theme: runs pre-paint (FOUC prevention), re-runs on ClientRouter SPA nav
      (astro:after-swap), and follows system changes only when no stored pref -->
 <script is:inline>
