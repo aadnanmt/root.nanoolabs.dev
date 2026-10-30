@@ -138,6 +138,13 @@ article :not(pre) > code {
   @apply border-border-light bg-canvas-soft-light dark:bg-ink-dark/10 rounded-sm border px-1 py-0.5;
 }
 
+/* tailwindcss/typography inject backtick chars via ::before/::after on inline code;
+   remove them so backtick only exist in markdown source, not rendered in UI */
+article :where(code):not(:where([class~='not-prose'], [class~='not-prose'] *))::before,
+article :where(code):not(:where([class~='not-prose'], [class~='not-prose'] *))::after {
+  content: none !important;
+}
+
 @layer base {
   /* global keyboard focus ring: brand accent, :where() keeps specificity zero */
   :where(a, button, summary, [tabindex]):focus-visible {
