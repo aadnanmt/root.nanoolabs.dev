@@ -2,24 +2,11 @@ import { defineConfig, passthroughImageService } from 'astro/config'
 import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
 import tailwindcss from '@tailwindcss/vite'
-import { execSync } from 'child_process'
 import { SITE } from './src/consts'
 
 // Cloudflare Pages set CF_PAGES=1 during production build
 // Local dev stay static (no adapter needed, faster iteration)
 const isProd = process.env.CF_PAGES === '1'
-
-// Short git hash for footer version link
-// Fail silent on shallow
-// clone or missing git (e.g. CI without history)
-let gitHash = 'unknown'
-let lastActiveTimestamp = ''
-try {
-  gitHash = execSync('git rev-parse --short HEAD').toString().trim()
-  lastActiveTimestamp = execSync('git log -1 --pretty=%ct').toString().trim()
-} catch (e) {
-  console.warn(`Could not get git info: ${(e as Error).message}`)
-}
 
 // Dynamic import adapter
 // adapter only needed in production
@@ -36,6 +23,35 @@ export default defineConfig({
   prefetch: {
     prefetchAll: true,
     defaultStrategy: 'viewport',
+  },
+  markdown: {
+    shikiConfig: {
+      themes: {
+        light: 'github-light-default',
+        dark: 'github-dark-default',
+      },
+    },
+  },
+  image: {
+    service: passthroughImageService(),
+  },
+
+  output: isProd ? 'server' : 'static',
+  adapter: adapter,
+  trailingSlash: 'never',
+  build: {
+    format: 'file',
+  },
+  vite: {
+    plugins: [tailwindcss()],
+    define: {
+      'import.meta.env.GIT_HASH': JSON.stringify(
+        process.env.CF_PAGES_COMMIT_SHA?.substring(0, 7) || process.env.GIT_HASH || 'unknown',
+      ),
+      'import.meta.env.LAST_ACTIVE_TIMESTAMP': JSON.stringify(
+        process.env.LAST_ACTIVE_TIMESTAMP || '',
+      ),
+    },
   },
   redirects: {
     '/gh': { destination: 'https://github.com/aadnanmt', status: 301 },
@@ -56,30 +72,10 @@ export default defineConfig({
     '/th': { destination: 'https://www.threads.com/@aadnanmt', status: 301 },
     '/rss': { destination: '/rss.xml', status: 301 },
     '/key': { destination: '/keys', status: 301 },
-  },
-  markdown: {
-    shikiConfig: {
-      themes: {
-        light: 'github-light-default',
-        dark: 'github-dark-default',
-      },
+    '/blog/buy-domain-for-nanoolabs-on-hostinger': {
+      destination: '/blog/buy-domain-on-hostinger',
+      status: 301,
     },
-  },
-  image: {
-    service: passthroughImageService(),
-  },
-
-  // CF Pages require SSR ("server"). Soo.. local dev uses "static" for
-  // fast build without adapter overhead
-  output: isProd ? 'server' : 'static',
-  adapter: adapter,
-  vite: {
-    plugins: [tailwindcss()],
-    define: {
-      'import.meta.env.GIT_HASH': JSON.stringify(
-        process.env.CF_PAGES_COMMIT_SHA?.substring(0, 7) || gitHash,
-      ),
-      'import.meta.env.LAST_ACTIVE_TIMESTAMP': JSON.stringify(lastActiveTimestamp),
-    },
+    '/contact': { destination: '/connect', status: 301 },
   },
 })
