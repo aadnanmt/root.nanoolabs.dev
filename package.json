@@ -15,9 +15,9 @@
     "lint:fix": "eslint . --fix",
     "lint:css": "stylelint \"src/**/*.css\"",
     "lint:css:fix": "stylelint \"src/**/*.css\" --fix",
-    "format": "prettier --write .",
+    "format": "prettier --cache --write .",
     "format:check": "prettier --check .",
-    "format:changed": "git diff --name-only --diff-filter=d HEAD -z | xargs -0 -r prettier --write --ignore-unknown",
+    "format:changed": "git diff --name-only --diff-filter=d HEAD -z | xargs -0 -r prettier --cache --write --ignore-unknown",
     "new": "node scripts/new-content.mjs"
   },
   "dependencies": {
@@ -52,7 +52,7 @@
     "stylelint-config-standard": "^40.0.0"
   },
   "lint-staged": {
-    "*": "prettier --ignore-unknown --write",
+    "*": "prettier --ignore-unknown --write --cache",
     "*.{js,cjs,mjs,ts,astro}": "eslint --fix",
     "*.css": "stylelint --fix"
   }
