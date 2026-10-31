@@ -1,0 +1,12 @@
+---
+interface Props {
+  icon: string
+  size?: string
+}
+
+const { icon, size = 'size-5' } = Astro.props
+---
+
+<div class={`fill-mute-light dark:fill-mute-dark ${size}`}>
+  <Fragment set:html={icon} />
+</div>

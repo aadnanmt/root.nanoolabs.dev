@@ -7,6 +7,7 @@ import TimeStatus from '@components/TimeStatus.astro'
 import { SITE, SOCIALS, CONTACT } from '@consts'
 import { getIcon, IconEmail } from '@lib/icon'
 import PageTitle from '@components/PageTitle.astro'
+import SectionTitle from '@components/SectionTitle.astro'
 ---
 
 <PageLayout title={CONTACT.TITLE} description={CONTACT.DESCRIPTION}>
@@ -24,7 +25,7 @@ import PageTitle from '@components/PageTitle.astro'
       </div>
       <div class="space-y-12">
         <section class="space-y-4">
-          <h2 class="text-ink-light dark:text-ink-dark font-semibold">Professional Inquiries</h2>
+          <SectionTitle title="Professional Inquiries" />
           <p class="text-mute-light dark:text-mute-dark text-sm">
             For technical discussions or proposals. Shoot me an email
           </p>
@@ -46,7 +47,7 @@ https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscat
         </section>
 
         <section class="space-y-6">
-          <h2 class="text-ink-light dark:text-ink-dark font-semibold">Social Presence</h2>
+          <SectionTitle title="Social Presence" />
           <p class="text-mute-light dark:text-mute-dark text-sm">
             Track my experiments, follow the journey, or just reach out.
           </p>
@@ -103,7 +104,7 @@ https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscat
         </section>
 
         <section class="space-y-4">
-          <h2 class="text-ink-light dark:text-ink-dark font-semibold">Support my work</h2>
+          <SectionTitle title="Support my work" />
           <p class="text-mute-light dark:text-mute-dark text-sm">
             If you find my digital garden or open-source projects useful, consider supporting my
             research and maintenance.

@@ -7,6 +7,7 @@ import PageTitle from '@components/PageTitle.astro'
 import PageIntro from '@components/PageIntro.astro'
 import { BLOG } from '@consts'
 import BackToPrev from '@components/BackToPrev.astro'
+import SectionTitle from '@components/SectionTitle.astro'
 
 const data = (await getCollection('blog'))
   .filter((post) => !post.data.draft)
@@ -38,7 +39,7 @@ const years = Object.keys(posts).sort((a, b) => parseInt(b) - parseInt(a))
         {
           years.map((year) => (
             <section class="space-y-4">
-              <h2 class="text-ink-light dark:text-ink-dark font-semibold">{year}</h2>
+              <SectionTitle title={year} />
               <div>
                 <ul class="flex flex-col gap-3">
                   {posts[year].map((post) => (

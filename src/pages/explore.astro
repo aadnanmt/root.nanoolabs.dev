@@ -5,6 +5,7 @@ import BackToPrev from '@components/BackToPrev.astro'
 import { IconArrowRight } from '@lib/icon'
 import PageTitle from '@components/PageTitle.astro'
 import PageIntro from '@components/PageIntro.astro'
+import SectionTitle from '@components/SectionTitle.astro'
 import { EXPLORE } from '@consts'
 import { EXPLORE_PAGES, MAIN_PAGES } from '@data/pages'
 
@@ -38,9 +39,7 @@ const GROUPS: { key: 'content' | 'live' | 'identity'; label: string }[] = [
                         class="group hover:border-accent/40 dark:hover:border-accent/40 active:border-accent/40 dark:active:border-accent/40 border-border-light focus-visible:border-accent/40 dark:focus-visible:border-accent/40 relative flex flex-nowrap rounded-md border px-4 py-3.5 pr-10 transition-colors"
                       >
                         <div class="flex flex-1 flex-col gap-1 space-y-1 truncate">
-                          <div class="text-ink-light dark:text-ink-dark font-semibold">
-                            {page.name}
-                          </div>
+                          <SectionTitle title={page.name} />
                           <div class="text-mute-light dark:text-mute-dark truncate text-sm">
                             {page.desc}
                           </div>

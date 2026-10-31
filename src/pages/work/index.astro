@@ -7,6 +7,7 @@ import { WORK } from '@consts'
 import BackToPrev from '@components/BackToPrev.astro'
 import PageTitle from '@components/PageTitle.astro'
 import PageIntro from '@components/PageIntro.astro'
+import SectionTitle from '@components/SectionTitle.astro'
 
 const collection = (await getCollection('work')).sort(
   (a, b) => new Date(b.data.dateStart).valueOf() - new Date(a.data.dateStart).valueOf(),
@@ -33,7 +34,7 @@ const work = await Promise.all(
               <div class="text-mute-light dark:text-mute-dark flex items-center gap-2 text-sm">
                 {dateRange(entry.data.dateStart, entry.data.dateEnd)}
               </div>
-              <h2 class="text-ink-light dark:text-ink-dark font-semibold">{entry.data.company}</h2>
+              <SectionTitle title={entry.data.company} />
               <div class="text-mute-light dark:text-mute-dark text-sm">{entry.data.role}</div>
               <article>
                 <entry.Content />

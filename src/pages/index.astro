@@ -10,6 +10,7 @@ import NowPlaying from '@components/NowPlaying.astro'
 import Mood from '@components/Mood.astro'
 import MoodStatus from '@components/MoodStatus.astro'
 import Greeting from '@components/Greeting.astro'
+import SectionTitle from '@components/SectionTitle.astro'
 
 const blog = (await getCollection('blog'))
   .filter((post) => !post.data.draft)
@@ -57,9 +58,7 @@ const projects = (await getCollection('projects'))
 
       <section class="space-y-4">
         <div class="flex flex-wrap items-center justify-between gap-y-2">
-          <h2 class="text-ink-light dark:text-ink-dark flex items-center gap-2 font-semibold">
-            Latest posts
-          </h2>
+          <SectionTitle title="Latest posts" class="flex items-center gap-2" />
           <Link href="/blog"> See all posts </Link>
         </div>
         <ul class="flex flex-col gap-3">
@@ -75,9 +74,7 @@ const projects = (await getCollection('projects'))
 
       <section class="space-y-4">
         <div class="flex flex-wrap items-center justify-between gap-y-2">
-          <h2 class="text-ink-light dark:text-ink-dark flex items-center gap-2 font-semibold">
-            Recent projects
-          </h2>
+          <SectionTitle title="Recent projects" class="flex items-center gap-2" />
           <Link href="/projects"> See all projects </Link>
         </div>
         <ul class="flex flex-col gap-3">

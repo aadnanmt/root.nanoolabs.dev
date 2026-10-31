@@ -8,6 +8,7 @@ import { FOCUS } from '@consts'
 import YearProgress from '@components/YearProgress.astro'
 import ProgressBar from '@components/ProgressBar.astro'
 import { MYFOCUS } from '@data/focus'
+import SectionTitle from '@components/SectionTitle.astro'
 ---
 
 <PageLayout title={FOCUS.TITLE} description={FOCUS.DESCRIPTION}>
@@ -26,7 +27,7 @@ import { MYFOCUS } from '@data/focus'
           MYFOCUS.map((item) => (
             <section class="space-y-4">
               <div class="flex items-center justify-between">
-                <h2 class="text-ink-light dark:text-ink-dark font-semibold">{item.title}</h2>
+                <SectionTitle title={item.title} />
               </div>
               <ProgressBar percentage={item.percentage} />
               <p class="text-sm opacity-70">{item.description}</p>
