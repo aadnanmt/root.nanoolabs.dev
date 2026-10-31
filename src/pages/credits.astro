@@ -3,7 +3,8 @@ import PageLayout from '@layouts/PageLayout.astro'
 import Container from '@components/Container.astro'
 import Link from '@components/Link.astro'
 import BackToPrev from '@components/BackToPrev.astro'
-import { IconCredits } from '@lib/icon'
+import PageTitle from '@components/PageTitle.astro'
+import PageIntro from '@components/PageIntro.astro'
 import { CREDITS as CREDITS_META } from '@consts'
 import { CREDITS } from '@data/credits'
 ---
@@ -12,13 +13,8 @@ import { CREDITS } from '@data/credits'
   <Container>
     <div class="space-y-10">
       <BackToPrev href="/explore"> Back to explore </BackToPrev>
-      <h1 class="text-ink-light dark:text-ink-dark flex items-center gap-2 font-semibold">
-        <div class="size-5 fill-current">
-          <Fragment set:html={IconCredits} />
-        </div>
-        Credits
-      </h1>
-      {CREDITS_META.INTRO!.map((paragraph) => <p>{paragraph}</p>)}
+      <PageTitle title={CREDITS_META.TITLE} />
+      <PageIntro intro={CREDITS_META.INTRO!} />
       <ul class="flex flex-col space-y-8">
         {
           CREDITS.map((credit) => (

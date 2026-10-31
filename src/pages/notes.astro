@@ -3,8 +3,9 @@ import { getCollection } from 'astro:content'
 import PageLayout from '@layouts/PageLayout.astro'
 import Container from '@components/Container.astro'
 import BackToPrev from '@components/BackToPrev.astro'
+import PageTitle from '@components/PageTitle.astro'
+import PageIntro from '@components/PageIntro.astro'
 import { NOTES } from '@consts'
-import { IconNotes } from '@lib/icon'
 
 const notes = (await getCollection('notes'))
   .filter((note) => !note.data.draft)
@@ -27,13 +28,8 @@ const grouped = notes.reduce(
   <Container>
     <div class="space-y-10">
       <BackToPrev href="/explore"> Back to explore </BackToPrev>
-      <h1 class="text-ink-light dark:text-ink-dark flex items-center gap-2 font-semibold">
-        <div class="size-5 fill-current">
-          <Fragment set:html={IconNotes} />
-        </div>
-        Notes
-      </h1>
-      {NOTES.INTRO!.map((paragraph) => <p>{paragraph}</p>)}
+      <PageTitle title={NOTES.TITLE} />
+      <PageIntro intro={NOTES.INTRO!} />
       <div>
         {
           Object.entries(grouped).map(([date, dayNotes]) => (

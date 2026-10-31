@@ -4,8 +4,9 @@ import PageLayout from '@layouts/PageLayout.astro'
 import Container from '@components/Container.astro'
 import { dateRange } from '@lib/utils'
 import { WORK } from '@consts'
-import { IconWork } from '@lib/icon'
 import BackToPrev from '@components/BackToPrev.astro'
+import PageTitle from '@components/PageTitle.astro'
+import PageIntro from '@components/PageIntro.astro'
 
 const collection = (await getCollection('work')).sort(
   (a, b) => new Date(b.data.dateStart).valueOf() - new Date(a.data.dateStart).valueOf(),
@@ -23,13 +24,8 @@ const work = await Promise.all(
   <Container>
     <div class="space-y-10">
       <BackToPrev href="/explore"> Back to explore </BackToPrev>
-      <h1 class="text-ink-light dark:text-ink-dark flex items-center gap-2 font-semibold">
-        <div class="size-5 fill-current">
-          <Fragment set:html={IconWork} />
-        </div>
-        Works
-      </h1>
-      {WORK.INTRO!.map((paragraph) => <p>{paragraph}</p>)}
+      <PageTitle title={WORK.TITLE} />
+      <PageIntro intro={WORK.INTRO!} />
       <ul class="flex flex-col space-y-4">
         {
           work.map((entry) => (

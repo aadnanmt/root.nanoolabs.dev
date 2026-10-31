@@ -43,6 +43,7 @@ export const PROJECTS: Metadata = {
 export const NOTFOUND: Metadata = {
   TITLE: '404',
   DESCRIPTION: 'Page not found, u can back to home page',
+  INTRO: ["the page you're looking for doesn't exist."],
 }
 
 export const EXPLORE: Metadata = {
@@ -54,6 +55,7 @@ export const EXPLORE: Metadata = {
 export const CONTACT: Metadata = {
   TITLE: 'Connect',
   DESCRIPTION: 'Get in touch with me',
+  INTRO: ['Best ways to reach me, depending on what you need.'],
 }
 
 export const STATS: Metadata = {
@@ -111,6 +113,11 @@ export const NOTES: Metadata = {
   INTRO: [
     'Short, unpolish thoughts and context from my days. Not lessons, just random note. Mostly in english, sometimes not.',
   ],
+}
+
+export const NOW: Metadata = {
+  TITLE: 'Now',
+  DESCRIPTION: "What I'm focusing on at this exact moment.",
 }
 
 export const USES: Metadata = {

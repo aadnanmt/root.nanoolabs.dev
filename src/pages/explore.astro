@@ -2,8 +2,9 @@
 import PageLayout from '@layouts/PageLayout.astro'
 import Container from '@components/Container.astro'
 import BackToPrev from '@components/BackToPrev.astro'
-import { IconHome } from '@lib/icon'
 import { IconArrowRight } from '@lib/icon'
+import PageTitle from '@components/PageTitle.astro'
+import PageIntro from '@components/PageIntro.astro'
 import { EXPLORE } from '@consts'
 import { EXPLORE_PAGES, MAIN_PAGES } from '@data/pages'
 
@@ -18,16 +19,8 @@ const GROUPS: { key: 'content' | 'live' | 'identity'; label: string }[] = [
   <Container>
     <div class="space-y-10">
       <BackToPrev href="/"> Back to home </BackToPrev>
-
-      <h1 class="text-ink-light dark:text-ink-dark flex items-center gap-2 font-semibold">
-        <div class="size-5 fill-current">
-          <Fragment set:html={IconHome} />
-        </div>
-        Explore
-      </h1>
-
-      {EXPLORE.INTRO!.map((paragraph) => <p>{paragraph}</p>)}
-
+      <PageTitle title={EXPLORE.TITLE} />
+      <PageIntro intro={EXPLORE.INTRO!} />
       <div class="space-y-12">
         {
           GROUPS.map(({ key, label }) => (

@@ -10,7 +10,6 @@ import NowPlaying from '@components/NowPlaying.astro'
 import Mood from '@components/Mood.astro'
 import MoodStatus from '@components/MoodStatus.astro'
 import Greeting from '@components/Greeting.astro'
-import { IconPosts, IconProjects } from '@lib/icon'
 
 const blog = (await getCollection('blog'))
   .filter((post) => !post.data.draft)
@@ -59,9 +58,6 @@ const projects = (await getCollection('projects'))
       <section class="space-y-4">
         <div class="flex flex-wrap items-center justify-between gap-y-2">
           <h2 class="text-ink-light dark:text-ink-dark flex items-center gap-2 font-semibold">
-            <span class="fill-mute-light dark:fill-mute-dark size-5"
-              ><Fragment set:html={IconPosts} /></span
-            >
             Latest posts
           </h2>
           <Link href="/blog"> See all posts </Link>
@@ -80,9 +76,6 @@ const projects = (await getCollection('projects'))
       <section class="space-y-4">
         <div class="flex flex-wrap items-center justify-between gap-y-2">
           <h2 class="text-ink-light dark:text-ink-dark flex items-center gap-2 font-semibold">
-            <span class="fill-mute-light dark:fill-mute-dark size-5"
-              ><Fragment set:html={IconProjects} /></span
-            >
             Recent projects
           </h2>
           <Link href="/projects"> See all projects </Link>

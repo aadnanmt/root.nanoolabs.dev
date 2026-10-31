@@ -2,8 +2,9 @@
 import PageLayout from '@layouts/PageLayout.astro'
 import Container from '@components/Container.astro'
 import BackToPrev from '@components/BackToPrev.astro'
+import PageTitle from '@components/PageTitle.astro'
+import PageIntro from '@components/PageIntro.astro'
 import Link from '@components/Link.astro'
-import { IconKeys } from '@lib/icon'
 import { SITE, KEYS } from '@consts'
 
 const KEYS_DATA = [
@@ -35,23 +36,14 @@ const KEYS_DATA = [
   <Container>
     <div class="space-y-10">
       <BackToPrev href="/explore"> Back to explore </BackToPrev>
-
-      <h1 class="text-ink-light dark:text-ink-dark flex items-center gap-2 font-semibold">
-        <div class="size-5 fill-current">
-          <Fragment set:html={IconKeys} />
-        </div>
-        Public Keys
-      </h1>
-
-      {KEYS.INTRO!.map((paragraph) => <p>{paragraph}</p>)}
-
+      <PageTitle title={KEYS.TITLE} />
+      <PageIntro intro={KEYS.INTRO!} />
       <div
         class="rounded-md border border-amber-400/30 bg-amber-400/5 p-4 text-sm text-amber-700 dark:text-amber-300"
       >
         Verify the key fingerprint before trusting it. Don&apos;t blindly pipe curl output into your
         shell.
       </div>
-
       <div class="space-y-12">
         {
           KEYS_DATA.map((key) => (
@@ -66,21 +58,18 @@ const KEYS_DATA = [
               <div class="border-border-light text-ink-light dark:bg-ink-dark/3 dark:text-ink-dark overflow-x-auto rounded-md border p-4 font-mono text-sm">
                 curl {`${SITE.URL}/keys/${key.type}`}
               </div>
-
               <div class="space-y-1 text-sm">
                 <span class="text-mute-light dark:text-mute-dark text-xs tracking-wider uppercase">
                   Fingerprint
                 </span>
                 <code class="block font-mono text-xs break-all">{key.fingerprint}</code>
               </div>
-
               <div class="space-y-1 text-sm">
                 <span class="text-mute-light dark:text-mute-dark text-xs tracking-wider uppercase">
                   Usage
                 </span>
                 <code class="block font-mono text-xs break-all">{key.usage}</code>
               </div>
-
               <Link href={`/keys/${key.type}`} external underline={true} class="text-xs">
                 view raw key
               </Link>

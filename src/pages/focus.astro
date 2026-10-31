@@ -2,7 +2,8 @@
 import PageLayout from '@layouts/PageLayout.astro'
 import Container from '@components/Container.astro'
 import BackToPrev from '@components/BackToPrev.astro'
-import { IconFocus } from '@lib/icon'
+import PageTitle from '@components/PageTitle.astro'
+import PageIntro from '@components/PageIntro.astro'
 import { FOCUS } from '@consts'
 import YearProgress from '@components/YearProgress.astro'
 import ProgressBar from '@components/ProgressBar.astro'
@@ -13,15 +14,8 @@ import { MYFOCUS } from '@data/focus'
   <Container>
     <div class="space-y-10">
       <BackToPrev href="/explore"> Back to explore </BackToPrev>
-
-      <h1 class="text-ink-light dark:text-ink-dark flex items-center gap-2 font-semibold">
-        <div class="size-5 fill-current">
-          <Fragment set:html={IconFocus} />
-        </div>
-        Focus
-      </h1>
-
-      {FOCUS.INTRO!.map((paragraph) => <p>{paragraph}</p>)}
+      <PageTitle title={FOCUS.TITLE} />
+      <PageIntro intro={FOCUS.INTRO!} />
 
       <div>
         <YearProgress />

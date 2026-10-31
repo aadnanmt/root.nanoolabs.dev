@@ -2,25 +2,18 @@
 import Layout from '@layouts/PageLayout.astro'
 import Container from '@components/Container.astro'
 import BackToPrev from '@components/BackToPrev.astro'
+import PageTitle from '@components/PageTitle.astro'
+import PageIntro from '@components/PageIntro.astro'
 import { NOTFOUND } from '@consts'
-import { IconHome } from '@lib/icon'
 ---
 
 <Layout title={NOTFOUND.TITLE} description={NOTFOUND.DESCRIPTION}>
   <Container>
     <div class="space-y-10">
       <BackToPrev href="/">Back to home</BackToPrev>
-
       <div class="space-y-2">
-        <h1 class="text-ink-light dark:text-ink-dark flex items-center gap-2 font-semibold">
-          <div class="size-5 fill-current">
-            <Fragment set:html={IconHome} />
-          </div>
-          {NOTFOUND.TITLE}
-        </h1>
-        <p class="text-mute-light dark:text-mute-dark text-sm">
-          the page you're looking for doesn't exist.
-        </p>
+        <PageTitle title={NOTFOUND.TITLE} />
+        <PageIntro intro={NOTFOUND.INTRO!} />
       </div>
     </div>
   </Container>

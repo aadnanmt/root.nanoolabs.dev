@@ -3,9 +3,10 @@ import { type CollectionEntry, getCollection } from 'astro:content'
 import PageLayout from '@layouts/PageLayout.astro'
 import Container from '@components/Container.astro'
 import ArrowCard from '@components/ArrowCard.astro'
+import PageTitle from '@components/PageTitle.astro'
+import PageIntro from '@components/PageIntro.astro'
 import { BLOG } from '@consts'
 import BackToPrev from '@components/BackToPrev.astro'
-import { IconPosts } from '@lib/icon'
 
 const data = (await getCollection('blog'))
   .filter((post) => !post.data.draft)
@@ -31,13 +32,8 @@ const years = Object.keys(posts).sort((a, b) => parseInt(b) - parseInt(a))
   <Container>
     <div class="space-y-10">
       <BackToPrev> Back to home </BackToPrev>
-      <h1 class="text-ink-light dark:text-ink-dark flex items-center gap-2 font-semibold">
-        <div class="size-5 fill-current">
-          <Fragment set:html={IconPosts} />
-        </div>
-        Blog
-      </h1>
-      {BLOG.INTRO!.map((paragraph) => <p>{paragraph}</p>)}
+      <PageTitle title={BLOG.TITLE} />
+      <PageIntro intro={BLOG.INTRO!} />
       <div class="space-y-4">
         {
           years.map((year) => (

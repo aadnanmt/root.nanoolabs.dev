@@ -5,7 +5,8 @@ import Container from '@components/Container.astro'
 import ArrowCard from '@components/ArrowCard.astro'
 import { PROJECTS } from '@consts'
 import BackToPrev from '@components/BackToPrev.astro'
-import { IconProjects } from '@lib/icon'
+import PageTitle from '@components/PageTitle.astro'
+import PageIntro from '@components/PageIntro.astro'
 
 const allProjects = (await getCollection('projects'))
   .filter((project) => !project.data.draft)
@@ -19,13 +20,8 @@ const personalProjects = allProjects.filter((p) => p.data.category === 'personal
   <Container>
     <div class="space-y-10">
       <BackToPrev> Back to home </BackToPrev>
-      <h1 class="text-ink-light dark:text-ink-dark flex items-center gap-2 font-semibold">
-        <div class="size-5 fill-current">
-          <Fragment set:html={IconProjects} />
-        </div>
-        Projects
-      </h1>
-      {PROJECTS.INTRO!.map((paragraph) => <p>{paragraph}</p>)}
+      <PageTitle title={PROJECTS.TITLE} />
+      <PageIntro intro={PROJECTS.INTRO!} />
       {
         nanooProjects.length > 0 && (
           <>
