@@ -1,0 +1,9 @@
+---
+interface Props {
+  intro: string[]
+}
+
+const { intro } = Astro.props
+---
+
+{intro.map((paragraph) => <p class="text-mute-light dark:text-mute-dark text-base">{paragraph}</p>)}
