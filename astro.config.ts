@@ -3,6 +3,7 @@ import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
 import tailwindcss from '@tailwindcss/vite'
 import { SITE } from './src/consts'
+import { execFileSync } from 'child_process'
 
 // Cloudflare Pages set CF_PAGES=1 during production build
 // Local dev stay static (no adapter needed, faster iteration)
@@ -16,6 +17,26 @@ if (isProd) {
   const { default: cloudflare } = await import('@astrojs/cloudflare')
   adapter = cloudflare()
 }
+
+// get last commit timestamp and hash at build time (works in dev, local build, CF)
+function getLastCommitInfo(): { timestamp: string; hash: string } {
+  try {
+    let commitRef = 'HEAD'
+    // CF_PAGES=1 → CF set CF_PAGES_COMMIT_SHA, use that specific commit
+    if (process.env.CF_PAGES === '1' && process.env.CF_PAGES_COMMIT_SHA) {
+      commitRef = process.env.CF_PAGES_COMMIT_SHA
+    }
+    const timestamp = execFileSync('git', ['log', '-1', '--format=%ct', commitRef])
+      .toString()
+      .trim()
+    const hash = execFileSync('git', ['log', '-1', '--format=%h', commitRef]).toString().trim()
+    return { timestamp, hash }
+  } catch {
+    return { timestamp: '', hash: 'unknown' }
+  }
+}
+
+const { timestamp: lastActiveTimestamp, hash: gitHash } = getLastCommitInfo()
 
 export default defineConfig({
   site: SITE.URL,
@@ -45,12 +66,8 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
     define: {
-      'import.meta.env.GIT_HASH': JSON.stringify(
-        process.env.CF_PAGES_COMMIT_SHA?.substring(0, 7) || process.env.GIT_HASH || 'unknown',
-      ),
-      'import.meta.env.LAST_ACTIVE_TIMESTAMP': JSON.stringify(
-        process.env.LAST_ACTIVE_TIMESTAMP || '',
-      ),
+      'import.meta.env.GIT_HASH': JSON.stringify(gitHash),
+      'import.meta.env.LAST_ACTIVE_TIMESTAMP': JSON.stringify(lastActiveTimestamp),
     },
   },
   redirects: {
