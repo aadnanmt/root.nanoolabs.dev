@@ -202,3 +202,36 @@ html.scrolled #back-to-top {
 [data-theme='light'] {
   --color-text-muted: var(--gray-8);
 }
+
+/* semantic utilities — replace repetitive light/dark pairs */
+@utility text-body {
+  @apply text-ink-light dark:text-ink-dark;
+}
+
+@utility text-muted {
+  @apply text-mute-light dark:text-mute-dark;
+}
+
+@utility text-strong {
+  @apply text-ink-strong-light dark:text-ink-dark;
+}
+
+@utility border-default {
+  @apply border-border-light dark:border-border-dark;
+}
+
+@utility border-soft {
+  @apply border-border-soft-light dark:border-border-soft-dark;
+}
+
+@utility bg-canvas {
+  @apply bg-canvas-light dark:bg-canvas-dark;
+}
+
+@utility bg-soft {
+  @apply bg-canvas-soft-light dark:bg-canvas-soft-dark;
+}
+
+@utility bg-primary-soft {
+  @apply bg-primary-soft-light dark:bg-primary-soft-dark;
+}

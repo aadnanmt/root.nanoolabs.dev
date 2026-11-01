@@ -7,6 +7,7 @@ import '@fontsource/geist-mono/latin-400.css'
 import geist400 from '@fontsource/geist-sans/files/geist-sans-latin-400-normal.woff2'
 
 import { ClientRouter } from 'astro:transitions'
+import SEO from './SEO.astro'
 import { SITE } from '@consts'
 
 interface Props {
@@ -15,7 +16,6 @@ interface Props {
   image?: string
 }
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 const { title, description, image = `${SITE.CDN}/assets/identity/whoami.webp` } = Astro.props
 ---
 
@@ -29,46 +29,7 @@ const { title, description, image = `${SITE.CDN}/assets/identity/whoami.webp` } 
 <!-- Font preloads -->
 <link rel="preload" href={geist400} as="font" type="font/woff2" crossorigin />
 
-<!-- Canonical URL -->
-<link rel="canonical" href={canonicalURL} />
-
-<!-- Primary Meta Tags -->
-<title>{title}</title>
-
-<!-- Theme: runs pre-paint (FOUC prevention), re-runs on ClientRouter SPA nav
-     (astro:after-swap), and follows system changes only when no stored pref -->
-<script is:inline>
-  function applyTheme() {
-    const stored = localStorage.getItem('theme')
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-    const dark = stored ? stored === 'dark' : prefersDark
-    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light')
-    const themeColor = document.querySelector('meta[name="theme-color"]')
-    if (themeColor) themeColor.content = dark ? '#030303' : '#fcfcfc'
-  }
-  applyTheme()
-  window.applyTheme = applyTheme
-  document.addEventListener('astro:after-swap', applyTheme)
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-    if (!localStorage.getItem('theme')) applyTheme()
-  })
-</script>
-<meta name="title" content={title} />
-<meta name="description" content={description} />
-
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website" />
-<meta property="og:url" content={Astro.url} />
-<meta property="og:title" content={title} />
-<meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(image, Astro.url)} />
-
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={Astro.url} />
-<meta property="twitter:title" content={title} />
-<meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(image, Astro.url)} />
+<SEO title={title} description={description} image={image} />
 
 <ClientRouter />
 
