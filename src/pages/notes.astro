@@ -6,22 +6,10 @@ import BackToPrev from '@components/BackToPrev.astro'
 import PageTitle from '@components/PageTitle.astro'
 import PageIntro from '@components/PageIntro.astro'
 import { NOTES } from '@consts'
+import { getPublishedEntries, groupByDate } from '@lib/content'
 
-const notes = (await getCollection('notes'))
-  .filter((note) => !note.data.draft)
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-
-// Group notes by date (YYYY-MM-DD). ||= initialize array on first
-// note for that day. Leading semicolon prevents ASI from treating
-// `(acc[key]...` as a function call on the previous expression
-const grouped = notes.reduce(
-  (acc, note) => {
-    const key = note.data.date.toISOString().slice(0, 10)
-    ;(acc[key] ||= []).push(note)
-    return acc
-  },
-  {} as Record<string, typeof notes>,
-)
+const notes = getPublishedEntries(await getCollection('notes'))
+const grouped = groupByDate(notes)
 ---
 
 <PageLayout title={NOTES.TITLE} description={NOTES.DESCRIPTION}>

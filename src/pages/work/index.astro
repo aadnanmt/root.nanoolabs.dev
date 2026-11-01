@@ -8,10 +8,9 @@ import BackToPrev from '@components/BackToPrev.astro'
 import PageTitle from '@components/PageTitle.astro'
 import PageIntro from '@components/PageIntro.astro'
 import SectionTitle from '@components/SectionTitle.astro'
+import { sortWorkByDateStartDesc } from '@lib/content'
 
-const collection = (await getCollection('work')).sort(
-  (a, b) => new Date(b.data.dateStart).valueOf() - new Date(a.data.dateStart).valueOf(),
-)
+const collection = sortWorkByDateStartDesc(await getCollection('work'))
 
 const work = await Promise.all(
   collection.map(async (item) => {

@@ -7,10 +7,9 @@ import PageTitle from '@components/PageTitle.astro'
 import PageIntro from '@components/PageIntro.astro'
 import { COMMANDS } from '@consts'
 import BackToPrev from '@components/BackToPrev.astro'
+import { filterDraft, sortByTitle } from '@lib/content'
 
-const commands = (await getCollection('commands')).sort((a, b) =>
-  a.data.title.localeCompare(b.data.title),
-)
+const commands = sortByTitle(filterDraft(await getCollection('commands')))
 ---
 
 <PageLayout title={COMMANDS.TITLE} description={COMMANDS.DESCRIPTION}>

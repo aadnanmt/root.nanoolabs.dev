@@ -7,13 +7,12 @@ import { PROJECTS } from '@consts'
 import BackToPrev from '@components/BackToPrev.astro'
 import PageTitle from '@components/PageTitle.astro'
 import PageIntro from '@components/PageIntro.astro'
+import { getPublishedEntries, filterByCategory } from '@lib/content'
 
-const allProjects = (await getCollection('projects'))
-  .filter((project) => !project.data.draft)
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+const allProjects = getPublishedEntries(await getCollection('projects'))
 
-const nanooProjects = allProjects.filter((p) => p.data.category === 'nanoo')
-const personalProjects = allProjects.filter((p) => p.data.category === 'personal')
+const nanooProjects = filterByCategory(allProjects, 'nanoo')
+const personalProjects = filterByCategory(allProjects, 'personal')
 ---
 
 <PageLayout title={PROJECTS.TITLE} description={PROJECTS.DESCRIPTION}>
