@@ -16,6 +16,7 @@ interface Props {
   image?: string
 }
 
+const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 const { title, description, image = `${SITE.CDN}/assets/identity/whoami.webp` } = Astro.props
 ---
 
@@ -28,6 +29,34 @@ const { title, description, image = `${SITE.CDN}/assets/identity/whoami.webp` } 
 
 <!-- Font preloads -->
 <link rel="preload" href={geist400} as="font" type="font/woff2" crossorigin />
+
+<!-- Canonical URL -->
+<link rel="canonical" href={canonicalURL} />
+
+<!-- Identity verification for Indieauth / Webmention -->
+<link rel="me" href="https://github.com/aadnanmt" />
+
+<!-- Webmention endpoint for root.nanoolabs.dev -->
+<link rel="webmention" href="https://webmention.io/root.nanoolabs.dev/webmention" />
+
+<!-- Theme: runs pre-paint (FOUC prevention), re-runs on ClientRouter SPA nav
+     (astro:after-swap), and follows system changes only when no stored pref -->
+<script is:inline>
+  function applyTheme() {
+    const stored = localStorage.getItem('theme')
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const dark = stored ? stored === 'dark' : prefersDark
+    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light')
+    const themeColor = document.querySelector('meta[name="theme-color"]')
+    if (themeColor) themeColor.content = dark ? '#030303' : '#fcfcfc'
+  }
+  applyTheme()
+  window.applyTheme = applyTheme
+  document.addEventListener('astro:after-swap', applyTheme)
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+    if (!localStorage.getItem('theme')) applyTheme()
+  })
+</script>
 
 <SEO title={title} description={description} image={image} />
 
