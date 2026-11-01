@@ -1,7 +1,7 @@
 {
   "name": "nan",
   "type": "module",
-  "packageManager": "pnpm@12.8.1",
+  "packageManager": "pnpm@12.16.1",
   "scripts": {
     "dev": "astro dev",
     "dev:network": "astro dev --host",
@@ -31,7 +31,7 @@
     "@nlbs/css": "1.1.0",
     "astro": "^5.18.2",
     "clsx": "^2.1.1",
-    "marked": "^18.1.1",
+    "marked": "^18.1.2",
     "tailwind-merge": "^2.6.1",
     "typescript": "^5.9.3"
   },
