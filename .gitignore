@@ -28,3 +28,9 @@ pnpm-debug.log*
 # Syncthing
 .stfolder*
 .stversions
+
+# local scripts & docs (tracked via .gitkeep only)
+scripts/
+!scripts/.gitkeep
+.docs/
+!.docs/.gitkeep
