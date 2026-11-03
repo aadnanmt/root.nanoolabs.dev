@@ -93,6 +93,8 @@
 ## Github Extensions
 - [Github Markdown Preview](https://github.com/yusukebe/gh-markdown-preview) :: preview Markdown looks like GitHub
 - [GH Dash](https://www.gh-dash.dev/) :: A rich terminal UI for GitHub
+- [GH Notify](https://github.com/meiji163/gh-notify) :: GitHub CLI extension to display GitHub notifications
+
 ## Communication
 
 - **[Signal](https://signal.org)** :: Secure communication
