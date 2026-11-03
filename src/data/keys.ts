@@ -43,7 +43,7 @@ export const KEYS_META = [
     title: 'Age',
     desc: 'Encrypt a file to me with:',
     fingerprint: 'none (using full public key above)',
-    usage: 'age -r <recipient> -o file.age file.txt',
+    usage: `curl -s ${SITE.URL}/keys/age | age -R - -o file.age file.txt`,
   },
 ] as const
 
