@@ -5,31 +5,8 @@ import BackToPrev from '@components/BackToPrev.astro'
 import PageTitle from '@components/PageTitle.astro'
 import PageIntro from '@components/PageIntro.astro'
 import Link from '@components/Link.astro'
-import { SITE, KEYS } from '@consts'
-
-const KEYS_DATA = [
-  {
-    type: 'age',
-    title: 'Age',
-    desc: 'Encrypt a file to me with:',
-    fingerprint: 'age15lcnlpxv8t6qqt82rcjcagx0h9sx85jdjhj5x3frqaa9u675x56qusmsgp',
-    usage: 'age -r <recipient> -o file.age file.txt',
-  },
-  {
-    type: 'gpg',
-    title: 'GPG',
-    desc: 'Verify my signatures or encrypt messages to me.',
-    fingerprint: '3189 8147 4FC8 EB9B 541F E684 D057 A5BA B37D 7F66',
-    usage: `curl -s ${SITE.URL}/keys/gpg | gpg --import`,
-  },
-  {
-    type: 'ssh',
-    title: 'SSH',
-    desc: 'Add this to your authorized_keys for shell access.',
-    fingerprint: 'SHA256:LW3y/QCQn79i/2md9XCqJGupe3wIPEOOZPxEzwsrf88',
-    usage: `curl ${SITE.URL}/keys/ssh >> ~/.ssh/authorized_keys`,
-  },
-]
+import { KEYS } from '@consts'
+import { KEYS_META } from '@data/keys'
 ---
 
 <PageLayout title={KEYS.TITLE} description={KEYS.DESCRIPTION}>
@@ -46,7 +23,7 @@ const KEYS_DATA = [
       </div>
       <div class="space-y-12">
         {
-          KEYS_DATA.map((key) => (
+          KEYS_META.map((key) => (
             <section class="space-y-4">
               <div>
                 <h2 class="border-border-light text-ink-light dark:text-ink-dark border-b pb-2 font-semibold">
@@ -56,7 +33,7 @@ const KEYS_DATA = [
               </div>
 
               <div class="border-border-light text-ink-light dark:bg-ink-dark/3 dark:text-ink-dark overflow-x-auto rounded-md border p-4 font-mono text-sm">
-                curl {`${SITE.URL}/keys/${key.type}`}
+                {key.usage}
               </div>
               <div class="space-y-1 text-sm">
                 <span class="text-mute-light dark:text-mute-dark text-xs tracking-wider uppercase">
