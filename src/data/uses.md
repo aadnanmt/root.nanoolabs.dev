@@ -90,6 +90,9 @@
 - **[KeePassXC-Browser](https://keepassxc.org/download/#browser)** :: Official browser plugin for the KeePassXC
 - **[Ublock Origin](https://ublockorigin.com/)** :: Open-source ad blocker extension
 
+## Github Extensions
+- [Github Markdown Preview](https://github.com/yusukebe/gh-markdown-preview) :: preview Markdown looks like GitHub
+- [GH Dash](https://www.gh-dash.dev/) :: A rich terminal UI for GitHub
 ## Communication
 
 - **[Signal](https://signal.org)** :: Secure communication
