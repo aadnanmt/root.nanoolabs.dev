@@ -42,7 +42,7 @@ export const KEYS_META = [
     type: 'age' as const,
     title: 'Age',
     desc: 'Encrypt a file to me with:',
-    fingerprint: 'age15lcnlpxv8t6qqt82rcjcagx0h9sx85jdjhj5x3frqaa9u675x56qusmsgp',
+    fingerprint: 'none (using full public key above)',
     usage: 'age -r <recipient> -o file.age file.txt',
   },
 ] as const
