@@ -3,6 +3,7 @@ title: "@nlbs/kaomoji"
 description: "Minimalist kaomojis for Nanoo Labs documentation."
 date: "2026-05-15"
 repoURL: "https://github.com/nanoolabs/kaomoji"
+demoURL: "https://www.npmjs.com/package/@nlbs/kaomoji"
 category: "nanoo"
 tags: ["typescript", "nanoo", "kaomoji"]
 status: growing
